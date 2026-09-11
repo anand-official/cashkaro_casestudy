@@ -1,38 +1,74 @@
-# CashKaro APM Case Study
+# CashKaro APM Case Study — Shopping Companion
 
-Interactive product case study for the CashKaro APM assignment.
+Interactive submission for **“Making CashKaro part of the shopping habit.”**
 
-## What this repo contains
+**Author:** Ujjawal Anand  
+**North star:** Tracked orders per existing user per quarter, on a fixed cohort.
 
-- Interactive case-study / deck
-- Clickable Android Shopping Companion prototype
-- Research and decision log
-- Full AI work log used during the assignment
+## Live submission
 
-## Core product thesis
+**Website:** https://cashkaro-apm-case-ujjawal-anands-projects.vercel.app
 
-**Don't predict when shopping might happen. Make CashKaro available when shopping context already exists.**
+The live case is deliberately structured around the assignment's 50/50 evaluation split: understand the right problem first, then make and defend one product decision.
 
-CashKaro does not need to become the shopping destination. It can become the savings layer around destinations users already choose.
+## Product decision
 
-## V1 boundary
+The core opportunity is not simply “remind users more.” Existing users naturally begin shopping inside retailer apps, while CashKaro depends on them remembering to alter that journey before purchase.
 
-- Android-first
-- Retailer-aware, not product-aware
-- Explicit activation per shopping session
-- No Accessibility-based screen reading
-- No cart/product inspection
-- No AI required for V1
+> **Do not predict when shopping might happen. Make CashKaro available when shopping context already exists.**
 
-## North-star metric
+The chosen hypothesis is an **Android-first Shopping Companion**: retailer-aware, explicitly opt-in, explicitly activated per shopping session, and intentionally not product-aware in V1.
 
-**Tracked orders per existing user per quarter**, measured on a fixed cohort.
+> **Earn the right to be present once. Earn the right to participate every time.**
 
-## Pages
+## What V1 tests
+
+Can retailer-level shopping context reduce enough behavioral friction to increase **incremental tracked orders per randomized existing user**?
+
+### V1 includes
+- Android-first existing-user cohort
+- supported retailer context
+- lightweight cashback activation pill
+- explicit activation each shopping session
+- existing affiliate/deep-link attribution path
+- activation + later tracking reassurance
+- suppression / retailer controls
+- randomized-offer instrumentation
+
+### V1 deliberately excludes
+- Accessibility-based screen reading
+- product/cart/search inspection
+- exact per-product cashback
+- price comparison
+- checkout detection
+- AI shopping agent
+- auto-activation
+
+## Measurement
+
+Randomize the **offer** of Shopping Companion, not only successful enablers. Analyze intention-to-treat.
+
+> **Primary experiment metric: incremental tracked orders per randomized existing user.**
+
+Mechanism metrics explain the result; they do not replace the north star.
+
+## Commercial and product kill gates
+
+1. Permission/setup adoption
+2. Retailer / affiliate partner approval and economics
+3. Causal tracked-order uplift
+4. Enough cohort-level reach after all multipliers
+
+A key distinction in the case is **CashKaro incrementality vs retailer incrementality**: more attributed orders for CashKaro do not automatically imply more economic value for the retailer.
+
+## Repository artifacts
 
 - `index.html` — case-study narrative
-- `prototype.html` — interactive prototype
-- `research.html` — research + decision log
-- `ai-transcript.html` — AI research / reasoning log
+- `prototype.html` — interactive Shopping Companion prototype
+- `research.html` — evidence + decision log
+- `ai-transcript.html` — AI work-log interface
+- `docs/PRODUCT_STRATEGY_AND_BUILD_PLAN.md` — product/build plan
+- `docs/SUBMISSION_CONTENT_BLUEPRINT.md` — narrative blueprint
+- `docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md` — claim/evidence discipline
 
-Built by Ujjawal Anand as an interactive decision artifact rather than a static feature pitch.
+The submission is designed as an **interactive product decision artifact**, not a feature mockup dressed up as a case study.
