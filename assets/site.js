@@ -6,3 +6,5 @@ if('IntersectionObserver' in window){const observer=new IntersectionObserver(ent
 const share=document.querySelector('#reach-share'),effect=document.querySelector('#reach-effect'),result=document.querySelector('#reach-result');
 function calculate(){if(!share||!effect||!result)return;if(share.value.trim()===''||effect.value.trim()===''){result.textContent='Enter both assumptions to calculate the all-cohort effect.';return;}const s=Number(share.value),e=Number(effect.value);if(!Number.isFinite(s)||!Number.isFinite(e)||s<0||s>100){result.textContent='Eligible share must be between 0 and 100; both inputs must be finite numbers.';return;}const delta=s/100*e;result.textContent=`Scenario result: ${delta.toLocaleString('en-IN',{maximumFractionDigits:5})} incremental tracked orders per existing user / quarter. This is arithmetic on your assumptions, not an observed result.`;}
 share?.addEventListener('input',calculate);effect?.addEventListener('input',calculate);
+
+calculate();

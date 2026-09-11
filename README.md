@@ -1,25 +1,23 @@
-# CashKaro Shortlist — APM submission
+# CashKaro APM — Order Check
 
-**Author:** Ujjawal Anand · **Decision:** 11 September 2026  
-**North star:** tracked orders per existing user per quarter, on a fixed cohort.
+**Current recommendation:** improve the existing earnings and recovery journey with a visit receipt, explicit purchase check and clear next action. This replaces the headphone Shortlist lead after independent review.
 
-The final recommendation is a persistent research shortlist for existing users choosing non-Apple headphones. Reject the Android retailer overlay as the lead; test useful participation before the retailer decision is settled. This is a bounded product proposal, not a claim of validated demand, approved affiliate integration or measured business lift.
+**Submission status:** case and prototype are reviewable; the PDF's complete-AI-interaction requirement remains unmet until the candidate supplies actual exports. No new user interviews or authenticated CashKaro audit are claimed.
 
-**Final production website:** [cashkaro-shortlist.vercel.app](https://cashkaro-shortlist.vercel.app/)
+- [Production website](https://cashkaro-shortlist.vercel.app/)
+- [Product decision](docs/FINAL_SUBMISSION.md)
+- [Response to Claude Cowork](docs/REVIEW_RESPONSE.md)
+- [Evidence and assumptions](docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md)
+- [Experiment and technical plan](docs/EXPERIMENT_AND_TECHNICAL_PLAN.md)
+- [Assignment audit](docs/ASSIGNMENT_COMPLIANCE_AUDIT.md)
+- [AI session manifest](transcripts/README.md)
+- [Research worksheet and candidate note prompts](docs/RESEARCH_WORKSHEET.md)
+- [QA report](docs/QA_REPORT.md)
+- [Release record](docs/RELEASE.md)
 
-## Review the submission
+## Run
 
-- `index.html` — the complete case, with equal problem and solution depth
-- `prototype.html` — interactive, sourced two-model demonstration
-- `research.html` — primary evidence, assumptions and decision changes
-- `experiment.html` — causal protocol, economics and technical ownership
-- `ai-transcript.html` — available source records and missing-export disclosure
-- `compliance.html` — original assignment audit and candidate requirements
-- [Assignment text transcription](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md) — public reference; the original attached PDF remains authoritative
-
-Publication details and completed QA results are recorded in [Release](docs/RELEASE.md) and [QA report](docs/QA_REPORT.md). Earlier deployment URLs in historical files are not the final release record.
-
-## Build and maintain
+Use Node.js with the pinned dependencies in `package-lock.json`.
 
 ```sh
 npm ci
@@ -27,16 +25,10 @@ npm run build
 npm run check
 ```
 
-The six pages are generated from `content/` by `scripts/build.mjs`. Edit those sources, not the generated HTML or generated final-document mirrors. The prototype behavior and sourced catalog live in `assets/prototype.js` and `assets/catalog.js`. `npm run dev` uses Vite for local development; production is static output in `dist/`. Vercel configuration is included. No secrets or external data service are needed for the demonstration.
+`content/` is the canonical writing and prototype template. `scripts/build.mjs` generates the six HTML routes, documentation mirrors and an explicit public allowlist in `dist/`. `assets/order-model.js` holds the meaningful date/state/redemption logic exercised by the checks. The prototype is a static simulation with no live account, purchase or payout integration.
 
-The prototype saves only its own local-browser state. No real purchase, affiliate attribution, partner event, native Android receiver or authenticated account persistence is implemented.
+`npm run dev -- --host 0.0.0.0 --port 4173` is the Vite development entry point. In the managed preview environment, use the supervisor's `sites-preview start` command.
 
-## Evidence and history
+The deployment URL retains the earlier project name for continuity; the product is Order Check. The Shortlist baseline remains available at commit `f482fb6` and in the clearly labelled historical archive. Older handoff prompts are context, not the current recommendation.
 
-[Final case](docs/FINAL_SUBMISSION.md) · [Evidence register](docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md) · [Experiment/technical plan](docs/EXPERIMENT_AND_TECHNICAL_PLAN.md) · [Compliance audit](docs/ASSIGNMENT_COMPLIANCE_AUDIT.md)
-
-The prior overlay case is preserved in [the archive](docs/archive/RETAILER_OVERLAY_SUBMISSION.md). Earlier handoff and strategy files remain as labeled historical records. Supplied source material and AI artifacts have not been rewritten to agree with the final decision.
-
-## Genuine incomplete requirement
-
-The brief requests **complete AI interaction transcripts**. Available reconstructions/extracts are labeled honestly. The candidate must export the contributing sessions, including the final execution conversation. See [transcript index](transcripts/README.md). The original interview is also unavailable; the case treats it only as inherited qualitative input. Verify the 72-hour deadline from the actual receipt time and submit through the required destination.
+Original private attachments and raw personal messages are not public release inputs. The anonymized external-feedback summary records the argument without claiming the speaker's role. Removing a name from the current release does not rewrite public Git history.

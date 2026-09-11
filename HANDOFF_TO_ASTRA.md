@@ -1,3 +1,5 @@
+> Current release: **CashKaro Order Check**. The material below is historical and may describe superseded concepts. Read `docs/FINAL_SUBMISSION.md` and `docs/REVIEW_RESPONSE.md` from the repository root. Raw AI exports remain incomplete.
+
 > **Historical handoff / superseded strategy.** The final 11 Sep 2026 decision is CashKaro Shortlist, with the retailer overlay rejected as the lead. Read [docs/FINAL_SUBMISSION.md](docs/FINAL_SUBMISSION.md) and the current README. The original contents below are preserved as the decision history.
 
 # Start Here — Handoff to Astra / ChatGPT Work
@@ -35,11 +37,11 @@ The previous lead hypothesis was an Android retailer-app Shopping Companion.
 
 That product direction is **no longer locked**.
 
-An insider PM gave a material commercial critique: if CashKaro appears only after the user has already chosen and opened a retailer, CashKaro may be recapturing affiliate attribution instead of creating/influencing retailer traffic. The intervention may need to move **upstream into the consideration/decision stage** — e.g. YouTube reviews, comparison/SEO content and other places where the user is still deciding what/where to buy.
+An external product gave a material commercial critique: if CashKaro appears only after the user has already chosen and opened a retailer, CashKaro may be recapturing affiliate attribution instead of creating/influencing retailer traffic. The intervention may need to move **upstream into the consideration/decision stage** — e.g. YouTube reviews, comparison/SEO content and other places where the user is still deciding what/where to buy.
 
 Read the full critique and strategic implications here:
 
-### **[`docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md`](docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md)**
+### **[`docs/EXTERNAL_FEEDBACK_AND_STRATEGY_REVIEW.md`](docs/EXTERNAL_FEEDBACK_AND_STRATEGY_REVIEW.md)**
 
 The strongest new hypothesis to investigate is a narrow **CashKaro Decision Companion / Savings Cart** that adds decision value before merchant choice is final, inspired by the cross-surface principle behind Google Universal Cart.
 
@@ -49,7 +51,7 @@ Do not accept that hypothesis automatically either. Re-open the product decision
 
 ### **[`transcripts/CHATGPT_PRIMARY_CONTEXT.md`](transcripts/CHATGPT_PRIMARY_CONTEXT.md)**
 
-This is a structured reconstruction of how the reasoning evolved from predicted reminders → missing-denominator critique → journey-position reframe → retailer-overlay Companion → ITT experiment → retailer incrementality risk → latest insider-PM challenge.
+This is a structured reconstruction of how the reasoning evolved from predicted reminders → missing-denominator critique → journey-position reframe → retailer-overlay Companion → ITT experiment → retailer incrementality risk → latest external product challenge.
 
 It is a context handoff, **not falsely represented as a verbatim raw transcript**.
 
@@ -69,7 +71,7 @@ It is a context handoff, **not falsely represented as a verbatim raw transcript*
 - [`docs/SUBMISSION_CONTENT_BLUEPRINT.md`](docs/SUBMISSION_CONTENT_BLUEPRINT.md)
 - [`docs/PRE_SUBMISSION_REVIEW.md`](docs/PRE_SUBMISSION_REVIEW.md)
 
-These are **pre-insider-feedback drafts** unless updated later. Preserve their strongest reasoning, not their conclusion by default.
+These are **pre-external-feedback drafts** unless updated later. Preserve their strongest reasoning, not their conclusion by default.
 
 ## Current implementation
 
@@ -83,6 +85,6 @@ The current live site is a draft. You may rewrite or replace it after the produc
 
 ## Mission
 
-> **Read the brief, inherit the evidence without sunk-cost bias, re-open the product decision using the insider feedback, then autonomously turn this repository into a top-tier, defensible, polished, tested and deployed APM submission.**
+> **Read the brief, inherit the evidence without sunk-cost bias, re-open the product decision using the external feedback, then autonomously turn this repository into a top-tier, defensible, polished, tested and deployed APM submission.**
 
 Do not declare completion until the brief is audited line-by-line, the final product creates a defensible user/CashKaro/retailer value exchange, mobile/desktop QA passes, all claims are evidence-disciplined, and production deployment works.

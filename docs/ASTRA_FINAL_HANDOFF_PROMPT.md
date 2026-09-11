@@ -1,3 +1,5 @@
+> Current release: **CashKaro Order Check**. The material below is historical and may describe superseded concepts. Read `docs/FINAL_SUBMISSION.md` and `docs/REVIEW_RESPONSE.md` from the repository root. Raw AI exports remain incomplete.
+
 > **Historical handoff / superseded strategy.** The final 11 Sep 2026 decision is CashKaro Shortlist, with the retailer overlay rejected as the lead. Read [FINAL_SUBMISSION.md](FINAL_SUBMISSION.md) and the current README. The original contents below are preserved as the decision history.
 
 # Master handoff prompt for GPT Astra — CashKaro APM submission owner
@@ -15,7 +17,7 @@ Act simultaneously as a Principal Product Manager, Staff Product Designer, Senio
 3. In the repo, read at minimum:
    - `docs/ORIGINAL_ASSIGNMENT_TEXT.md` (text extraction / backup only; PDF remains authoritative)
    - `transcripts/CHATGPT_PRIMARY_CONTEXT.md`
-   - `docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md`
+   - `docs/EXTERNAL_FEEDBACK_AND_STRATEGY_REVIEW.md`
    - `transcripts/01-chatgpt-handoff.txt`
    - `transcripts/02-qwen-behavioral-analysis.txt`
    - `transcripts/03-deepseek-principal-pm-review.md`
@@ -33,7 +35,7 @@ Do not preserve existing work because effort was already spent. Preserve only wh
 
 The previous direction was an Android retailer-app Shopping Companion: surface CashKaro when a supported retailer is already open.
 
-An insider PM then gave a direct commercial critique:
+An external product then gave a direct commercial critique:
 
 > A retailer pays CashKaro when CashKaro gives it traffic or influences user intent. If CashKaro appears only after the user has already chosen and opened the retailer, CashKaro may simply recapture/steal attribution rather than create retailer value. Instead, intervene where the user is still deciding — e.g. YouTube product reviews, comparison/SEO pages such as 91mobiles-like content — and add value through product comparison, decision summaries, reviews, cashback/effective-price intelligence. Use Google Universal Cart as inspiration.
 
@@ -138,7 +140,7 @@ Always separate:
 
 **Retailer incrementality** — did CashKaro actually influence/produce incremental traffic, merchant choice or conversion value?
 
-The insider feedback makes retailer incrementality even more central.
+The external feedback makes retailer incrementality even more central.
 
 ## Evidence rules
 
@@ -289,7 +291,7 @@ You may replace the current implementation entirely if that improves the final s
 You are done only when:
 - the original PDF has been audited line by line,
 - the final problem framing is defensible,
-- insider PM feedback has been incorporated explicitly,
+- external product feedback has been incorporated explicitly,
 - the chosen solution beats the alternatives for a clear reason,
 - user + CashKaro + retailer value are aligned,
 - the prototype shows only plausible capabilities,

@@ -1,123 +1,135 @@
 <section class="case-section" id="existing">
-<p class="section-label">Public product audit / 11 September 2026</p>
+<p class="section-label">01 / Existing-feature audit</p>
 
-## Comparison is already here. Continuity is the proposed bet.
+## The baseline already includes tracking, email and support.
 
-CashKaro's [Google Play listing](https://play.google.com/store/apps/details?id=com.cashkaro) advertises price comparison. Its [headphones category](https://cashkaro.com/product/earphones-headphones-offers) and individual product pages expose merchant comparison and rewards. I therefore rejected “add price comparison” as a novel proposal.
+Checked against public CashKaro pages on **11 September 2026**. This is a public documentation audit; the authenticated Android and web journeys and actual notification delivery were not accessed. That limitation matters because the proposed connection between these capabilities may already exist in some form.
 
-The proposed change is an explicit research entry, saved source and decision note, and continuity through merchant choice. Logged-in account functionality was not audited: absence of a matching saved-list feature is not established. If the internal audit finds one, reuse it and test entry/clarity rather than build another list.
+| Capability | Public evidence | Implication for Order Check |
+| --- | --- | --- |
+| Earnings states and acknowledgement emails | [How it works](https://cashkaro.com/how-it-works) describes pending, confirmed, requested, paid and cancelled states | Reuse the ledger and existing messages |
+| Stored click-outs | Same help page describes retailer exit clicks in missing-cashback enquiries | A visit record is plausible; an accessible service is still unverified |
+| Existing recovery workflow | [Dedicated help](https://cashkaro.com/gethelp/my-cashback-rewards-is-missing/my-cashback-rewards-did-not-track-what-can-i-do) asks for retailer, purchase date, reference and amount | Prefill reliable visit context; do not invent a new ticket system |
+| Price comparison | [CashKaro’s Play listing](https://play.google.com/store/apps/details?id=com.cashkaro) advertises comparison | Comparison alone was not a defensible Shortlist differentiator |
+| One receipt joining visits, user reports, policy and support | Not established by this public audit | Validate in the logged-in baseline before claiming novelty |
 
-Observed public content is evidence of a displayed capability, not a guaranteed live inventory feed, tested purchase flow or private API.
+The proposed value is reduced context loss and a clearer next action. It is not a claim that CashKaro currently lacks an earnings history or customer support. If the authenticated audit already shows this continuity, the appropriate task is to fix the observed usability defect in that flow.
 </section>
 
 <section class="case-section" id="commercial">
-<p class="section-label">Commercial evidence</p>
+<p class="section-label">02 / Commercial and policy checks</p>
 
-## Use the applicable rule, not the biggest percentage.
+## Conflicting guidance is a product dependency, not a detail to average away.
 
-| Primary source | Observation on 11 Sep 2026 | Product consequence |
+The latest retrieval in this revision differs from parts of the prior review’s snapshot. Public pages may change and parsed pages may expose multiple interface states. The following records what was retrievable, not an independently approved policy.
+
+| Source | Relevant finding on 11 Sep 2026 | Treatment |
 | --- | --- | --- |
-| [CashKaro: Amazon](https://cashkaro.com/stores/amazon) | Mobile phones/Apple products listed at 0%; electronics at 1%; Rewards differ from bank cashback | No generic phone-saving promise; preserve reward type |
-| [CashKaro: Flipkart](https://cashkaro.com/stores/flipkart) | Audio at 1.95%, capped at ₹130; Apple Audio excluded; pre-existing cart/wishlist/save-for-later restrictions | Evaluate model/category rules and cap; Shortlist never writes a retailer cart |
-| [CashKaro: Croma](https://cashkaro.com/stores/croma) | Active page says cashback unavailable; title suggests a promotional cashback rate | Prioritize active eligibility; retain a no-cashback alternative |
-| [CashKaro help](https://cashkaro.com/how-it-works) | Click-outs, pending/confirmed states and missing-cashback process documented | A click cannot be represented as a tracked or paid order |
+| [Amazon terms](https://cashkaro.com/stores/amazon) | Missing Rewards: report within 30 days of order; tracking description starts 48 hours after shipment | Purchase date and shipment date are different inputs |
+| [Flipkart terms](https://cashkaro.com/stores/flipkart) | Missing cashback: within 30 days of order; summary and detailed tracking durations differ | Do not hard-code a universal tracking timer |
+| [General help](https://cashkaro.com/how-it-works) | Generic three-day wait and ten-day reporting guidance | Conflicts with merchant pages; operations must resolve applicability |
+| Dedicated missing-cashback help, linked above | Offers a sixty-minute tracking promise after entering a ticket | Do not turn help copy into a guarantee that a claim will succeed |
 
-These are public customer-facing terms, not CashKaro's negotiated affiliate contracts. The retrieved markup includes both app-eligible and app-ineligible modal text; it cannot establish which path is active. Partner-specific app/browser attribution needs a real device and integration check.
+Both merchant pages restrict pre-existing cart/wishlist items; other exclusions still apply. Amazon benefits are restricted Rewards. Flipkart cashback is subject to the relevant category and order terms. Multi-item reports may represent one purchase; deduplicate before counting orders. Consumer terms do not reveal negotiated commission, incrementality clauses or feed rights.
 
-Some product pages also contain generated prose with implausible percentage values. The demo ignores that prose and records the visible comparison rows as **reference snapshots**, with the underlying store rules taking precedence before an actual purchase. We have not validated a checkout price, a user's eligibility, delivery, bank offers or commission collection.
+**Proposed source-of-truth rule:** an operations-approved, merchant-specific policy with effective dates and an auditable owner. Preserve the version at the visit and verify the applicable policy again for recovery. Conflicting or stale rules suppress automatic deadlines; they surface a support route promptly. Never extend or shorten someone’s real claim window using a guessed fallback.
+
+Public redemption guidance distinguishes bank-eligible confirmed cash from gift-card-only Rewards. Confirmed cash and Rewards can be combined for gift-card redemption at the stated ₹250 minimum. This is why the prototype’s ₹180 cash plus ₹80 Rewards account can redeem a gift card but has not reached the cash-only bank threshold. Those balances are fictional.
 </section>
 
 <section class="case-section" id="google">
-<p class="section-label">Google Universal Cart / primary research</p>
+<p class="section-label">03 / Google Universal Cart</p>
 
-## Borrow the persistent decision. Do not borrow unearned infrastructure.
+## Preserve context. Do not assume Google’s distribution or contracts.
 
-[Google's May 19, 2026 announcement](https://blog.google/products-and-platforms/products/shopping/google-shopping-cart/) introduces a cart across merchants and Google surfaces, with deal/stock insights. It announced a U.S. Search/Gemini rollout for summer, with YouTube/Gmail later; this is not evidence of availability in India.
+Google’s [19 May 2026 announcement](https://blog.google/products-and-platforms/products/shopping/google-shopping-cart/) describes a cross-merchant cart, shopping assistance and a U.S. rollout starting with Search and Gemini, with YouTube and Gmail to follow. The merchant remains responsible for the sale. This is a source about Google’s announced product, not proof of universal availability in India.
 
-[The Cart API overview](https://developers.google.com/merchant/ucp/guides/overview/cart-overview) separates pre-checkout basket building from payments. It documents one-way creation/transfer; synchronization is not part of that initial capability. [Implementation reference](https://developers.google.com/merchant/ucp/implementation/2026-04-08/cart-api).
+The [Cart API overview](https://developers.google.com/merchant/ucp/guides/overview/cart-overview), updated 10 September 2026, describes one-way cart creation/transfer into a merchant system and distinguishes it from checkout and payment. It does not supply CashKaro with a universal catalog, retailer-cart access or affiliate attribution permission.
 
-**Inference for this case:** a durable consideration object can create value before a merchant wins. CashKaro still needs its own acquisition surface, catalog rights, eligibility logic and permitted click-out. UCP is neither an open comparison database nor a substitute for affiliate approval. No UCP integration is proposed for V1.
+The strategic inference is two-sided. Continuity across discovery and purchase can be useful. But Google owns large discovery surfaces, so cloning the visible cart misses the distribution advantage and creates a competitor dependency. CashKaro should first test a useful improvement at an intent surface it actually has. Order Check borrows continuity of context, not Google’s cart API.
 </section>
 
 <section class="case-section" id="qualitative">
-<p class="section-label">Inherited qualitative evidence</p>
+<p class="section-label">04 / Qualitative provenance</p>
 
-## One respondent. A summarized record. Several plausible mechanisms.
+## Three inputs, three different evidentiary roles.
 
-The [Qwen working extract](../source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md) describes one respondent's context friction, low-value threshold, uncertain payout confidence and retailer-first journey. The [ChatGPT reconstruction](../transcripts/CHATGPT_PRIMARY_CONTEXT.md) records subsequent corrections. I have not interviewed that respondent or recovered the original interview.
+| Input | What was supplied | What it can support | What it cannot support |
+| --- | --- | --- | --- |
+| Inherited single-user account | A prior reasoning record describing small rewards, payout uncertainty and retailer-app friction | Questions and hypotheses for research | Prevalence, causality, a fabricated interview transcript or a headphone discovery need |
+| External product feedback | A message shared by the candidate questioning late-entry affiliate economics | An adversarial commercial argument | Verified employer/title, partner approval or private contract facts |
+| Claude Cowork review | The supplied review of commit f482fb6 | A critique to verify and act on | Independent market validation or unquestioned implementation instructions |
 
-I use this as **inherited qualitative input**, not raw user testimony. No sentence from it is presented as a newly verified participant quote. Its role is to expand the hypothesis set beyond forgetfulness, not to prove segment size or preference for Shortlist.
+The stakeholder’s identity and employer are omitted in this public revision. The original role label was not independently verified. The [anonymized summary](../source-material/EXTERNAL_PRODUCT_FEEDBACK.md) is labelled as edited context; it is not a raw transcript. Earlier Git history may still contain the original record.
 
-Proposed next research: eight initial sessions with existing users facing an actual purchase, spanning frequent, sparse and lapsed CashKaro use. Observe their current process before introducing the concept; then test capture, unprompted return, reward comprehension and merchant choice. Add sessions when new mechanisms keep appearing. This work has not been conducted.
+No new interviews were performed in this revision. The proposed [purchase-reconstruction worksheet](../docs/RESEARCH_WORKSHEET.md) has a blank observation table. The candidate should collect actual behaviour before claiming the trust mechanism is validated. Five to eight conversations can reveal misunderstandings and contrary examples; they cannot estimate a representative adoption rate.
 </section>
 
 <section class="case-section" id="reach">
-<p class="section-label">Reach and behavior proxies</p>
+<p class="section-label">05 / Desktop proxy</p>
 
-## A device share is not a shopping-order share.
+## Web device share is not shopping order share.
 
-[Statcounter India](https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet/india) reports August 2026 web usage of 64.45% mobile, 34.97% desktop and 0.58% tablet. These are web-usage observations, not e-commerce orders; native-app shopping is missing. A one-third desktop-shopping estimate would be a weak proxy under an explicit equal-mix assumption, not a measured fact.
+[Statcounter’s India view](https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet/india) reports August 2026 web usage at **34.97% desktop, 64.45% mobile and 0.58% tablet**. This describes the measured web mix, not orders, CashKaro customers or native-app shopping.
 
-[Google's 2024 SEA video research](https://business.google.com/en-all/think/search-and-video/boost-engagement-youtube-marketing-strategy/) supports video's role in research, but covers Southeast Asian markets rather than the CashKaro India cohort and comes from the platform selling video ads. It supplies a directional analogy only. No behavior percentage is transferred to this case.
+For the brief’s extension question, use that desktop share only as a starting proxy. Let d = 0.3497, k = desktop orders per measured web unit relative to non-desktop web, and a = native-app orders as a fraction of all shopping orders. A deliberately simplified estimate is:
 
-For investment sizing, request actual existing-user device mix, category purchase frequency, eligible model/merchant coverage, existing comparison usage and experiment variance. The missing data is not replaced with a market-size slide.
+**Desktop order share = (1 − a) × d·k / (d·k + 1 − d).**
+
+| Explicit scenario assumptions | Estimated desktop order share |
+| --- | --- |
+| k = 0.5; native-app share a = 0.8 | 4.2% |
+| k = 1; a = 0.6 | 14.0% |
+| k = 2; a = 0.4 | 31.1% |
+
+The middle case is a working planning scenario, not an Indian shopping statistic. These scenarios are not confidence bounds; different inputs can exceed 34.97%. Therefore the web share is not a mathematical upper bound. Extension reach is lower again after eligibility, installation and active use. Replace this model using CashKaro’s device order data plus a credible all-shopping source before investment.
+
+If revisited, an extension needs a versioned registry of eligible domains, paths, benefit types and exclusions; approved affiliate destinations; operations ownership; expiry; a refresh mechanism and a kill switch. Unknown or expired mappings must not advertise an entitlement. The [Android permission reference](https://developer.android.com/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW) separately establishes that drawing above other apps requires special access; permission acceptance and allowed use remain adoption and policy questions for the rejected overlay.
 </section>
 
 <section class="case-section" id="prototype-data">
-<p class="section-label">Prototype data manifest</p>
+<p class="section-label">06 / Prototype data contract</p>
 
-## Real source snapshots. No live shopping integration.
+## Real source checks. Fictional accounts and events.
 
-All prices below are the values CashKaro displayed when retrieved on 11 Sep 2026, not independently verified merchant checkout quotes. Specific color, seller, stock, delivery and offer eligibility need revalidation. Reward amounts are displayed estimates, not promises; the demo never labels them cash paid.
+| Element | Provenance and boundary |
+| --- | --- |
+| Merchant names, benefit distinctions and source links | Public CashKaro sources, checked 11 Sep 2026 |
+| Public guidance conflict | Actual conflict between retrieved help and merchant terms; no internal approval obtained |
+| ₹180 cash, ₹80 Rewards and ₹90 order benefit | Fictional fixtures to exercise pending/confirmed and redemption distinctions; not calculated from a real order |
+| Visit, purchase and event dates | Fictional fixtures around a fixed 11 Sep 2026 demo clock; not a historical terms archive |
+| Reviewed-policy option | Illustrative enquiries from day +3 through day +30; explicitly simulated, not CashKaro approval |
+| Order reference and amount entered into support draft | Reviewer-entered fictional values; held only in page memory; nothing submitted |
+| Account persistence, order reconciliation, notifications, affiliate redirect and support APIs | Proposed production capabilities; not connected in this static prototype |
 
-| Model / black | Merchant | Displayed seller price | Displayed benefit | Reference |
-| --- | --- | --- | --- | --- |
-| Sony WH-CH720N | Amazon | ₹8,979 | ₹90 Rewards | [CashKaro product page](https://cashkaro.com/sony-wh-ch720n-wireless-over-ear-active-noise-cancellation-headphones-with-mic/CKS-Headphones-000435?ppsfacet%5BColour%5D=Black) |
-| Sony WH-CH720N | Flipkart | ₹14,990 | ₹130 Cashback | Same product source |
-| JBL Tune 770NC | Amazon | ₹5,999 | ₹60 Rewards | [CashKaro product page](https://cashkaro.com/jbl-tune-770nc-wireless-over-ear-anc-headphones-with-mic/CKS-Headphones-000544?ppsfacet%5BColour%5D=Black) |
-| JBL Tune 770NC | Croma | ₹5,999 | No CashKaro cashback | Same product source + Croma store state |
-| JBL Tune 770NC | Flipkart | ₹9,999 | ₹130 Cashback | Same product source |
-
-Manufacturer attributes: [Sony specifications](https://www.sony.co.in/headphones/products/wh-ch720n/spec) list approximately 192g and maximum 35 hours of music with noise cancellation on. [JBL specifications](https://www.jbl.com/TUNE770NC.html) list 232g, 44 hours with ANC on and foldability. Battery claims are manufacturer laboratory maxima; they are not equivalent real-world tests. The prototype does not rank sound quality or invent review consensus.
-
-Product photos are unchanged CashKaro-hosted packshots, credited in the [asset provenance manifest](../assets/product-image-sources.json). No ownership or open-license claim is made.
-
-The prototype's stale-offer, unavailable-store and tracking controls are explicitly **simulated scenario states**. They are not observations of an actual outage or purchase.
+The active prototype has no live price ranking. The previous Flipkart price snapshots were insufficiently verified for a purchase comparison. A third-party tracker cannot repair that without confirming variant, merchant, seller, eligibility and checkout price. The old implementation is preserved in Git history; its diagnosis is explicitly superseded.
 </section>
 
 <section class="case-section" id="decisions">
-<p class="section-label">Decision log</p>
+<p class="section-label">07 / Decision trail</p>
 
-## The changes in judgment are part of the submission.
+## Two pivots, each open to challenge.
 
-| Stage | What was proposed or challenged | Final treatment |
-| --- | --- | --- |
-| Predicted reminders | Infer shopping timing from routed history | Deprioritized: accuracy does not identify incremental opportunity |
-| Retailer overlay | Detect an already-open retailer app | Rejected as lead: commercial value and permission risk |
-| Insider PM challenge | Enter where buying decisions remain open | Incorporated as stakeholder input; not a partner approval |
-| Universal Cart analogy | Persistent cross-surface consideration | Retained principle; rejected universal checkout/infrastructure assumptions |
-| Smartphone shortlist | Narrow by researched, expensive products | Changed after mobile-reward exclusions and caps were inspected |
-| Comparison feature | Present as a new product capability | Corrected: public CashKaro comparison already exists |
-| Headphone Shortlist | Persist research context through a merchant decision | Chosen as a capped learning bet, contingent on impact and economics |
-| Broad agent / Reddit summaries | Add recommendation intelligence | Cut: rights, evaluation, cost and data quality do not earn V1 complexity |
+1. **Overlay → Shortlist:** commercial feedback challenged entering after the retailer had already won the shopper. The first revision explored earlier research utility.
+2. **Shortlist → Order Check:** independent critique exposed weak discovery evidence, low-frequency category choice, shallow continuity and fragile prices. Primary checks also showed the proposed notification replacement already partly exists.
+3. **Order Check → validation gate:** choose a connected status/recovery improvement, then require an authenticated baseline audit, behavioural research, policy reconciliation and a powered economics check before launch.
 
-[Raw insider feedback](../source-material/INSIDER_PM_WHATSAPP_RAW.txt) · [Earlier overlay submission](../docs/archive/RETAILER_OVERLAY_SUBMISSION.md) · [Current full case](../docs/FINAL_SUBMISSION.md)
+[Full response to Claude’s review](../docs/REVIEW_RESPONSE.md) · [Public decision log](../docs/DECISION_LOG.md) · [AI interaction completeness](../ai-transcript.html)
 </section>
 
 <section class="case-section" id="assumptions">
-<p class="section-label">Unresolved claims</p>
+<p class="section-label">08 / Assumptions and decisions</p>
 
-## What must still be learned inside CashKaro.
+## The facts that could reverse the recommendation.
 
-| Assumption | Current confidence | Evidence needed / owner |
-| --- | --- | --- |
-| Research continuity is a user problem worth solving | Hypothesis | Observed real purchase journeys / Product Research |
-| Shortlist earns a first capture and return | Unknown | Task observation plus randomized invitation funnel / Product |
-| Category reach can move the all-user metric | Unknown | Category/device baseline and full-quarter ITT / Analytics |
-| Two merchant paths approve this exact flow | Unknown | Written terms, placement and attribution review / Partnerships |
-| Product/price data can be reused and kept current | Public capability visible; internal contract unknown | Service audit, rights and freshness tests / Engineering + Catalog |
-| More CashKaro orders mean enough retailer value | Not established | Partner-run causal retailer-outcome test / Partnerships + Merchant |
-| Complete AI transcript is supplied | Incomplete | Raw exports of every contributing session / Candidate |
-
-No adoption rate, uplift, contract, API availability, user-testing result or partner approval has been invented.
+| Assumption | Evidence today | Owner / next validation | Decision if false |
+| --- | --- | --- | --- |
+| Unresolved order uncertainty contributes to later bypass | Inherited N=1 and behavioural reasoning | Product: actual purchase reconstruction | Prefer the observed friction or value problem |
+| Current interfaces lose visit-to-support context | Public documentation only | Design: authenticated walkthrough and task test | Improve existing flow; do not duplicate it |
+| Sufficient reachable existing users | No cohort denominator supplied | Analytics: pre-period click-intent reach and order variance | Stop or narrow to a service improvement without a growth claim |
+| Records can be joined reliably | Some records publicly documented; internal schema unknown | Engineering and data: sample joins, ambiguity audit | Add matching capability or reduce scope |
+| Merchant claim windows can be reconciled | Conflicting public guidance | Operations / partnerships: effective-dated approval | Disable automated deadlines and related reminders |
+| Contribution exceeds servicing cost | No retained commission or support cost supplied | Finance and analytics: marginal economics | Do not scale on raw tracked count alone |
+| Better clarity changes future routing | Unproven core hypothesis | Randomized test with later-purchase decomposition | Report recovery-only value honestly or stop |
+| Complete raw AI sessions can be supplied | Reconstructions, extracts and reviews only | Candidate: original exports | Submission remains noncompliant if required sessions are absent |
 </section>

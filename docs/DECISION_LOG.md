@@ -1,14 +1,15 @@
-# CashKaro Shortlist — final decision log
+# Public product decision log
 
-Date: 11 September 2026. **Authored product-decision summary, not a raw AI transcript.** Public evidence URLs, observation dates and limitations are recorded in the evidence register. Full contributing AI exports remain a candidate requirement.
+This is an AI-assisted authored record, not a conversation transcript or the candidate's personal statement. Date: 11 September 2026.
 
-1. **Reject retailer overlay as the lead.** Stakeholder feedback challenged merchant value after a retailer has already won. Earlier entry improves the influence hypothesis; it does not establish retailer incrementality.
-2. **Change the category.** Public mobile exclusions and model-specific cashback rules weaken the smartphone wedge. Start with a capped non-Apple headphone catalog, while treating low category frequency as a serious cohort-impact risk.
-3. **Correct the novelty claim.** CashKaro already has comparison. The proposal is continuity across research sessions, confirmed identity, source links, notes and a clearer merchant decision. Audit account-level saved capabilities before duplicating them.
-4. **Use Google's persistent-consideration principle.** Universal Cart does not give CashKaro Google's distribution, merchant integrations or checkout rights. Shortlist is not a merchant cart; cart synchronization and universal checkout are out of V1.
-5. **Cut the broad AI agent.** Structured data, confirmation and deterministic arithmetic are sufficient for the bounded catalog. No generated reward, price or unsupported product claim.
-6. **Protect the denominator.** Measure quarterly all-category tracked orders per fixed existing user using intention to treat, including people who never open Shortlist. Saves, clicks and merchant switching are diagnostics.
-7. **Separate benefits.** Distinguish listed price, withdrawable cashback and restricted Amazon Rewards. No reward-adjusted comparison before the shopper selects that preference. Stale/unknown eligibility blocks the affected handoff.
-8. **Preserve honest process evidence.** AI helped synthesize sources, challenge decisions, write code and edit the case. Available prior records remain labelled reconstructions/extracts. A polished decision summary does not satisfy the complete-transcript requirement.
+1. The authoritative PDF fixes the outcome at tracked orders per existing user per quarter, with a frozen cohort and equal problem/solution emphasis.
+2. The earlier overlay raised questions about permission adoption, value after retailer selection and approved attribution. External feedback was a hypothesis-generating argument, not contract evidence.
+3. The first revision, Shortlist (`f482fb6`), moved to headphone research. It preserved honest benefit distinctions but lacked direct discovery evidence and a convincing frequency/distribution case.
+4. Claude Cowork reviewed that pinned version. The implementation response accepted the strategic, continuity, evidence and completeness weaknesses. The review itself did not establish demand for a replacement.
+5. Primary checks showed existing CashKaro emails, ledger and missing-cashback workflows. They also showed incompatible generic and merchant claim guidance. A blanket ten-day failed-tracking alert was therefore rejected.
+6. The revised recommendation is Order Check, inside the existing earnings journey: explicit visit/purchase distinction, saved context, benefit state and recovery action. It is conditional on a logged-in baseline gap and observed user uncertainty affecting repeat routing.
+7. The active prototype retires price ranking and link capture. Fictional balances and independent state scenarios are labelled. No real affiliate activation, claim, notification or account integration is connected.
+8. The protocol adds illustrative reach/economics, sample-size calculations, first-trigger selection safeguards, later-order decomposition and explicit reporting maturity.
+9. The current public release removes the stakeholder name and unverified role. Prior Git history is retained. Complete AI exports and the candidate's own judgment note remain manual requirements.
 
-The case and prototype illustrate a proposed product. They do not claim completed user research, private contract access, partner approval, a live price feed, real affiliate tracking or measured lift. Review the original brief, evidence register, experiment plan and QA report alongside the recommendation.
+See [final case](FINAL_SUBMISSION.md), [review response](REVIEW_RESPONSE.md), [audit](ASSIGNMENT_COMPLIANCE_AUDIT.md) and [session manifest](../transcripts/README.md).

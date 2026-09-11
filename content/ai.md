@@ -1,40 +1,44 @@
 <section class="case-section" id="record-status">
 <p class="section-label">AI disclosure</p>
 
-## The reasoning is traceable. The transcript is not yet complete.
+## The transcript requirement is still incomplete.
 
-The brief explicitly requests all AI interactions: prompts, challenges, rejected outputs and changes in thinking. This repository contains reconstructions, extracts and a supplied review; they are labeled as such. They are not a substitute for every raw session export.
+The assignment requires complete AI interactions: what was asked, challenged, rejected and changed. The material available here contains reconstructions, analysis extracts, reviews and authored decision logs. Those are useful provenance, but they are not a complete conversation export.
 
-<div class="warning-box"><strong>Open submission requirement</strong><p>Ujjawal must attach the raw contributing conversations, including this final execution session. No missing turn has been invented.</p></div>
+<div class="warning-box"><strong>Submission blocker: raw AI interactions still required.</strong><p>The candidate must supply the actual contributing sessions, including Claude Cowork and this revision. Neither a polished case nor an execution summary closes this requirement.</p></div>
 
-AI contributed research synthesis, adversarial review, code and editing. Product claims are tied to the original brief, dated public sources or explicit assumptions—not to model agreement. The original retailer-overlay conclusion was rejected. The proposed smartphone category and novelty claim for comparison were also corrected after primary-source inspection.
+The [session manifest](transcripts/README.md) records each known contributing tool, what is available and what remains absent. The exports may accompany the private hiring-panel submission; they need not be published on this website. The full Claude review was supplied to the candidate. The public response below omits personal identity and records decisions, not the full Cowork interaction.
+
+AI contributed research synthesis, critique, writing and implementation. No new interviews were conducted by this revision. The candidate must write their own account of the judgments they personally made; the [worksheet](docs/RESEARCH_WORKSHEET.md) provides prompts rather than an invented personal statement.
 </section>
 
 <section class="case-section" id="reader">
-<p class="section-label">Available record</p>
+<p class="section-label">Available artifacts</p>
 
-## Read the source artifacts.
+## Inspect the evidence trail, with its limitations attached.
 
-<div id="transcript-reader"><div id="transcript-tabs" class="record-tabs" aria-label="Choose source record"></div><div class="record-toolbar"><div><strong id="record-title"></strong><p id="record-kind" class="note"></p></div><a id="record-download" class="text-link" href="transcripts/README.md">Open original file ↗</a></div><label class="search-label">Find in this record<input id="record-search" type="search" placeholder="Search a phrase, decision or model"></label><p id="record-result" class="note" aria-live="polite"></p><pre id="record-body" tabindex="0" aria-label="Selected source record">Loading source record…</pre></div>
+<div id="transcript-reader"><div id="transcript-tabs" class="record-tabs" aria-label="Choose source record"></div><div class="record-toolbar"><div><strong id="record-title"></strong><p id="record-kind" class="note"></p></div><a id="record-download" class="text-link" href="transcripts/README.md">Open source file ↗</a></div><label class="search-label">Find in this record<input id="record-search" type="search" placeholder="Search a phrase or decision"></label><p id="record-result" class="note" aria-live="polite"></p><pre id="record-body" tabindex="0" aria-label="Selected source record">Loading source record…</pre></div>
 
-<noscript><p>JavaScript is disabled. Read the <a href="transcripts/README.md">transcript index</a>, <a href="transcripts/CHATGPT_PRIMARY_CONTEXT.md">ChatGPT reconstruction</a>, <a href="source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md">Qwen extract</a>, <a href="source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md">DeepSeek review</a>, and <a href="source-material/INSIDER_PM_WHATSAPP_RAW.txt">raw stakeholder feedback</a> directly.</p></noscript>
+<noscript><p>Read the <a href="transcripts/README.md">session manifest</a>, <a href="transcripts/CHATGPT_PRIMARY_CONTEXT.md">ChatGPT reconstruction</a>, <a href="source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md">Qwen extract</a>, <a href="source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md">DeepSeek review</a>, <a href="source-material/EXTERNAL_PRODUCT_FEEDBACK.md">anonymized external feedback</a>, and <a href="docs/REVIEW_RESPONSE.md">response to Claude</a>.</p></noscript>
 </section>
 
 <section class="case-section" id="judgment">
-<p class="section-label">What human judgment had to protect</p>
+<p class="section-label">Review and revision</p>
 
-## What changed, and why.
+## Model agreement did not settle the product decision.
 
-| Model-generated direction or claim | Treatment |
+| Recommendation or claim | Treatment and reason |
 | --- | --- |
-| Forecast adoption/uplift using plausible percentages | Rejected; internal baseline, variance and causal results are unavailable |
-| Show exact product savings in the old retailer-aware overlay | Rejected; the mechanism could not see the product |
-| Treat one respondent as a cohort truth | Corrected to inherited, non-generalizable qualitative input |
-| Treat public affiliate rules as CashKaro's private contract | Rejected; public customer terms and negotiated agreements are separate |
-| Keep the old prototype because it is already built | Rejected after the commercial critique |
-| Copy Google Universal Cart or add a broad AI agent | Cut to a deterministic shortlist with explicit data dependencies |
-| Launch on smartphones because they have high prices | Changed after inspecting exclusions and caps |
-| Call a structured handoff the complete transcript | Rejected; manual export requirement remains visible |
+| Keep the retailer overlay | Rejected as lead; value, permission adoption and attribution boundaries remain unproven |
+| Move earlier by building a headphone Shortlist | Withdrawn after review; discovery need, repeat frequency and distribution lacked adequate support |
+| Replace it with tracking alerts and a monthly ledger | Modified; public help already documents those capabilities |
+| Send a failed-tracking message after a click-out | Rejected; silence does not establish a purchase or a tracking failure |
+| Apply one ten-day reporting deadline | Rejected; merchant and general-help guidance conflict |
+| Replace suspect prices using a secondary tracker | Rejected as sufficient verification; active comparison removed |
+| Use web desktop share as an upper bound for shopping | Corrected to a scenario model with native-app and order-intensity assumptions |
+| Avoid quantitative reasoning because data is unavailable | Corrected; clearly labelled sensitivity and power calculations added |
+| Treat the stakeholder’s role as verified | Corrected; anonymized input with no employer/authority claim |
+| Present a summary as the full AI transcript | Rejected; missing exports remain a submission blocker |
 
-[Assignment audit](compliance.html) · [Decision log](research.html#decisions) · [Repository](https://github.com/anand-official/cashkaro_casestudy)
+This table records actions taken in an AI-assisted revision. It does not attribute those judgments to the candidate personally. [Full review response](docs/REVIEW_RESPONSE.md) · [Current decision](index.html#decision) · [Brief audit](compliance.html)
 </section>

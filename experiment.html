@@ -1,168 +1,303 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#263a91"><title>Prove the order. Then prove the value. · Ujjawal Anand / CashKaro APM</title><meta name="description" content="A fixed-cohort causal protocol, data ownership and realistic implementation gates."><meta property="og:title" content="Prove the order. Then prove the value."><meta property="og:description" content="A fixed-cohort causal protocol, data ownership and realistic implementation gates."><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="assets/styles.css"></head><body><a href="#main" class="skip-link">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="CashKaro case study home"><span class="brand-mark" aria-hidden="true">C<span>K</span></span><span>CashKaro <small>APM / Ujjawal Anand</small></span></a><button class="menu-button" aria-expanded="false" aria-controls="main-nav">Menu</button><nav id="main-nav" aria-label="Main navigation"><a href="index.html">The case</a><a href="prototype.html">Prototype</a><a href="research.html">Evidence</a><a href="ai-transcript.html">AI trail</a><a class="nav-audit" href="compliance.html">Brief audit <span aria-hidden="true">↗</span></a></nav></div></header><main id="main" class="page-shell"><section class="page-hero"><p class="eyebrow">Experiment & feasibility</p><h1>Prove the order. Then prove the value.</h1><p>A fixed-cohort causal protocol, data ownership and realistic implementation gates.</p></section><div class="reading-layout"><aside class="contents"><p>On this page</p><nav aria-label="Page contents"><a href="#protocol"><span>01</span>Test the availability of Shortlist, not the enthusiasm of its adopters.</a><a href="#retailer-test"><span>02</span>Retailer influence cannot be proved with affiliate tags alone.</a><a href="#reach-model"><span>03</span>A useful feature can still be too small.</a><a href="#architecture"><span>04</span>An auditable registry beats a confident guess.</a><a href="#events"><span>05</span>State names should tell the truth.</a><a href="#rollout"><span>06</span>Remove uncertainty in the order that could kill the idea.</a></nav></aside><article class="case-article"><section class="case-section" id="protocol">
-<p class="section-label">Experiment protocol / proposed</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#263a91"><title>Prove the order. Then prove the value. · Ujjawal Anand / CashKaro APM</title><meta name="description" content="A fixed-cohort causal protocol, data ownership and realistic implementation gates."><meta property="og:title" content="Prove the order. Then prove the value."><meta property="og:description" content="A fixed-cohort causal protocol, data ownership and realistic implementation gates."><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="assets/styles.css"></head><body><a href="#main" class="skip-link">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="CashKaro case study home"><span class="brand-mark" aria-hidden="true">C<span>K</span></span><span>CashKaro <small>APM / Ujjawal Anand</small></span></a><button class="menu-button" aria-expanded="false" aria-controls="main-nav">Menu</button><nav id="main-nav" aria-label="Main navigation"><a href="index.html">The case</a><a href="prototype.html">Prototype</a><a href="research.html">Evidence</a><a href="ai-transcript.html">AI trail</a><a class="nav-audit" href="compliance.html">Brief audit <span aria-hidden="true">↗</span></a></nav></div></header><main id="main" class="page-shell"><section class="page-hero"><p class="eyebrow">Experiment & feasibility</p><h1>Prove the order. Then prove the value.</h1><p>A fixed-cohort causal protocol, data ownership and realistic implementation gates.</p></section><div class="reading-layout"><aside class="contents"><p>On this page</p><nav aria-label="Page contents"><a href="#protocol"><span>01</span>Fix the population, the clock and the counting rule.</a><a href="#retailer-test"><span>02</span>Separate counted attribution, retained value and merchant demand.</a><a href="#reach-model"><span>03</span>Small local wins can vanish in the full cohort.</a><a href="#architecture"><span>04</span>A thin experience on top of auditable records.</a><a href="#events"><span>05</span>Observe the transition without pretending to observe the purchase.</a><a href="#rollout"><span>06</span>Proposed decisions, not a fictional launch record.</a></nav></aside><article class="case-article"><section class="case-section" id="protocol">
+<p class="section-label">01 / Causal protocol</p>
 
-<h2>Test the availability of Shortlist, not the enthusiasm of its adopters.</h2>
-<p><strong>Population:</strong> freeze all eligible existing accounts at experiment start using an agreed existing-user definition. Exclude only predeclared operational restrictions such as test/fraud accounts; do not remove users for failing to open or save. Record coverage limitations. Define historical-category or declared-intent subgroups before exposure and keep the all-cohort result primary.</p>
-<p><strong>Unit:</strong> stable user/account ID across devices. Randomize 1:1, stratified by pre-period order frequency and platform when reliable. Treatment receives availability plus an owned-surface invitation. Control keeps the current experience, including current comparison features. No extra blanket reward subsidy or unequal CRM pressure.</p>
-<p><strong>Primary:</strong> sum of unique tracked orders placed in the experiment quarter divided by the fixed assigned users, treatment minus control. Count all categories. Use the company&#39;s authoritative order grain; where networks report item lines, normalize consistently and do not count one split shipment as multiple orders. Keep both arms&#39; tracking windows equal and allow the same reporting lag after quarter end.</p>
-<p><strong>Analysis:</strong> intention to treat. Report absolute order difference per user, confidence interval and percentage change only if the control baseline supports interpretation. Pre-register a two-sided 5% error rate and 80% power as proposed statistical choices, then calculate sample size from internal user-level variance and the economic minimum effect. Consider pre-period covariate adjustment if it is specified in advance. Do not invent a sample size without those inputs.</p>
-<p>For an approximate equal-arm planning calculation, users per arm ≈ 2 × (z(0.975) + z(0.8))² × user-level order variance ÷ minimum effect². Validate assumptions with the actual zero-inflated order distribution or resampling. This formula is a planning tool, not an achieved power claim.</p>
-<p><strong>Before launch:</strong> verify A/A assignment, deduplication, logging completeness, sample-ratio mismatch and cross-device assignment. Disable experiment-triggered discounts in both arms. Lock analysis and stop criteria before looking at the outcome.</p>
-<p><strong>Interpretation:</strong> a wide interval crossing meaningful benefit and harm is inconclusive. A null estimate after adequate power is not redeemed by save-rate growth. A positive category effect accompanied by negative all-category effect suggests substitution. Attrition remains in the denominator; consent withdrawals follow the predeclared lawful data policy, with sensitivity analysis if records must be removed.</p>
+<h2>Fix the population, the clock and the counting rule.</h2>
+<p><strong>Population:</strong> accounts classified as existing before the measurement quarter begins, using CashKaro’s established definition and a frozen list. A proposed operational definition is registration before the quarter; validate it with the assignment owner before a real experiment. Retain all assigned accounts, including inactive users and zeros. Fraud/test-account exclusions must be defined before randomization and applied symmetrically.</p>
+<p><strong>Assignment:</strong> stable randomization by authenticated user, stratified by pre-period tracked-order count and prior use of the two launch merchants. The primary estimand is treatment minus control mean unique valid tracked orders per assigned existing user during one quarter. Count all categories, not just the two launch paths.</p>
+<p><strong>Trigger:</strong> first qualifying click intent on an audited retailer path, logged identically in both arms before any assignment-specific UI or notification. The first-click trigger cannot be affected by treatment because no earlier treatment has been shown. Any promotional exposure before that trigger would invalidate this argument. Subsequent clicks, receipt opens and reported purchases are outcomes/mediators, not eligibility filters.</p>
+<p><strong>Control:</strong> the actual existing CashKaro journey, including its normal emails and support. No feature is deliberately degraded. Treatment adds the connected receipt and any explicitly consented eligible service reminder. Unrelated campaigns should be balanced or recorded.</p>
+<p><strong>Counting:</strong> deduplicate with merchant + canonical order ID; do not count each item postback as a separate order. Count the order by purchase date in the quarter, not click date or claim resolution date. Preserve a first-seen event, attribution source, reversals and correction history. If a stable order ID or purchase date cannot be obtained, quantify missingness and resolve the definition before claiming a causal order effect; do not quietly drop differential missing records.</p>
+<p><strong>Reporting:</strong> first quarter result at Q-end +30 days; repeat at +90 for late arrivals. For an illustrative Q4 2026 experiment, these are 30 January and 31 March 2027. Show still-pending/right-censored records and the share with unknown shipment date. Use equal observation windows and backfill both arms. These are reporting cutoffs, not claims that all orders finalize within ninety days.</p>
+<p>Report 95% confidence intervals, the pre-specified analysis and balance checks. Use the actual overdispersed count distribution to simulate power; a simple normal approximation below is only a sizing check. Decide sequential monitoring or fixed-horizon analysis before collecting results. Safety monitoring continues throughout.</p>
+<p><strong>Secondary measures:</strong> first-trigger-group ITT; clarity task completion; purchase reports per first-trigger user; later distinct valid purchases; recovered attribution; support enquiries and minutes; reversal rates; opt-out rate; redirect completion. Customer sentiment and feature engagement explain the mechanism but cannot substitute for the primary outcome.</p>
 </section>
 
 <section class="case-section" id="retailer-test">
-<p class="section-label">Separate commercial question</p>
+<p class="section-label">02 / Economic interpretation</p>
 
-<h2>Retailer influence cannot be proved with affiliate tags alone.</h2>
-<p>Capture an optional intended merchant before comparison to understand possible switching. Changes are self-reported diagnostics and can be biased. They are not a counterfactual.</p>
-<p>For a partner willing to participate, design a randomized encouragement or availability test across a consented audience whose <strong>total retailer purchases across channels</strong> the retailer can observe. Compare total orders and retailer contribution, including affiliate costs, using a lawful measurement mechanism and pre-agreed matching/aggregation. Confirm balance, contamination and off-platform visibility. CashKaro&#39;s tracked-order events alone cannot run this test.</p>
-<p>If partner data or agreement is unavailable, report retailer incrementality as unresolved, limit investment and do not represent partnership acceptance as evidence of causal lift. Choice switching may be commercially valuable to a selected merchant without increasing total category demand; neither is interchangeable with CashKaro attribution growth.</p>
+<h2>Separate counted attribution, retained value and merchant demand.</h2>
+<p>A recovered legitimate affiliate order can improve CashKaro’s tracked-order metric. It does not demonstrate a new consumer purchase. Report the assigned-user effect for the index journey, recovered orders and later distinct purchases separately. These components should reconcile to the all-order result; do not add overlapping counts.</p>
+<p>More routed orders also do not establish additional retailer sales across channels. To make that claim, the retailer would need an approved randomized holdout or comparable experiment with all-channel purchase outcomes and agreed attribution boundaries. CashKaro-only records cannot supply that denominator. The proposal does not assume a retailer will agree to this study.</p>
+<p>A practical contribution check uses incremental retained commission after customer benefits, less variable support, messaging, infrastructure, reversals and recurring operations. Include changes in existing-order costs, not only the cost of new receipts. Initial engineering cost belongs in a separate payback calculation. Public commission percentages cannot stand in for CashKaro’s actual retained contribution.</p>
+<p>Let c be incremental quarterly servicing cost per assigned existing user, and m retained contribution per incremental valid order before that service cost. Then the simplified break-even effect is <strong>δ_min = c / m</strong>, provided m is positive. If recovery and later orders have different economics, calculate them separately.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
+<thead>
+<tr>
+<th>Illustrative c</th>
+<th>Illustrative m</th>
+<th>Break-even orders / existing user</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>₹0.25</td>
+<td>₹25</td>
+<td>0.010</td>
+</tr>
+<tr>
+<td>₹0.50</td>
+<td>₹20</td>
+<td>0.025</td>
+</tr>
+<tr>
+<td>₹1.00</td>
+<td>₹10</td>
+<td>0.100</td>
+</tr>
+</tbody></table></div>
+<p>Every input is invented for sensitivity, not an estimate of CashKaro’s costs or earnings. Analytics and finance must replace them. Define the minimum worthwhile effect and acceptable uncertainty before looking at treatment results.</p>
 </section>
 
 <section class="case-section" id="reach-model">
-<p class="section-label">Reach and economics</p>
+<p class="section-label">03 / Reach and power</p>
 
-<h2>A useful feature can still be too small.</h2>
-<p>For a predeclared eligible subgroup, the no-spillover decomposition is <strong>overall Δ orders/user = eligible share × subgroup Δ orders/user</strong>. The subgroup effect must include non-adoption; multiplying by adoption again would double-count dilution. Where treatment spills into other categories or users, use the measured all-cohort ITT instead of this simplification.</p>
-<div class="calculator" id="reach-calculator"><p class="note">Planning calculator · starts blank · user-entered assumptions, not CashKaro data</p><label>Eligible share of fixed cohort (%)<input id="reach-share" type="number" min="0" max="100" step="any" inputmode="decimal" placeholder="Enter an assumption"></label><label>Incremental orders per eligible user / quarter<input id="reach-effect" type="number" step="any" inputmode="decimal" placeholder="Enter an assumption"></label><output id="reach-result" aria-live="polite">Enter both assumptions to calculate the all-cohort effect.</output></div>
+<h2>Small local wins can vanish in the full cohort.</h2>
+<p>For an intervention with no effect outside an unaffected first-trigger group, cohort effect <strong>δ = q × τ</strong>, where q is that group’s share of the fixed cohort and τ is its average treatment effect. This translation assumes no spillovers or earlier treatment exposure. Estimate q in the shadow control trigger; do not use treatment-only adoption to create a causal subgroup.</p>
+<p>The following comparisons deliberately use hypothetical inputs. They expose necessary steps, not forecast winners. Reach is the fraction of the entire existing-user cohort passing every listed step in a quarter; figures are not additive across options.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Illustrative calculation</th>
+<th>Cohort effect, orders/user</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Order Check</td>
+<td>10% first-trigger reach × 0.10 order effect</td>
+<td>0.010</td>
+</tr>
+<tr>
+<td>Widget / quick access</td>
+<td>20% active installed reach × 0.05 effect</td>
+<td>0.010</td>
+</tr>
+<tr>
+<td>Desktop extension</td>
+<td>10% eligible desktop-user reach × 20% active installation × 0.25 effect</td>
+<td>0.005</td>
+</tr>
+<tr>
+<td>Overlay</td>
+<td>50% eligible Android reach × 10% special-access adoption × 50% approved route coverage × 0.20 effect</td>
+<td>0.005</td>
+</tr>
+<tr>
+<td>Share / deep link</td>
+<td>10% relevant late-remembering reach × 20% valid share completion × 0.20 effect</td>
+<td>0.004</td>
+</tr>
+<tr>
+<td>Shortlist</td>
+<td>3% discovery reach × 20% capture × 50% return × 0.30 effect</td>
+<td>0.0009</td>
+</tr>
+<tr>
+<td>Broad discovery assistant</td>
+<td>5% active discovery reach × 0.20 effect</td>
+<td>0.010</td>
+</tr>
+</tbody></table></div>
+<p>These inputs are intentionally uncalibrated. A plausible-looking multiplication is not evidence that any step will occur. The proposed decision uses evidence fit, distribution and dependency cost, while the table identifies what must be measured. A blind shopping reminder has no defensible intent-trigger estimate from click-outs alone and is excluded from a numerical forecast.</p>
+<div class="calculator"><strong>Explore the reach assumption</strong><p class="note">These fields begin with the Order Check illustration. Edit them; the result is arithmetic, not observed uplift.</p><label>First-trigger reach (% of fixed cohort)<input id="reach-share" type="number" min="0" max="100" step="0.1" value="10"></label><label>Extra orders per first-trigger user<input id="reach-effect" type="number" step="0.01" value="0.10"></label><output id="reach-result" aria-live="polite">Scenario result: 0.010 incremental tracked orders per existing user / quarter.</output></div>
 
-<p><strong>Economics:</strong> compare treatment and control net contribution, where net contribution equals collected commission less cashback/Rewards cost, reversals and incremental data/support/operating costs. Confirm with Finance whether a reported commission field is gross or already net; never subtract rewards twice. Keep one-time build cost separately in the investment decision. Use the merchant&#39;s margin and commission costs for its business case.</p>
-<p><strong>Minimum effect:</strong> Finance and Product set the smallest quarterly effect worth rollout at expected reachable population and fully loaded servicing cost. Require the pre-agreed uncertainty bound and healthy guardrails, not merely a positive point estimate. No numerical commercial hurdle is asserted without these inputs.</p>
+<p>For a two-sided 5% test with 80% power and equal allocation, the elementary mean-difference approximation is <strong>n per arm ≈ 2 × (1.96 + 0.84)² × σ² / δ² = 15.68σ²/δ²</strong>. No variance reduction or favourable covariance is assumed.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
+<thead>
+<tr>
+<th>Hypothetical reach q</th>
+<th>Hypothetical τ</th>
+<th>δ across cohort</th>
+<th>σ, cohort order SD</th>
+<th>Approx. full-cohort users per arm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10%</td>
+<td>0.10</td>
+<td>0.010</td>
+<td>1.5</td>
+<td>352,800</td>
+</tr>
+<tr>
+<td>25%</td>
+<td>0.10</td>
+<td>0.025</td>
+<td>1.5</td>
+<td>56,448</td>
+</tr>
+<tr>
+<td>10%</td>
+<td>0.10</td>
+<td>0.010</td>
+<td>3.0</td>
+<td>1,411,200</td>
+</tr>
+</tbody></table></div>
+<p>A triggered analysis with τ = 0.10 and triggered σ = 1.5 would need about 3,528 triggered users per arm under the same approximation. At 10% reach, recruiting those 7,056 triggers requires about <strong>70,560 assigned users overall</strong>. A small triggered sample is not a small recruitment task. It also does not automatically power the unadjusted all-cohort primary result.</p>
+<p>Use historical quarter-level order variance, covariates, feasible sample, actual q and economic δ_min to choose duration and power. If infeasible, report usability and operational findings as such; do not manufacture a cohort-growth conclusion from a small pilot.</p>
 </section>
 
 <section class="case-section" id="architecture">
-<p class="section-label">Proposed architecture</p>
+<p class="section-label">04 / System and operations</p>
 
-<h2>An auditable registry beats a confident guess.</h2>
+<h2>A thin experience on top of auditable records.</h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
 <thead>
 <tr>
 <th>Component</th>
-<th>Responsibility</th>
-<th>Source and missing dependency</th>
+<th>Proposed contract</th>
+<th>What needs verifying or building</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Share receiver / paste UI</td>
-<td>Receive explicit text or URL; let user confirm model</td>
-<td>Android ACTION_SEND is documented; native integration must be built and tested</td>
+<td>Merchant policy registry</td>
+<td>Merchant/path/category scope; effective dates; owner approval; claim clock; tracking clock; redemption type; expiry; source version</td>
+<td>Operations must reconcile conflicting pages. Admin workflow and service may need to be built.</td>
 </tr>
 <tr>
-<td>Identity resolver</td>
-<td>Map allowlisted known source/model aliases; ask when ambiguous</td>
-<td>Manually verified model + variant IDs; no arbitrary video understanding</td>
+<td>Visit receipt</td>
+<td>Account + click ID + retailer + timestamp + approved route + policy version</td>
+<td>Existing exit records and accessibility are unverified; receipt write can be asynchronous</td>
 </tr>
 <tr>
-<td>Product registry</td>
-<td>Model, color/variant, attributes, source URL, checked_at</td>
-<td>Manufacturer/approved data; rights and update ownership reviewed</td>
+<td>User purchase report</td>
+<td>Visit reference; explicit purchase date; source=user; optional shipment date with source=user</td>
+<td>A report never becomes merchant-confirmed solely because a user entered it</td>
 </tr>
 <tr>
-<td>Merchant offer registry</td>
-<td>Seller, price, shipping-known flag, eligibility, reward type, cap, timestamp</td>
-<td>Audit existing CashKaro services; negotiate feed rights where missing</td>
+<td>Reconciliation adapter</td>
+<td>Approved order/click identifiers; retailer acknowledgement; amounts; state changes; received time</td>
+<td>Audit batch versus event feeds, ambiguous joins, duplicates, late corrections and multi-item orders</td>
 </tr>
 <tr>
-<td>Eligibility service</td>
-<td>Revalidate current terms; distinguish excluded, stale and unknown</td>
-<td>Versioned partner rules, explicit domain/path mapping, owner and expiry</td>
+<td>Next-action evaluator</td>
+<td>Known state + applicable approved rule + required clock inputs</td>
+<td>Suppress countdowns when a prerequisite, effective rule or shipment date is unknown</td>
 </tr>
 <tr>
-<td>Handoff service</td>
-<td>Generate approved click-out and preserve user/model/merchant identifiers</td>
-<td>Existing path only after partner validation; never promise cart preservation</td>
+<td>Existing support adapter</td>
+<td>Context prefill; explicit reference and amount; submission idempotency; enquiry state</td>
+<td>Verify support integration rather than inventing an API. Manual prefill is the first fallback.</td>
 </tr>
 <tr>
-<td>Attribution reconciliation</td>
-<td>Join signed network events to click IDs; idempotent state transitions</td>
-<td>Real network callbacks, deduplication rules and reversal handling</td>
-</tr>
-<tr>
-<td>Account shortlist</td>
-<td>User&#39;s saved sources/notes and deletion</td>
-<td>New persistence or audited existing service; demo is browser-local only</td>
+<td>Message coordinator</td>
+<td>Existing notification history + consent + dedupe + daily cap + quiet hours</td>
+<td>Reuse existing channel; no push on every click-out; no unapproved automated claim</td>
 </tr>
 </tbody></table></div>
-<p><a href="https://developer.android.com/develop/ui/compose/sharing/receive">Android receiving documentation</a> supports user-initiated text sharing. A share target does not reveal browsing history or grant content scraping rights. Browser Web Share sends from a page; it does not install the native receiving capability shown in this proposal.</p>
-<p><strong>Price arithmetic:</strong> payable amount includes validated shipping/taxes and explicitly applicable discounts. Conditional benefit = minimum of eligible base × rate and cap, applying exclusions and reward type. An effective comparison may subtract a benefit only when the shopper accepts its type and conditions. Unknown shipping/stacking/eligibility makes an exact effective-price claim unavailable. The prototype reproduces sourced displayed estimates instead of claiming to compute the user&#39;s entitlement.</p>
-<p><strong>Update policy:</strong> the registry stores source, exact product variant, merchant, category rule version and checked-at timestamp. Recheck before redirect. Cache expiry follows each data source&#39;s agreement and volatility; do not invent a universal freshness interval. Disable only the affected offer when stale; keep the research item. A missing feed must not trigger silent substitution or scraped prices.</p>
-<p><strong>Budgets proposed for the engineering spike:</strong> p95 cached comparison under two seconds; recheck times out at five seconds with an honest retry. No LLM request occurs, so LLM cost/query is ₹0. Measure actual database, network, catalog labor, support and hosting cost per useful session. No RAG, tool-calling agent or vector database is justified for this small catalog.</p>
-<p><strong>Security:</strong> validate scheme and host, canonicalize URL, cap input lengths, strip tracking parameters from stored research links and render notes as text. If server-side retrieval is later added, block private/link-local targets, revalidate redirects and DNS, enforce response size/time limits and require approved content access. No background clipboard, Accessibility, Usage Access or overlay permission.</p>
+<p>The prototype uses <code>assets/order-model.js</code> for deterministic date, eligibility and redemption logic and page memory for demo inputs. Production event names below are a proposed contract, not existing endpoints. No arbitrary retailer URL scraping, app surveillance, LLM or RAG is necessary for the chosen product.</p>
+<p><strong>Event integrity:</strong> consume merchant updates idempotently; retain raw-source reference and ordering metadata. A pending record may confirm or decline; a later authoritative reversal can revise an earlier confirmation. That correction is logged, not hidden. Support closure does not imply acceptance; display the retailer decision explicitly. An ambiguous one-to-many match remains unresolved and goes to operations/user clarification.</p>
+<p><strong>Privacy and security:</strong> authenticated, account-scoped access; encrypted order identifiers and retention aligned with CashKaro’s policy; role-controlled operations tooling; avoid order references in notification text and general analytics; allow reminder opt-out. Treat user-entered support text as data. Retention policy and legal basis need internal review, not an invented ninety-day mandate.</p>
+<p><strong>Failure and performance:</strong> return a last-checked timestamp for batch data; suppress unsupported timers; preserve a known good approved redirect when the new service fails. Proposed additional p95 receipt write budget: 100 ms off the redirect path; receipt-read target: 500 ms. If those targets would slow shopping, move the write fully asynchronous. These budgets have not been measured against CashKaro infrastructure.</p>
+<p><strong>Effort:</strong> start with a short engineering/operations discovery spike to inspect sample records and policy ownership. A narrow adapter-and-UI implementation is a medium effort only if those records are accessible; building attribution or support infrastructure makes it materially larger. Estimate after the spike with engineering, design, analytics and a named operations owner. Planning a small UI does not establish that the integration is small.</p>
+<p><strong>If discovery is reopened:</strong> a deterministic approved catalog/search and comparison flow comes before an agent. It needs licensed model identity, prices, eligibility and source timestamps; approved affiliate links; cache expiry and failure handling. RAG over reviews cannot establish current price or payout eligibility. Model/tool cost would be calls × actual provider rates plus retrieval and catalog operations, measured before launch. The rejected branch supplies no justified production latency or cost estimate, so it is not a ready-to-build alternative.</p>
 </section>
 
 <section class="case-section" id="events">
-<p class="section-label">Instrumentation contract</p>
+<p class="section-label">05 / Proposed event contract</p>
 
-<h2>State names should tell the truth.</h2>
+<h2>Observe the transition without pretending to observe the purchase.</h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
 <thead>
 <tr>
-<th>Event / state</th>
-<th>Minimum useful payload</th>
-<th>Interpretation</th>
+<th>Event</th>
+<th>Required meaning</th>
+<th>Measurement use</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>experiment_assigned</td>
-<td>Pseudonymous user ID, arm, cohort_version, timestamp</td>
-<td>Source of the fixed denominator</td>
+<td>Frozen account, arm, version and pre-period strata</td>
+<td>Fixed denominator</td>
 </tr>
 <tr>
-<td>shortlist_invitation_seen</td>
-<td>Assignment, surface</td>
-<td>Exposure diagnostic</td>
+<td>first_eligible_click_intent</td>
+<td>Same audited route rule in both arms; before any treatment exposure</td>
+<td>Valid first-trigger subgroup</td>
 </tr>
 <tr>
-<td>capture_submitted / identity_confirmed</td>
-<td>Source domain, resolved model, ambiguity outcome</td>
-<td>User supplied context; no browsing surveillance</td>
+<td>redirect_completed / redirect_failed</td>
+<td>Outcome of the existing affiliate handoff</td>
+<td>Friction guardrail; not an order</td>
 </tr>
 <tr>
-<td>item_saved / shortlist_returned</td>
-<td>Item ID, timestamp</td>
-<td>Research continuity diagnostic</td>
+<td>receipt_created / receipt_opened</td>
+<td>New view exists / viewed</td>
+<td>Service reliability and engagement</td>
 </tr>
 <tr>
-<td>offer_comparison_viewed</td>
-<td>Offer IDs, registry versions</td>
-<td>What the user actually saw</td>
+<td>purchase_reported / no_order_reported</td>
+<td>User-supplied statement with provenance</td>
+<td>Next-action eligibility; not attributed sales</td>
 </tr>
 <tr>
-<td>handoff_requested / clickout_recorded</td>
-<td>Click ID, model/variant, merchant, terms version</td>
-<td>User intent / successful redirect generation; no order claim</td>
+<td>merchant_order_observed</td>
+<td>Approved source ID, canonical order ID, purchase date, received time</td>
+<td>Primary outcome inputs</td>
 </tr>
 <tr>
-<td>order_tracked</td>
-<td>Network event ID, normalized order ID, click ID, event time</td>
-<td>Retailer/network reported a purchase</td>
+<td>merchant_benefit_changed</td>
+<td>Pending, confirmed, rejected or reversed; reason and source</td>
+<td>Quality and economics</td>
 </tr>
 <tr>
-<td>order_confirmed / reversed</td>
-<td>Order ID, final amount, reason, event time</td>
-<td>Downstream quality and economics</td>
+<td>support_draft / enquiry_submitted / enquiry_resolved</td>
+<td>Distinct stages; resolution includes accepted or declined</td>
+<td>Recovery funnel and service cost</td>
 </tr>
 <tr>
-<td>missing_cashback_requested</td>
-<td>Order reference submitted with consent, eligible time window</td>
-<td>Support state; not proof of a purchase CashKaro can already see</td>
+<td>reminder_eligible / delivered / opted_out</td>
+<td>Consent, rule version, dedupe and delivery result</td>
+<td>Relevance, harm and fatigue</td>
 </tr>
 </tbody></table></div>
-<p>The public demo records none of these to a server. Its “simulate tracking update” control demonstrates a state machine, not a real order or cashback award.</p>
+<p>Do not log the contents of order references in broad analytics. Use scoped identifiers with controlled access. Quantify missing joins, late feeds and inconsistent dates by arm. Schema validation and a sample reconciliation to the finance/support records precede causal reporting.</p>
 </section>
 
 <section class="case-section" id="rollout">
-<p class="section-label">Rollout gates and owners</p>
+<p class="section-label">06 / Gates and owners</p>
 
-<h2>Remove uncertainty in the order that could kill the idea.</h2>
-<ol>
-<li><strong>Partnerships + Engineering:</strong> confirm two usable merchant paths, category rules, data rights and attribution behavior. Stop if unavailable; do not build a universal feed first.</li>
-<li><strong>Product Research + Catalog:</strong> conduct the initial eight task sessions and manually verify up to 20 models. Fix comprehension and identity errors before acquiring traffic.</li>
-<li><strong>Analytics:</strong> run A/A checks, baseline power and a full-quarter randomized plan. An operational beta sized to review capacity cannot substitute for the causal test.</li>
-<li><strong>Product + Support:</strong> monitor wrong-model/offer incidents, abandonment, opt-outs, missing-cashback reports and update latency. Severe privacy issues or systematic financial misinformation pause immediately.</li>
-<li><strong>Finance + Partnerships:</strong> evaluate all-cohort effect, incremental contribution and retailer evidence. Scale only when the complete case holds; expand categories one at a time.</li>
-</ol>
-<p>No launch date, staffing commitment, partner deal, adoption rate or uplift is asserted. These are proposed responsibilities and gates for CashKaro&#39;s team.</p>
+<h2>Proposed decisions, not a fictional launch record.</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Owner</th>
+<th>Pass / change / stop rule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Baseline and problem check</td>
+<td>Product + design</td>
+<td>Observe the actual context-loss problem. Stop duplicate feature work if it already works; redirect if value/friction dominates reconstructed bypasses.</td>
+</tr>
+<tr>
+<td>Comprehension</td>
+<td>Design + product</td>
+<td>Proposed 7/8 correctly distinguish visit/order, pending/redeemable and next action without coaching. Revise if below; do not call this a population estimate.</td>
+</tr>
+<tr>
+<td>Policy and data</td>
+<td>Operations + partnerships + engineering</td>
+<td>All enabled paths have effective-dated policy approval, valid routing and audited joins. Any unresolved rule disables deadline automation for that path.</td>
+</tr>
+<tr>
+<td>Safety ramp</td>
+<td>Engineering + support</td>
+<td>Proposed 1%, then 5% after seven incident-free days. Halt false payout claims, wrong deadlines, unauthorized messages or broken redirects.</td>
+</tr>
+<tr>
+<td>Powered experiment</td>
+<td>Analytics + finance + product</td>
+<td>Pre-register δ_min, sample, duration and harm margin using actual data. If sample infeasible, keep a limited usability/operations result.</td>
+</tr>
+<tr>
+<td>Expansion</td>
+<td>Product + finance + operations</td>
+<td>Require the lower 95% confidence bound to exceed the pre-specified economic minimum, acceptable reversal/support costs and evidence on later purchases. Hold if a proposed +1 pp redirect-abandonment harm cannot be ruled out with useful precision.</td>
+</tr>
+</tbody></table></div>
+<p>The 1%/5% ramp, seven-day check and task threshold are proposed choices to calibrate, not observed results. Safety ramp percentages refer to eligible traffic, not a claim about adoption. A ramp cannot substitute for a full-quarter randomized test.</p>
+<p><a href="index.html#measurement">Return to the case</a> · <a href="compliance.html">Assignment audit</a> · <a href="docs/REVIEW_RESPONSE.md">Response to independent review</a></p>
 </section>
-</article></div></main><footer class="site-footer"><div><a class="brand" href="index.html">CashKaro Shortlist</a><p>Ujjawal Anand · APM product assignment · September 2026</p><p class="note">Independent assignment concept. Not an official CashKaro product. Reference prices are snapshots, not live offers.</p></div><div class="footer-links"><a href="experiment.html">Experiment & feasibility</a><a href="compliance.html">Assignment audit</a><a href="source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md">Assignment text</a><a href="https://github.com/anand-official/cashkaro_casestudy" target="_blank" rel="noopener noreferrer">GitHub ↗</a><button class="text-button print-button">Print this page</button></div></footer><script src="assets/site.js" defer></script></body></html>
+</article></div></main><footer class="site-footer"><div><a class="brand" href="index.html">CashKaro Order Check</a><p>Ujjawal Anand · APM product assignment · September 2026</p><p class="note">Independent assignment concept. Not an official CashKaro product. The interactive prototype uses fictional account data and simulated events.</p></div><div class="footer-links"><a href="experiment.html">Experiment & feasibility</a><a href="compliance.html">Assignment audit</a><a href="source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md">Assignment text</a><a href="https://github.com/anand-official/cashkaro_casestudy" target="_blank" rel="noopener noreferrer">GitHub ↗</a><button class="text-button print-button">Print this page</button></div></footer><script src="assets/site.js" defer></script></body></html>

@@ -1,3 +1,5 @@
+> Current release: **CashKaro Order Check**. The material below is historical and may describe superseded concepts. Read `docs/FINAL_SUBMISSION.md` and `docs/REVIEW_RESPONSE.md` from the repository root. Raw AI exports remain incomplete.
+
 > **Historical handoff / superseded strategy.** The final 11 Sep 2026 decision is CashKaro Shortlist, with the retailer overlay rejected as the lead. Read [FINAL_SUBMISSION.md](FINAL_SUBMISSION.md) and the current README. The original contents below are preserved as the decision history.
 
 # CashKaro APM — Astra handoff index
@@ -8,12 +10,12 @@ This repository is the working record for the CashKaro APM assignment and should
 
 1. [`docs/ORIGINAL_ASSIGNMENT_TEXT.md`](./ORIGINAL_ASSIGNMENT_TEXT.md) — searchable extraction of the original brief. The PDF is authoritative.
 2. [`../transcripts/CHATGPT_PRIMARY_CONTEXT.md`](../transcripts/CHATGPT_PRIMARY_CONTEXT.md) — structured reconstruction of the primary ChatGPT reasoning and decision evolution.
-3. [`INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md`](./INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md) — latest insider PM critique that materially re-opens the product decision.
+3. [`EXTERNAL_FEEDBACK_AND_STRATEGY_REVIEW.md`](./EXTERNAL_FEEDBACK_AND_STRATEGY_REVIEW.md) — latest external product critique that materially re-opens the product decision.
 4. [`ASTRA_FINAL_HANDOFF_PROMPT.md`](./ASTRA_FINAL_HANDOFF_PROMPT.md) — exact execution mandate for Astra.
-5. [`PRODUCT_STRATEGY_AND_BUILD_PLAN.md`](./PRODUCT_STRATEGY_AND_BUILD_PLAN.md) — previous strategy/build plan; useful context, but pre-insider-feedback and therefore not sacred.
+5. [`PRODUCT_STRATEGY_AND_BUILD_PLAN.md`](./PRODUCT_STRATEGY_AND_BUILD_PLAN.md) — previous strategy/build plan; useful context, but pre-external-feedback and therefore not sacred.
 6. [`SUBMISSION_CONTENT_BLUEPRINT.md`](./SUBMISSION_CONTENT_BLUEPRINT.md) — previous narrative blueprint.
 7. [`EVIDENCE_AND_ASSUMPTIONS_MATRIX.md`](./EVIDENCE_AND_ASSUMPTIONS_MATRIX.md) — evidence discipline / prohibited claims.
-8. [`FINAL_SUBMISSION.md`](./FINAL_SUBMISSION.md) — previous written case; now a draft because the insider feedback challenges the retailer-overlay mechanism.
+8. [`FINAL_SUBMISSION.md`](./FINAL_SUBMISSION.md) — previous written case; now a draft because the external feedback challenges the retailer-overlay mechanism.
 9. [`PRE_SUBMISSION_REVIEW.md`](./PRE_SUBMISSION_REVIEW.md) — previous QA checklist.
 10. Current website/prototype source at the repository root — treat as a draft implementation, not the final product direction.
 
@@ -23,7 +25,7 @@ The previous lead hypothesis was an Android retailer-app Shopping Companion that
 
 That is **no longer locked**.
 
-Latest insider PM feedback argues that this can look like attribution recapture after the retailer has already won the purchase. The product decision must therefore be re-opened around an upstream intervention while the user is still choosing what/where to buy.
+Latest external product feedback argues that this can look like attribution recapture after the retailer has already won the purchase. The product decision must therefore be re-opened around an upstream intervention while the user is still choosing what/where to buy.
 
 Current strongest direction to investigate:
 

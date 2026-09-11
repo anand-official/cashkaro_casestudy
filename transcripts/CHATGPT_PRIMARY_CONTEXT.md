@@ -1,3 +1,5 @@
+> Public edition: personal identity and unverified role labels were removed on 11 September 2026. This file is a reconstruction, not a verbatim session export. The current decision is in `docs/FINAL_SUBMISSION.md`.
+
 # ChatGPT primary working context — CashKaro APM assignment
 
 > **Purpose:** This is a structured reconstruction/handoff of the CashKaro work completed in the primary ChatGPT conversation. It is intended to give another agent the full decision context quickly. It is **not represented as a verbatim export of every visible ChatGPT turn**. Raw external-model outputs are included separately in this repository where available.
@@ -98,9 +100,9 @@ The case asked:
 
 > **Did we create a new transaction — or only change who gets credit?**
 
-### Stage 8 — Insider PM feedback materially challenges the overlay
+### Stage 8 — external product feedback materially challenges the overlay
 
-On 11 Sep 2026, an insider PM (Anmol) gave a direct commercial critique:
+On 11 Sep 2026, an external contributor (role unverified) gave a direct commercial critique:
 
 - retailers pay CashKaro when CashKaro sends traffic or influences intent,
 - surfacing inside a retailer after the user already decided where to buy can look like stealing/recapturing traffic,
@@ -155,13 +157,13 @@ The repository contains product planning and prior implementation work including
 - `docs/PRE_SUBMISSION_REVIEW.md`
 - the current case-study website and prototype
 
-Those files represent the **pre-insider-feedback state** unless explicitly updated. They should be audited, not blindly preserved.
+Those files represent the **pre-external-feedback state** unless explicitly updated. They should be audited, not blindly preserved.
 
 ## Current task for the next agent
 
 1. Read the original assignment first.
 2. Read all repository reasoning/transcript artifacts.
-3. Treat the insider-PM critique as new high-value evidence.
+3. Treat the external product critique as new high-value evidence.
 4. Re-evaluate the final product direction from first principles.
 5. Decide whether to KEEP, MODIFY or REJECT the retailer-overlay hypothesis.
 6. If pivoting upstream, make the new concept concrete enough to prototype and measure.
