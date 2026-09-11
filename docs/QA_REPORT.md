@@ -9,6 +9,7 @@ Version: 3.0.0. The original Claude review covered f482fb6 (Shortlist). This rep
 - All six pages were loaded in Chrome through a local responsive iframe harness at **360, 390, 768 and 1280 px actual content width**. All 24 checks recorded one H1 and document scroll width equal to viewport width. Tables have intentional internal horizontal scrolling.
 - Mobile menu exposes the brief audit, closes with Escape and reports `aria-expanded=false`.
 - Mobile journey: close a visit as no order; reopen and explicitly supply the purchase date; see the policy-conflict state; open support; retain retailer, visit date and reported purchase date in the draft. A typed `DEMO-<b>17</b>` reference was displayed literally as text. No claim was transmitted.
+- After the final navigation edit, the case and prototype were rechecked at all four widths with no page overflow. The production AI reader loaded the review response and its phrase search returned matches.
 - Native dialog dismissed with Escape on mobile and desktop. Desktop recovery summary matched the selected visit.
 - Pending ₹90 did not change confirmed balances or bank eligibility. Confirmed Flipkart cash changed cash from ₹180 to ₹270 and unlocked the example bank route. Confirmed Amazon Rewards changed Rewards from ₹80 to ₹170 while bank cash remained ₹180.
 - The reviewed-policy reminder scenario required explicit opt-in, produced the fixed example deadline of 13 September 2026 for a 14 August purchase, and blocked a duplicate preview. The preview sent no external message or push-permission request.
