@@ -1,6 +1,6 @@
-# CashKaro APM Case Study — Shopping Companion
+# CashKaro APM Case Study — Working Submission
 
-Interactive submission for **“Making CashKaro part of the shopping habit.”**
+Interactive product assignment for **“Making CashKaro part of the shopping habit.”**
 
 **Author:** Ujjawal Anand  
 **North star:** Tracked orders per existing user per quarter, on a fixed cohort.
@@ -11,91 +11,68 @@ If you are Astra / ChatGPT Work / another execution agent taking over this submi
 
 ### **[`HANDOFF_TO_ASTRA.md`](HANDOFF_TO_ASTRA.md)**
 
-That file points to the authoritative assignment transcript, complete compiled ChatGPT context, Qwen/DeepSeek source material, strategy documents, current prototype and the autonomous final-submission prompt.
+Then follow:
 
-The actual execution instructions are in:
-
+### **[`docs/HANDOFF_INDEX.md`](docs/HANDOFF_INDEX.md)**  
 ### **[`docs/ASTRA_MASTER_PROMPT.md`](docs/ASTRA_MASTER_PROMPT.md)**
 
-Do not begin by redesigning the site. Read the assignment and context first.
+Read the original assignment PDF first if it is attached to your session. The text extraction in this repo is for search/convenience; the PDF is authoritative.
+
+## Important: the product decision has been re-opened
+
+The previous lead hypothesis was an **Android retailer-app Shopping Companion** that surfaced CashKaro after a supported retailer app was already open.
+
+That direction is now **challenged, not locked**.
+
+An insider PM raised a first-order commercial problem: retailers pay CashKaro for traffic/influence. If CashKaro appears only after the shopper has already chosen and opened the retailer, the feature may recapture attribution rather than create retailer value.
+
+The latest strategy therefore asks:
+
+> **Where can CashKaro become useful while the user is still deciding what to buy or where to buy it — then route that decision through CashKaro?**
+
+The strongest new hypothesis to investigate is an **upstream Decision Companion / Savings Cart** across research/consideration surfaces, potentially starting with a narrow high-consideration category such as smartphones. This is inspired by the cross-surface principle behind Google Universal Cart, not a mandate to copy it.
+
+Read the full insider feedback here:
+
+### **[`docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md`](docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md)**
+
+## Source / AI context
+
+- [`docs/ORIGINAL_ASSIGNMENT_TEXT.md`](docs/ORIGINAL_ASSIGNMENT_TEXT.md) — searchable extraction of the original assignment
+- [`transcripts/CHATGPT_PRIMARY_CONTEXT.md`](transcripts/CHATGPT_PRIMARY_CONTEXT.md) — structured primary ChatGPT decision history including the latest insider-PM challenge
+- [`docs/AI_CONTEXT_HANDOFF.md`](docs/AI_CONTEXT_HANDOFF.md) — previous compiled reasoning
+- [`source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md`](source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md) — detailed earlier handoff
+- [`source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md`](source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md) — Qwen adversarial analysis / corrections
+- [`source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md`](source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md) — DeepSeek principal-PM review
+- [`source-material/README.md`](source-material/README.md) — source manifest / transcript caveats
+- [`transcripts/README.md`](transcripts/README.md) — AI transcript compliance index
+
+## Existing product artifacts
+
+These represent the previous retailer-overlay direction and should be treated as **drafts to audit**, not conclusions to preserve:
+
+- `docs/FINAL_SUBMISSION.md`
+- `docs/PRODUCT_STRATEGY_AND_BUILD_PLAN.md`
+- `docs/SUBMISSION_CONTENT_BLUEPRINT.md`
+- `docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md`
+- `docs/PRE_SUBMISSION_REVIEW.md`
+- `index.html`
+- `prototype.html`
+- `research.html`
+- `ai-transcript.html`
 
 ## Current live draft
 
 **Website:** https://cashkaro-ujjawal-anands-projects.vercel.app
 
-**Written case:** [`docs/FINAL_SUBMISSION.md`](docs/FINAL_SUBMISSION.md)  
-**Final QA:** [`docs/PRE_SUBMISSION_REVIEW.md`](docs/PRE_SUBMISSION_REVIEW.md)
+The current site is a working draft. It may be rewritten or replaced once the final product decision is revalidated.
 
-The site is a working draft, not a sacred implementation. The final agent may rewrite/rebuild it if doing so materially improves the submission.
+## Locked assignment principle
 
-## Source / AI context
+Whatever final product wins, it must ladder to:
 
-- [`source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md`](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md) — parsed authoritative brief
-- [`docs/AI_CONTEXT_HANDOFF.md`](docs/AI_CONTEXT_HANDOFF.md) — compiled primary ChatGPT reasoning and decision history
-- [`source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md`](source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md) — detailed pre-red-team handoff
-- [`source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md`](source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md) — Qwen adversarial analysis + later corrections
-- [`source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md`](source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md) — DeepSeek principal-PM review
-- [`source-material/README.md`](source-material/README.md) — source manifest / transcript caveat
-- [`transcripts/README.md`](transcripts/README.md) — AI-transcript compliance index
+> **Tracked orders per existing user per quarter, on a fixed cohort.**
 
-## Product decision
+The final submission must maintain roughly equal depth on **problem understanding** and **product decision**, make assumptions explicit, show real trade-offs, explain technical feasibility and GTM, and state what would make the team scale, modify or kill the direction.
 
-The case argues that the core opportunity is not simply “remind users more.” Existing users naturally begin shopping inside retailer apps, while CashKaro depends on them remembering to alter that journey before purchase.
-
-> **Do not predict when shopping might happen. Make CashKaro available when shopping context already exists.**
-
-The chosen product hypothesis is an **Android-first Shopping Companion**: retailer-aware, explicitly opt-in, explicitly activated per shopping session, and intentionally not product-aware in V1.
-
-> **Earn the right to be present once. Earn the right to participate every time.**
-
-## V1 boundaries
-
-### Ships conceptually
-- Android-first existing-user cohort
-- supported retailer context
-- non-blocking activation pill
-- explicit session activation
-- existing affiliate/deep-link attribution path
-- activation + later tracking proof
-- suppression / retailer controls
-- randomized-offer instrumentation
-
-### Does not ship
-- Accessibility-based screen reading
-- product/cart/search inspection
-- exact per-product cashback
-- price comparison
-- checkout detection
-- AI shopping agent
-- auto-activation
-
-## Measurement
-
-Randomize the **offer** of Shopping Companion, not only successful enablers. Analyze intention-to-treat.
-
-> **Primary experiment metric: incremental tracked orders per randomized existing user.**
-
-Mechanism metrics explain the result; they do not replace the north star.
-
-## Commercial and product kill gates
-
-1. Permission/setup adoption
-2. Retailer / affiliate partner approval and economics
-3. Causal tracked-order uplift
-4. Enough cohort-level reach after all multipliers
-
-A key distinction in the case is **CashKaro incrementality vs retailer incrementality**: more attributed orders for CashKaro do not automatically imply more economic value for the retailer.
-
-## Repository artifacts
-
-- `index.html` — case-study narrative
-- `prototype.html` — interactive Shopping Companion prototype
-- `research.html` — evidence + decision log
-- `ai-transcript.html` — AI work-log interface
-- `docs/FINAL_SUBMISSION.md` — final written submission
-- `docs/PRODUCT_STRATEGY_AND_BUILD_PLAN.md` — product/build plan
-- `docs/SUBMISSION_CONTENT_BLUEPRINT.md` — narrative blueprint
-- `docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md` — claim/evidence discipline
-- `docs/PRE_SUBMISSION_REVIEW.md` — final senior-PM QA checklist
-
-The submission is designed as an **interactive product decision artifact**, not a feature mockup dressed up as a case study.
+The submission is intended to be an **interactive product-decision artifact**, not a polished feature mockup with weak reasoning.
