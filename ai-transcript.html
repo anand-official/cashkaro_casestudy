@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Work Log — CashKaro APM</title><link rel="stylesheet" href="assets/styles.css"></head><body><nav class="nav"><div class="wrap navin"><a class="brand" href="/"><b>CashKaro</b> / AI Log</a><div class="navlinks"><a href="/">Case study</a><a href="prototype.html">Prototype</a><a href="research.html">Research</a><a class="btn primary cta" href="/">← Back to case</a></div></div></nav>
+<header class="pagehead"><div class="wrap"><div class="eyebrow"><i class="dot"></i> AI transcript evidence</div><h1>The work log, not a cleaned-up origin story.</h1><p>The assignment explicitly asks to show what was asked, challenged, rejected, and how the thinking changed. The available exported AI artifacts are preserved verbatim here.</p></div></header>
+<main class="wrap"><div class="notice"><b>Completeness note:</b> this page contains the AI artifacts currently available in the project files: the detailed ChatGPT handoff, Qwen adversarial output, and DeepSeek principal-PM review. Add any missing raw exports before final submission rather than fabricating them.</div><div class="transcriptLayout"><aside class="transcriptNav" id="tNav"></aside><section class="transcriptPane"><div class="transcriptTop"><strong id="tTitle">Loading…</strong><a id="rawLink" class="sourceLink" target="_blank">Open raw ↗</a></div><pre class="transcript" id="transcript">Loading…</pre></section></div></main>
+<script>
+const docs=[
+ {title:'01 · ChatGPT investigation handoff',file:'transcripts/01-chatgpt-handoff.txt'},
+ {title:'02 · Qwen adversarial output',file:'transcripts/02-qwen-adversarial-output.md'},
+ {title:'03 · DeepSeek principal-PM review',file:'transcripts/03-deepseek-principal-pm-review.md'}
+];let cur=0;const nav=document.getElementById('tNav'),pre=document.getElementById('transcript'),ttl=document.getElementById('tTitle'),raw=document.getElementById('rawLink');
+async function show(i){cur=i;nav.innerHTML=docs.map((d,j)=>`<button class="${i===j?'active':''}" onclick="show(${j})">${d.title}</button>`).join('');ttl.textContent=docs[i].title;raw.href=docs[i].file;pre.textContent='Loading…';try{pre.textContent=await (await fetch(docs[i].file)).text()}catch(e){pre.textContent='Could not load transcript.'}}show(0);
+</script></body></html>
