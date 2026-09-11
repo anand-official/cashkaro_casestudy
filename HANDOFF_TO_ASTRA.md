@@ -1,3 +1,5 @@
+> **Historical handoff / superseded strategy.** The final 11 Sep 2026 decision is CashKaro Shortlist, with the retailer overlay rejected as the lead. Read [docs/FINAL_SUBMISSION.md](docs/FINAL_SUBMISSION.md) and the current README. The original contents below are preserved as the decision history.
+
 # Start Here — Handoff to Astra / ChatGPT Work
 
 You are taking over the final execution of the CashKaro APM assignment. Do **not** begin by polishing the current website.

@@ -1,0 +1,168 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#263a91"><title>Prove the order. Then prove the value. · Ujjawal Anand / CashKaro APM</title><meta name="description" content="A fixed-cohort causal protocol, data ownership and realistic implementation gates."><meta property="og:title" content="Prove the order. Then prove the value."><meta property="og:description" content="A fixed-cohort causal protocol, data ownership and realistic implementation gates."><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="assets/styles.css"></head><body><a href="#main" class="skip-link">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="CashKaro case study home"><span class="brand-mark" aria-hidden="true">C<span>K</span></span><span>CashKaro <small>APM / Ujjawal Anand</small></span></a><button class="menu-button" aria-expanded="false" aria-controls="main-nav">Menu</button><nav id="main-nav" aria-label="Main navigation"><a href="index.html">The case</a><a href="prototype.html">Prototype</a><a href="research.html">Evidence</a><a href="ai-transcript.html">AI trail</a><a class="nav-audit" href="compliance.html">Brief audit <span aria-hidden="true">↗</span></a></nav></div></header><main id="main" class="page-shell"><section class="page-hero"><p class="eyebrow">Experiment & feasibility</p><h1>Prove the order. Then prove the value.</h1><p>A fixed-cohort causal protocol, data ownership and realistic implementation gates.</p></section><div class="reading-layout"><aside class="contents"><p>On this page</p><nav aria-label="Page contents"><a href="#protocol"><span>01</span>Test the availability of Shortlist, not the enthusiasm of its adopters.</a><a href="#retailer-test"><span>02</span>Retailer influence cannot be proved with affiliate tags alone.</a><a href="#reach-model"><span>03</span>A useful feature can still be too small.</a><a href="#architecture"><span>04</span>An auditable registry beats a confident guess.</a><a href="#events"><span>05</span>State names should tell the truth.</a><a href="#rollout"><span>06</span>Remove uncertainty in the order that could kill the idea.</a></nav></aside><article class="case-article"><section class="case-section" id="protocol">
+<p class="section-label">Experiment protocol / proposed</p>
+
+<h2>Test the availability of Shortlist, not the enthusiasm of its adopters.</h2>
+<p><strong>Population:</strong> freeze all eligible existing accounts at experiment start using an agreed existing-user definition. Exclude only predeclared operational restrictions such as test/fraud accounts; do not remove users for failing to open or save. Record coverage limitations. Define historical-category or declared-intent subgroups before exposure and keep the all-cohort result primary.</p>
+<p><strong>Unit:</strong> stable user/account ID across devices. Randomize 1:1, stratified by pre-period order frequency and platform when reliable. Treatment receives availability plus an owned-surface invitation. Control keeps the current experience, including current comparison features. No extra blanket reward subsidy or unequal CRM pressure.</p>
+<p><strong>Primary:</strong> sum of unique tracked orders placed in the experiment quarter divided by the fixed assigned users, treatment minus control. Count all categories. Use the company&#39;s authoritative order grain; where networks report item lines, normalize consistently and do not count one split shipment as multiple orders. Keep both arms&#39; tracking windows equal and allow the same reporting lag after quarter end.</p>
+<p><strong>Analysis:</strong> intention to treat. Report absolute order difference per user, confidence interval and percentage change only if the control baseline supports interpretation. Pre-register a two-sided 5% error rate and 80% power as proposed statistical choices, then calculate sample size from internal user-level variance and the economic minimum effect. Consider pre-period covariate adjustment if it is specified in advance. Do not invent a sample size without those inputs.</p>
+<p>For an approximate equal-arm planning calculation, users per arm ≈ 2 × (z(0.975) + z(0.8))² × user-level order variance ÷ minimum effect². Validate assumptions with the actual zero-inflated order distribution or resampling. This formula is a planning tool, not an achieved power claim.</p>
+<p><strong>Before launch:</strong> verify A/A assignment, deduplication, logging completeness, sample-ratio mismatch and cross-device assignment. Disable experiment-triggered discounts in both arms. Lock analysis and stop criteria before looking at the outcome.</p>
+<p><strong>Interpretation:</strong> a wide interval crossing meaningful benefit and harm is inconclusive. A null estimate after adequate power is not redeemed by save-rate growth. A positive category effect accompanied by negative all-category effect suggests substitution. Attrition remains in the denominator; consent withdrawals follow the predeclared lawful data policy, with sensitivity analysis if records must be removed.</p>
+</section>
+
+<section class="case-section" id="retailer-test">
+<p class="section-label">Separate commercial question</p>
+
+<h2>Retailer influence cannot be proved with affiliate tags alone.</h2>
+<p>Capture an optional intended merchant before comparison to understand possible switching. Changes are self-reported diagnostics and can be biased. They are not a counterfactual.</p>
+<p>For a partner willing to participate, design a randomized encouragement or availability test across a consented audience whose <strong>total retailer purchases across channels</strong> the retailer can observe. Compare total orders and retailer contribution, including affiliate costs, using a lawful measurement mechanism and pre-agreed matching/aggregation. Confirm balance, contamination and off-platform visibility. CashKaro&#39;s tracked-order events alone cannot run this test.</p>
+<p>If partner data or agreement is unavailable, report retailer incrementality as unresolved, limit investment and do not represent partnership acceptance as evidence of causal lift. Choice switching may be commercially valuable to a selected merchant without increasing total category demand; neither is interchangeable with CashKaro attribution growth.</p>
+</section>
+
+<section class="case-section" id="reach-model">
+<p class="section-label">Reach and economics</p>
+
+<h2>A useful feature can still be too small.</h2>
+<p>For a predeclared eligible subgroup, the no-spillover decomposition is <strong>overall Δ orders/user = eligible share × subgroup Δ orders/user</strong>. The subgroup effect must include non-adoption; multiplying by adoption again would double-count dilution. Where treatment spills into other categories or users, use the measured all-cohort ITT instead of this simplification.</p>
+<div class="calculator" id="reach-calculator"><p class="note">Planning calculator · starts blank · user-entered assumptions, not CashKaro data</p><label>Eligible share of fixed cohort (%)<input id="reach-share" type="number" min="0" max="100" step="any" inputmode="decimal" placeholder="Enter an assumption"></label><label>Incremental orders per eligible user / quarter<input id="reach-effect" type="number" step="any" inputmode="decimal" placeholder="Enter an assumption"></label><output id="reach-result" aria-live="polite">Enter both assumptions to calculate the all-cohort effect.</output></div>
+
+<p><strong>Economics:</strong> compare treatment and control net contribution, where net contribution equals collected commission less cashback/Rewards cost, reversals and incremental data/support/operating costs. Confirm with Finance whether a reported commission field is gross or already net; never subtract rewards twice. Keep one-time build cost separately in the investment decision. Use the merchant&#39;s margin and commission costs for its business case.</p>
+<p><strong>Minimum effect:</strong> Finance and Product set the smallest quarterly effect worth rollout at expected reachable population and fully loaded servicing cost. Require the pre-agreed uncertainty bound and healthy guardrails, not merely a positive point estimate. No numerical commercial hurdle is asserted without these inputs.</p>
+</section>
+
+<section class="case-section" id="architecture">
+<p class="section-label">Proposed architecture</p>
+
+<h2>An auditable registry beats a confident guess.</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Responsibility</th>
+<th>Source and missing dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Share receiver / paste UI</td>
+<td>Receive explicit text or URL; let user confirm model</td>
+<td>Android ACTION_SEND is documented; native integration must be built and tested</td>
+</tr>
+<tr>
+<td>Identity resolver</td>
+<td>Map allowlisted known source/model aliases; ask when ambiguous</td>
+<td>Manually verified model + variant IDs; no arbitrary video understanding</td>
+</tr>
+<tr>
+<td>Product registry</td>
+<td>Model, color/variant, attributes, source URL, checked_at</td>
+<td>Manufacturer/approved data; rights and update ownership reviewed</td>
+</tr>
+<tr>
+<td>Merchant offer registry</td>
+<td>Seller, price, shipping-known flag, eligibility, reward type, cap, timestamp</td>
+<td>Audit existing CashKaro services; negotiate feed rights where missing</td>
+</tr>
+<tr>
+<td>Eligibility service</td>
+<td>Revalidate current terms; distinguish excluded, stale and unknown</td>
+<td>Versioned partner rules, explicit domain/path mapping, owner and expiry</td>
+</tr>
+<tr>
+<td>Handoff service</td>
+<td>Generate approved click-out and preserve user/model/merchant identifiers</td>
+<td>Existing path only after partner validation; never promise cart preservation</td>
+</tr>
+<tr>
+<td>Attribution reconciliation</td>
+<td>Join signed network events to click IDs; idempotent state transitions</td>
+<td>Real network callbacks, deduplication rules and reversal handling</td>
+</tr>
+<tr>
+<td>Account shortlist</td>
+<td>User&#39;s saved sources/notes and deletion</td>
+<td>New persistence or audited existing service; demo is browser-local only</td>
+</tr>
+</tbody></table></div>
+<p><a href="https://developer.android.com/develop/ui/compose/sharing/receive">Android receiving documentation</a> supports user-initiated text sharing. A share target does not reveal browsing history or grant content scraping rights. Browser Web Share sends from a page; it does not install the native receiving capability shown in this proposal.</p>
+<p><strong>Price arithmetic:</strong> payable amount includes validated shipping/taxes and explicitly applicable discounts. Conditional benefit = minimum of eligible base × rate and cap, applying exclusions and reward type. An effective comparison may subtract a benefit only when the shopper accepts its type and conditions. Unknown shipping/stacking/eligibility makes an exact effective-price claim unavailable. The prototype reproduces sourced displayed estimates instead of claiming to compute the user&#39;s entitlement.</p>
+<p><strong>Update policy:</strong> the registry stores source, exact product variant, merchant, category rule version and checked-at timestamp. Recheck before redirect. Cache expiry follows each data source&#39;s agreement and volatility; do not invent a universal freshness interval. Disable only the affected offer when stale; keep the research item. A missing feed must not trigger silent substitution or scraped prices.</p>
+<p><strong>Budgets proposed for the engineering spike:</strong> p95 cached comparison under two seconds; recheck times out at five seconds with an honest retry. No LLM request occurs, so LLM cost/query is ₹0. Measure actual database, network, catalog labor, support and hosting cost per useful session. No RAG, tool-calling agent or vector database is justified for this small catalog.</p>
+<p><strong>Security:</strong> validate scheme and host, canonicalize URL, cap input lengths, strip tracking parameters from stored research links and render notes as text. If server-side retrieval is later added, block private/link-local targets, revalidate redirects and DNS, enforce response size/time limits and require approved content access. No background clipboard, Accessibility, Usage Access or overlay permission.</p>
+</section>
+
+<section class="case-section" id="events">
+<p class="section-label">Instrumentation contract</p>
+
+<h2>State names should tell the truth.</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
+<thead>
+<tr>
+<th>Event / state</th>
+<th>Minimum useful payload</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>experiment_assigned</td>
+<td>Pseudonymous user ID, arm, cohort_version, timestamp</td>
+<td>Source of the fixed denominator</td>
+</tr>
+<tr>
+<td>shortlist_invitation_seen</td>
+<td>Assignment, surface</td>
+<td>Exposure diagnostic</td>
+</tr>
+<tr>
+<td>capture_submitted / identity_confirmed</td>
+<td>Source domain, resolved model, ambiguity outcome</td>
+<td>User supplied context; no browsing surveillance</td>
+</tr>
+<tr>
+<td>item_saved / shortlist_returned</td>
+<td>Item ID, timestamp</td>
+<td>Research continuity diagnostic</td>
+</tr>
+<tr>
+<td>offer_comparison_viewed</td>
+<td>Offer IDs, registry versions</td>
+<td>What the user actually saw</td>
+</tr>
+<tr>
+<td>handoff_requested / clickout_recorded</td>
+<td>Click ID, model/variant, merchant, terms version</td>
+<td>User intent / successful redirect generation; no order claim</td>
+</tr>
+<tr>
+<td>order_tracked</td>
+<td>Network event ID, normalized order ID, click ID, event time</td>
+<td>Retailer/network reported a purchase</td>
+</tr>
+<tr>
+<td>order_confirmed / reversed</td>
+<td>Order ID, final amount, reason, event time</td>
+<td>Downstream quality and economics</td>
+</tr>
+<tr>
+<td>missing_cashback_requested</td>
+<td>Order reference submitted with consent, eligible time window</td>
+<td>Support state; not proof of a purchase CashKaro can already see</td>
+</tr>
+</tbody></table></div>
+<p>The public demo records none of these to a server. Its “simulate tracking update” control demonstrates a state machine, not a real order or cashback award.</p>
+</section>
+
+<section class="case-section" id="rollout">
+<p class="section-label">Rollout gates and owners</p>
+
+<h2>Remove uncertainty in the order that could kill the idea.</h2>
+<ol>
+<li><strong>Partnerships + Engineering:</strong> confirm two usable merchant paths, category rules, data rights and attribution behavior. Stop if unavailable; do not build a universal feed first.</li>
+<li><strong>Product Research + Catalog:</strong> conduct the initial eight task sessions and manually verify up to 20 models. Fix comprehension and identity errors before acquiring traffic.</li>
+<li><strong>Analytics:</strong> run A/A checks, baseline power and a full-quarter randomized plan. An operational beta sized to review capacity cannot substitute for the causal test.</li>
+<li><strong>Product + Support:</strong> monitor wrong-model/offer incidents, abandonment, opt-outs, missing-cashback reports and update latency. Severe privacy issues or systematic financial misinformation pause immediately.</li>
+<li><strong>Finance + Partnerships:</strong> evaluate all-cohort effect, incremental contribution and retailer evidence. Scale only when the complete case holds; expand categories one at a time.</li>
+</ol>
+<p>No launch date, staffing commitment, partner deal, adoption rate or uplift is asserted. These are proposed responsibilities and gates for CashKaro&#39;s team.</p>
+</section>
+</article></div></main><footer class="site-footer"><div><a class="brand" href="index.html">CashKaro Shortlist</a><p>Ujjawal Anand · APM product assignment · September 2026</p><p class="note">Independent assignment concept. Not an official CashKaro product. Reference prices are snapshots, not live offers.</p></div><div class="footer-links"><a href="experiment.html">Experiment & feasibility</a><a href="compliance.html">Assignment audit</a><a href="source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md">Assignment text</a><a href="https://github.com/anand-official/cashkaro_casestudy" target="_blank" rel="noopener noreferrer">GitHub ↗</a><button class="text-button print-button">Print this page</button></div></footer><script src="assets/site.js" defer></script></body></html>

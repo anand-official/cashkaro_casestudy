@@ -1,11 +1,286 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CashKaro Shopping Companion — APM Case</title><meta name="description" content="A product case study on making CashKaro available inside existing shopping behavior."><link rel="stylesheet" href="assets/styles.css"></head><body>
-<nav class="nav"><div class="wrap navin"><a class="brand" href="/"><b>CashKaro</b> / APM Case</a><div class="navlinks"><a href="#thinking">Thinking</a><a href="#solution">Solution</a><a href="#measure">Measure</a><a href="research.html">Research</a><a href="ai-transcript.html">AI log</a><a class="btn primary cta" href="prototype.html">Try prototype →</a></div></div></nav>
-<main>
-<section class="hero"><div class="wrap"><div class="eyebrow"><i class="dot"></i> Product decision · Existing-user habit</div><h1>CashKaro shouldn't need to be <em>remembered.</em></h1><p>Existing users naturally start shopping inside retailer apps. Instead of predicting when they might shop—or asking them to restart their journey—we make CashKaro available when shopping context already exists.</p><div class="heroActions"><a class="btn orange" href="prototype.html">Experience the prototype</a><a class="btn" href="#thinking">See how the decision evolved ↓</a></div><div class="metric"><div><small>Assignment north star</small><strong>Tracked orders per existing user per quarter</strong></div><span class="tag">Fixed cohort · no acquisition lift</span></div></div></section>
-<section class="section" id="thinking"><div class="wrap"><div class="kicker">01 · Start with the behavior</div><h2>The leak looks like forgetfulness. The deeper issue is journey position.</h2><p class="lede">The user's destination is the retailer, not the affiliate layer. CashKaro currently asks the user to remember an extra step before a habit that already exists.</p><div class="grid2"><div class="card bad"><h3>Today</h3><p>User wants a product → opens retailer → browses → checks native offers → pays. CashKaro is outside the active journey and must be recalled.</p><div class="miniFlow"><span class="pill">Need</span><span class="pill">Retailer</span><span class="pill">Browse</span><span class="pill">Pay</span></div></div><div class="card good"><h3>Opportunity</h3><p>Let the user keep the retailer habit. Attach CashKaro's value to that context, with explicit activation and minimal disruption.</p><div class="miniFlow"><span class="pill">Retailer</span><span class="pill">CashKaro appears</span><span class="pill">Activate</span><span class="pill">Continue</span></div></div></div></div></section>
-<section class="section"><div class="wrap"><div class="kicker">02 · We challenged the obvious answer</div><h2>“Send a reminder” fails when the underlying signal is incomplete.</h2><p class="lede">CashKaro observes routed purchases, not the direct purchases it is trying to recover. A heavy leaker can therefore look like an infrequent shopper.</p><div class="compare"><div class="card"><h3>Predict → remind</h3><p>Historical routed orders → infer timing → send push → hope shopping intent exists.</p><div class="miniFlow"><span class="pill">Incomplete history</span><span class="pill">Prediction</span><span class="pill">Interruption</span></div></div><div class="card"><h3>Observe context → activate</h3><p>Supported retailer is already open → surface value → user activates CashKaro → shopping continues.</p><div class="miniFlow"><span class="pill">Observed context</span><span class="pill">Value</span><span class="pill">Explicit activation</span></div></div></div><div class="quote">Don't predict the shopping moment if you can <span>observe that shopping has already started.</span></div></div></section>
-<section class="section"><div class="wrap"><div class="kicker">03 · The extension insight</div><h2>The browser extension solves the right behavioral problem on the wrong surface.</h2><p class="lede">Its strength is not the popup. It is that CashKaro becomes available after shopping begins. In a mobile/app-heavy journey, the analogous intervention belongs on Android.</p><div class="decision"><div><h3>Product thesis</h3><p>CashKaro does not need to become the place where shopping starts. It can become the savings layer around destinations users already choose.</p></div><ul><li>Android-first</li><li>Retailer-aware, not product-aware</li><li>Explicit activation every session</li><li>No screen reading / Accessibility</li><li>No AI required for V1</li></ul></div></div></section>
-<section class="section" id="solution"><div class="wrap"><div class="kicker">04 · CashKaro Shopping Companion</div><h2>Earn the right to be present once. Earn the right to participate in every purchase.</h2><p class="lede">The experience is deliberately lightweight: prove value, earn permission, surface only when useful, activate explicitly, then close the trust loop with tracking proof.</p><div class="flow"><div class="step"><span class="n">01</span><strong>Value delivered</strong><small>Cashback tracks successfully</small></div><div class="step"><span class="n">02</span><strong>Permission earned</strong><small>Enable Shopping Companion</small></div><div class="step"><span class="n">03</span><strong>Shopping context</strong><small>Supported retailer opens</small></div><div class="step"><span class="n">04</span><strong>Activate</strong><small>One explicit tap</small></div><div class="step"><span class="n">05</span><strong>Trust closes</strong><small>Activation + tracking proof</small></div></div><div class="protoTeaser"><div><h3>See the product, not just the slide.</h3><p>A clickable phone simulation shows the permission moment, contextual pill, activation sheet, and the tracking confirmation that reinforces trust.</p><a class="btn orange" href="prototype.html">Launch interactive prototype →</a></div><div class="mockphone"><div class="phoneTop"></div><div class="retailHead"><span>Myntra</span><span>♡</span></div><div class="productGhost"></div><b>Everyday cotton overshirt</b><p style="font-size:12px;color:#777">₹2,999 · Free delivery</p><div class="ckpill"><span><b>CashKaro</b><br>Up to 6% cashback</span><span style="background:#f26a21;color:white;border-radius:999px;padding:7px 9px;font-weight:800">Activate</span></div></div></div></div></section>
-<section class="section" id="measure"><div class="wrap"><div class="kicker">05 · Prove business impact, not engagement</div><h2>Randomize the offer. Measure the cohort.</h2><p class="lede">Comparing people who voluntarily enable the feature against those who don't would select for cashback enthusiasts. The causal test is an intention-to-treat experiment.</p><div class="grid2"><div class="card"><h3>Control</h3><p>Normal CashKaro experience. No Shopping Companion setup offer.</p></div><div class="card"><h3>Treatment</h3><p>Eligible existing users are offered Companion setup. Refusal, abandonment and non-use remain part of treatment impact.</p></div></div><div class="table"><div class="row"><div>Metric</div><div>Role</div><div>Why it matters</div></div><div class="row"><div><strong>Tracked orders / randomized user</strong></div><div><span class="tag2 fact">Primary</span></div><div>Directly ladders to the assignment north star.</div></div><div class="row"><div>Permission → exposure → activation → tracked order</div><div><span class="tag2 inf">Mechanism</span></div><div>Explains where the product succeeds or breaks.</div></div><div class="row"><div>Uninstall, disable, complaints, tracking failures</div><div><span class="tag2 ass">Guardrail</span></div><div>Prevents us from “winning” by spending user trust.</div></div></div></div></section>
-<section class="section"><div class="wrap"><div class="kicker">06 · What could kill it</div><h2>A good prototype is not evidence that the product should ship.</h2><div class="gates"><div class="gate"><span class="num">GATE 01</span><h4>Permission adoption</h4><p>Do enough existing users complete the Android setup for cohort-level impact?</p></div><div class="gate"><span class="num">GATE 02</span><h4>Partner approval</h4><p>Do retailer / affiliate agreements allow this post-entry activation mechanism?</p></div><div class="gate"><span class="num">GATE 03</span><h4>Causal uplift</h4><p>Does the randomized cohort generate incremental tracked orders?</p></div><div class="gate"><span class="num">GATE 04</span><h4>Economics & reach</h4><p>After all multipliers, is the effect material and commercially sustainable?</p></div></div><div class="quote" style="font-size:44px">The hardest question: <span>did we create value—or only recapture attribution?</span></div><div class="heroActions"><a class="btn primary" href="research.html">Open research & decision log</a><a class="btn" href="ai-transcript.html">Read full AI work log</a><a class="btn" href="docs/original-assignment.pdf" target="_blank">Original assignment ↗</a></div></div></section>
-</main><footer class="footer"><div class="wrap footerIn"><div>CashKaro APM product case · Ujjawal Anand</div><div>Built as an interactive decision artifact, not a static feature pitch.</div></div></footer><script src="assets/site.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#263a91"><title>Earn a place in the decision. · Ujjawal Anand / CashKaro APM</title><meta name="description" content="A product decision for making CashKaro useful before the retailer is chosen."><meta property="og:title" content="Earn a place in the decision."><meta property="og:description" content="A product decision for making CashKaro useful before the retailer is chosen."><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="assets/styles.css"></head><body><a href="#main" class="skip-link">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="CashKaro case study home"><span class="brand-mark" aria-hidden="true">C<span>K</span></span><span>CashKaro <small>APM / Ujjawal Anand</small></span></a><button class="menu-button" aria-expanded="false" aria-controls="main-nav">Menu</button><nav id="main-nav" aria-label="Main navigation"><a href="index.html" aria-current="page">The case</a><a href="prototype.html">Prototype</a><a href="research.html">Evidence</a><a href="ai-transcript.html">AI trail</a><a class="nav-audit" href="compliance.html">Brief audit <span aria-hidden="true">↗</span></a></nav></div></header><main id="main" class="page-shell"><section class="hero"><div class="hero-copy"><p class="eyebrow">Product strategy · Existing-user habit</p><h1>Earn a place<br>in the <em>decision.</em></h1><p class="hero-lede">A research shortlist that helps a shopper choose—before a retailer has already won.</p><div class="hero-actions"><a href="prototype.html" class="button primary">Try Shortlist <span aria-hidden="true">↗</span></a><a href="#problem" class="text-link">Read the product decision ↓</a></div><p class="byline">Ujjawal Anand <span>September 2026</span></p></div><aside class="decision-card"><p class="eyebrow">The decision in 30 seconds</p><h2>Move upstream.<br> Start narrow.</h2><dl><div><dt>Reject</dt><dd>Retailer-app interception as the lead</dd></div><div><dt>Build</dt><dd>A persistent research shortlist</dd></div><div><dt>First test</dt><dd>Existing users choosing headphones</dd></div><div><dt>Prove</dt><dd>More tracked orders across the fixed cohort</dd></div></dl><a href="#decision">Why this wins the first experiment <span aria-hidden="true">↘</span></a></aside></section><div class="north-star"><span>The brief's north star</span><strong>Tracked orders / existing user / quarter</strong><span>Fixed cohort</span></div><div class="part-labels"><a href="#problem"><span>01—06</span> Understand the problem</a><a href="#experience"><span>07—12</span> Make the product decision</a></div><div class="reading-layout"><aside class="contents"><p>On this page</p><nav aria-label="Page contents"><a href="#problem"><span>01</span>The problem</a><a href="#evidence"><span>02</span>What the evidence says</a><a href="#blind-spot"><span>03</span>The missing denominator</a><a href="#segment"><span>04</span>The first segment</a><a href="#alternatives"><span>05</span>Alternatives</a><a href="#decision"><span>06</span>The decision</a><a href="#experience"><span>07</span>The experience</a><a href="#scope"><span>08</span>MVP scope</a><a href="#feasibility"><span>09</span>Feasibility</a><a href="#measurement"><span>10</span>Measurement</a><a href="#launch"><span>11</span>Launch</a><a href="#gates"><span>12</span>Scale or stop</a></nav></aside><article class="case-article"><section class="case-section" id="problem" data-part="problem">
+<p class="section-label">01 / The problem</p>
+
+<h2>An eligible purchase is an opportunity. It is not automatically a commission CashKaro has earned.</h2>
+<p>The brief asks us to increase <strong>tracked orders per existing user per quarter, on a fixed cohort</strong>. It establishes that existing users bypass CashKaro; it deliberately leaves the cause open. It does not establish how much leakage exists, which segment contains it, or whether every recoverable attribution is commercially sustainable. <a href="source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md">Brief, pp. 1–3</a></p>
+<p>My working diagnosis: <strong>for an existing user making a considered purchase, CashKaro may arrive after both the product and retailer have been chosen.</strong> At that point, cashback competes with the effort of restarting and uncertainty about getting paid. The better opening is a decision still in progress.</p>
+<div class="thesis-box"><span>Job to be done · hypothesis</span><p>“Help me keep my research together and choose where to buy, with the price, reward and conditions clear.”</p></div>
+
+<p>This is a deliberately narrow problem: online headphone shoppers who have used CashKaro before and have not settled on a merchant. It does not explain every bypassed order. Checkout urgency, poor tracking and low rewards can each require a different intervention.</p>
+</section>
+
+<section class="case-section" id="evidence" data-part="problem">
+<p class="section-label">02 / Evidence that changed the diagnosis</p>
+
+<h2>Forgetting can be a rational response to weak value.</h2>
+<p>The inherited research describes <strong>one respondent</strong>, through an AI working summary, who stayed in the retailer journey, prioritized native/card offers, discounted small rewards and distrusted tracking. The raw interview is unavailable. These are mechanisms to investigate, not prevalence findings or independently verified quotes. <a href="research.html#qualitative">Evidence record</a></p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
+<thead>
+<tr>
+<th>Possible cause</th>
+<th>What it changes</th>
+<th>What would discriminate it</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Low mental availability</td>
+<td>CashKaro needs a useful entry before checkout</td>
+<td>Observe an unprompted research-to-purchase journey</td>
+</tr>
+<tr>
+<td>Effort exceeds reward</td>
+<td>A faster shortcut may still be insufficient</td>
+<td>Compare decisions with and without useful product context</td>
+</tr>
+<tr>
+<td>Tracking distrust</td>
+<td>Showing a larger reward is not the fix</td>
+<td>Audit failures and interview users with missing cashback</td>
+</tr>
+<tr>
+<td>Unclear eligibility</td>
+<td>A headline rate can mislead</td>
+<td>Ask users to identify the exact reward and exclusions</td>
+</tr>
+</tbody></table></div>
+<p>Public inspection strengthens the <strong>value/eligibility</strong> hypothesis. CashKaro&#39;s Amazon terms currently list no Rewards for mobile phones. Flipkart&#39;s audio offer has a ₹130 cap. Croma&#39;s active store state says cashback is unavailable, despite a promotional page title. Category rules and current state matter more than headline percentages. <a href="research.html#commercial">Source notes and dates</a></p>
+<p><strong>What this does not prove:</strong> that customers want a shortlist, that headphones are a frequent purchase, or that the proposed entry will be remembered. Those remain the central tests.</p>
+</section>
+
+<section class="case-section" id="blind-spot" data-part="problem">
+<p class="section-label">03 / The analytical constraint</p>
+
+<h2>The missing purchases are also the missing denominator.</h2>
+<p>CashKaro&#39;s help page documents click-outs and tracked orders. Those records do not, by themselves, reveal every eligible purchase made directly with a retailer. A sparse CashKaro history could mean low shopping activity or heavy bypassing. Exact internal visibility requires a data audit. <a href="https://cashkaro.com/how-it-works">CashKaro help</a></p>
+<div class="denominator"><div><span>Observed</span><strong>CashKaro click-outs<br>and tracked orders</strong></div><div><span>Not established by these records</span><strong>All eligible direct<br>retailer purchases</strong></div></div>
+
+<p>This is why I deprioritize prediction from purchase cadence. A good prediction can target someone who would already have routed through CashKaro. <strong>Prediction accuracy does not establish incremental opportunity.</strong> Nor does the data gap prove reminders cannot work.</p>
+<p>Before a pilot, audit existing-account counts, baseline order mean and variance, category coverage, missing-cashback tickets, reversals and the actual product-data services. Recruit research participants across frequent, sparse and lapsed usage; do not recruit only enthusiastic clickers. A consented purchase diary can reveal mechanisms, with recall and selection bias stated.</p>
+</section>
+
+<section class="case-section" id="segment" data-part="problem">
+<p class="section-label">04 / Where to start</p>
+
+<h2>Test headphones. Do not assume a phone-sized basket means phone-sized cashback.</h2>
+<p>The insider feedback suggested smartphone research as an entry point. I retain the <strong>consideration-stage insight</strong>, but change the first category. Amazon&#39;s mobile exclusion and Flipkart&#39;s model-specific mobile rules weaken a broad phone promise. Non-Apple headphones offer identifiable models, manufacturer specifications and publicly visible merchant comparisons. Research intensity and repeat use in CashKaro&#39;s cohort are still hypotheses.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Existing users researching non-Apple headphones, merchant undecided</td>
+<td>First learning wedge; a limited model set makes manual verification possible</td>
+</tr>
+<tr>
+<td>Users making routine low-consideration purchases</td>
+<td>Defer: a research step may add effort without value</td>
+</tr>
+<tr>
+<td>Users with a current tracking dispute</td>
+<td>Prioritize service recovery; do not treat a new feature as a trust repair</td>
+</tr>
+<tr>
+<td>Smartphone shoppers</td>
+<td>Defer until model eligibility and reward economics support the promise</td>
+</tr>
+<tr>
+<td>New users</td>
+<td>Outside the assignment&#39;s primary cohort</td>
+</tr>
+</tbody></table></div>
+<p><strong>The strongest counterargument is frequency.</strong> Headphones are occasional purchases. This pilot tests whether useful consideration can recover orders; it does not establish a quarterly shopping habit. A high save rate with negligible all-cohort order lift is failure. Expansion to another category needs its own eligibility, data-quality and frequency evidence.</p>
+</section>
+
+<section class="case-section" id="alternatives" data-part="problem">
+<p class="section-label">05 / Choose between mechanisms</p>
+
+<h2>The overlay solves presence. It does not resolve why the merchant should pay.</h2>
+<p>The earlier concept detected a retailer app and offered cashback activation. Insider PM feedback exposed the commercial weakness: the retailer may already have won the shopper. This is stakeholder input, not a contract or proof that every late referral is valueless. Combined with sensitive permissions and context-preservation risks, it changes my priority. <a href="research.html#decisions">Decision history</a></p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
+<thead>
+<tr>
+<th>Direction</th>
+<th>Strongest reason to build</th>
+<th>Decisive limitation</th>
+<th>Call</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Home-screen shortcut</td>
+<td>Low effort; removes a known navigation step</td>
+<td>Still relies on recall; little new decision value</td>
+<td>Defer</td>
+</tr>
+<tr>
+<td>Desktop extension</td>
+<td>Contextual entry without an extra save action</td>
+<td>Installation and browser-only reach; retailer-stage attribution risk remains</td>
+<td>Defer</td>
+</tr>
+<tr>
+<td>Contextual push</td>
+<td>Existing distribution; inexpensive experiment</td>
+<td>Click-out history is incomplete intent; fatigue and selection risk</td>
+<td>Defer predictive push</td>
+</tr>
+<tr>
+<td>Late share/deep-link</td>
+<td>User initiates; product identity may survive</td>
+<td>Merchant/cart context may not survive; eligibility can fail</td>
+<td>Use capture upstream</td>
+</tr>
+<tr>
+<td>Broad shopping agent</td>
+<td>Could improve product discovery</td>
+<td>New habit plus catalog, rights, cost and accuracy burden</td>
+<td>Reject for V1</td>
+</tr>
+<tr>
+<td>Android retailer overlay</td>
+<td>Appears in an existing shopping context</td>
+<td>Partner value uncertain; Usage Access/overlay adoption adds risk</td>
+<td>Reject as lead</td>
+</tr>
+<tr>
+<td>Upstream shortlist</td>
+<td>Research continuity plus an explicit merchant decision</td>
+<td>Still requires entry, accurate data and enough purchase frequency</td>
+<td>Choose a capped pilot</td>
+</tr>
+</tbody></table></div>
+<p><strong>Relative delivery effort is a judgment, not a time estimate:</strong> a shortcut or basic owned-surface message is lowest; an extension or explicit share capture adds platform and mapping work; Shortlist adds persistent identity, catalog operations and an eligibility gate. The overlay adds sensitive permission and attribution risk; the broad agent adds the largest data and evaluation burden. I accept Shortlist’s extra effort only for a capped test of earlier decision value.</p>
+<p>A desktop extension is not dismissed as “irrelevant in India.” Statcounter reports <strong>34.97% desktop and 64.45% mobile web usage in August 2026</strong>. A rough web-shopping proxy would put desktop around one-third <strong>only if</strong> shopping follows that mix; app purchases are missing, so the actual order share is unknown. This is insufficient to forecast reach. Obtain CashKaro&#39;s device split before reconsidering an extension. <a href="research.html#reach">Proxy and limitation</a></p>
+</section>
+
+<section class="case-section" id="decision" data-part="problem">
+<p class="section-label">06 / The product decision</p>
+
+<h2>Earn a place in the decision. Keep it until the shopper is ready.</h2>
+<p><strong>Build CashKaro Shortlist</strong>, an extension of CashKaro&#39;s existing comparison capability: capture a research link, confirm the model, save the reason it is under consideration, compare a few material attributes and merchant terms, then explicitly shop through CashKaro.</p>
+<p>CashKaro already advertises comparison and exposes headphone product pages. The proposed difference is <strong>continuity across research sessions and an honest decision record</strong>, not “inventing price comparison.” Account-level saved-list capabilities were not inspected; if equivalent functionality already exists, test its research entry and clarity before duplicating it. <a href="research.html#existing">Existing product audit</a></p>
+<p>Google&#39;s May 19, 2026 Universal Cart announcement supports the persistent-consideration analogy. Its Cart API distinguishes basket building from checkout and initially supports one-way creation/transfer. CashKaro does not inherit Google&#39;s Shopping Graph, distribution, merchant integrations or checkout rights. <strong>Shortlist is not a merchant cart and never populates one.</strong> <a href="research.html#google">Google research</a></p>
+<p>The value exchange is conditional: the user gets a clearer choice; CashKaro gets an opportunity to earn a routed order; the selected merchant may receive a shopper it would otherwise lose. Moving earlier improves that hypothesis. It does not prove retailer incrementality.</p>
+</section>
+
+<section class="case-section" id="experience" data-part="solution">
+<p class="section-label">07 / The experience</p>
+
+<h2>Save the question, then resolve the purchase.</h2>
+<ol class="journey"><li><span>01</span><div><strong>Capture during research</strong><p>Share a public link into the proposed Android receiver, or paste it into Shortlist. Confirm the model; ambiguous links ask for a choice.</p></div></li><li><span>02</span><div><strong>Keep the decision context</strong><p>Save the source and a personal note. Compare weight, ANC-on battery life and price, with sources beside the claims.</p></div></li><li><span>03</span><div><strong>Choose a merchant deliberately</strong><p>See pay-now price, cash cashback or restricted Rewards, caps, freshness and exclusions separately. A no-cashback option stays visible.</p></div></li><li><span>04</span><div><strong>Handoff, then reconcile</strong><p>Check eligibility before leaving. A click-out is recorded; a purchase is only tracked when a retailer/network event arrives.</p></div></li></ol>
+
+<p>The interactive prototype covers capture, model switching, saving/removing, decision notes, comparison, merchant terms, stale/unavailable states, handoff and delayed or rejected tracking. It uses published price snapshots; no affiliate transaction is created. The browser demo does not install an Android share target.</p>
+<p><a class="button primary" href="prototype.html">Open the interactive Shortlist <span aria-hidden="true">↗</span></a></p>
+<p><strong>The critical UX distinction:</strong> a ₹60 Amazon Reward is not ₹60 off at checkout or cash in a bank account. The default comparison sorts by pay-now price; reward value is an explicit user preference. Unknown bank-offer stacking, delivery and seller terms are never silently deducted.</p>
+</section>
+
+<section class="case-section" id="scope" data-part="solution">
+<p class="section-label">08 / What actually ships</p>
+
+<h2>A bounded utility before an agent platform.</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
+<thead>
+<tr>
+<th>First pilot</th>
+<th>Later, only after evidence</th>
+<th>Outside V1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Up to 20 manually verified non-Apple headphone models; two approved merchant paths</td>
+<td>Additional categories with demonstrated demand and viable terms</td>
+<td>Universal checkout or retailer cart synchronization</td>
+</tr>
+<tr>
+<td>Native share receiver plus paste/search fallback; account-based shortlist in the proposed product</td>
+<td>Publisher/creator placement with explicit agreement</td>
+<td>Screen reading, overlays, background clipboard access</td>
+</tr>
+<tr>
+<td>Source links, a note, structured attributes and transparent merchant comparison</td>
+<td>Opt-in alerts triggered by a verified change to a saved item</td>
+<td>Unverified Reddit summaries or arbitrary video transcription</td>
+</tr>
+<tr>
+<td>Eligibility recheck, click-out receipt and existing missing-cashback entry</td>
+<td>Automated feeds with rights, freshness and mapping guarantees</td>
+<td>LLM-led prices, reward calculations or merchant ranking</td>
+</tr>
+</tbody></table></div>
+<p>Twenty models and two merchant paths are <strong>scope caps I propose</strong>, not an assertion of feed access or partner approval. Android is a practical first native integration because an explicit text/link receiver is documented. A responsive web fallback serves other devices; iOS native sharing is deferred.</p>
+<p>The prototype stores its shortlist only in this browser. The production proposal needs authenticated account persistence, deletion controls and a reviewed retention policy. No third-party analytics or user input is sent by this demo.</p>
+</section>
+
+<section class="case-section" id="feasibility" data-part="solution">
+<p class="section-label">09 / Feasibility and data ownership</p>
+
+<h2>Every attractive output needs a source of truth.</h2>
+<div class="architecture"><div><small>Input</small><strong>Explicit share / paste</strong><p>Confirm product identity</p></div><div><small>Decision data</small><strong>Catalog + offer registry</strong><p>Source, model, variant, timestamp</p></div><div><small>Attribution</small><strong>Approved click-out</strong><p>Recheck → redirect → reconcile</p></div></div>
+
+<p>Start by auditing CashKaro&#39;s actual comparison and affiliate services. Reuse verified capabilities where available. Public pages establish a visible feature, not an internal API contract. A catalog operator can seed a limited registry from permitted manufacturer data; Partnerships must confirm rights for merchant prices and affiliate paths. If this cannot be kept current within pilot capacity, reduce scope or stop.</p>
+<p>The resolver accepts explicit shared text/URLs. It never assumes a YouTube link contains the product, a transcript or private browsing context. Unsupported inputs fall back to model selection. Production URL processing needs a domain allowlist, redirect revalidation, private-network blocking and size/time limits. Arbitrary URLs must not become a server-side fetch proxy.</p>
+<p><strong>No agent or RAG is required in V1.</strong> Structured lookups, deterministic arithmetic and editorial attribute notes suffice. LLM cost per query is therefore <strong>₹0</strong>; hosting, data verification and support are not free. Proposed engineering targets are cached comparison p95 under two seconds and a five-second recheck timeout; these are acceptance budgets, not measured performance. Unknown data fails closed. <a href="experiment.html#architecture">Architecture and event contract</a></p>
+</section>
+
+<section class="case-section" id="measurement" data-part="solution">
+<p class="section-label">10 / Causal measurement</p>
+
+<h2>The denominator includes everyone who never uses Shortlist.</h2>
+<p>Freeze the existing-account cohort before randomization. Assign users to the current experience or availability plus an invitation to Shortlist; keep unrelated promotions the same. Analyze <strong>intention to treat</strong>, including non-openers, non-savers and permission refusals. Predefine any research-intent subgroup before exposure. Do not select the experiment population after people save a product.</p>
+<div class="metric-panel"><span>Primary outcome · full quarter</span><strong>All tracked orders ÷ fixed existing users</strong><p>Incremental effect = treatment mean − control mean</p></div>
+
+<p>Count all supported categories, not only Shortlist orders, to catch cannibalization. Deduplicate at the agreed order grain; count purchases in the quarter and allow equal tracking maturation for both arms. Report cancellations/confirmation and net contribution alongside the tracked-order result. A short usability beta cannot claim quarterly success.</p>
+<p>Power the test from the cohort&#39;s real order variance, economic minimum effect and expected reachable population. Pre-register duration, missing-data handling, significance/power choices and stop rules. Without those inputs, no honest sample size or expected uplift can be supplied. Use an A/A instrumentation check before treatment.</p>
+<p>Mechanism metrics—capture, return to shortlist, comparison, click-out, tracking—locate bottlenecks. Retailer-choice changes are <strong>diagnostics</strong>. Only a consented, partner-run randomized comparison of total retailer outcomes across channels can establish retailer lift; CashKaro&#39;s own attribution logs cannot. <a href="experiment.html#protocol">Full experiment protocol</a></p>
+</section>
+
+<section class="case-section" id="launch" data-part="solution">
+<p class="section-label">11 / Launch and distribution</p>
+
+<h2>Solve the first entry before spending on acquisition.</h2>
+<p><strong>First validate the job.</strong> Observe existing users with real upcoming headphone purchases across frequent, sparse and lapsed CashKaro usage. Test whether they can capture, return and make a better-informed choice without coaching. An initial eight-session round is a proposed discovery plan, not completed research or a prevalence study.</p>
+<p><strong>Then launch through owned surfaces.</strong> Place a context-relevant invitation on the existing headphone comparison/category surface for randomized treatment users. Show how to save the next review during that first session. Keep Shortlist visible on their next CashKaro visit. This deliberately trades broad reach for an observable first entry; users who never return remain an unresolved reach problem.</p>
+<p><strong>Only then test external distribution.</strong> A willing review publisher or creator could place a disclosed “save to compare” link near a review. That requires negotiated placement, content rights and economics; YouTube and 91mobiles are not claimed partners. Any newly acquired accounts stay outside the fixed-cohort result.</p>
+<p>The return loop is saved research → easier decision → explicit merchant choice → tracking clarity → reason to use Shortlist next time. There are no generic reminders in V1. If value does not earn return visits, reactivation messages will not make the underlying job valuable.</p>
+</section>
+
+<section class="case-section" id="gates" data-part="solution">
+<p class="section-label">12 / Investment decision</p>
+
+<h2>Scale only if the small experiment survives the large denominator.</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Scale condition</th>
+<th>Change or stop condition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Coverage and accuracy</td>
+<td>Approved merchant paths; reliable model, price and eligibility records</td>
+<td>Stop reward claims on stale/conflicting data; halt pilot if verification cannot be sustained</td>
+</tr>
+<tr>
+<td>Causal impact</td>
+<td>Full-quarter ITT effect exceeds the pre-agreed economic minimum with the planned uncertainty bound</td>
+<td>If underpowered, conclude inconclusive; if adequately powered and immaterial, stop expansion</td>
+</tr>
+<tr>
+<td>Customer trust</td>
+<td>No material harm to abandonment, complaints, tracking reliability or opt-outs</td>
+<td>Fix a specific, evidenced bottleneck; severe privacy or systematic wrong-value incidents pause immediately</td>
+</tr>
+<tr>
+<td>Commercial value</td>
+<td>Positive incremental net contribution and partner acceptance, with retailer evidence appropriate to scale</td>
+<td>Reject growth that buys more attribution at unacceptable partner or servicing cost</td>
+</tr>
+</tbody></table></div>
+<p><strong>Reach sanity check:</strong> overall incremental orders per user = eligible share × incremental orders per eligible user, when spillovers are absent. Both inputs are unknown. A category success diluted to an immaterial cohort result does not pass the brief. <a href="experiment.html#reach-model">Sensitivity and economics</a></p>
+<p>CashKaro contribution is collected commission minus rewards/cashback paid, reversals, incremental data and support costs, and operating cost. Evaluate the treatment-control change to avoid crediting baseline revenue or double-counting reward expense. Merchant contribution requires its own margin and commission-cost view.</p>
+<p><strong>My recommendation:</strong> fund the bounded validation and build the utility only through these gates. Reject the retailer overlay as the lead. Preserve the insight that context matters, but earn participation while the decision is still open.</p>
+</section>
+</article></div></main><footer class="site-footer"><div><a class="brand" href="index.html">CashKaro Shortlist</a><p>Ujjawal Anand · APM product assignment · September 2026</p><p class="note">Independent assignment concept. Not an official CashKaro product. Reference prices are snapshots, not live offers.</p></div><div class="footer-links"><a href="experiment.html">Experiment & feasibility</a><a href="compliance.html">Assignment audit</a><a href="source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md">Assignment text</a><a href="https://github.com/anand-official/cashkaro_casestudy" target="_blank" rel="noopener noreferrer">GitHub ↗</a><button class="text-button print-button">Print this page</button></div></footer><script src="assets/site.js" defer></script></body></html>

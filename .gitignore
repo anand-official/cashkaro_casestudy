@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.vercel/
+.sites-runtime/
+.env*
+tmp/
+
+__qa.html
+
+# Source attachments and private working records are not public release inputs.
+source-material/cashkaro_assignment.pdf
+transcripts/FINAL_SESSION_RECORD.md

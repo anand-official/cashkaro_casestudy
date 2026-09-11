@@ -1,3 +1,8 @@
-function qs(s){return document.querySelector(s)}
-function qsa(s){return [...document.querySelectorAll(s)]}
-qsa('[data-year]').forEach(el=>el.textContent=new Date().getFullYear())
+const menu=document.querySelector('.menu-button'),navigation=document.querySelector('#main-nav');
+menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));navigation.classList.toggle('open',open);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu?.getAttribute('aria-expanded')==='true'){menu.setAttribute('aria-expanded','false');navigation.classList.remove('open');menu.focus();}});
+document.querySelectorAll('.print-button').forEach(b=>b.addEventListener('click',()=>window.print()));
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting)document.querySelectorAll('.contents a').forEach(a=>a.classList.toggle('active',a.hash===`#${entry.target.id}`));},{rootMargin:'-110px 0px -55% 0px',threshold:0});document.querySelectorAll('.case-section').forEach(s=>observer.observe(s));}
+const share=document.querySelector('#reach-share'),effect=document.querySelector('#reach-effect'),result=document.querySelector('#reach-result');
+function calculate(){if(!share||!effect||!result)return;if(share.value.trim()===''||effect.value.trim()===''){result.textContent='Enter both assumptions to calculate the all-cohort effect.';return;}const s=Number(share.value),e=Number(effect.value);if(!Number.isFinite(s)||!Number.isFinite(e)||s<0||s>100){result.textContent='Eligible share must be between 0 and 100; both inputs must be finite numbers.';return;}const delta=s/100*e;result.textContent=`Scenario result: ${delta.toLocaleString('en-IN',{maximumFractionDigits:5})} incremental tracked orders per existing user / quarter. This is arithmetic on your assumptions, not an observed result.`;}
+share?.addEventListener('input',calculate);effect?.addEventListener('input',calculate);

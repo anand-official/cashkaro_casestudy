@@ -1,3 +1,5 @@
+> **Final execution update — 11 Sep 2026:** The decision is now CashKaro Shortlist. Read [the decision log](../docs/DECISION_LOG.md) for the authored public decision summary; it is not a raw export. The complete-transcript requirement remains unfinished. Earlier status descriptions below are preserved as history.
+
 # AI Interaction Log — Submission Index
 
 The CashKaro brief asks for the **complete transcript of AI interactions**, including what was asked, challenged, rejected and how the thinking changed.

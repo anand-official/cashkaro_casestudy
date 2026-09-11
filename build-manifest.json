@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "product": "CashKaro Shortlist",
+  "evidence_date": "2026-09-11",
+  "problem_words": 1403,
+  "solution_words": 1334,
+  "transcript_status": "partial — raw exports required",
+  "routes": [
+    "index.html",
+    "research.html",
+    "experiment.html",
+    "ai-transcript.html",
+    "compliance.html",
+    "prototype.html"
+  ]
+}

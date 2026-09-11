@@ -1,3 +1,5 @@
+> **Historical handoff / superseded strategy.** The final 11 Sep 2026 decision is CashKaro Shortlist, with the retailer overlay rejected as the lead. Read [FINAL_SUBMISSION.md](FINAL_SUBMISSION.md) and the current README. The original contents below are preserved as the decision history.
+
 # Master handoff prompt for GPT Astra — CashKaro APM submission owner
 
 You are the final owner of a high-stakes CashKaro Associate Product Manager case-study submission.

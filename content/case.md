@@ -1,9 +1,3 @@
-# CashKaro Shortlist — final product decision
-
-Author: Ujjawal Anand. September 2026.
-
-Canonical content: `content/case.md`. Rendered at `index.html`.
-
 <section class="case-section" id="problem" data-part="problem">
 <p class="section-label">01 / The problem</p>
 
