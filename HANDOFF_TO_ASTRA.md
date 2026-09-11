@@ -1,62 +1,86 @@
 # Start Here — Handoff to Astra / ChatGPT Work
 
-If you are the final execution agent for this CashKaro APM assignment, **start here and take ownership of the submission**.
+You are taking over the final execution of the CashKaro APM assignment. Do **not** begin by polishing the current website.
 
 ## Repository
 
-https://github.com/anand-official/cashkaro_casestudy
+**https://github.com/anand-official/cashkaro_casestudy**
 
-## Your master instructions
+## First: read the original assignment PDF
 
-Read and follow:
+The original user-provided CashKaro assignment PDF should be attached alongside this handoff. Read it first and treat it as authoritative.
 
-**[`docs/ASTRA_MASTER_PROMPT.md`](docs/ASTRA_MASTER_PROMPT.md)**
+A searchable text extraction also exists in the repo:
 
-Do not start by redesigning the website. First read the original assignment and the reasoning/context documents below.
+- [`docs/ORIGINAL_ASSIGNMENT_TEXT.md`](docs/ORIGINAL_ASSIGNMENT_TEXT.md)
+- [`source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md`](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md)
 
-## Authoritative assignment
+## Then read the handoff index
 
-**[`source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md`](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md)**
+### **[`docs/HANDOFF_INDEX.md`](docs/HANDOFF_INDEX.md)**
 
-This is the parsed text of the original 3-page CashKaro assignment supplied by the candidate. If the original PDF is separately attached to your session, read the PDF too and treat it as authoritative.
+It gives the recommended reading order across the product reasoning, AI source material, current implementation and latest strategy state.
 
-## Context from the primary ChatGPT workstream
+## Master execution prompt
 
-**[`docs/AI_CONTEXT_HANDOFF.md`](docs/AI_CONTEXT_HANDOFF.md)**
+### **[`docs/ASTRA_MASTER_PROMPT.md`](docs/ASTRA_MASTER_PROMPT.md)**
 
-This contains the full decision history needed to understand how the work moved from predicted reminders → missing-denominator critique → journey-position reframe → Android Shopping Companion → two activations → intention-to-treat experiment → partner/reach kill gates.
+Follow this as your execution mandate.
 
-## External AI source material
+## Critical new information
 
-- **[`source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md`](source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md)** — the detailed handoff used before external red-team work.
-- **[`source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md`](source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md)** — Qwen's adversarial behavioral research plus explicit later corrections.
-- **[`source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md`](source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md)** — DeepSeek principal-PM synthesis/red-team.
+The previous lead hypothesis was an Android retailer-app Shopping Companion.
 
-## Current product artifacts
+That product direction is **no longer locked**.
+
+An insider PM gave a material commercial critique: if CashKaro appears only after the user has already chosen and opened a retailer, CashKaro may be recapturing affiliate attribution instead of creating/influencing retailer traffic. The intervention may need to move **upstream into the consideration/decision stage** — e.g. YouTube reviews, comparison/SEO content and other places where the user is still deciding what/where to buy.
+
+Read the full critique and strategic implications here:
+
+### **[`docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md`](docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md)**
+
+The strongest new hypothesis to investigate is a narrow **CashKaro Decision Companion / Savings Cart** that adds decision value before merchant choice is final, inspired by the cross-surface principle behind Google Universal Cart.
+
+Do not accept that hypothesis automatically either. Re-open the product decision and choose the strongest defensible direction.
+
+## Primary ChatGPT context
+
+### **[`transcripts/CHATGPT_PRIMARY_CONTEXT.md`](transcripts/CHATGPT_PRIMARY_CONTEXT.md)**
+
+This is a structured reconstruction of how the reasoning evolved from predicted reminders → missing-denominator critique → journey-position reframe → retailer-overlay Companion → ITT experiment → retailer incrementality risk → latest insider-PM challenge.
+
+It is a context handoff, **not falsely represented as a verbatim raw transcript**.
+
+## Existing external-AI / working material
+
+- [`docs/AI_CONTEXT_HANDOFF.md`](docs/AI_CONTEXT_HANDOFF.md)
+- [`source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md`](source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md)
+- [`source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md`](source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md)
+- [`source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md`](source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md)
+- [`transcripts/README.md`](transcripts/README.md)
+
+## Existing product artifacts
 
 - [`docs/FINAL_SUBMISSION.md`](docs/FINAL_SUBMISSION.md)
 - [`docs/PRODUCT_STRATEGY_AND_BUILD_PLAN.md`](docs/PRODUCT_STRATEGY_AND_BUILD_PLAN.md)
 - [`docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md`](docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md)
 - [`docs/SUBMISSION_CONTENT_BLUEPRINT.md`](docs/SUBMISSION_CONTENT_BLUEPRINT.md)
 - [`docs/PRE_SUBMISSION_REVIEW.md`](docs/PRE_SUBMISSION_REVIEW.md)
-- [`transcripts/README.md`](transcripts/README.md)
+
+These are **pre-insider-feedback drafts** unless updated later. Preserve their strongest reasoning, not their conclusion by default.
 
 ## Current implementation
 
-- `index.html` — case-study narrative
-- `prototype.html` — interactive Shopping Companion prototype
-- `research.html` — research/decision log
-- `ai-transcript.html` — current AI-log interface
-- `assets/` — site implementation
+- `index.html`
+- `prototype.html`
+- `research.html`
+- `ai-transcript.html`
+- `assets/`
 
-Current live draft:
+The current live site is a draft. You may rewrite or replace it after the product decision is revalidated.
 
-**https://cashkaro-ujjawal-anands-projects.vercel.app**
+## Mission
 
-The existing site is a **draft**. Preserve the reasoning, not mediocre implementation. You may rewrite/rebuild the site if doing so materially improves the submission.
+> **Read the brief, inherit the evidence without sunk-cost bias, re-open the product decision using the insider feedback, then autonomously turn this repository into a top-tier, defensible, polished, tested and deployed APM submission.**
 
-## One-line mission
-
-> **Audit the brief, inherit the reasoning without sunk-cost bias, then autonomously turn this repository into a top-tier, defensible, polished, tested and deployed CashKaro APM submission.**
-
-Do not declare completion until the assignment is audited line-by-line, desktop/mobile QA passes, the prototype communicates only defensible V1 capabilities, claims are evidence-disciplined, and the final production deployment works.
+Do not declare completion until the brief is audited line-by-line, the final product creates a defensible user/CashKaro/retailer value exchange, mobile/desktop QA passes, all claims are evidence-disciplined, and production deployment works.
