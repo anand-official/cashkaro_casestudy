@@ -36,10 +36,12 @@ for (const [filename,slug,title,kicker,description] of pages) {
 const protoTemplate=fs.readFileSync('content/prototype.html','utf8');
 fs.writeFileSync('prototype.html',head('CashKaro Shortlist — interactive prototype','Save research, compare sourced headphone choices and explore an honest merchant handoff.','<link rel="stylesheet" href="assets/prototype.css">')+`<body class="prototype-page">${nav('prototype.html')}${protoTemplate}${footer()}<script type="module" src="assets/prototype.js"></script></body></html>`);
 fs.mkdirSync('docs',{recursive:true});
-fs.writeFileSync('docs/FINAL_SUBMISSION.md','# CashKaro Shortlist — final product decision\n\nAuthor: Ujjawal Anand. September 2026.\n\nCanonical content: `content/case.md`. Rendered at `index.html`.\n\n'+fs.readFileSync('content/case.md','utf8'));
-fs.writeFileSync('docs/ASSIGNMENT_COMPLIANCE_AUDIT.md',fs.readFileSync('content/compliance.md','utf8'));
-fs.writeFileSync('docs/EXPERIMENT_AND_TECHNICAL_PLAN.md',fs.readFileSync('content/experiment.md','utf8'));
-fs.writeFileSync('docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md',fs.readFileSync('content/research.md','utf8'));
+const mirror = raw => raw.replace(/\]\((?!https?:|#|mailto:)([^)]+)\)/g, (_,url) => `](../${url})`).replace(/href="(?!https?:|#)([^"]+)"/g, (_,url) => `href="../${url}"`);
+
+fs.writeFileSync('docs/FINAL_SUBMISSION.md','# CashKaro Shortlist — final product decision\n\nAuthor: Ujjawal Anand. September 2026.\n\nCanonical content: `content/case.md`. Rendered at `index.html`.\n\n'+mirror(fs.readFileSync('content/case.md','utf8')));
+fs.writeFileSync('docs/ASSIGNMENT_COMPLIANCE_AUDIT.md',mirror(fs.readFileSync('content/compliance.md','utf8')));
+fs.writeFileSync('docs/EXPERIMENT_AND_TECHNICAL_PLAN.md',mirror(fs.readFileSync('content/experiment.md','utf8')));
+fs.writeFileSync('docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md',mirror(fs.readFileSync('content/research.md','utf8')));
 const raw=fs.readFileSync('content/case.md','utf8');
 const words=type=>[...raw.matchAll(new RegExp(`<section[^>]*data-part="${type}"[^>]*>([\\s\\S]*?)<\\/section>`,'g'))].map(x=>x[1].replace(/<[^>]+>/g,' ').replace(/\([^)]*https?:[^)]*\)/g,'')).join(' ').split(/\s+/).filter(Boolean).length;
 const manifest={version:'2.0.0',product:'CashKaro Shortlist',evidence_date:'2026-09-11',problem_words:words('problem'),solution_words:words('solution'),transcript_status:'partial — raw exports required',routes:[...pages.map(x=>x[0]),'prototype.html']};

@@ -1,9 +1,31 @@
-# CashKaro Shortlist — release record
+# CashKaro Shortlist — production release
 
-Product/content version: 2.0.0. Decision date: 11 September 2026.
+**Live:** https://cashkaro-shortlist.vercel.app/  
+**Prototype:** https://cashkaro-shortlist.vercel.app/prototype  
+**Audit:** https://cashkaro-shortlist.vercel.app/compliance  
+**Repository branches:** `main` and `submission/shortlist-final`.
 
-The final submission is built from `content/` with `npm run build`. Production output is `dist/`; `vercel.json` specifies the static build and clean routes. The web simulation requires no API keys or external backend.
+Verified in the public browser without Vercel sign-in on 11 September 2026. The scoped deployment alias shown by the connector requires login; use the public production domain above for the hiring panel.
 
-Local build, core journeys and responsive QA are recorded in [QA_REPORT.md](QA_REPORT.md). The final production URL and GitHub revision will be added here only after publication is verified. Historical Vercel URLs elsewhere in the repository are earlier drafts.
+The implementation was published in commit `230a3b9fe8b8918ac0c227f5b45dd78f2e00d849`; subsequent release bookkeeping records the verified URL and production QA. The final revision is the head of the two branches above. The original overlay remains in repository history and in `docs/archive/`.
 
-The feature is a proposal with a browser simulation. Real native sharing, account persistence, partner approvals, feeds and affiliate events are not implemented. Full raw AI exports remain a candidate requirement.
+## Verified on production
+
+- Case homepage and clean prototype route load publicly.
+- Confirmed model/source and personal note survive reload.
+- Merchant handoff requires acknowledgement and reports a simulated click-out, not an order.
+- Decision-log reader loads its correct source and finds text.
+- Compliance page visibly reports the missing full AI transcript.
+- Attached PDF path returns the site's 404 page; the public assignment link opens the text transcription already in the repository.
+
+Full local/responsive verification and its device limits are documented in [QA_REPORT.md](QA_REPORT.md).
+
+## Reproduce and redeploy
+
+Run `npm ci`, `npm run build`, `npm run check`. Production is the generated `dist/` directory. `vercel.json` also supports a normal source build. `.gitignore`, `.vercelignore` and the build filter exclude the original attached PDF and private working execution record. The public release uses reviewed case/code materials and existing public source records.
+
+The release was uploaded through the authorized Vercel deployment tool. Automatic GitHub-to-Vercel deployment was not established; a future repository update needs an explicit deployment or a separately configured Git integration. No backend or API key is required for this static demonstration.
+
+## Remaining candidate requirement
+
+Attach the complete contributing AI conversation exports to the actual submission, with appropriate privacy review. Current records are labelled reconstructions, extracts or an authored decision log. The original interview is unavailable and remains qualified as inherited evidence. Verify the actual receipt time, deadline and submission destination.

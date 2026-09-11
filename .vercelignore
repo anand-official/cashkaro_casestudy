@@ -1,0 +1,7 @@
+.git
+node_modules
+dist
+__qa.html
+.env*
+source-material/cashkaro_assignment.pdf
+transcripts/FINAL_SESSION_RECORD.md

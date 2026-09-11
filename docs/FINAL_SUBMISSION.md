@@ -9,7 +9,7 @@ Canonical content: `content/case.md`. Rendered at `index.html`.
 
 ## An eligible purchase is an opportunity. It is not automatically a commission CashKaro has earned.
 
-The brief asks us to increase **tracked orders per existing user per quarter, on a fixed cohort**. It establishes that existing users bypass CashKaro; it deliberately leaves the cause open. It does not establish how much leakage exists, which segment contains it, or whether every recoverable attribution is commercially sustainable. [Brief, pp. 1–3](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md)
+The brief asks us to increase **tracked orders per existing user per quarter, on a fixed cohort**. It establishes that existing users bypass CashKaro; it deliberately leaves the cause open. It does not establish how much leakage exists, which segment contains it, or whether every recoverable attribution is commercially sustainable. [Brief, pp. 1–3](../source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md)
 
 My working diagnosis: **for an existing user making a considered purchase, CashKaro may arrive after both the product and retailer have been chosen.** At that point, cashback competes with the effort of restarting and uncertainty about getting paid. The better opening is a decision still in progress.
 
@@ -23,7 +23,7 @@ This is a deliberately narrow problem: online headphone shoppers who have used C
 
 ## Forgetting can be a rational response to weak value.
 
-The inherited research describes **one respondent**, through an AI working summary, who stayed in the retailer journey, prioritized native/card offers, discounted small rewards and distrusted tracking. The raw interview is unavailable. These are mechanisms to investigate, not prevalence findings or independently verified quotes. [Evidence record](research.html#qualitative)
+The inherited research describes **one respondent**, through an AI working summary, who stayed in the retailer journey, prioritized native/card offers, discounted small rewards and distrusted tracking. The raw interview is unavailable. These are mechanisms to investigate, not prevalence findings or independently verified quotes. [Evidence record](../research.html#qualitative)
 
 | Possible cause | What it changes | What would discriminate it |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ The inherited research describes **one respondent**, through an AI working summa
 | Tracking distrust | Showing a larger reward is not the fix | Audit failures and interview users with missing cashback |
 | Unclear eligibility | A headline rate can mislead | Ask users to identify the exact reward and exclusions |
 
-Public inspection strengthens the **value/eligibility** hypothesis. CashKaro's Amazon terms currently list no Rewards for mobile phones. Flipkart's audio offer has a ₹130 cap. Croma's active store state says cashback is unavailable, despite a promotional page title. Category rules and current state matter more than headline percentages. [Source notes and dates](research.html#commercial)
+Public inspection strengthens the **value/eligibility** hypothesis. CashKaro's Amazon terms currently list no Rewards for mobile phones. Flipkart's audio offer has a ₹130 cap. Croma's active store state says cashback is unavailable, despite a promotional page title. Category rules and current state matter more than headline percentages. [Source notes and dates](../research.html#commercial)
 
 **What this does not prove:** that customers want a shortlist, that headphones are a frequent purchase, or that the proposed entry will be remembered. Those remain the central tests.
 </section>
@@ -74,7 +74,7 @@ The insider feedback suggested smartphone research as an entry point. I retain t
 
 ## The overlay solves presence. It does not resolve why the merchant should pay.
 
-The earlier concept detected a retailer app and offered cashback activation. Insider PM feedback exposed the commercial weakness: the retailer may already have won the shopper. This is stakeholder input, not a contract or proof that every late referral is valueless. Combined with sensitive permissions and context-preservation risks, it changes my priority. [Decision history](research.html#decisions)
+The earlier concept detected a retailer app and offered cashback activation. Insider PM feedback exposed the commercial weakness: the retailer may already have won the shopper. This is stakeholder input, not a contract or proof that every late referral is valueless. Combined with sensitive permissions and context-preservation risks, it changes my priority. [Decision history](../research.html#decisions)
 
 | Direction | Strongest reason to build | Decisive limitation | Call |
 | --- | --- | --- | --- |
@@ -88,7 +88,7 @@ The earlier concept detected a retailer app and offered cashback activation. Ins
 
 **Relative delivery effort is a judgment, not a time estimate:** a shortcut or basic owned-surface message is lowest; an extension or explicit share capture adds platform and mapping work; Shortlist adds persistent identity, catalog operations and an eligibility gate. The overlay adds sensitive permission and attribution risk; the broad agent adds the largest data and evaluation burden. I accept Shortlist’s extra effort only for a capped test of earlier decision value.
 
-A desktop extension is not dismissed as “irrelevant in India.” Statcounter reports **34.97% desktop and 64.45% mobile web usage in August 2026**. A rough web-shopping proxy would put desktop around one-third **only if** shopping follows that mix; app purchases are missing, so the actual order share is unknown. This is insufficient to forecast reach. Obtain CashKaro's device split before reconsidering an extension. [Proxy and limitation](research.html#reach)
+A desktop extension is not dismissed as “irrelevant in India.” Statcounter reports **34.97% desktop and 64.45% mobile web usage in August 2026**. A rough web-shopping proxy would put desktop around one-third **only if** shopping follows that mix; app purchases are missing, so the actual order share is unknown. This is insufficient to forecast reach. Obtain CashKaro's device split before reconsidering an extension. [Proxy and limitation](../research.html#reach)
 </section>
 
 <section class="case-section" id="decision" data-part="problem">
@@ -98,9 +98,9 @@ A desktop extension is not dismissed as “irrelevant in India.” Statcounter r
 
 **Build CashKaro Shortlist**, an extension of CashKaro's existing comparison capability: capture a research link, confirm the model, save the reason it is under consideration, compare a few material attributes and merchant terms, then explicitly shop through CashKaro.
 
-CashKaro already advertises comparison and exposes headphone product pages. The proposed difference is **continuity across research sessions and an honest decision record**, not “inventing price comparison.” Account-level saved-list capabilities were not inspected; if equivalent functionality already exists, test its research entry and clarity before duplicating it. [Existing product audit](research.html#existing)
+CashKaro already advertises comparison and exposes headphone product pages. The proposed difference is **continuity across research sessions and an honest decision record**, not “inventing price comparison.” Account-level saved-list capabilities were not inspected; if equivalent functionality already exists, test its research entry and clarity before duplicating it. [Existing product audit](../research.html#existing)
 
-Google's May 19, 2026 Universal Cart announcement supports the persistent-consideration analogy. Its Cart API distinguishes basket building from checkout and initially supports one-way creation/transfer. CashKaro does not inherit Google's Shopping Graph, distribution, merchant integrations or checkout rights. **Shortlist is not a merchant cart and never populates one.** [Google research](research.html#google)
+Google's May 19, 2026 Universal Cart announcement supports the persistent-consideration analogy. Its Cart API distinguishes basket building from checkout and initially supports one-way creation/transfer. CashKaro does not inherit Google's Shopping Graph, distribution, merchant integrations or checkout rights. **Shortlist is not a merchant cart and never populates one.** [Google research](../research.html#google)
 
 The value exchange is conditional: the user gets a clearer choice; CashKaro gets an opportunity to earn a routed order; the selected merchant may receive a shopper it would otherwise lose. Moving earlier improves that hypothesis. It does not prove retailer incrementality.
 </section>
@@ -114,7 +114,7 @@ The value exchange is conditional: the user gets a clearer choice; CashKaro gets
 
 The interactive prototype covers capture, model switching, saving/removing, decision notes, comparison, merchant terms, stale/unavailable states, handoff and delayed or rejected tracking. It uses published price snapshots; no affiliate transaction is created. The browser demo does not install an Android share target.
 
-<a class="button primary" href="prototype.html">Open the interactive Shortlist <span aria-hidden="true">↗</span></a>
+<a class="button primary" href="../prototype.html">Open the interactive Shortlist <span aria-hidden="true">↗</span></a>
 
 **The critical UX distinction:** a ₹60 Amazon Reward is not ₹60 off at checkout or cash in a bank account. The default comparison sorts by pay-now price; reward value is an explicit user preference. Unknown bank-offer stacking, delivery and seller terms are never silently deducted.
 </section>
@@ -147,7 +147,7 @@ Start by auditing CashKaro's actual comparison and affiliate services. Reuse ver
 
 The resolver accepts explicit shared text/URLs. It never assumes a YouTube link contains the product, a transcript or private browsing context. Unsupported inputs fall back to model selection. Production URL processing needs a domain allowlist, redirect revalidation, private-network blocking and size/time limits. Arbitrary URLs must not become a server-side fetch proxy.
 
-**No agent or RAG is required in V1.** Structured lookups, deterministic arithmetic and editorial attribute notes suffice. LLM cost per query is therefore **₹0**; hosting, data verification and support are not free. Proposed engineering targets are cached comparison p95 under two seconds and a five-second recheck timeout; these are acceptance budgets, not measured performance. Unknown data fails closed. [Architecture and event contract](experiment.html#architecture)
+**No agent or RAG is required in V1.** Structured lookups, deterministic arithmetic and editorial attribute notes suffice. LLM cost per query is therefore **₹0**; hosting, data verification and support are not free. Proposed engineering targets are cached comparison p95 under two seconds and a five-second recheck timeout; these are acceptance budgets, not measured performance. Unknown data fails closed. [Architecture and event contract](../experiment.html#architecture)
 </section>
 
 <section class="case-section" id="measurement" data-part="solution">
@@ -163,7 +163,7 @@ Count all supported categories, not only Shortlist orders, to catch cannibalizat
 
 Power the test from the cohort's real order variance, economic minimum effect and expected reachable population. Pre-register duration, missing-data handling, significance/power choices and stop rules. Without those inputs, no honest sample size or expected uplift can be supplied. Use an A/A instrumentation check before treatment.
 
-Mechanism metrics—capture, return to shortlist, comparison, click-out, tracking—locate bottlenecks. Retailer-choice changes are **diagnostics**. Only a consented, partner-run randomized comparison of total retailer outcomes across channels can establish retailer lift; CashKaro's own attribution logs cannot. [Full experiment protocol](experiment.html#protocol)
+Mechanism metrics—capture, return to shortlist, comparison, click-out, tracking—locate bottlenecks. Retailer-choice changes are **diagnostics**. Only a consented, partner-run randomized comparison of total retailer outcomes across channels can establish retailer lift; CashKaro's own attribution logs cannot. [Full experiment protocol](../experiment.html#protocol)
 </section>
 
 <section class="case-section" id="launch" data-part="solution">
@@ -192,7 +192,7 @@ The return loop is saved research → easier decision → explicit merchant choi
 | Customer trust | No material harm to abandonment, complaints, tracking reliability or opt-outs | Fix a specific, evidenced bottleneck; severe privacy or systematic wrong-value incidents pause immediately |
 | Commercial value | Positive incremental net contribution and partner acceptance, with retailer evidence appropriate to scale | Reject growth that buys more attribution at unacceptable partner or servicing cost |
 
-**Reach sanity check:** overall incremental orders per user = eligible share × incremental orders per eligible user, when spillovers are absent. Both inputs are unknown. A category success diluted to an immaterial cohort result does not pass the brief. [Sensitivity and economics](experiment.html#reach-model)
+**Reach sanity check:** overall incremental orders per user = eligible share × incremental orders per eligible user, when spillovers are absent. Both inputs are unknown. A category success diluted to an immaterial cohort result does not pass the brief. [Sensitivity and economics](../experiment.html#reach-model)
 
 CashKaro contribution is collected commission minus rewards/cashback paid, reversals, incremental data and support costs, and operating cost. Evaluate the treatment-control change to avoid crediting baseline revenue or double-counting reward expense. Merchant contribution requires its own margin and commission-cost view.
 

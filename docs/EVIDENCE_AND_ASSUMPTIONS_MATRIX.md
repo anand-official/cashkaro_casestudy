@@ -44,7 +44,7 @@ Some product pages also contain generated prose with implausible percentage valu
 
 ## One respondent. A summarized record. Several plausible mechanisms.
 
-The [Qwen working extract](source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md) describes one respondent's context friction, low-value threshold, uncertain payout confidence and retailer-first journey. The [ChatGPT reconstruction](transcripts/CHATGPT_PRIMARY_CONTEXT.md) records subsequent corrections. I have not interviewed that respondent or recovered the original interview.
+The [Qwen working extract](../source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md) describes one respondent's context friction, low-value threshold, uncertain payout confidence and retailer-first journey. The [ChatGPT reconstruction](../transcripts/CHATGPT_PRIMARY_CONTEXT.md) records subsequent corrections. I have not interviewed that respondent or recovered the original interview.
 
 I use this as **inherited qualitative input**, not raw user testimony. No sentence from it is presented as a newly verified participant quote. Its role is to expand the hypothesis set beyond forgetfulness, not to prove segment size or preference for Shortlist.
 
@@ -80,7 +80,7 @@ All prices below are the values CashKaro displayed when retrieved on 11 Sep 2026
 
 Manufacturer attributes: [Sony specifications](https://www.sony.co.in/headphones/products/wh-ch720n/spec) list approximately 192g and maximum 35 hours of music with noise cancellation on. [JBL specifications](https://www.jbl.com/TUNE770NC.html) list 232g, 44 hours with ANC on and foldability. Battery claims are manufacturer laboratory maxima; they are not equivalent real-world tests. The prototype does not rank sound quality or invent review consensus.
 
-Product photos are unchanged CashKaro-hosted packshots, credited in the [asset provenance manifest](assets/product-image-sources.json). No ownership or open-license claim is made.
+Product photos are unchanged CashKaro-hosted packshots, credited in the [asset provenance manifest](../assets/product-image-sources.json). No ownership or open-license claim is made.
 
 The prototype's stale-offer, unavailable-store and tracking controls are explicitly **simulated scenario states**. They are not observations of an actual outage or purchase.
 </section>
@@ -101,7 +101,7 @@ The prototype's stale-offer, unavailable-store and tracking controls are explici
 | Headphone Shortlist | Persist research context through a merchant decision | Chosen as a capped learning bet, contingent on impact and economics |
 | Broad agent / Reddit summaries | Add recommendation intelligence | Cut: rights, evaluation, cost and data quality do not earn V1 complexity |
 
-[Raw insider feedback](source-material/INSIDER_PM_WHATSAPP_RAW.txt) · [Earlier overlay submission](docs/archive/RETAILER_OVERLAY_SUBMISSION.md) · [Current full case](docs/FINAL_SUBMISSION.md)
+[Raw insider feedback](../source-material/INSIDER_PM_WHATSAPP_RAW.txt) · [Earlier overlay submission](../docs/archive/RETAILER_OVERLAY_SUBMISSION.md) · [Current full case](../docs/FINAL_SUBMISSION.md)
 </section>
 
 <section class="case-section" id="assumptions">

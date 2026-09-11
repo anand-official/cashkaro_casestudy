@@ -38,3 +38,7 @@ Screenshots are in `docs/qa/`. The mobile case screenshot preceded a small headi
 ## Remaining submission requirement
 
 The full AI transcript remains incomplete. Available reconstructions/extracts are explicitly labelled. The original interview is missing, so it remains inherited qualitative evidence only. Receipt time and submission destination require the candidate's verification.
+
+## Public production verification
+
+The final public site at `https://cashkaro-shortlist.vercel.app/` was opened without authentication. Its clean `/prototype`, `/ai-transcript` and `/compliance` routes were checked. Saved source/note persistence, acknowledged simulated merchant handoff, decision-log source loading/search and the incomplete-transcript disclosure passed. The excluded attached PDF URL returned the custom 404 page. The scoped alias returned Vercel login, so it is not the submission link.

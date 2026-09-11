@@ -5,6 +5,8 @@
 
 The final recommendation is a persistent research shortlist for existing users choosing non-Apple headphones. Reject the Android retailer overlay as the lead; test useful participation before the retailer decision is settled. This is a bounded product proposal, not a claim of validated demand, approved affiliate integration or measured business lift.
 
+**Final production website:** [cashkaro-shortlist.vercel.app](https://cashkaro-shortlist.vercel.app/)
+
 ## Review the submission
 
 - `index.html` — the complete case, with equal problem and solution depth
@@ -15,7 +17,7 @@ The final recommendation is a persistent research shortlist for existing users c
 - `compliance.html` — original assignment audit and candidate requirements
 - [Assignment text transcription](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md) — public reference; the original attached PDF remains authoritative
 
-Publication identifiers and QA results are recorded in [Release](docs/RELEASE.md) and [QA report](docs/QA_REPORT.md) when verified. Earlier deployment URLs in historical files are not the final release record.
+Publication details and completed QA results are recorded in [Release](docs/RELEASE.md) and [QA report](docs/QA_REPORT.md). Earlier deployment URLs in historical files are not the final release record.
 
 ## Build and maintain
 
