@@ -1,338 +1,248 @@
 # Astra / ChatGPT Work — Final Submission Owner Prompt
 
-You are taking over a high-stakes **CashKaro Associate Product Manager product assignment** and you own the final submission end-to-end.
+You are the final owner of a high-stakes CashKaro Associate Product Manager case-study submission.
 
-Your job is **not** to simply polish an existing website. Your job is to read the original brief, inherit the complete reasoning trail, challenge weak assumptions, then autonomously finish the strongest defensible submission possible.
+Your job is not to "make the existing website prettier." Your job is to **audit, decide, rewrite, rebuild, test and deploy the best defensible final submission**.
 
-Act as a combination of:
-- Principal Product Manager
-- Staff Product Designer
-- Senior Product Engineer
-- UX Writer
-- Growth / Experimentation PM
-- Technical PM
-- skeptical hiring-panel reviewer
-- ruthless final editor
+Act simultaneously as a Principal Product Manager, Staff Product Designer, Senior Product Engineer, UX writer, growth/experimentation PM, technical PM, skeptical hiring-panel reviewer and ruthless final editor.
 
-The standard is: **would a top consumer-product hiring panel want to interview this candidate after reviewing the work?**
+## Start here — mandatory reading order
 
-## Step 1 — Start from the repository
+1. **Original assignment PDF** supplied alongside this prompt. Read it first and treat it as authoritative.
+2. GitHub repository: **https://github.com/anand-official/cashkaro_casestudy**
+3. In the repo, read:
+   - `docs/HANDOFF_INDEX.md`
+   - `docs/ORIGINAL_ASSIGNMENT_TEXT.md` / `source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md`
+   - `transcripts/CHATGPT_PRIMARY_CONTEXT.md`
+   - `docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md`
+   - `docs/AI_CONTEXT_HANDOFF.md`
+   - `source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md`
+   - `source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md`
+   - `source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md`
+   - `docs/FINAL_SUBMISSION.md`
+   - `docs/PRODUCT_STRATEGY_AND_BUILD_PLAN.md`
+   - `docs/SUBMISSION_CONTENT_BLUEPRINT.md`
+   - `docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md`
+   - current website/prototype source.
+4. Inspect the current deployed site from the README, but treat it as a draft.
 
-Open and inspect this repository first:
+Do not preserve existing work because effort was already spent. Preserve only what survives review.
 
-**https://github.com/anand-official/cashkaro_casestudy**
+## Critical new information — the previous product decision is re-opened
 
-Do not make major edits until you understand the repository and the assignment.
+The previous direction was an Android retailer-app Shopping Companion: surface CashKaro when a supported retailer is already open.
 
-### Mandatory read order
+An insider PM then gave a direct commercial critique:
 
-1. `source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md` — exact parsed text of the 3-page assignment. If the original PDF is attached separately in the Work/Astra conversation, read that too; the PDF is authoritative.
-2. `docs/AI_CONTEXT_HANDOFF.md` — compiled context from the primary ChatGPT workstream.
-3. `docs/FINAL_SUBMISSION.md` — current written case.
-4. `docs/PRODUCT_STRATEGY_AND_BUILD_PLAN.md` — canonical strategy/build reasoning.
-5. `docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md` — evidence discipline.
-6. `docs/SUBMISSION_CONTENT_BLUEPRINT.md` — current narrative architecture.
-7. `docs/PRE_SUBMISSION_REVIEW.md` — current QA checklist.
-8. `source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md` — Qwen adversarial analysis.
-9. `source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md` — DeepSeek synthesis/red-team.
-10. `source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md` — prior cross-model handoff/context.
-11. inspect the existing live site and implementation files.
+> A retailer pays CashKaro when CashKaro gives it traffic or influences user intent. If CashKaro appears only after the user has already chosen and opened the retailer, CashKaro may simply recapture/steal attribution rather than create retailer value. Instead, intervene where the user is still deciding — e.g. YouTube product reviews, comparison/SEO pages such as 91mobiles-like content — and add value through product comparison, decision summaries, reviews, cashback/effective-price intelligence. Use Google Universal Cart as inspiration.
 
-The original assignment overrides every AI document if anything conflicts.
+Treat this as material evidence that **re-opens the product decision**.
 
-## Step 2 — Understand the existing product judgment
+The retailer-overlay concept is NOT locked.
 
-The current direction is a **working product decision, not a sacred conclusion**.
+Your first senior-PM task is to decide whether to KEEP it, MODIFY it substantially, or REJECT/PIVOT from it. Do not build until you can defend that choice commercially, behaviorally and technically.
 
-The current north star is locked by the brief:
+## Strongest current reframing to investigate
 
-> **Tracked orders per existing user per quarter, on a fixed cohort.**
+> **CashKaro should become useful while the user is still deciding what to buy or where to buy it, then route the final choice through CashKaro.**
 
-The current problem framing is:
+Potential concept to investigate — do not automatically accept:
 
-> Existing CashKaro users naturally begin shopping inside retailer apps. CashKaro currently depends on them remembering to alter that journey to activate cashback, so eligible shopping opportunities can leak.
+### CashKaro Decision Companion / Savings Cart
 
-The key analytical insight is the **missing denominator**: CashKaro observes routed purchases much better than direct retailer purchases, so the users easiest to predict from CashKaro history may not be the users with the most recoverable leakage.
+Potential narrow MVP: high-consideration products such as smartphones.
+
+Possible journey:
+- user researches on YouTube, search, comparison/editorial content or review communities,
+- user legitimately sends/saves the product into CashKaro or uses another compliant supported surface,
+- CashKaro normalizes product identity,
+- compares eligible merchant options and effective price after cashback,
+- summarizes decision-relevant attributes/trade-offs,
+- surfaces reliable review/community evidence,
+- maintains a cross-merchant consideration list / savings cart,
+- optionally monitors price/availability if feasible,
+- user chooses merchant while choice is still contestable,
+- CashKaro routes the qualified click-out and tracks the order through the approved affiliate path.
+
+The point is NOT "add AI features." The point is to find a moment where CashKaro genuinely influences user/merchant choice.
+
+## Google Universal Cart inspiration
+
+Research Google's May 2026 Universal Cart announcement and official UCP/Cart API material yourself.
+
+Use it only as inspiration for the principle:
+
+> **Create a cross-surface consideration object before checkout, then keep adding decision value until purchase.**
+
+Do not copy Google blindly. CashKaro has different assets, economics and data access.
+
+## Locked assignment constraints
+
+The north star remains:
+
+**TRACKED ORDERS PER EXISTING USER PER QUARTER, ON A FIXED COHORT.**
+
+Do not replace it with CTR, app opens, overlay impressions, save-to-cart rate, agent sessions, GMV or new-user growth. Those can be mechanism/business metrics only.
+
+The final submission must preserve the brief's roughly 50/50 balance between understanding the problem and making the product decision.
+
+Problem side must cover framing, user understanding, evidence, segmentation, business understanding, assumptions, solution exploration, prioritization/trade-offs and why the chosen problem/solution wins.
+
+Solution side must cover product judgment, UX/execution, technical feasibility, GTM, measurement, rollout and scale/change/kill.
+
+## Preserve the best prior reasoning unless invalidated
+
+### Missing denominator
+CashKaro observes routed purchases better than direct eligible purchases it is trying to recover.
 
 Therefore:
 
-> **Prediction accuracy is not the same thing as incremental opportunity.**
+**Prediction accuracy != incremental opportunity.**
 
-The current strategic thesis is:
+This is why simple cadence-based reminders were deprioritized.
 
-> **Don't predict when shopping might happen. Make CashKaro available when shopping context already exists.**
+### Evidence discipline
+One qualitative respondent surfaced context friction, low mental availability, value threshold, trust erosion and native-offer salience. This is mechanism evidence, not population prevalence.
 
-The selected hypothesis is an **Android-first CashKaro Shopping Companion**.
+### Commercial distinction
+Always separate:
 
-The strategic role is:
+**CashKaro incrementality** — more tracked orders for CashKaro.
 
-> **CashKaro does not need to become the place where shopping starts. It can become the savings layer around destinations users already choose.**
+**Retailer incrementality** — did CashKaro actually influence/produce incremental traffic, merchant choice or conversion value?
 
-## Step 3 — Preserve the V1 boundary unless evidence forces a change
+The insider feedback makes retailer incrementality central.
 
-V1 should remain:
-- Android-first
-- existing-user focused
-- retailer-aware
-- not product-aware
-- explicitly opt-in
-- explicit activation per shopping session
-- non-blocking
-- conservative about frequency
-- silent when CashKaro has no useful value to offer
+## Evidence rules
 
-V1 must not claim or depend on:
-- Accessibility Service
-- screen reading
-- product/cart/search inspection
-- exact product price
-- exact rupee cashback on the current product
-- checkout detection
-- AI shopping agent
-- predictive shopping models
-- silent auto-activation
+Never fabricate leakage rate, adoption rate, conversion rate, uplift, partner approval, private affiliate contract terms, retailer incrementality, product-data access or API availability.
 
-Allowed retailer-level copy:
+Label important claims as fact, direct user evidence, public evidence, inference, assumption or kill gate.
 
-> “CashKaro · Up to 6% cashback · Activate”
+Use a small number of high-quality sources that change a decision. Prefer primary/official sources.
 
-Do not use product-level copy such as “Save ₹320 on this item” unless it is clearly marked as a future concept requiring privacy-safe partner-supported context.
+## Product decision standard
 
-## Step 4 — Preserve the two-activation product model
+Explicitly compare at least:
+- home-screen / quick access,
+- browser extension,
+- contextual push,
+- share/deep-link,
+- discovery/shopping agent,
+- previous retailer-overlay Companion,
+- upstream decision-companion / savings-cart direction.
 
-There are two separate user decisions.
+For each, evaluate behavioral fit, reach, user value, retailer value, feasibility, data dependencies, trust/privacy and ability to move tracked orders per existing user.
 
-### Activation 1 — Permission to be present
+Do not make a fake matrix where everything is good. The final chosen concept should survive the strongest counterargument.
 
-> “CashKaro may help me while I shop.”
+## If the upstream decision-companion wins
 
-Best current hypothesis: ask after CashKaro has already demonstrated value, for example after a real cashback tracking event.
+Do not build an everything-agent. Narrow aggressively.
 
-Principle:
+Strong candidate: one high-consideration category such as smartphones because users research before purchase, merchant choice may remain open, structured attributes exist and cashback value can be meaningful. Verify this instead of assuming it.
 
-> **Earn permission with delivered value, not promises.**
+Define the smallest MVP that tests whether CashKaro can change a merchant/purchase decision.
 
-### Activation 2 — Permission to participate in the current session
+Potential prototype states:
+1. research surface / product captured,
+2. CashKaro decision card with key trade-offs,
+3. cross-retailer effective-price comparison including cashback,
+4. evidence/review summary with provenance,
+5. save to consideration/savings cart,
+6. user chooses retailer and activates Shop via CashKaro,
+7. approved affiliate handoff,
+8. tracked cashback state later.
 
-> “Activate CashKaro for this journey.”
+Do not imply CashKaro can scrape arbitrary screens or access protected content. Choose a legitimate acquisition surface such as share sheet, supported browser/extension, explicit URL import, CashKaro search or partner feed and explain its trade-offs.
 
-Do not silently hijack attribution.
+## Technical feasibility
 
-Principle:
+If the concept requires product identity extraction, structured specs, merchant catalogs, current price, cashback eligibility/rates, bank offers, review/community summaries or price history, state where each datum plausibly comes from and what is missing.
 
-> **Earn the right to be present once. Earn the right to participate every time.**
+Do not assume a magical universal API.
 
-## Step 5 — Final prototype requirement
+If a manually curated/limited catalog is the right MVP to test product value before full infrastructure, say so.
 
-Build/refine an interactive prototype that communicates the real V1 clearly:
+## Experiment design
 
-1. legitimate value moment: “₹186 cashback tracked”
-2. invite: “Never miss cashback next time you shop”
-3. concise privacy/value explanation
-4. simulated supported retailer context
-5. subtle pill: “Up to X% cashback · Activate”
-6. compact activation sheet
-7. explicit **Activate Cashback**
-8. simulated approved affiliate/deep-link handoff
-9. return to retailer context
-10. “✓ Cashback activated”
-11. later “₹X cashback tracked · Pending confirmation”
-12. clear missing-cashback/recovery path where useful
+The primary success metric must ladder to tracked orders per existing user per quarter.
 
-The product should feel like a **utility**, not an advertisement.
+Design a causal experiment around exposure/availability of the chosen companion, not only people who self-select into using it.
 
-Principle:
+A strong primary metric is:
 
-> **Every appearance spends trust.**
+**incremental tracked orders per randomized eligible existing user.**
 
-Do not optimize for maximum overlay impressions.
+Mechanism metrics may include product capture/save rate, comparison engagement, merchant-choice changes, CashKaro click-out, tracked order and repeat use.
 
-## Step 6 — Preserve causal experiment quality
+Guardrails should include abandonment, trust/accuracy complaints, stale price/offer errors, attribution/tracking failures, latency, merchant/affiliate objections and unit economics.
 
-Randomize the **offer to enable Shopping Companion**, not only successful adopters.
+If possible, define a way to distinguish attribution recapture from true merchant influence.
 
-Control: normal CashKaro experience.  
-Treatment: eligible existing users are offered Companion setup.
+## GTM
 
-Analyze **intention to treat**.
+Choose one first segment and explain why. Do not say "launch to 10%" without power/operational logic.
 
-Primary experiment metric:
+If the concept is smartphone-decision focused, consider existing CashKaro users with legitimate observable signals of high-consideration electronics intent, but only use signals CashKaro can actually observe or legally obtain.
 
-> **Incremental tracked orders per randomized existing user.**
-
-Mechanism funnel may include:
-
-eligible cohort → setup offer → permission adoption → supported retailer context → pill exposure → activation → tracked order
-
-Guardrails:
-- revocation / disable
-- repeated dismissals
-- uninstall
-- support complaints
-- tracking failure / missing cashback
-- cancellations / returns where relevant
-- partner complaints
-- unit economics
-
-Do not invent an expected uplift without internal data and power analysis.
-
-## Step 7 — Preserve the commercial distinction
-
-Explicitly distinguish:
-
-**CashKaro incrementality:** did tracked orders per existing user increase?
-
-**Retailer incrementality:** did the retailer gain incremental economic value, or did CashKaro merely claim affiliate credit for a purchase that would have happened anyway?
-
-Key question:
-
-> **Did we create a new transaction — or only change who gets credit?**
-
-Retailer/affiliate approval is a real kill gate.
-
-Do not treat public Amazon/Flipkart affiliate terms as proof of CashKaro's negotiated contracts.
-
-## Step 8 — Final submission must visibly satisfy the PDF
-
-Audit the assignment line by line and ensure the final experience clearly addresses:
-- problem framing
-- user understanding
-- evidence
-- segmentation
-- business understanding
-- assumptions
-- solution breadth
-- prioritization/trade-offs
-- why this problem was selected
-- chosen solution
-- UX/key flows
-- V1 vs later
-- measurement
-- technical feasibility
-- prototype/demo
-- GTM
-- launch cohort
-- rollout
-- scale/change/kill
-- AI transcript
-
-Maintain roughly **50% problem / 50% solution** depth.
-
-Do not let the prototype dominate the problem reasoning.
-
-## Step 9 — Evidence discipline
-
-Treat every important statement as one of:
-- FACT
-- USER EVIDENCE
-- PUBLIC EVIDENCE
-- INFERENCE
-- ASSUMPTION
-- KILL GATE
-
-Never fabricate:
-- leakage rate
-- adoption/conversion rate
-- expected uplift
-- partner approval
-- exact contracts
-- retailer incrementality
-- product-level visibility
-- “India loves cashback” generalizations
-
-Use external research only when it changes a decision. Prefer primary/authoritative sources and Android/platform documentation.
-
-## Step 10 — Website / UX / engineering mandate
-
-The current site is a **draft**, not an asset that must be preserved.
-
-You may rewrite copy, restructure information architecture, redesign the visual system, replace components, rebuild the prototype, refactor/replace the technology stack, and remove weak sections.
-
-Do not rewrite into a complex stack just to sound sophisticated. Choose the implementation that produces the best reliable final result.
-
-Quality bar:
-- top-tier consumer-product case study
-- strong editorial hierarchy
-- excellent typography and spacing
-- responsive mobile/desktop
-- accessible
-- fast
-- no broken links
-- no console errors
-- no fake charts/data
-- no generic AI gradients/glassmorphism/SaaS-card soup
-- no over-animation
-- no student-project feel
-
-The retailer simulation should establish context without copying a proprietary retailer UI pixel-for-pixel.
-
-## Step 11 — AI transcript requirement
+## AI transcript requirement
 
 The assignment explicitly asks for the complete AI interaction trail.
 
-Use the supplied raw AI/source material in `source-material/` and the compiled context in `docs/AI_CONTEXT_HANDOFF.md`.
+The repo contains the working/source artifacts recovered so far and a structured ChatGPT context file. Do not describe a reconstructed handoff as a verbatim raw transcript.
 
-Do not invent missing transcript content.
+If exact exports of any model session that materially affected the final work are still missing, flag that clearly as a manual requirement rather than inventing content.
 
-If a raw interaction is unavailable, say so clearly rather than pretending the log is complete.
+## Website and submission execution
 
-Build a clean AI work-log/index where a reviewer can understand:
+After you make the product decision:
 
-forgetfulness → predicted reminders → missing-denominator attack → journey-position reframe → browser-extension insight → Android shopping context → retailer-aware V1 → two activations → ITT experiment → partner/reach kill gates
+1. Rewrite the case narrative around the final decision.
+2. Make the pivot/rejection path visible in the decision log instead of hiding it.
+3. Rebuild/refactor the prototype to represent the chosen product accurately.
+4. Make the site feel like a top-tier consumer-product review artifact, not a student portfolio template.
+5. Use strong editorial hierarchy, restrained brand cues, excellent typography/spacing, clear diagrams and credible product UI.
+6. Avoid generic AI gradients, glassmorphism, decorative dashboards and fake data.
+7. Make the prototype genuinely interactive.
+8. Ensure desktop/mobile accessibility and responsive QA.
+9. Audit every requirement in the original PDF.
+10. Commit the final source to GitHub and deploy to Vercel.
 
-## Step 12 — Work autonomously
-
-Use the connected GitHub and Vercel accounts.
-
-Work directly in:
-
-**anand-official/cashkaro_casestudy**
-
-You are allowed to make strong routine product/design/engineering decisions without asking me.
-
-Do not ask me to choose fonts, spacing, component styles, minor copy or routine refactors.
-
-Escalate only if you want to change the core product strategy, a claim cannot be supported, credentials/permissions block work, or a destructive action risks losing important source material.
-
-Commit meaningful changes and deploy the final production site.
-
-Prefer a clean Vercel alias such as:
-- cashkaro-apm-case.vercel.app
-- cashkaro-case-study.vercel.app
-- cashkaro-shopping-companion.vercel.app
-
-Do not break the existing working deployment until the replacement is tested.
+You may replace the current implementation entirely if that materially improves the final submission.
 
 ## Definition of done
 
-You are not done when “the site looks good.”
-
 You are done only when:
-1. the original assignment has been audited line by line
-2. problem framing is defensible
-3. evidence and assumptions are labelled correctly
-4. solution choice is clearly superior to rejected alternatives
-5. the V1 prototype communicates only capabilities V1 can actually support
-6. experiment design is causally sound
-7. GTM and kill gates are explicit
-8. technical feasibility is credible and restrained
-9. AI work log uses all supplied material and clearly labels any missing raw transcripts
-10. desktop QA passes
-11. mobile QA passes
-12. every link works
-13. final production deployment works
-14. GitHub contains the final state
-15. you perform one final hostile hiring-panel review and fix the weak points
+- the original PDF has been audited line by line,
+- the final problem framing is defensible,
+- insider PM feedback has been incorporated explicitly,
+- the chosen solution beats the alternatives for a clear reason,
+- user + CashKaro + retailer value are aligned,
+- the prototype shows only plausible capabilities,
+- technical/data dependencies are honest,
+- measurement is causal,
+- GTM and kill gates are explicit,
+- the AI work trail is accessible and honestly labelled,
+- the live site passes mobile + desktop QA,
+- every link works,
+- production deployment works,
+- repo is updated,
+- one final skeptical hiring-panel pass has been completed.
 
 ## Final handoff format
 
-When finished, report only:
+When finished, return:
 
-A. Final production URL  
-B. GitHub commit / branch  
-C. Material changes made  
-D. Assignment-compliance checklist  
-E. Remaining genuine unknowns / risks  
-F. Anything I still need to manually upload or include
+A. Final product decision and one-paragraph rationale  
+B. Final production URL  
+C. GitHub commit / branch  
+D. What materially changed from the previous retailer-overlay direction  
+E. Assignment-compliance checklist  
+F. Evidence/assumption/kill-gate summary  
+G. Remaining genuine unknowns  
+H. Anything Ujjawal must still manually supply before submission
 
-Take ownership and finish the submission.
+Do not stop to ask about fonts, colors or routine implementation choices. Own those decisions.
+
+Escalate only if a decision changes the fundamental strategy, requires credentials/approval you do not have, or would create an unsupported factual claim.
