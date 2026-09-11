@@ -7,35 +7,36 @@ Interactive submission for **“Making CashKaro part of the shopping habit.”**
 
 ## Live submission
 
-**Website:** https://cashkaro-apm-case-ujjawal-anands-projects.vercel.app
+**Website:** https://cashkaro-ujjawal-anands-projects.vercel.app
 
-The live case is deliberately structured around the assignment's 50/50 evaluation split: understand the right problem first, then make and defend one product decision.
+**Written case:** [`docs/FINAL_SUBMISSION.md`](docs/FINAL_SUBMISSION.md)  
+**Final QA:** [`docs/PRE_SUBMISSION_REVIEW.md`](docs/PRE_SUBMISSION_REVIEW.md)
+
+The submission is deliberately structured around the assignment's 50/50 evaluation split: understand the right problem first, then make and defend one product decision.
 
 ## Product decision
 
-The core opportunity is not simply “remind users more.” Existing users naturally begin shopping inside retailer apps, while CashKaro depends on them remembering to alter that journey before purchase.
+The case argues that the core opportunity is not simply “remind users more.” Existing users naturally begin shopping inside retailer apps, while CashKaro depends on them remembering to alter that journey before purchase.
 
 > **Do not predict when shopping might happen. Make CashKaro available when shopping context already exists.**
 
-The chosen hypothesis is an **Android-first Shopping Companion**: retailer-aware, explicitly opt-in, explicitly activated per shopping session, and intentionally not product-aware in V1.
+The chosen product hypothesis is an **Android-first Shopping Companion**: retailer-aware, explicitly opt-in, explicitly activated per shopping session, and intentionally not product-aware in V1.
 
 > **Earn the right to be present once. Earn the right to participate every time.**
 
-## What V1 tests
+## V1 boundaries
 
-Can retailer-level shopping context reduce enough behavioral friction to increase **incremental tracked orders per randomized existing user**?
-
-### V1 includes
+### Ships conceptually
 - Android-first existing-user cohort
 - supported retailer context
-- lightweight cashback activation pill
-- explicit activation each shopping session
+- non-blocking activation pill
+- explicit session activation
 - existing affiliate/deep-link attribution path
-- activation + later tracking reassurance
+- activation + later tracking proof
 - suppression / retailer controls
 - randomized-offer instrumentation
 
-### V1 deliberately excludes
+### Does not ship
 - Accessibility-based screen reading
 - product/cart/search inspection
 - exact per-product cashback
@@ -67,8 +68,11 @@ A key distinction in the case is **CashKaro incrementality vs retailer increment
 - `prototype.html` — interactive Shopping Companion prototype
 - `research.html` — evidence + decision log
 - `ai-transcript.html` — AI work-log interface
+- `docs/FINAL_SUBMISSION.md` — final written submission
 - `docs/PRODUCT_STRATEGY_AND_BUILD_PLAN.md` — product/build plan
 - `docs/SUBMISSION_CONTENT_BLUEPRINT.md` — narrative blueprint
 - `docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md` — claim/evidence discipline
+- `docs/PRE_SUBMISSION_REVIEW.md` — final senior-PM QA checklist
+- `transcripts/README.md` — AI-transcript compliance index
 
 The submission is designed as an **interactive product decision artifact**, not a feature mockup dressed up as a case study.
