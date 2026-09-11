@@ -6,14 +6,23 @@ AI output is **process evidence**, not a factual source for product claims.
 
 ## Available in this repository now
 
-### Primary ChatGPT workstream
+### Primary ChatGPT workstream — latest state
 
-**Compiled context / decision history:**  
+**Structured current context:**  
+[`CHATGPT_PRIMARY_CONTEXT.md`](CHATGPT_PRIMARY_CONTEXT.md)
+
+This is the latest structured reconstruction of the primary ChatGPT investigation and includes the new insider-PM challenge that re-opens the retailer-overlay product decision.
+
+**Earlier compiled context / decision history:**  
 [`../docs/AI_CONTEXT_HANDOFF.md`](../docs/AI_CONTEXT_HANDOFF.md)
 
-This is the best single-file reconstruction of the current ChatGPT investigation: predicted reminders, missing-denominator critique, qualitative evidence, journey-position reframe, mobile-extension insight, V1 scoping, two activations, experiment design, economics and kill gates.
+These are compiled handoffs, **not byte-for-byte exports of every ChatGPT UI message**. They exist so the final agent can inherit the reasoning without pretending a summary is a raw transcript.
 
-It is a **compiled handoff**, not a byte-for-byte export of every ChatGPT UI message.
+### Insider PM feedback / strategy challenge
+
+[`../docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md`](../docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md)
+
+This records the latest commercial critique: retailer-app interception may recapture attribution after a retailer has already won the user, so the product decision should be re-opened around upstream consideration/decision surfaces.
 
 ### Pre-red-team handoff
 
@@ -31,18 +40,19 @@ This preserves the product-relevant analytical core of Qwen's research and recor
 
 [`../source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md`](../source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md)
 
-This is the detailed DeepSeek review used in the final product decision. It is intentionally preserved even where the final case disagrees with it.
+This is the detailed DeepSeek review used in the earlier product decision. It is intentionally preserved even where the final case disagrees with it.
 
 ### Original assignment
 
-[`../source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md`](../source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md)
+[`../source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md`](../source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md)  
+[`../docs/ORIGINAL_ASSIGNMENT_TEXT.md`](../docs/ORIGINAL_ASSIGNMENT_TEXT.md)
 
-Parsed from the original 3-page PDF supplied by the candidate. If the binary PDF is available in the final submission environment, the PDF is authoritative.
+Parsed from the original 3-page PDF supplied by the candidate. The original PDF remains authoritative when attached to the final agent/session.
 
 ## AI roles used during the broader investigation
 
 1. **ChatGPT — primary product investigation / synthesis**  
-   Problem framing, reminder hypothesis, missing-denominator critique, user-research synthesis, Android Companion thesis, two-activation model, experiment design and final product review.
+   Problem framing, reminder hypothesis, missing-denominator critique, user-research synthesis, Android Companion thesis, two-activation model, experiment design, retailer incrementality challenge, and latest strategy re-open.
 
 2. **Qwen — adversarial behavioral research**  
    Used to attack the thesis and stress-test value, trust, context friction, reach and economics. Several recommendations were explicitly rejected, including invented quantitative assumptions, product-aware V1 copy and generic app-cost estimates.
@@ -72,8 +82,8 @@ Recommended raw-export naming if more files become available:
 
 ## What the reviewer should be able to see
 
-The AI trail should make the evolution legible:
+The AI trail should now make this evolution legible:
 
-`forgetfulness → predicted reminders → missing-denominator attack → journey-position reframe → browser-extension insight → Android shopping context → retailer-aware V1 → two activations → ITT experiment → partner/reach kill gates`
+`forgetfulness → predicted reminders → missing-denominator attack → journey-position reframe → browser-extension insight → Android retailer-overlay Companion → two activations → ITT experiment → retailer incrementality risk → insider PM critique → product decision re-open → upstream decision-companion / savings-cart investigation`
 
 The value of the log is not how much AI was used. It is whether the final decision shows independent judgment about what to keep, modify and reject.
