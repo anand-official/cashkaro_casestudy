@@ -5,14 +5,38 @@ Interactive submission for **“Making CashKaro part of the shopping habit.”**
 **Author:** Ujjawal Anand  
 **North star:** Tracked orders per existing user per quarter, on a fixed cohort.
 
-## Live submission
+## Final-agent handoff — start here
+
+If you are Astra / ChatGPT Work / another execution agent taking over this submission:
+
+### **[`HANDOFF_TO_ASTRA.md`](HANDOFF_TO_ASTRA.md)**
+
+That file points to the authoritative assignment transcript, complete compiled ChatGPT context, Qwen/DeepSeek source material, strategy documents, current prototype and the autonomous final-submission prompt.
+
+The actual execution instructions are in:
+
+### **[`docs/ASTRA_MASTER_PROMPT.md`](docs/ASTRA_MASTER_PROMPT.md)**
+
+Do not begin by redesigning the site. Read the assignment and context first.
+
+## Current live draft
 
 **Website:** https://cashkaro-ujjawal-anands-projects.vercel.app
 
 **Written case:** [`docs/FINAL_SUBMISSION.md`](docs/FINAL_SUBMISSION.md)  
 **Final QA:** [`docs/PRE_SUBMISSION_REVIEW.md`](docs/PRE_SUBMISSION_REVIEW.md)
 
-The submission is deliberately structured around the assignment's 50/50 evaluation split: understand the right problem first, then make and defend one product decision.
+The site is a working draft, not a sacred implementation. The final agent may rewrite/rebuild it if doing so materially improves the submission.
+
+## Source / AI context
+
+- [`source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md`](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md) — parsed authoritative brief
+- [`docs/AI_CONTEXT_HANDOFF.md`](docs/AI_CONTEXT_HANDOFF.md) — compiled primary ChatGPT reasoning and decision history
+- [`source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md`](source-material/PRIMARY_HANDOFF_TO_EXTERNAL_AGENTS.md) — detailed pre-red-team handoff
+- [`source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md`](source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md) — Qwen adversarial analysis + later corrections
+- [`source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md`](source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md) — DeepSeek principal-PM review
+- [`source-material/README.md`](source-material/README.md) — source manifest / transcript caveat
+- [`transcripts/README.md`](transcripts/README.md) — AI-transcript compliance index
 
 ## Product decision
 
@@ -73,6 +97,5 @@ A key distinction in the case is **CashKaro incrementality vs retailer increment
 - `docs/SUBMISSION_CONTENT_BLUEPRINT.md` — narrative blueprint
 - `docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md` — claim/evidence discipline
 - `docs/PRE_SUBMISSION_REVIEW.md` — final senior-PM QA checklist
-- `transcripts/README.md` — AI-transcript compliance index
 
 The submission is designed as an **interactive product decision artifact**, not a feature mockup dressed up as a case study.
