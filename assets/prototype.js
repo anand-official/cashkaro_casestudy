@@ -8,7 +8,7 @@ const product=()=>PRODUCTS.find(p=>p.id===chosen);
 const say=(role,html)=>`<div class="message ${role}"><span class="speaker">${role==='user'?'You':'Assistant'}</span><div>${html}</div></div>`;
 const btn=(action,label,cls='primary')=>`<button class="button ${cls}" data-action="${action}">${label}</button>`;
 const art=p=>`<img class="phone-art ${p.color}" src="assets/phones/${p.id}.svg" alt="" width="320" height="250">`;
-const identity=label=>`<div class="skill-heading"><b aria-hidden="true">C<span>K</span></b><div>CashKaro<small>${label}</small></div></div>`;
+const identity=label=>`<div class="skill-heading"><img src="assets/cashkaro-logo.svg" alt="CashKaro" width="120" height="30"><div><small>${label}</small></div></div>`;
 const pathView=(ready=false)=>`<div class="handoff-line ${ready?'complete':'working'}" aria-label="Route from your choice through CashKaro to retailer"><span><i aria-hidden="true">✓</i>Your choice</span><b aria-hidden="true">→</b><span><i aria-hidden="true">${ready?'✓':'·'}</i>CashKaro</span><b aria-hidden="true">→</b><span><i aria-hidden="true">${ready?'✓':'·'}</i>Retailer</span></div>`;
 function focusStage(){if(!el('review-sheet').open)box.querySelector('[data-stage-heading]')?.focus();el('demo-status').textContent=box.querySelector('[data-stage-heading]')?.textContent||'Journey reset';}
 function render(){

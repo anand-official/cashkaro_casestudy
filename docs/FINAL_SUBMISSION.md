@@ -109,10 +109,10 @@ Estimate this segment through a sampled survey linked, with consent, to pre-peri
 
 ## The choice stays with the shopper.
 
-<ck-walkthrough aria-label="CashKaro guided purchase journey"></ck-walkthrough>
+<ck-walkthrough aria-label="CashKaro interactive purchase journey"></ck-walkthrough>
 <div class="experience-story static-story"><div class="story-choice"><span class="visual-label">01 / Choose</span><img src="assets/phones/aster.svg" alt="Fictional Aster 9 phone" width="320" height="250"><strong>Aster 9</strong><span>“This is the one.”</span></div><div class="story-benefit"><span class="visual-label">02 / Check + consent</span><img src="assets/cashkaro-logo.svg" alt="CashKaro" width="120" height="30"><strong>₹1,200</strong><span>estimated Cashback</span><dl><div><dt>Pay today</dt><dd>₹39,999</dd></div><div><dt>Potential benefit later</dt><dd>₹1,200</dd></div></dl><span class="story-action">Continue with Cashback →</span></div><div class="story-retailer"><span class="visual-label">03 / Complete</span><span class="retailer-mark" aria-hidden="true">↗</span><strong>Same product.<br>Same retailer.</strong><p>Checkout, payment and fulfillment remain with the retailer.</p></div></div>
 
-<p class="slide-source">Fictional product and offer; no instant discount, live integration or transaction. Actual retailer eligibility may differ substantially.</p>
+<p class="slide-source static-story-source">Fictional product and offer; no instant discount, live integration or transaction. Actual retailer eligibility may differ substantially.</p>
 
 <a href="../prototype.html" class="button primary">Try the interactive prototype ↗</a>
 </section>

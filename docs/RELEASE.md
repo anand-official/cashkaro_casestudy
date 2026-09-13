@@ -1,6 +1,6 @@
-# Universal Shopping Skill release 4.3.0
+# Universal Shopping Skill release 4.4.0
 
-Prepared 13 September 2026 on `submission/universal-shopping-skill`, based on `7c163d291f76e8ccfca48d9055a0d9f37bd2711c`.
+Prepared 13 September 2026 on `submission/universal-shopping-skill`, based on `bd0d6368c9bc2da8d5f57eebc4ff3a4b0daf9e70`.
 
 Production destination: https://cashkaro-shortlist.vercel.app/ (legacy project hostname retained).
 
@@ -17,3 +17,5 @@ See `QA_REPORT.md` for performed checks and limits. Candidate submission remains
 4.2.1 changes: use CashKaro's published SVG wordmark in the requested purchase-moment card and link the brief directly to the original attached PDF. The PDF is explicitly included in the public build at the candidate's request; its SHA-256 matches the upload: `760ac4a87af0e97799a3c5eaea12d929cde7c3ace45b445ba1ac26de960708b8`. Other private records remain excluded. Logo source: https://asset22.ckassets.com/wp/wp-content/themes/CashKaro_WP_V1/img/cashkaro_logo_v1.svg, retrieved 13 September 2026 from CashKaro's website. The SVG is stored without visual alteration.
 
 4.3 changes: 15-section visual core brief with seven problem sections, a shared decision bridge and seven solution sections. Added original six-chapter guided phone walkthrough, with chapter navigation, pause, next, replay and reduced-motion support. Existing prototype is available through Try it yourself. Google's UCP page was a presentation reference only. Original PDF and CashKaro logo are preserved.
+
+4.4 changes: substantive interactive canvas redesign with a persistent selected purchase, CashKaro commerce card, functional in-canvas controls, optional guided playback and progressive review explanations. Added the 15-page PDF companion and download links. Product strategy, north star, evidence and experiment are retained. The complete AI transcript requirement remains unresolved.

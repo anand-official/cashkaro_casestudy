@@ -19,12 +19,12 @@ The [original assignment PDF](../source-material/cashkaro_assignment.pdf) was re
 | Prioritize impact, feasibility, effort, risk (pp.1–2) | [Decision](../index.html#decision), [spike](../experiment.html#architecture) | Strategic choice and near-term disadvantage stated |
 | Explain why this problem over others (p.2) | [Alternatives](../index.html#alternatives), [what changes the decision](../index.html#defense) | Selected cause, competing explanations and investment rationale stated |
 | What not to build (p.2) | [MVP](../index.html#scope) | Recommender, checkout, scraping and cart out of scope |
-| Key flows and UX (p.2) | [Interactive prototype](../prototype.html) | Guided six-chapter phone walkthrough plus interactive priorities, budget, comparison, connection, consent, handoff and failure states |
+| Key flows and UX (p.2) | [Interactive prototype](../prototype.html) | Interactive shopping canvas with optional guided playback, plus advanced priorities, budget, comparison, connection, consent, handoff and failure states |
 | First versus later (p.2) | [Roadmap](../index.html#defense), [rollout](../experiment.html#rollout) | One host and reviewed paths before expansion |
 | Technical feasibility (pp.2–3) | [Proposed interfaces](../experiment.html#architecture) | Missing services and host dependencies named; no invented existing APIs |
 | GTM discovery and activation (p.2) | [Launch](../index.html#launch) | Owned invitation to pre-defined existing segment; host discovery not assumed |
 | Scale, change, kill (p.2) | [Gates](../index.html#gates), [owners](../experiment.html#rollout) | Explicit, with calibration rather than fabricated thresholds |
-| Roughly equal problem/solution depth (pp.1–2) | Seven problem sections, one shared decision section, seven solution sections; [word-count manifest](../build-manifest.json) | 15-section core brief; decision section allocated equally for the balance diagnostic |
+| Roughly equal problem/solution depth (pp.1–2) | Seven problem sections, one shared decision section, seven solution sections; [word-count manifest](../build-manifest.json) | [15-page PDF](../output/pdf/CashKaro_Visual_Brief.pdf) and equivalent visual web brief; decision section allocated equally for the balance diagnostic |
 | Widget direction (p.2) | Alternatives: less entry effort, residual recall, orders-based validation | Assessed as a rejected lead, not a widget mock |
 | Extension direction (p.3) | [Desktop proxy and registry](../research.html#alternatives) | Inherited dated web proxy, explicit assumptions; not measured order share |
 | Reminder direction (p.3) | Alternatives and missing-denominator analysis | Rejected as lead; no chosen reminder component requiring a reminder prototype |

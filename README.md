@@ -41,3 +41,9 @@ The main case is now 15 visual sections: seven problem sections, a decision brid
 `assets/brief.css` styles the core visual brief. `assets/walkthrough.js` provides an original six-chapter phone walkthrough with autoplay when visible, pause, next, chapter selection and replay. Reduced-motion preference disables autoplay. The presentation pattern was informed by Google's UCP landing-page animation, not its implementation or transaction model. No Google media is copied into the release.
 
 The prototype opens in guided mode. `prototype.html#interactive` opens the existing hands-on flow; all eligibility scenarios remain accessible there.
+
+## 4.4 interactive experience and PDF
+
+The embedded experience is now interactive by default: shopper priorities, product selection, CashKaro connection, benefit conditions, affirmative pre-cart answer, route activation and retailer handoff. The chosen product remains visible alongside the CashKaro card on desktop and becomes a compact purchase summary on mobile. Optional scripted playback and progressive review notes replace the permanent chapter/control sidebar. The same fictional router and host models power both this experience and the advanced scenarios.
+
+`output/pdf/CashKaro_Visual_Brief.pdf` is the 15-page landscape companion. It has seven problem pages, a decision bridge and seven solution pages, with clickable source and prototype links. Rebuild with `python scripts/build-pdf.py` (ReportLab, PyMuPDF and system DejaVu Sans fonts required), then `npm run build`. The committed PDF is an explicit public release input; the website build needs no Python runtime.

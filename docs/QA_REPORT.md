@@ -1,3 +1,21 @@
+# Universal Shopping Skill 4.4 QA
+
+13 September 2026. Revision: interactive canvas redesign and 15-page PDF companion.
+
+- The embedded and standalone experience now supports direct product selection, three shopper priorities, connection, benefit checking, explicit activation and retailer handoff. Recommendations use the unchanged host model; benefit and route checks use the unchanged router model.
+- Browser-tested Cashback success, keyboard pre-cart confirmation and handoff at 360px. Activation is disabled without the affirmative cart answer. Changing the outcome resets consent and connection; the selected phone is preserved.
+- Browser-tested ₹65 benefit, restricted Rewards, zero benefit, unsupported merchant, missing context, expired policy, prior-affiliate stand-down and route-service failure in the new canvas. No invalid route is presented as activated. Rewards have restricted-redemption copy and no cash-effective-price calculation.
+- Optional scripted playback advances through the journey. Taking control at the route stage returns to benefit review with consent cleared. Playback is labelled separately from manual interaction; no actual account, route or order is created. Reduced-motion and background/offscreen playback handling are implemented. The OS reduced-motion preference was not changed during QA.
+- Advanced scenarios remain accessible. Budget filtering to ₹35,000 returns only the fictional Luma 8. Escape closes the review dialog. Switching views preserves the embedded selected purchase. Earlier comprehensive host, cart, comparison and failure checks are recorded below; their routing logic is unchanged.
+- Six routes at 360, 390, 768 and 1280 CSS-pixel iframe widths: 24 checks, no horizontal page overflow. The 360px benefit state was separately checked after interaction. Browser iframe testing is not a physical-phone test.
+- The PDF has exactly 15 landscape pages (960 × 540 points), embedded Unicode fonts, 18 clickable links and no extracted text beyond page bounds. All pages were rendered and visually reviewed as a contact sheet; decision, experience and experiment pages were also inspected at full rendering size. No additional cover page is added. The PDF uses a static flow illustration and links to the interactive site.
+- Build and release checks pass: six page routes, local links/anchors, JavaScript syntax, typed benefits, consent/eligibility boundaries, source exclusions and the 50/50 narrative diagnostic. The PDF is a deliberate public release input.
+- No application-origin console errors were observed. Design records: `docs/qa/interactive-canvas-mobile.jpg` and `interactive-canvas-desktop.jpg`.
+
+Limits: no real affiliate route, platform approval, user-comprehension study, physical phone or actual screen-reader session. Complete contributing AI exports remain unresolved. These UX and packaging changes do not alter the strategy, evidence or causal experiment.
+
+## Earlier verification records
+
 # Universal Shopping Skill 4.3 QA
 
 13 September 2026. Revision: 15-section visual brief and guided phone walkthrough.

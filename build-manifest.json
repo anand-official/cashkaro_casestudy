@@ -1,8 +1,10 @@
 {
-  "version": "4.3.0",
+  "version": "4.4.0",
   "product": "CashKaro Universal Shopping Skill",
   "evidence_date": "2026-09-13",
   "core_sections": 15,
+  "pdf_pages": 15,
+  "pdf": "output/pdf/CashKaro_Visual_Brief.pdf",
   "problem_words": 679,
   "solution_words": 679,
   "decision_bridge_words": 113,
