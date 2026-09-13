@@ -2,7 +2,7 @@
 
 ## The brief, requirement by requirement.
 
-The original attached PDF was read directly for this revision. The proposal retains its original problem and north star; it narrows the intervention to recall and re-entry friction at an external purchase decision. The [transcription](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md) is a convenience copy. The brief permits new capabilities if their implementation path is explained; it does not require production approvals before proposing a product.
+The [original assignment PDF](source-material/cashkaro_assignment.pdf) was read directly for this revision. The proposal retains its original problem and north star; it narrows the intervention to recall and re-entry friction at an external purchase decision. The [transcription](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md) is a convenience copy. The brief permits new capabilities if their implementation path is explained; it does not require production approvals before proposing a product.
 
 <div class="warning-box"><strong>Product artifact rebuilt. Transcript package remains incomplete.</strong><p>Technical QA cannot satisfy the mandatory complete-AI-interaction requirement. Supplied copied records are acknowledged; their completeness is unverified.</p></div>
 

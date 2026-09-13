@@ -52,7 +52,7 @@ assert.ok(fs.existsSync('dist/assets/host-model.js'),'Host module must be publis
 const share=manifest.problem_words/(manifest.problem_words+manifest.solution_words);
 assert.ok(share>=.4&&share<=.6,`Unbalanced narrative: ${share}`);
 assert.equal(manifest.product,'CashKaro Universal Shopping Skill');
-const prohibited=['source-material/cashkaro_assignment.pdf','transcripts/FINAL_SESSION_RECORD.md','source-material/INSIDER_PM_WHATSAPP_RAW.txt','docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md','__qa.html','assets/catalog.js','assets/order-model.js'];
+const prohibited=['transcripts/FINAL_SESSION_RECORD.md','source-material/INSIDER_PM_WHATSAPP_RAW.txt','docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md','__qa.html','assets/catalog.js','assets/order-model.js'];
 for(const file of prohibited)assert.ok(!fs.existsSync(path.join('dist',file)),`Not a public release input: ${file}`);
 for(const file of fs.readdirSync('dist',{recursive:true}).filter(f=>/\.(md|html|txt|js|json)$/.test(f))){
  const text=fs.readFileSync(path.join('dist',file),'utf8');

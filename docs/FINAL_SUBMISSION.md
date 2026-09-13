@@ -9,7 +9,7 @@ Canonical content: `content/case.md`. Rendered at `index.html`.
 
 ## The original problem remains the mandate.
 
-This proposal addresses the problem in the [CashKaro assignment](../source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md): **existing users, including previous transactors, continue to make eligible purchases without routing them through CashKaro.** The user misses a potential benefit; CashKaro misses an attributable transaction.
+This proposal addresses the problem in the [CashKaro assignment](../source-material/cashkaro_assignment.pdf): **existing users, including previous transactors, continue to make eligible purchases without routing them through CashKaro.** The user misses a potential benefit; CashKaro misses an attributable transaction.
 
 The brief leaves the causes open and describes its product directions as starting points. We are therefore not replacing the assigned problem. We are selecting one potential cause, identifying the users affected, and proposing a different point of intervention.
 
