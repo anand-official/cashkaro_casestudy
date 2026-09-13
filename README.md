@@ -1,10 +1,10 @@
-# CashKaro Universal Shopping Skill
+# CashKaro Connector
 
 **Concept proposal for CashKaro APM assignment · Ujjawal Anand · 13 September 2026**
 
 One CashKaro Purchase Router, platform-specific adapters. The assistant owns the product recommendation; CashKaro checks eligible Cashback/Rewards and creates an approved retailer route; the retailer owns the transaction.
 
-Current public deployment: https://cashkaro-shortlist.vercel.app/ (legacy project hostname; current product is Universal Shopping Skill).
+Current public deployment: https://cashkaro-shortlist.vercel.app/ (legacy project hostname; current product is the CashKaro Connector).
 
 ## Read / run
 
@@ -46,4 +46,16 @@ The prototype opens in guided mode. `prototype.html#interactive` opens the exist
 
 The embedded experience is now interactive by default: shopper priorities, product selection, CashKaro connection, benefit conditions, affirmative pre-cart answer, route activation and retailer handoff. The chosen product remains visible alongside the CashKaro card on desktop and becomes a compact purchase summary on mobile. Optional scripted playback and progressive review notes replace the permanent chapter/control sidebar. The same fictional router and host models power both this experience and the advanced scenarios.
 
-`output/pdf/CashKaro_Visual_Brief.pdf` is the 15-page landscape companion. It has seven problem pages, a decision bridge and seven solution pages, with clickable source and prototype links. Rebuild with `python scripts/build-pdf.py` (ReportLab, PyMuPDF and system DejaVu Sans fonts required), then `npm run build`. The committed PDF is an explicit public release input; the website build needs no Python runtime.
+`output/pdf/CashKaro_Visual_Brief.pdf` is the 15-page landscape companion. It has seven problem pages, a decision bridge and seven solution pages, with clickable source and prototype links. Rebuild with `python scripts/build-pdf.py` (requires ReportLab, PyMuPDF and DejaVu Sans; the build finds DejaVu in a system font directory or in matplotlib), then `npm run build`. The committed PDF is an explicit public release input; the website build needs no Python runtime.
+
+## 5.0 connector framing, device prototype and the scenario matrix
+
+**Renamed to CashKaro Connector.** A skill implies something built per host. A connector is the pattern assistants already use for Gmail, Drive and calendars: authorise the account once, and any supported assistant can call it. The mechanism is unchanged; the framing now matches how the capability is distributed and approved. Earlier names remain in history and in `docs/archive/`.
+
+**Sixteen scenarios, eleven of which refuse.** `assets/router-model.js` is the single source of truth, grouped into benefit outcomes, eligibility refusals, attribution limits, service failures and revalidation. Additions cover third-party coupons voiding commission, cash-on-delivery exclusion, new-customer-only rates, an unreachable connector, expired authorisation, a benefit reduced at revalidation, and a changed retailer price. Route-stage failures that a shopper can recover from offer a recovery action. `scripts/check.mjs` asserts every scenario stops exactly where its fixture declares.
+
+**The walkthrough is now a device experience.** `assets/walkthrough.js` with `assets/device-chrome.js`, `assets/device-css.js` and `assets/walkthrough-css.js`. The journey starts on a phone home screen with the assistant unopened, connection is a system-style sheet, the handoff is an app switch, and the route confirmation arrives as a notification. A narration panel tracks seven chapters. Product rules and refusals are unchanged.
+
+**No live model is wired into the prototype.** In the product the model belongs to the host and CashKaro supplies the tool it calls, so a model key inside CashKaro's own prototype would misrepresent the architecture, would be readable in a public static site, and would break the determinism the refusal states depend on. See `docs/DECISION_LOG.md`.
+
+**AI work record rebuilt.** `content/ai.md` declares three provenance tiers, the model roster and its failure modes, the seven pivots, the specific AI outputs that were overruled, and an honest attribution split. `transcripts/README.md` is the session ledger; `transcripts/raw/` is the drop-in location and export guide for the four outstanding raw exports.

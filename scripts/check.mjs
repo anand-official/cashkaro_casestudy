@@ -3,7 +3,7 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {research} from '../assets/host-model.js';
-import {PRODUCTS, checkRoute, createRoute} from '../assets/router-model.js';
+import {PRODUCTS, SCENARIOS, checkRoute, createRoute} from '../assets/router-model.js';
 
 const manifest=JSON.parse(fs.readFileSync('build-manifest.json','utf8'));
 const errors=[];
@@ -32,9 +32,18 @@ for(const p of PRODUCTS){
  assert.equal(createRoute(base).activated,true);
  assert.equal(checkRoute({...base,scenario:'rewards'}).conditionalValue,null,'Rewards must never become a cash net price');
  assert.equal(checkRoute({...base,scenario:'small'}).amount,65);
- for(const scenario of ['unsupported','uncertain','stale','standdown','zero']){
-  assert.equal(checkRoute({...base,scenario}).ok,false);
-  assert.equal(createRoute({...base,scenario}).ok,false,'Route creation must revalidate');
+ // Every declared scenario must stop exactly where its fixture says it stops.
+ for(const [scenario,s] of Object.entries(SCENARIOS)){
+  const checked=checkRoute({...base,scenario}),routed=createRoute({...base,scenario});
+  if(s.stage==='check'){
+   assert.equal(checked.ok,false,`${scenario} must fail the eligibility check`);
+   assert.equal(routed.ok,false,`${scenario} must not produce a route`);
+   assert.ok(checked.reason&&checked.detail,`${scenario} must explain the refusal`);
+  }else{
+   assert.equal(checked.ok,true,`${scenario} must pass the eligibility check`);
+   assert.equal(routed.ok,s.stage==='pass',`${scenario} route outcome must match its declared stage`);
+   if(s.stage==='route')assert.ok(routed.reason&&routed.detail,`${scenario} must explain the route failure`);
+  }
  }
  for(const override of [{connected:false},{consent:false},{carted:true},{productId:'missing'},{scenario:'failure'}])assert.equal(createRoute({...base,...override}).ok,false);
 }
@@ -53,7 +62,7 @@ assert.equal((fs.readFileSync('content/case.md','utf8').match(/<section class="c
 assert.ok(fs.existsSync('dist/assets/walkthrough.js'),'Guided walkthrough must be published');
 const share=manifest.problem_words/(manifest.problem_words+manifest.solution_words);
 assert.ok(share>=.4&&share<=.6,`Unbalanced narrative: ${share}`);
-assert.equal(manifest.product,'CashKaro Universal Shopping Skill');
+assert.equal(manifest.product,'CashKaro Connector');
 const prohibited=['transcripts/FINAL_SESSION_RECORD.md','source-material/INSIDER_PM_WHATSAPP_RAW.txt','docs/INSIDER_PM_FEEDBACK_AND_STRATEGY_REVIEW.md','__qa.html','assets/catalog.js','assets/order-model.js'];
 for(const file of prohibited)assert.ok(!fs.existsSync(path.join('dist',file)),`Not a public release input: ${file}`);
 for(const file of fs.readdirSync('dist',{recursive:true}).filter(f=>/\.(md|html|txt|js|json)$/.test(f))){
@@ -61,4 +70,4 @@ for(const file of fs.readdirSync('dist',{recursive:true}).filter(f=>/\.(md|html|
  assert.ok(!/Anmol|Enactus/.test(text),`Personal stakeholder attribution remains in ${file}`);
 }
 if(errors.length)throw Error(errors.join('\n'));
-console.log(`PASS: ${manifest.routes.length} public routes and anchors; reader artifacts; JS syntax; router consent, identity and eligibility boundaries; typed benefits; shopper constraints and recommendation independence; explicit publishing exclusions; narrative balance ${Math.round(share*100)}/${Math.round((1-share)*100)}.`);
+console.log(`PASS: ${manifest.routes.length} public routes and anchors; ${Object.keys(SCENARIOS).length} connector scenarios; reader artifacts; JS syntax; router consent, identity and eligibility boundaries; typed benefits; shopper constraints and recommendation independence; explicit publishing exclusions; narrative balance ${Math.round(share*100)}/${Math.round((1-share)*100)}.`);

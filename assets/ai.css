@@ -1,0 +1,71 @@
+/* AI work record. Visual primitives for the provenance chapter. */
+.takeaway{border-left:3px solid var(--blue);padding-left:17px;margin:26px 0 0;font-size:.94rem}
+.visual-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);display:block;font-weight:600;margin-bottom:14px}
+.slide-source{font-size:.75rem;line-height:1.65;color:var(--muted);margin:20px 0 0;max-width:none}
+.slide-source a{font-weight:550}
+.case-section code{font-size:.84em}
+
+/* 01 · Provenance tiers */
+.provenance-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.provenance-tiers>div{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--line);padding:22px 19px}
+.provenance-tiers .tier-raw{border-top-color:var(--blue)}
+.provenance-tiers .tier-copy{border-top-color:#8e9aa0}
+.provenance-tiers .tier-authored{border-top-color:var(--orange)}
+.tier-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--soft);color:var(--ink);font-size:.8125rem;font-weight:700;margin-bottom:15px}
+.tier-raw .tier-mark{background:var(--blue);color:var(--white)}
+.tier-authored .tier-mark{background:#f0e0d2;color:#813d22}
+.provenance-tiers strong{display:block;font-size:1.02rem;margin-bottom:8px}
+.provenance-tiers p{font-size:.875rem;line-height:1.6;margin:0 0 12px;color:var(--muted)}
+.provenance-tiers small{display:block;font-size:.75rem;line-height:1.6;padding-top:12px;border-top:1px solid var(--soft)}
+
+/* 02 · Model roster */
+.roster-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:28px 0}
+.roster-grid>div{background:#edf0ed;padding:21px;border-left:2px solid var(--blue)}
+.roster-grid>div:last-child{grid-column:1/-1;border-left-color:#a6b0b4;background:#eceeea}
+.roster-role{font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;color:var(--blue);font-weight:650;display:block;margin-bottom:9px}
+.roster-grid>div:last-child .roster-role{color:var(--muted)}
+.roster-grid strong{display:block;font-size:1.22rem;letter-spacing:-.02em;margin-bottom:9px}
+.roster-grid p{font-size:.9rem;line-height:1.6;margin:0 0 12px}
+.roster-grid em{display:block;font-style:normal;font-size:.8125rem;line-height:1.62;color:#6a4a30;background:#f5ece2;padding:11px 13px;border-radius:3px}
+
+/* 03 · Pivot track */
+.pivot-track{margin:28px 0;border-left:2px solid var(--line)}
+.pivot-track>div{display:flex;gap:18px;padding:17px 0 17px 22px;border-bottom:1px solid var(--soft)}
+.pivot-track>div:last-child{border-bottom:0}
+.pivot-major,.pivot-current{margin-left:-2px;border-left:2px solid var(--orange);background:#eaeee9}
+.pivot-current{border-left-color:var(--blue);background:#e7ecf6}
+.pivot-index{font-size:.8125rem;font-weight:700;color:var(--orange);min-width:26px;padding-top:3px;letter-spacing:.04em;flex-shrink:0}
+.pivot-current .pivot-index{color:var(--blue)}
+.pivot-body{min-width:0}
+.pivot-body strong{display:block;font-size:1.08rem;margin-bottom:9px}
+.pivot-challenge,.pivot-outcome{font-size:.875rem;line-height:1.6;margin:0 0 8px;max-width:640px}
+.pivot-challenge{color:var(--muted)}
+.pivot-outcome{margin-bottom:0;padding-left:14px;border-left:2px solid var(--blue)}
+.pivot-major .pivot-outcome{border-left-color:var(--orange);font-weight:550}
+
+/* 04 · Rejected outputs */
+.reject-list{display:grid;gap:10px;margin:28px 0}
+.reject-list>div{display:grid;grid-template-columns:1fr 1.25fr;gap:0;border:1px solid var(--line);background:var(--white)}
+.reject-had{margin:0;padding:19px;background:#f3ece5;color:#7a4526;font-size:.9rem;line-height:1.55;text-decoration:line-through;text-decoration-color:#c9a184;text-decoration-thickness:1px;border-right:1px solid var(--line)}
+.reject-kept{margin:0;padding:19px;font-size:.875rem;line-height:1.65}
+.reject-kept strong{color:var(--blue)}
+
+/* 05 · Attribution split */
+.contribution-split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}
+.contribution-split>div{padding:22px;border-top:3px solid var(--blue);background:#edf0ed}
+.contribution-no{border-top-color:var(--orange);background:#f1ebe3}
+.contribution-split ul{margin:0;padding-left:19px}
+.contribution-split li{font-size:.875rem;line-height:1.6;margin:0 0 11px}
+.contribution-split li:last-child{margin-bottom:0}
+
+@media(max-width:900px){
+ .provenance-tiers,.roster-grid,.contribution-split{grid-template-columns:1fr}
+ .roster-grid>div:last-child{grid-column:auto}
+ .reject-list>div{grid-template-columns:1fr}
+ .reject-had{border-right:0;border-bottom:1px solid var(--line)}
+ .pivot-track>div{padding-left:16px;gap:13px}
+}
+@media print{
+ .provenance-tiers>div,.roster-grid>div,.reject-list>div,.contribution-split>div,.pivot-track>div{break-inside:avoid}
+ .pivot-track,.reject-list{break-inside:auto}
+}

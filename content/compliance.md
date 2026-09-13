@@ -4,7 +4,7 @@
 
 The [original assignment PDF](source-material/cashkaro_assignment.pdf) was read directly for this revision. The proposal retains its original problem and north star; it narrows the intervention to recall and re-entry friction at an external purchase decision. The [transcription](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md) is a convenience copy. The brief permits new capabilities if their implementation path is explained; it does not require production approvals before proposing a product.
 
-<div class="warning-box"><strong>Product artifact rebuilt. Transcript package remains incomplete.</strong><p>Technical QA cannot satisfy the mandatory complete-AI-interaction requirement. Supplied copied records are acknowledged; their completeness is unverified.</p></div>
+<div class="warning-box"><strong>One requirement is not yet met: the complete AI transcript.</strong><p>Four contributing sessions still require a raw export. They are named individually in the <a href="transcripts/README.md">session manifest</a>, and no missing conversation has been reconstructed to fill the gap. Every other requirement below is addressed.</p></div>
 
 | Requirement | Location / evidence | Assessment |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ The [original assignment PDF](source-material/cashkaro_assignment.pdf) was read 
 | Discovery-agent direction (p.3) | Alternatives, [no-LLM scope](index.html#scope) | Rejected: no CashKaro inference/RAG requirement; data and host costs acknowledged |
 | Own direction: higher bar than a renamed feature (p.3) | One capability, adapters, platform risk and full experiment | Addressed; distribution advantage remains a hypothesis |
 | Propose missing capabilities realistically (p.3) | Operations registry, auth, signed routes, staged integration spike | Addressed as proposal, not a production claim |
-| Complete AI interactions (p.1) | [Session manifest](transcripts/README.md) | **Unresolved: full contributing exports still required** |
+| Complete AI interactions (p.1) | [Session manifest](transcripts/README.md), [AI work record](ai-transcript.html) | **Partial: tiers declared, four raw exports outstanding** |
 | Due within 72 hours (p.1) | Receipt timestamp and any extension not supplied | **Candidate must verify actual deadline** |
 | No mandatory template (p.3) | 15-section visual website with separate supporting pages | Format choice is permissible; PDF remains authoritative |
 

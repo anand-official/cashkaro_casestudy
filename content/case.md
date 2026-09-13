@@ -7,7 +7,7 @@ Existing users still make eligible purchases without CashKaro. This proposal add
 
 <div class="outcome-visual"><span class="visual-label">The required outcome</span><div class="metric-fraction"><strong>Valid tracked orders</strong><span>Existing users in the fixed cohort</span></div><span class="quarter-label">per quarter</span></div>
 
-<div class="cover-decision"><span class="visual-label">Proposed product</span><strong>CashKaro Universal Shopping Skill</strong><p>Let an assistant hand a selected purchase to CashKaro for an eligible benefit and approved retailer route.</p></div>
+<div class="cover-decision"><span class="visual-label">Proposed product</span><strong>CashKaro Connector</strong><p>A connectable CashKaro account that any assistant can call to check a chosen purchase and return an approved retailer route.</p></div>
 
 <p class="slide-source">Ujjawal Anand · Concept proposal · September 2026<br><a href="source-material/cashkaro_assignment.pdf">CashKaro assignment</a> · <a href="prototype.html">Open interactive prototype ↗</a></p>
 </section>
@@ -93,7 +93,7 @@ Estimate this segment through a sampled survey linked, with consent, to pre-peri
 
 <div class="decision-matrix"><div><strong>Widget / quick access</strong><span>Less entry effort; recall remains.</span><b>Not the lead</b></div><div><strong>Browser extension</strong><span>Retain contextual assistance; browser reach is limited.</span><b>Build on principle</b></div><div><strong>Contextual reminders</strong><span>Incomplete intent signals risk irrelevant prompts.</span><b>Not the lead</b></div><div class="retained"><strong>Share / deep link</strong><span>Preserve context; still requires remembering to share.</span><b>Retain foundation</b></div><div><strong>Owned discovery agent</strong><span>Requires new research habits and costly product data.</span><b>Reject ownership</b></div></div>
 
-<div class="decision-banner"><strong>Recommend: Universal Shopping Skill</strong><p>Potential recall reduction across external surfaces. Lower deployment control, uncertain reach and partner dependence.</p></div>
+<div class="decision-banner"><strong>Recommend: CashKaro Connector</strong><p>Potential recall reduction across external surfaces. Lower deployment control, uncertain reach and partner dependence.</p></div>
 
 <p class="slide-source">An own-direction extension permitted by the brief. If contextual placement fails, Share may be the better first surface. <a href="research.html#alternatives">Full prioritization ↗</a></p>
 </section>
@@ -114,11 +114,13 @@ Estimate this segment through a sampled survey linked, with consent, to pre-peri
 <section class="case-section" id="architecture" data-part="solution">
 <p class="section-label">10 / Product ownership</p>
 
-## One routing capability. Different entry points.
+## Built as a connector, not as an app inside someone else's app.
+
+An assistant already connects to Gmail, Drive or a calendar: the user authorises the account once, and the assistant calls it when the task needs it. CashKaro fits that same slot. Connect once, and any assistant that supports connectors can hand over a purchase the shopper has already chosen.
 
 <div class="universal-visual"><div class="host-row"><span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Share</span></div><p class="connector-caption">Potential adapters · each requires its own approval</p><span class="flow-arrow" aria-hidden="true">↓</span><div class="router-focus"><img src="assets/cashkaro-logo.svg" alt="CashKaro" width="120" height="30"><strong>Purchase Router</strong><span>Identity · eligibility · benefit · consent</span></div><span class="flow-arrow" aria-hidden="true">↓</span><div class="retailer-node">Approved route → retailer checkout</div></div>
 
-<p class="takeaway">The assistant recommends. CashKaro checks and routes. The retailer sells. MCP/API support does not guarantee contextual placement or affiliate permission.</p>
+<p class="takeaway">The assistant recommends. CashKaro checks and routes. The retailer sells. This is deliberately the narrowest useful contract: one authorisation, one call, one answer. MCP and connector support does not guarantee contextual placement or affiliate permission.</p>
 
 <p class="slide-source"><a href="experiment.html#architecture">Technical contracts and delivery dependencies ↗</a> · No existing internal API or universal cross-platform login assumed.</p>
 </section>
@@ -134,7 +136,7 @@ One reviewed host and two approved merchant paths. Connect an account, check the
 
 <p class="scope-exclusion"><strong>Outside V1:</strong> recommendation engine, retailer comparison, checkout, cart repair, scraping and coupon injection.</p>
 
-<p class="slide-source">The prototype includes small/zero benefits, cart warnings, stale policies, prior referrals and route failures.</p>
+<p class="slide-source">The prototype carries sixteen scenarios across five groups: benefit outcomes, eligibility refusals, attribution limits, service failures and revalidation. Eleven of them refuse. <a href="prototype.html#interactive">Test them ↗</a></p>
 </section>
 
 <section class="case-section" id="economics" data-part="solution">
@@ -156,7 +158,7 @@ Early value may partly be attribution recapture with a visible user benefit. Con
 
 ## Count everyone assigned, including the zeros.
 
-<div class="experiment-visual"><div class="cohort-node">Freeze existing-user cohort → randomize by account</div><div class="experiment-arms"><div><span>Control</span><strong>Current CashKaro experience</strong></div><div><span>Treatment</span><strong>Skill access + onboarding</strong></div></div><div class="outcome-node"><strong>Difference in valid tracked orders</strong><span>per originally assigned user · full quarter · all channels</span></div><div class="zeros-row"><span>Never connects ✓</span><span>Never invoked ✓</span><span>Declines ✓</span><span>No orders ✓</span></div></div>
+<div class="experiment-visual"><div class="cohort-node">Freeze existing-user cohort → randomize by account</div><div class="experiment-arms"><div><span>Control</span><strong>Current CashKaro experience</strong></div><div><span>Treatment</span><strong>Connector enabled + onboarding</strong></div></div><div class="outcome-node"><strong>Difference in valid tracked orders</strong><span>per originally assigned user · full quarter · all channels</span></div><div class="zeros-row"><span>Never connects ✓</span><span>Never invoked ✓</span><span>Declines ✓</span><span>No orders ✓</span></div></div>
 
 <p class="takeaway">Intention to treat, with deduplication and a fixed backfill cutoff. AI-routed growth with flat total orders is channel displacement.</p>
 
