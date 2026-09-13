@@ -130,7 +130,7 @@ An assistant already connects to Gmail, Drive or a calendar: the user authorises
 
 <p class="takeaway">The assistant recommends. CashKaro checks and routes. The retailer sells. This is deliberately the narrowest useful contract: one authorisation, one call, one answer. MCP and connector support does not guarantee contextual placement or affiliate permission.</p>
 
-<p class="slide-source"><a href="../experiment.html#architecture">Technical contracts and delivery dependencies ↗</a> · No existing internal API or universal cross-platform login assumed.</p>
+<p class="slide-source"><a href="../prototype.html">Switch the prototype between four surfaces ↗</a> to see the same connector, the same refusals and the same shopper control under different host conventions. · <a href="../experiment.html#architecture">Technical contracts and delivery dependencies ↗</a> · No existing internal API or universal cross-platform login assumed.</p>
 </section>
 
 <section class="case-section" id="trust" data-part="solution">

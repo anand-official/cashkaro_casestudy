@@ -4,3 +4,8 @@
 @media print{@page{size:A4;margin:16mm}body{font-size:10pt;background:white}.site-header,.contents,.hero-actions,.part-labels,.footer-links,.calculator,.record-tabs,.search-label{display:none!important}.page-shell{padding:0}.hero{display:block;padding:0}.hero h1{font-size:32pt}.hero-route{display:none}.reading-layout{display:block}.case-section{padding:18px 0}.case-section h2{font-size:21pt;break-after:avoid}.table-scroll{overflow:visible}table{min-width:0;font-size:8.5pt}td,th{padding:8px}.north-star{background:#edf0ed;color:#152a3a}.north-star span{color:#152a3a}.site-footer{margin:20px 0}.boundary-grid,.journey-map,.kill-grid{break-inside:avoid}.page-hero h1{font-size:30pt}#record-body{max-height:none;overflow:visible}}
 
 .skill-fragment .cashkaro-identity{flex-direction:column;align-items:flex-start;gap:7px}.cashkaro-identity img{display:block;width:120px;height:30px;object-fit:contain}.cashkaro-identity small{margin:0;font-size:.75rem;font-weight:500}
+.brand-logo{display:block;width:92px;height:23px;object-fit:contain;flex:none}
+.brand-text{font-weight:700;line-height:1.2}
+.site-footer .brand{align-items:center;gap:10px}
+.site-footer .brand-logo{width:104px;height:26px}
+@media(max-width:720px){.brand-logo{width:78px;height:20px}}

@@ -4,6 +4,7 @@
 import {PRODUCTS, SCENARIOS, money, checkRoute, createRoute} from './router-model.js';
 import {research, PRIORITIES} from './host-model.js';
 import {homeScreen, statusBar, clock, CONNECTORS} from './device-chrome.js';
+import {HOSTS, HOST_ORDER, HOST_QUERIES, hostVars} from './hosts.js';
 import {deviceCss} from './device-css.js';
 import {appCss} from './walkthrough-css.js';
 
@@ -20,11 +21,6 @@ const CHAPTERS=[
 ];
 const INDEX=Object.fromEntries(CHAPTERS.map(([k],i)=>[k,i]));
 
-const QUERIES=[
- 'I need a phone under ₹40,000. Camera matters most.',
- 'Best battery life under ₹40,000?',
- 'Cheapest decent phone under ₹40,000.'
-];
 const QUERY_PRIORITY={0:'camera',1:'battery',2:'value'};
 
 class CashKaroWalkthrough extends HTMLElement{
@@ -32,6 +28,7 @@ class CashKaroWalkthrough extends HTMLElement{
   super();
   this.attachShadow({mode:'open'});
   this.reduce=matchMedia('(prefers-reduced-motion: reduce)');
+  this.hostId='chatgpt';
   this.reset(false);
  }
 
@@ -54,6 +51,7 @@ class CashKaroWalkthrough extends HTMLElement{
 
  connectedCallback(){
   this.shell();
+  this.applyHost();
   this.paint();
   this.clockTimer=setInterval(()=>{const t=this.shadowRoot.querySelector('.sb-time');if(t)t.textContent=clock();},20000);
   this.onVisibility=()=>{if(document.hidden)this.stopTour();};
@@ -73,6 +71,8 @@ class CashKaroWalkthrough extends HTMLElement{
  }
 
  get q(){return this.shadowRoot;}
+ get host(){return HOSTS[this.hostId];}
+ get queries(){return HOST_QUERIES[this.hostId];}
  get product(){return PRODUCTS.find(p=>p.id===this.chosen);}
  get merchant(){return SCENARIOS[this.scenario].merchant;}
 
@@ -104,7 +104,7 @@ class CashKaroWalkthrough extends HTMLElement{
       <div class="directory" hidden></div>
       <div class="thread" role="log" aria-live="polite" aria-label="Conversation"></div>
       <div class="composer" hidden>
-       <div class="prompt-chips" role="group" aria-label="Suggested prompts">${QUERIES.map((qq,i)=>`<button type="button" data-ask="${i}">${qq}</button>`).join('')}</div>
+       <div class="prompt-chips" role="group" aria-label="Suggested prompts"></div>
        <div class="composer-row"><div class="composer-text empty">Message the assistant</div><button class="send" data-action="send" aria-label="Send" disabled>↑</button></div>
       </div>
      </div>
@@ -121,6 +121,8 @@ class CashKaroWalkthrough extends HTMLElement{
   <h3 class="narrate-title"></h3>
   <p class="why"></p>
   <ol class="chapters">${CHAPTERS.map(([k,t],i)=>`<li data-c="${k}"><b>${String(i+1).padStart(2,'0')}</b>${t}</li>`).join('')}</ol>
+  <div class="host-switch" role="group" aria-label="Assistant surface">${HOST_ORDER.map(id=>`<button type="button" data-host="${id}" aria-pressed="${id===this.hostId}"><span class="hm" style="background:${HOSTS[id].markBg}">${HOSTS[id].mark}</span>${HOSTS[id].name}</button>`).join('')}</div>
+  <p class="switch-note">One connector, four surfaces. The interface changes; the eligibility rules, the refusals and the shopper's control do not.</p>
   <div class="playbar">
    <button type="button" class="tour-button" data-action="tour">▷ Play the journey</button>
    <button type="button" data-action="restart">Start over</button>
@@ -142,6 +144,8 @@ class CashKaroWalkthrough extends HTMLElement{
     else this.toast('Not part of this concept.');
     return;
    }
+   const hs=e.target.closest('[data-host]');
+   if(hs){this.stopTour();this.setHost(hs.dataset.host);return;}
    const ask=e.target.closest('[data-ask]');
    if(ask){this.stopTour();this.askQuery(Number(ask.dataset.ask));return;}
    const conn=e.target.closest('[data-connect]');
@@ -167,6 +171,26 @@ class CashKaroWalkthrough extends HTMLElement{
     if(a)a.disabled=!this.consent;
    }
   });
+ }
+
+ // ---------- host identity ----------
+ applyHost(){
+  const h=this.host;
+  this.q.querySelector('.screen').setAttribute('style',hostVars(h));
+  this.q.querySelector('.app-mark').innerHTML=h.mark;
+  this.q.querySelector('.prompt-chips').innerHTML=this.queries.map((t,i)=>`<button type="button" data-ask="${i}">${t}</button>`).join('');
+  const box=this.q.querySelector('.composer-text');
+  if(box.classList.contains('empty'))box.textContent=h.placeholder;
+  this.q.querySelector('.bar-action').textContent=h.directoryLabel;
+  [...this.q.querySelectorAll('[data-host]')].forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.host===this.hostId)));
+ }
+
+ setHost(id){
+  if(!HOSTS[id]||id===this.hostId)return;
+  this.hostId=id;
+  this.reset();
+  this.applyHost();
+  this.toast(`${this.host.name} · same connector`);
  }
 
  // ---------- primitives ----------
@@ -230,8 +254,8 @@ class CashKaroWalkthrough extends HTMLElement{
   this.q.querySelector('.directory').hidden=!directory;
   this.q.querySelector('.thread').hidden=!thread;
   this.q.querySelector('.composer').hidden=!composer;
-  this.q.querySelector('.app-name-text').textContent=retailer?this.merchant:'Assistant';
-  this.q.querySelector('.app-sub').textContent=retailer?'Simulated retailer app':(directory?'Connectors':'Shopping');
+  this.q.querySelector('.app-name-text').textContent=retailer?this.merchant:this.host.name;
+  this.q.querySelector('.app-sub').textContent=retailer?'Simulated retailer app':(directory?this.host.directoryLabel:this.host.vendor);
   this.q.querySelector('.connected-pill').hidden=!this.connected||directory;
   this.q.querySelector('.bar-action').hidden=retailer;
  }
@@ -268,7 +292,7 @@ class CashKaroWalkthrough extends HTMLElement{
  openApp(){
   this.go('directory');
   this.surface({directory:true,thread:false});
-  this.q.querySelector('.directory').innerHTML=`<h3>Connectors</h3><p>Accounts this assistant can call while it helps you. You approve each one once.</p>${CONNECTORS.map(c=>`<button type="button" class="conn-row ${c.target?'target available':''}" ${c.target?'data-connect="1"':'disabled'}><span class="conn-logo tone-${c.tone}" aria-hidden="true">${c.target?'<img src="assets/cashkaro-logo.svg" alt="">':c.glyph}</span><span class="conn-meta"><strong>${c.name}</strong><span>${c.desc}</span></span><span class="conn-state">${c.state}</span></button>`).join('')}`;
+  this.q.querySelector('.directory').innerHTML=`<h3>${this.host.directoryLabel}</h3><p>${this.host.directoryBlurb}</p>${CONNECTORS.map(c=>`<button type="button" class="conn-row ${c.target?'target available':''}" ${c.target?'data-connect="1"':'disabled'}><span class="conn-logo tone-${c.tone}" aria-hidden="true">${c.target?'<img src="assets/cashkaro-logo.svg" alt="">':c.glyph}</span><span class="conn-meta"><strong>${c.name}</strong><span>${c.desc}</span></span><span class="conn-state">${c.state}</span></button>`).join('')}`;
  }
 
  openConsent(){
@@ -286,7 +310,7 @@ class CashKaroWalkthrough extends HTMLElement{
   const t=this.q.querySelector('.thread');
   if(!t.childElementCount){
    this.append('<div class="toolcall done"><img src="assets/cashkaro-logo.svg" alt=""><span class="spin"></span><span>CashKaro connected. It will be called only when a purchase is chosen.</span></div>','msg');
-   await this.say('Connected. Tell me what you are shopping for and I will compare options. If a purchase can earn a benefit, I will check it before you continue.',{pause:420});
+   await this.say(this.host.greeting,{pause:420});
   }
   this.focusComposer();
  }
@@ -297,7 +321,7 @@ class CashKaroWalkthrough extends HTMLElement{
  async askQuery(i){
   const seq=this.seq;
   const box=this.q.querySelector('.composer-text'),send=this.q.querySelector('.send');
-  const text=QUERIES[i];
+  const text=this.queries[i];
   this.priority=QUERY_PRIORITY[i];
   box.classList.remove('empty');
   if(this.reduce.matches)box.textContent=text;
@@ -319,7 +343,7 @@ class CashKaroWalkthrough extends HTMLElement{
   const box=this.q.querySelector('.composer-text');
   const text=box.textContent.trim();
   if(!text)return;
-  box.textContent='Message the assistant';box.classList.add('empty');
+  box.textContent=this.host.placeholder;box.classList.add('empty');
   this.q.querySelector('.send').disabled=true;
   this.append(`<div>${text}</div>`,'msg msg-user');
   this.go('compare');
@@ -364,7 +388,7 @@ class CashKaroWalkthrough extends HTMLElement{
 
  async checkBenefit(){
   const seq=this.seq;
-  const chip=this.append(`<div class="toolcall"><img src="assets/cashkaro-logo.svg" alt=""><span class="spin"></span><span>Calling CashKaro · checking merchant, exact product and current policy…</span></div>`,'msg');
+  const chip=this.append(`<div class="toolcall"><img src="assets/cashkaro-logo.svg" alt=""><span class="spin"></span><span>${this.host.toolVerb} · checking merchant, exact product and current policy…</span></div>`,'msg');
   await this.wait(1100);
   if(seq!==this.seq)return;
   const checked=checkRoute({productId:this.chosen,scenario:this.scenario});
