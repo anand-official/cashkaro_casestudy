@@ -50,10 +50,28 @@ const throttled = ip => {
   return rec.n > 12;
 };
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') return json(res, 405, { error: 'method_not_allowed' });
+// Model availability differs by key type and changes over time. Try in order and use the
+// first that answers, so a renamed or retired model degrades to the next instead of 404ing.
+const MODELS = ['gemini-2.5-flash', 'gemini-flash-latest', 'gemini-2.5-flash-lite', 'gemini-3.5-flash'];
 
+export default async function handler(req, res) {
   const key = process.env.GEMINI_API_KEY;
+
+  // Diagnostic: report which models this key can reach. Never returns the key itself.
+  if (req.method === 'GET') {
+    if (!key) return json(res, 503, { error: 'no_key' });
+    try {
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${key}`);
+      const d = await r.json();
+      if (!r.ok) return json(res, 502, { status: r.status, detail: d?.error?.message?.slice(0, 200) });
+      const names = (d.models || [])
+        .filter(m => (m.supportedGenerationMethods || []).includes('generateContent'))
+        .map(m => m.name.replace('models/', ''));
+      return json(res, 200, { available: names.slice(0, 40) });
+    } catch (e) { return json(res, 500, { error: String(e).slice(0, 120) }); }
+  }
+
+  if (req.method !== 'POST') return json(res, 405, { error: 'method_not_allowed' });
   // No key configured is a normal, supported state: the client runs the scripted path.
   if (!key) return json(res, 503, { error: 'no_key', fallback: true });
 
@@ -68,31 +86,55 @@ export default async function handler(req, res) {
   if (!query) return json(res, 400, { error: 'empty_query', fallback: true });
 
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 7000);
+  const timer = setTimeout(() => controller.abort(), 9000);
+
+  const payload = JSON.stringify({
+    systemInstruction: { parts: [{ text: SYSTEM }] },
+    contents: [{ role: 'user', parts: [{ text: query }] }],
+    generationConfig: {
+      temperature: 0.7,
+      // 2.5-class models spend tokens on hidden reasoning before emitting anything. Left at a
+      // low cap the whole budget goes to thinking and the completion comes back empty, so turn
+      // thinking off for what is a short structured answer and leave real headroom.
+      maxOutputTokens: 800,
+      thinkingConfig: { thinkingBudget: 0 },
+      responseMimeType: 'application/json',
+      responseSchema: {
+        type: 'OBJECT',
+        properties: { id: { type: 'STRING', enum: ['aster', 'orion', 'luma'] }, text: { type: 'STRING' } },
+        required: ['id', 'text']
+      }
+    }
+  });
 
   try {
-    const r = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,
-      {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        signal: controller.signal,
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: SYSTEM }] },
-          contents: [{ role: 'user', parts: [{ text: query }] }],
-          generationConfig: { temperature: 0.7, maxOutputTokens: 300, responseMimeType: 'application/json' }
-        })
-      }
-    );
+    let r = null, used = null, lastStatus = 0;
+    for (const model of MODELS) {
+      const attempt = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
+        { method: 'POST', headers: { 'content-type': 'application/json' }, signal: controller.signal, body: payload }
+      );
+      if (attempt.ok) { r = attempt; used = model; break; }
+      lastStatus = attempt.status;
+      // 404 = renamed/retired, 503 = overloaded, 429 = per-model quota. All worth trying the
+      // next model for. Auth and malformed-request errors are terminal, so stop immediately.
+      if (![404, 503, 429].includes(attempt.status)) break;
+    }
     clearTimeout(timer);
-    if (!r.ok) return json(res, 502, { error: 'upstream', status: r.status, fallback: true });
+    if (!r) return json(res, 502, { error: 'upstream', status: lastStatus, fallback: true });
 
     const data = await r.json();
     const raw = data?.candidates?.[0]?.content?.parts?.[0]?.text;
     if (!raw) return json(res, 502, { error: 'empty_completion', fallback: true });
 
     let parsed;
-    try { parsed = JSON.parse(raw); } catch { return json(res, 502, { error: 'unparseable', fallback: true }); }
+    const cleaned = raw.trim().replace(/^```(?:json)?/i, '').replace(/```$/, '').trim();
+    try { parsed = JSON.parse(cleaned); }
+    catch {
+      const m = cleaned.match(/\{[\s\S]*\}/);
+      if (!m) return json(res, 502, { error: 'unparseable', fallback: true });
+      try { parsed = JSON.parse(m[0]); } catch { return json(res, 502, { error: 'unparseable', fallback: true }); }
+    }
 
     const pick = CATALOGUE.find(p => p.id === parsed.id);
     const text = String(parsed.text || '').trim();
@@ -102,7 +144,7 @@ export default async function handler(req, res) {
     if (!text || text.length > 600) return json(res, 502, { error: 'bad_length', fallback: true });
     if (FORBIDDEN.test(text)) return json(res, 502, { error: 'mentioned_benefit', fallback: true });
 
-    return json(res, 200, { id: pick.id, text, live: true });
+    return json(res, 200, { id: pick.id, text, live: true, model: used });
   } catch (err) {
     clearTimeout(timer);
     const aborted = err?.name === 'AbortError';
