@@ -1,25 +1,34 @@
-# AI interaction manifest — incomplete
+# AI interaction manifest: supplied material, completeness unverified
 
-The original PDF requires complete AI interactions. This index distinguishes available artifacts from raw session exports. A filename, decision summary or review output does not establish completeness.
+Updated 13 September 2026. The PDF requires complete AI interactions. This index is honest about copied records, reconstructions, missing context and unavailable exports. Public excerpts are not the complete submission package.
 
-| Contributing session/tool | Available material | Raw interaction export status |
+| Session | Available record | Completeness |
 | --- | --- | --- |
-| Earlier ChatGPT reasoning | `CHATGPT_PRIMARY_CONTEXT.md`, a reconstruction, with public redactions labelled | Not supplied |
-| Qwen analysis | `../source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md`, supplied extract | Full prompts and interaction export not supplied |
-| DeepSeek review | `../source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md`, supplied review artifact | Full interaction export not supplied |
-| Earlier implementation/final Shortlist execution | Authored public `../docs/DECISION_LOG.md` | Complete conversation and tool record not supplied as an export |
-| Claude Cowork independent review | Full review artifact supplied to the candidate for commit f482fb6; sanitized implementation response in `../docs/REVIEW_RESPONSE.md` | Full Cowork interaction/export not supplied |
-| Current Order Check revision | Public decision and review-response documents | Candidate must export this actual conversation, including challenges and outputs |
-| Other contributing Claude/Gemini/coding sessions, if any | Candidate must identify which were actually used | Unknown; do not invent sessions or mark unused tools as missing |
+| Earlier ChatGPT reasoning | Public `CHATGPT_PRIMARY_CONTEXT.md` reconstruction | Not verbatim; full raw conversation not supplied |
+| Claude early strategy | Candidate supplied `Pasted markdown(20260911-161512).md` privately | Prompts/responses present; collapsed “pasted” sections; completeness unverified |
+| Qwen research | Candidate supplied `Pasted markdown(20260911-161707).md` privately; earlier public extract retained | Multi-turn copy; abrupt section and referenced attachments; completeness unverified |
+| DeepSeek review | Candidate supplied `Pasted text (2).txt` prompt and `Pasted markdown(20260911-161555).md` response privately | Pair received; cannot establish all contributing sessions/attachments from these files |
+| Gemini contribution | Referenced in the supplied Claude strategy conversation | Original contributing session not supplied; confirm actual use |
+| Claude Shortlist review | `CLAUDE_COWORK_REVIEW.md` supplied privately; reviewed f482fb6 | Review artifact, not the full Cowork interaction |
+| Later Claude router critique | Summary in candidate's 13 September mandate | Full review and conversation not supplied |
+| ChatGPT/coding execution: Shortlist, Order Check, Universal Skill | Current conversation plus public authored decision records | Accessible working context is not a complete exported record; candidate export required |
+| Intermediate normal-ChatGPT router reasoning | Handoff and latest mandate describe its outcome | Complete intervening conversation not supplied here |
 
-The external human product message is stakeholder input, not an AI transcript. Its public version is an anonymized summary; identity and role are not established here.
+Attribution correction: the 161555 Markdown and Pasted text (2) files belong to DeepSeek; the 161707 Markdown belongs to Qwen. No identities are inferred from interface “svg” artifacts.
 
-## How the candidate can complete the submission
+## Received-copy fingerprints
 
-Export the actual contributing conversations from each tool with prompts, responses, challenges, rejected directions and available tool interactions. Preserve chronology, identify the tool/session and mark real gaps explicitly. Confirm completeness against the tool history rather than this inferred list alone. If a tool cannot export, provide an accurate copied record or disclose the limitation; do not reconstruct absent turns as verbatim.
+- Claude strategy: SHA-256 `b86a2b140c03a58a061d4af598cf60672b85aebda0da2ab0e52f1ce1b460b16b`.
+- DeepSeek response: `044cefe072b4fe45c36e8a23109f342d627799465909fa18b12b4106b48a89ca`.
+- DeepSeek prompt: `908354d107ced32c3cce255a0ed3072c11373f48b4483ce3a6dbd18d33aa6787`.
+- Qwen conversation: `7f04fa2b40167b4660f75010d268ab7a0d88dfbeb5d66240b810517f3c37d743`.
 
-Include the exports with the hiring-panel submission, using a private attachment or accessible review folder if appropriate. Complete transcripts do not need to be placed on the public prototype. Keep the original assignment PDF in the candidate's submission package. Review personal details before sharing; label any redactions transparently and retain an unredacted private original where appropriate.
+A fingerprint identifies a received file; it does not establish authenticity or completeness of the original session. Raw attachments remain private and are not copied onto the public site.
 
-Add a short judgment note in the candidate's own words explaining what they personally challenged or overruled. The AI-authored decision log is useful context, not a substitute for that statement.
+## Candidate submission action
 
-**Current status: the mandatory transcript requirement remains unmet.** No missing conversation has been invented. A private execution summary excluded from the website would still be a summary even if published; making it public would not satisfy this requirement.
+Attach actual contributing conversations with prompts, responses, challenges, rejected suggestions and chronology. Confirm which sessions were used. Preserve original attachments or identify what was supplied to each model. Label any omissions/redactions; do not reconstruct absent turns as verbatim. Include this rebuilding conversation and the intervening normal-ChatGPT discussion. A private panel-accessible folder or attachment package is sufficient; complete transcripts need not be publicly hosted.
+
+Add a short note in your own words on decisions you personally challenged. The public decision log is AI-assisted authorship, not a substitute. The external human feedback is stakeholder input, with role and identity unverified; it is not an AI session.
+
+**Complete-transcript compliance remains unverified and unresolved. No missing conversation has been fabricated.**

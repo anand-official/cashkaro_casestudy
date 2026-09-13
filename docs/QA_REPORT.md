@@ -1,35 +1,30 @@
-# Order Check verification — 11 September 2026
+# Universal Shopping Skill QA
 
-Version: 3.0.0. The original Claude review covered f482fb6 (Shortlist). This report concerns the revised Order Check implementation.
+13 September 2026. Browser QA and deterministic boundary checks by the implementation agent.
 
-## Observed results
+## Verified
 
-- `npm run build` passes using the existing pinned dependencies. The six-section-per-side case is approximately 51% problem / 49% solution by the build's word-count diagnostic.
-- `npm run check` passes public-route and fragment validation, reader artifact availability, JavaScript syntax, publishing exclusions and the meaningful model boundaries below.
-- All six pages were loaded in Chrome through a local responsive iframe harness at **360, 390, 768 and 1280 px actual content width**. All 24 checks recorded one H1 and document scroll width equal to viewport width. Tables have intentional internal horizontal scrolling.
-- Mobile menu exposes the brief audit, closes with Escape and reports `aria-expanded=false`.
-- Mobile journey: close a visit as no order; reopen and explicitly supply the purchase date; see the policy-conflict state; open support; retain retailer, visit date and reported purchase date in the draft. A typed `DEMO-<b>17</b>` reference was displayed literally as text. No claim was transmitted.
-- After the final navigation edit, the case and prototype were rechecked at all four widths with no page overflow. The production AI reader loaded the review response and its phrase search returned matches.
-- Native dialog dismissed with Escape on mobile and desktop. Desktop recovery summary matched the selected visit.
-- Pending ₹90 did not change confirmed balances or bank eligibility. Confirmed Flipkart cash changed cash from ₹180 to ₹270 and unlocked the example bank route. Confirmed Amazon Rewards changed Rewards from ₹80 to ₹170 while bank cash remained ₹180.
-- The reviewed-policy reminder scenario required explicit opt-in, produced the fixed example deadline of 13 September 2026 for a 14 August purchase, and blocked a duplicate preview. The preview sent no external message or push-permission request.
-- The expired-policy scenario exposed a support enquiry without promising late acceptance. An unavailable policy service disabled a new simulated click-out; the explicit restore control recovered it.
+- `npm run build` and `npm run check` pass. Six public routes, local links/anchors, unique IDs, one H1 each, reader artifacts and JavaScript syntax checked.
+- Main narrative: 1,532 problem words / 1,505 solution words. Approximately 50/50; depth still requires judgment.
+- All six pages checked in browser iframe viewports at 360, 390, 768 and 1,280 CSS pixels: 24 combinations, no page-level horizontal overflow. Wide comparison tables scroll within their own labelled regions.
+- Mobile interaction: Orion selection, simulated account connection, eligibility disclosure, pre-cart answer blocks activation, approved answer permits route, Flipkart destination preserves Orion/variant/price.
+- Rewards: Luma/Amazon flow shows payable price and restricted Rewards separately, no net cash price; simulated handoff preserves selection.
+- Unsupported merchant, missing product context, expired policy, earlier affiliate referral and zero benefit each stop route creation. Service failure recovers to the same product directly with no benefit claimed.
+- Share surface displays a distinct explicit action; small ₹65 benefit is visible. Host change disconnects the demo account; Claude explicit-invocation mode does not pretend to be automatic.
+- Menu opens and Escape closes it on mobile. Source reader changes records and finds four “Universal” matches in the decision log. Calculator returns 0.1 for 25% × 0.4 and rejects 101% reach.
+- No application-origin console errors observed during these checks. Browser-extension metadata errors were present and excluded; Vite connection messages are development diagnostics.
+- Release allowlist excludes private originals, raw stakeholder messages, local QA harness and superseded Order Check model. Public identity check passes.
 
-## Automated logic boundaries
+## Fixes during QA
 
-Invalid calendar dates, future purchases and purchases preceding the visit are rejected. Unknown purchases do not produce a claim deadline. Unverified/conflicting policies fail closed. The illustrative day-30 boundary remains open on that date and expires the following day. Reminder suppression covers no order, unknown purchase, tracked/confirmed/declined states, missing consent, duplicate delivery, prepared draft, conflicting policy, early window and expiry. Pending amounts and gift-card Rewards cannot unlock cash-only bank redemption.
-
-The production deployment is verified separately in the release record. These are prototype tests, not CashKaro integration tests or behavioural research.
-
-## Evidence
-
-- [24 layout measurements](https://github.com/anand-official/cashkaro_casestudy/blob/main/docs/qa/order-check-layout-qa.json)
-- [Desktop case capture](https://github.com/anand-official/cashkaro_casestudy/blob/main/docs/qa/order-check-desktop-case.jpg)
-- [Desktop receipt capture](https://github.com/anand-official/cashkaro_casestudy/blob/main/docs/qa/order-check-desktop-prototype.jpg)
-- [Mobile Rewards capture with local harness visible](https://github.com/anand-official/cashkaro_casestudy/blob/main/docs/qa/order-check-mobile-prototype.jpg)
-
-These captures are in the GitHub repository. They are not copied to the production website's public bundle. The local harness is excluded from both Git and deployment. Earlier `cashkaro-*` screenshots refer to the superseded Shortlist release.
+- Account connection scoped to the chosen host/surface.
+- Stage focus scrolls to the new content on narrow screens.
+- Small functional labels raised to 12px minimum; decorative phone lettering is not content.
+- Host copy acknowledges the user's selected alternative instead of claiming every phone is the best recommendation.
+- Remaining active reference to Order Check in the feedback summary corrected; research worksheet now tests routing and the competing Share surface.
 
 ## Limits
 
-No physical phone, iOS Safari or screen reader test was performed. Responsive iframe checks do not emulate device keyboards, native share/deep-link behaviour or mobile browser chrome. No real merchant postbacks, CashKaro credentials, push delivery, affiliate tracking, support submissions, payouts or statistical treatment results were tested. Some browser geometry/cropped-capture operations timed out; the completed layout measurements used a visible instrumented local harness, and the saved mobile screenshot is an uncropped browser capture.
+This is a browser simulation, not a real assistant integration, affiliate attribution test or device lab. No physical phone, screen reader, full WCAG certification, real checkout, authenticated CashKaro baseline or consumer comprehension study was performed. Contrast uses restrained dark text and reviewed color pairs; this is not an exhaustive automated accessibility audit. External sources were researched, but historical outbound links may change. Screenshots in `docs/qa/universal-desktop.jpg` and `universal-mobile.jpg` record desktop and a narrow iframe state.
+
+Production verification is a separate release step; do not mistake these local checks for live platform approval.

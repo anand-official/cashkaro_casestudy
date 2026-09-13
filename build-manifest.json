@@ -1,9 +1,9 @@
 {
-  "version": "3.0.0",
-  "product": "CashKaro Order Check",
-  "evidence_date": "2026-09-11",
-  "problem_words": 1524,
-  "solution_words": 1456,
+  "version": "4.0.0",
+  "product": "CashKaro Universal Shopping Skill",
+  "evidence_date": "2026-09-13",
+  "problem_words": 1532,
+  "solution_words": 1505,
   "transcript_status": "partial — raw exports required",
   "routes": [
     "index.html",

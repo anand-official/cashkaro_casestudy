@@ -1,44 +1,27 @@
-<section class="case-section" id="record-status">
-<p class="section-label">AI disclosure</p>
+<section class="case-section" id="record"><p class="section-label">01 / Provenance</p>
 
-## The transcript requirement is still incomplete.
+## The pivots are visible. The raw trail is not yet complete.
 
-The assignment requires complete AI interactions: what was asked, challenged, rejected and changed. The material available here contains reconstructions, analysis extracts, reviews and authored decision logs. Those are useful provenance, but they are not a complete conversation export.
+The history runs from reminders to overlay, upstream discovery, Shortlist, Order Check, a ChatGPT-specific router and finally the Universal Shopping Skill. Each transition includes a reason and a surviving objection. The candidate's final mandate selected an ambitious strategic direction while retaining feasibility and commercial gates.
 
-<div class="warning-box"><strong>Submission blocker: raw AI interactions still required.</strong><p>The candidate must supply the actual contributing sessions, including Claude Cowork and this revision. Neither a polished case nor an execution summary closes this requirement.</p></div>
+The reader contains public authored records and earlier excerpts. More extensive Claude, Qwen and DeepSeek copies were received privately; the manifest identifies them and their gaps. Neither these excerpts nor a reconstructed ChatGPT record meets the full-transcript requirement by itself.
 
-The [session manifest](transcripts/README.md) records each known contributing tool, what is available and what remains absent. The exports may accompany the private hiring-panel submission; they need not be published on this website. The full Claude review was supplied to the candidate. The public response below omits personal identity and records decisions, not the full Cowork interaction.
+<div class="warning-box"><strong>Before submitting: supply the complete contributing AI conversations.</strong><p>The latest router review is available here only through the candidate's summary. No final independent review of this rebuild is claimed.</p></div>
 
-AI contributed research synthesis, critique, writing and implementation. No new interviews were conducted by this revision. The candidate must write their own account of the judgments they personally made; the [worksheet](docs/RESEARCH_WORKSHEET.md) provides prompts rather than an invented personal statement.
+<div id="transcript-tabs" class="record-tabs" role="group" aria-label="Source records"></div><div class="record-toolbar"><div><h3 id="record-title">Session completeness</h3><p id="record-kind">Available record</p></div><a id="record-download" href="transcripts/README.md">Open source file ↗</a></div><label class="search-label">Search this record<input id="record-search" type="search"></label><p id="record-result" role="status"></p><pre id="record-body" tabindex="0">Loading source record…</pre>
 </section>
+<section class="case-section" id="judgment"><p class="section-label">02 / Decision authorship</p>
 
-<section class="case-section" id="reader">
-<p class="section-label">Available artifacts</p>
+## Criticism changed the design, not just the copy.
 
-## Inspect the evidence trail, with its limitations attached.
+- Guaranteed ChatGPT invocation became a host-dependent offer, with explicit invocation shown separately.
+- A single-host plugin became one Purchase Router with distinct platform adapters.
+- A generic large Cashback claim became fictional fixtures, capped/zero scenarios and a typed Rewards path.
+- Attribution recapture stayed a named commercial risk; user consent did not become assumed merchant permission.
+- Share became a real fallback using the same capability, without claiming that fallback success validates the AI thesis.
+- Quarterly all-channel ITT remained the test; feature adoption is not the outcome.
 
-<div id="transcript-reader"><div id="transcript-tabs" class="record-tabs" aria-label="Choose source record"></div><div class="record-toolbar"><div><strong id="record-title"></strong><p id="record-kind" class="note"></p></div><a id="record-download" class="text-link" href="transcripts/README.md">Open source file ↗</a></div><label class="search-label">Find in this record<input id="record-search" type="search" placeholder="Search a phrase or decision"></label><p id="record-result" class="note" aria-live="polite"></p><pre id="record-body" tabindex="0" aria-label="Selected source record">Loading source record…</pre></div>
+[Decision history](docs/DECISION_LOG.md) · [Response to critique](docs/REVIEW_RESPONSE.md) · [Self-review](docs/SKEPTICAL_REVIEW.md) · [Interview defense](docs/INTERVIEW_DEFENSE.md)
 
-<noscript><p>Read the <a href="transcripts/README.md">session manifest</a>, <a href="transcripts/CHATGPT_PRIMARY_CONTEXT.md">ChatGPT reconstruction</a>, <a href="source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md">Qwen extract</a>, <a href="source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md">DeepSeek review</a>, <a href="source-material/EXTERNAL_PRODUCT_FEEDBACK.md">anonymized external feedback</a>, and <a href="docs/REVIEW_RESPONSE.md">response to Claude</a>.</p></noscript>
-</section>
-
-<section class="case-section" id="judgment">
-<p class="section-label">Review and revision</p>
-
-## Model agreement did not settle the product decision.
-
-| Recommendation or claim | Treatment and reason |
-| --- | --- |
-| Keep the retailer overlay | Rejected as lead; value, permission adoption and attribution boundaries remain unproven |
-| Move earlier by building a headphone Shortlist | Withdrawn after review; discovery need, repeat frequency and distribution lacked adequate support |
-| Replace it with tracking alerts and a monthly ledger | Modified; public help already documents those capabilities |
-| Send a failed-tracking message after a click-out | Rejected; silence does not establish a purchase or a tracking failure |
-| Apply one ten-day reporting deadline | Rejected; merchant and general-help guidance conflict |
-| Replace suspect prices using a secondary tracker | Rejected as sufficient verification; active comparison removed |
-| Use web desktop share as an upper bound for shopping | Corrected to a scenario model with native-app and order-intensity assumptions |
-| Avoid quantitative reasoning because data is unavailable | Corrected; clearly labelled sensitivity and power calculations added |
-| Treat the stakeholder’s role as verified | Corrected; anonymized input with no employer/authority claim |
-| Present a summary as the full AI transcript | Rejected; missing exports remain a submission blocker |
-
-This table records actions taken in an AI-assisted revision. It does not attribute those judgments to the candidate personally. [Full review response](docs/REVIEW_RESPONSE.md) · [Current decision](index.html#decision) · [Brief audit](compliance.html)
+These are AI-assisted authored documents. The candidate still needs to add their own truthful judgment note and be able to explain the chosen trade-off. Earlier errors are preserved in Git history and explicitly marked archives, not silently rewritten as if the correct answer was obvious all along.
 </section>
