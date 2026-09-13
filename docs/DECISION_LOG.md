@@ -42,3 +42,25 @@ The host prototype now responds to budget and priority choices, exposes product 
 The candidate reported a mentor's maximum of 15 slide-equivalent sections and requested more visual explanation. The main case was condensed from 20 long-form sections to 15 visual sections, retaining the original problem, assessment of all five suggested directions, metric, evidence limitations, commercial concerns and validation gates. Detailed supporting pages remain available.
 
 The candidate also cited https://developers.google.com/merchant/ucp as the desired demo presentation. Its animated phone journey informed an original six-chapter CashKaro walkthrough with playback and chapter controls. The Google animation is not reused; CashKaro continues to hand off to retailer checkout. The full interactive prototype is retained as a second mode. This is an authored execution note, not a raw AI transcript.
+
+## 13 September 2026: connector framing, device prototype and an expanded test matrix
+
+**Renamed from Universal Shopping Skill to CashKaro Connector.** A "skill" implies something built per host and shipped into someone else's app. A connector is the pattern assistants already use for Gmail, Drive and calendars: the user authorises an account once, and any supported assistant calls it when the task needs it. The mechanism did not change. The framing now matches how the capability is actually distributed and reviewed, and it makes the ask of a platform smaller and more familiar. Earlier names remain in Git history and in the archived documents.
+
+**Expanded the prototype from nine scenarios to sixteen**, grouped by what each one tests: benefit outcomes, eligibility refusals, attribution limits, service failures and revalidation. The additions are drawn from how affiliate cashback actually breaks rather than from generic error handling.
+
+| Scenario | Stops at | Why it exists |
+| --- | --- | --- |
+| Third-party coupon applied | Eligibility check | Outside coupons commonly void affiliate commission. Showing a benefit we would not be paid is worse than showing none. |
+| Cash on delivery excluded | Eligibility check | Prepaid-only policies are ordinary; the payment method changes eligibility. |
+| New-customer-only benefit | Eligibility check | Headline rates are frequently restricted to a retailer's new customers, which an existing CashKaro user often is not. |
+| Connector unreachable | Eligibility check | The service can be down. The purchase must survive that. |
+| Authorisation expired | Route creation | A stored connector token expires; the recovery is reconnect, not silent failure. |
+| Benefit reduced at revalidation | Route creation | The rate can drop between the check and the route. The lower number requires fresh consent. |
+| Retailer price changed | Route creation | A route must never be created against a stale price. |
+
+Eleven of the sixteen scenarios refuse. `scripts/check.mjs` now asserts that every scenario stops exactly where its fixture declares, so a refusal cannot silently become a success.
+
+**Rebuilt the walkthrough as a device experience.** The journey now starts on a phone home screen with the assistant unopened, because the first honest fact about this product is that the journey does not start with CashKaro. Connection is presented as a system-style sheet, the handoff is an app switch, and the route confirmation arrives as a notification. A narration panel states what is happening and why at each of seven chapters. The states, rules and refusals are unchanged; only the presentation is new.
+
+**Rejected: wiring a live Gemini API key into the prototype.** Three reasons. It would misrepresent the architecture, because in the real product the model belongs to the host and CashKaro supplies the tool the host calls; a key in a public static site is readable by anyone; and a non-deterministic demo cannot make the guarantee this prototype exists to make, which is that the same input always produces the same refusal. The brief also states it is not looking for an AI chat box. If a live model is wanted later, it belongs in a separate labelled sandbox behind a server-side proxy, not in the submission artifact.

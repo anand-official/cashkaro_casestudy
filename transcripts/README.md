@@ -1,38 +1,60 @@
-# AI interaction manifest: supplied material, completeness unverified
+# AI interaction manifest
 
-Updated 13 September 2026. The PDF requires complete AI interactions. This index is honest about copied records, reconstructions, missing context and unavailable exports. Public excerpts are not the complete submission package.
+Updated 13 September 2026. Author: Ujjawal Anand.
 
-| Session | Available record | Completeness |
+The assignment requires the complete transcript of my AI interactions. This manifest states, session by session, exactly what exists and what does not. It is deliberately specific about gaps, because an accurate incomplete record is worth more than a complete-looking one that is partly reconstructed.
+
+## Tiers
+
+Every record below is one of three kinds. They are never blended.
+
+| Tier | Meaning | Evidential weight |
 | --- | --- | --- |
-| Earlier ChatGPT reasoning | Public `CHATGPT_PRIMARY_CONTEXT.md` reconstruction | Not verbatim; full raw conversation not supplied |
-| Claude early strategy | Candidate supplied `Pasted markdown(20260911-161512).md` privately | Prompts/responses present; collapsed “pasted” sections; completeness unverified |
-| Qwen research | Candidate supplied `Pasted markdown(20260911-161707).md` privately; earlier public extract retained | Multi-turn copy; abrupt section and referenced attachments; completeness unverified |
-| DeepSeek review | Candidate supplied `Pasted text (2).txt` prompt and `Pasted markdown(20260911-161555).md` response privately | Pair received; cannot establish all contributing sessions/attachments from these files |
-| Gemini contribution | Referenced in the supplied Claude strategy conversation | Original contributing session not supplied; confirm actual use |
-| Claude Shortlist review | `CLAUDE_COWORK_REVIEW.md` supplied privately; reviewed f482fb6 | Review artifact, not the full Cowork interaction |
-| Later Claude router critique | Summaries in candidate's 13 September mandate and follow-up; full `Pasted text.txt` reported by candidate | Full newer review not located in available attachments/Library results; do not label summaries verbatim |
-| ChatGPT/coding execution: Shortlist, Order Check, Universal Skill | Current conversation plus public authored decision records | Accessible working context is not a complete exported record; candidate export required |
-| Intermediate normal-ChatGPT router reasoning | Handoff and latest mandate describe its outcome | Complete intervening conversation not supplied here |
+| **A** | Verbatim export, unedited | Establishes what was actually asked and answered |
+| **B** | Received copy: a pasted conversation supplied outside the original tool | Establishes content, not completeness |
+| **C** | Authored record: a decision log or review written afterwards with AI assistance | Evidence of reasoning; not a transcript |
 
-Attribution correction: the 161555 Markdown and Pasted text (2) files belong to DeepSeek; the 161707 Markdown belongs to Qwen. No identities are inferred from interface “svg” artifacts.
+## Session ledger
 
-## Received-copy fingerprints
+| Session | Tier | Available record | Status |
+| --- | --- | --- | --- |
+| Earlier ChatGPT reasoning | C | `CHATGPT_PRIMARY_CONTEXT.md` | Reconstruction with labelled redactions. Not verbatim. Raw export outstanding. |
+| Claude, early strategy | B | `Pasted markdown(20260911-161512).md`, supplied privately | Prompts and responses present; "pasted" sections collapsed by the source interface |
+| Qwen, behavioural research | B | `Pasted markdown(20260911-161707).md` privately; public extract retained at `source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md` | Multi-turn copy with an abrupt section break and referenced attachments not included |
+| DeepSeek, principal-PM review | B | `Pasted text (2).txt` prompt and `Pasted markdown(20260911-161555).md` response, supplied privately | Prompt and response pair received. Cannot establish whether other sessions contributed. |
+| Claude, Shortlist review | B | `CLAUDE_COWORK_REVIEW.md`, supplied privately; reviewed commit `f482fb6` | Review artifact, not the full interaction |
+| Claude, later router critique | C | Summaries inside the 13 September mandate and follow-up | The full source file was not located among available records. Summaries are labelled as summaries. |
+| Gemini | — | Referenced inside the supplied Claude strategy conversation | Originating session not supplied. Listed rather than dropped. |
+| Build execution: Shortlist, Order Check, Universal Skill | C | `CLAUDE_CODE_BUILD_SESSIONS.md` and the public decision records | Authored session record derived from mandates and commit history. Raw export outstanding. |
+| Intermediate router reasoning | C | Outcome described in the handoff and the latest mandate | Full intervening conversation not supplied. |
 
-- Claude strategy: SHA-256 `b86a2b140c03a58a061d4af598cf60672b85aebda0da2ab0e52f1ce1b460b16b`.
-- DeepSeek response: `044cefe072b4fe45c36e8a23109f342d627799465909fa18b12b4106b48a89ca`.
-- DeepSeek prompt: `908354d107ced32c3cce255a0ed3072c11373f48b4483ce3a6dbd18d33aa6787`.
-- Qwen conversation: `7f04fa2b40167b4660f75010d268ab7a0d88dfbeb5d66240b810517f3c37d743`.
+Attribution note: the `161555` markdown and `Pasted text (2)` belong to DeepSeek; the `161707` markdown belongs to Qwen. No model identity is inferred from interface artifacts.
 
-A fingerprint identifies a received file; it does not establish authenticity or completeness of the original session. Raw attachments remain private and are not copied onto the public site.
+## Fingerprints of received copies
 
-## Candidate submission action
+- Claude strategy: SHA-256 `b86a2b140c03a58a061d4af598cf60672b85aebda0da2ab0e52f1ce1b460b16b`
+- DeepSeek response: `044cefe072b4fe45c36e8a23109f342d627799465909fa18b12b4106b48a89ca`
+- DeepSeek prompt: `908354d107ced32c3cce255a0ed3072c11373f48b4483ce3a6dbd18d33aa6787`
+- Qwen conversation: `7f04fa2b40167b4660f75010d268ab7a0d88dfbeb5d66240b810517f3c37d743`
 
-Attach actual contributing conversations with prompts, responses, challenges, rejected suggestions and chronology. Confirm which sessions were used. Preserve original attachments or identify what was supplied to each model. Label any omissions/redactions; do not reconstruct absent turns as verbatim. Include this rebuilding conversation and the intervening normal-ChatGPT discussion. A private panel-accessible folder or attachment package is sufficient; complete transcripts need not be publicly hosted.
+A fingerprint identifies a received file. It does not establish the authenticity or completeness of the original session. Raw attachments remain private and are not published on the public site.
 
-Add a short note in your own words on decisions you personally challenged. The public decision log is AI-assisted authorship, not a substitute. The external human feedback is stakeholder input, with role and identity unverified; it is not an AI session.
+## Outstanding before submission
 
-**Complete-transcript compliance remains unverified and unresolved. No missing conversation has been fabricated.**
+Four records require a raw export, listed here so the panel can see precisely what is missing:
 
-## Revision provenance
+1. The complete contributing ChatGPT sessions.
+2. The later Claude router critique, in full.
+3. The intervening reasoning session between the ChatGPT-specific router and the universal proposal.
+4. The originating Gemini contribution, or confirmation that it was not materially used.
 
-The 13 September follow-up requested a consumer-first visual pass and supplied a review summary. See `docs/REVIEW_RESPONSE.md`. This adds decision evidence, not missing raw AI turns. Complete contributing ChatGPT sessions, the newer Claude source and the current execution conversation remain candidate export tasks.
+Export instructions and the drop-in location are in [`raw/README.md`](raw/README.md). Files placed there are supplied to the review panel as a private package; complete transcripts do not need to be publicly hosted, and third-party or personal material is not published here.
+
+## What is not claimed
+
+- No missing conversation has been fabricated or reconstructed and presented as verbatim.
+- The public decision log, review response and skeptical review are tier C. They are AI-assisted authored documents, not transcripts.
+- The external commercial critique is human stakeholder input, with role and identity unverified. It is not an AI session and is filed at `source-material/EXTERNAL_PRODUCT_FEEDBACK.md`.
+- No independent AI review of the final rebuild is claimed.
+
+**The complete-transcript requirement is not yet satisfied. The four gaps above are named rather than papered over.**

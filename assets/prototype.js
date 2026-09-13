@@ -85,6 +85,9 @@ box.addEventListener('click',async e=>{
  }
  if(action==='retailer'){step='retailer';render();focusStage();}
 });
+// One source of truth for scenarios: the router model, grouped by what they test.
+{const groups={};for(const [key,s] of Object.entries(SCENARIOS))(groups[s.group]??=[]).push([key,s]);
+ el('scenario').innerHTML=Object.entries(groups).map(([g,items])=>`<optgroup label="${g}">${items.map(([k,s])=>`<option value="${k}">${s.label}</option>`).join('')}</optgroup>`).join('');}
 ['surface','invocation','scenario'].forEach(id=>el(id).addEventListener('change',()=>{if(id==='surface')connected=false;reset();}));
 el('restart').addEventListener('click',reset);el('disconnect').addEventListener('click',()=>{connected=false;reset();el('demo-status').textContent='Demo account disconnected.'});render();
 

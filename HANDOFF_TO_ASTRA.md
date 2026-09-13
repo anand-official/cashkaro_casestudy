@@ -1,6 +1,6 @@
-# Current handoff: CashKaro Universal Shopping Skill
+# Current handoff: CashKaro Connector
 
-Updated 13 September 2026. The canonical proposal is **CashKaro Universal Shopping Skill**, backed by one **CashKaro Purchase Router** and platform-specific adapters. Order Check, Shortlist, overlay and predictive reminders are superseded as leads.
+Updated 13 September 2026. The canonical proposal is **CashKaro Connector**, backed by one **CashKaro Purchase Router** and platform-specific adapters. Order Check, Shortlist, overlay and predictive reminders are superseded as leads.
 
 Read the original attached assignment PDF first, then `content/case.md`, `content/research.md`, `content/experiment.md`, `docs/DECISION_LOG.md`, `docs/REVIEW_RESPONSE.md` and `transcripts/README.md` from the repository root. The PDF remains authoritative; approximately equal problem/solution depth and the fixed-cohort order metric are retained.
 

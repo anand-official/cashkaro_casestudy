@@ -1,8 +1,12 @@
 // Interactive concept only. Reuses the same fictional host and routing rules as the full prototype.
 import {PRODUCTS, SCENARIOS, money, checkRoute, createRoute} from './router-model.js';
 import {research, PRIORITIES} from './host-model.js';
+import {homeScreen, statusBar, clock} from './device-chrome.js';
+import {deviceCss} from './device-css.js';
+import {appCss} from './walkthrough-css.js';
 
 const explanations={
+ home:['The journey does not start with CashKaro.','The shopper opens an assistant to decide what to buy. CashKaro is not in the room yet, and nothing about this step belongs to us.'],
  research:['The assistant owns the recommendation.','Changing the priority changes the suggestion. Cashback never determines which phone appears first.'],
  offer:['The purchase is chosen before CashKaro enters.','This intended contextual placement depends on the host. The selected product, merchant and variant are preserved.'],
  connect:['Connect only the context needed.','This simulated connection shares the chosen purchase and account identity, not the full conversation or payment credentials.'],
@@ -13,63 +17,357 @@ const explanations={
  retailer:['Checkout remains with the retailer.','The selected product is preserved. Payment, stock, delivery and returns belong to the retailer. No order is placed here.'],
  direct:['Keep the purchase, even without a benefit.','An unsupported benefit must never prevent the shopper from continuing. No CashKaro route has been activated.']
 };
-const css=`
-:host{display:block;container-type:inline-size;color:#202e2d;font-family:Inter,ui-sans-serif,system-ui,sans-serif;--blue:#263c94;--muted:#65716b;--line:#e2e6df}*{box-sizing:border-box}button,select,a{font:inherit}button,summary{cursor:pointer}button,a,select,input{touch-action:manipulation}button:focus-visible,a:focus-visible,summary:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #a95226;outline-offset:4px}button:disabled{cursor:not-allowed;opacity:.45}button{border:0}h3,h4,p{margin:0}a{color:var(--blue);text-underline-offset:4px}[hidden]{display:none!important}.experience{border:1px solid #dce2d8;border-radius:22px;background:#fff;overflow:hidden;box-shadow:0 15px 45px #26382b08;max-width:920px;margin:auto}.topbar{display:flex;align-items:center;gap:12px;padding:18px 26px;border-bottom:1px solid var(--line)}.host-symbol{display:grid;place-items:center;width:34px;height:34px;background:#eff1eb;border-radius:11px;font-size:24px;color:#54684e}.host-name{font-size:14px;font-weight:650;letter-spacing:-.02em}.host-name small{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:3px}.topbar>button{margin-left:auto;background:none;color:var(--muted);font-size:12px;padding:8px;min-height:40px}.phase{display:flex;align-items:center;gap:8px;padding:12px 26px;background:#fafbf8;border-bottom:1px solid var(--line);font-size:11px;color:#697768}.phase span{display:flex;align-items:center;gap:6px;white-space:nowrap}.phase b{font-size:10px;border:1px solid #cbd4c7;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-weight:500}.phase .current{color:#243b91;font-weight:600}.phase .current b{background:var(--blue);color:#fff;border-color:var(--blue)}.phase i{height:1px;flex:1;background:#d9e0d3;max-width:58px}.stage{padding:27px;min-height:430px;animation:appear .3s ease}.user-row{display:flex;justify-content:flex-end;margin-bottom:24px}.bubble{max-width:400px;padding:13px 17px;background:#eef1e9;border-radius:17px 17px 4px 17px;font-size:14px;line-height:1.55}.assistant-copy{font-size:15px;line-height:1.6;margin-bottom:22px;max-width:650px}.assistant-copy strong{font-weight:650}.preference-row{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:0 0 22px}.preference-row>span{font-size:12px;color:var(--muted);margin-right:5px}.chip{padding:9px 13px;min-height:40px;border:1px solid #dce2d7;background:white;border-radius:25px;font-size:12px;color:#58684e}.chip[aria-pressed=true]{background:#eaf0e2;color:#30472e;border-color:#a2b396;font-weight:600}.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.product{border:1px solid #e0e5d9;border-radius:13px;overflow:hidden;display:flex;flex-direction:column}.product.best{border-color:#96aa8c}.product-image{position:relative;background:#eff3e9}.product:nth-child(2) .product-image{background:#edf0f5}.product:nth-child(3) .product-image{background:#f7f2e8}.product-image img{width:100%;height:165px;object-fit:contain;padding:7px}.suggestion{position:absolute;top:10px;left:10px;font-size:9px;border:1px solid #d5dfce;border-radius:20px;padding:4px 7px;background:#ffffffed;color:#395334}.product-info{padding:15px;display:flex;flex:1;flex-direction:column}.product-info h3{font-size:17px;letter-spacing:-.03em;margin-bottom:6px}.product-info p{color:var(--muted);font-size:11px;line-height:1.5;min-height:33px}.product-price{font-size:20px;letter-spacing:-.03em;font-weight:600;margin:12px 0}.primary,.secondary{display:flex;align-items:center;justify-content:center;gap:9px;border-radius:9px;padding:13px 15px;min-height:46px;font-size:13px;font-weight:600;width:100%;text-decoration:none}.primary{color:white;background:var(--blue);box-shadow:0 2px 3px #25378710;transition:background .2s,transform .2s}.primary:hover{background:#1e307c;transform:translateY(-1px)}.product .primary{font-size:12px;background:#344b34;min-height:43px;padding:10px}.product:not(.best) .primary{background:white;color:#3c5037;border:1px solid #d0dac9;box-shadow:none}.secondary{background:none;color:#617057;font-weight:400;font-size:12px;margin-top:6px}.note{font-size:11px;line-height:1.6;color:var(--muted);margin-top:17px}.purchase-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:22px;align-items:start}.purchase-object{background:#f2f5ed;border:1px solid #e3e8dc;border-radius:14px;padding:20px;position:relative}.object-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#627559}.purchase-object>img{width:100%;height:194px;object-fit:contain;margin:17px 0}.purchase-object h3{font-size:24px;letter-spacing:-.04em;font-weight:600}.purchase-object .variant{font-size:12px;color:var(--muted);margin-top:7px}.purchase-object .object-price{font-size:24px;font-weight:600;letter-spacing:-.04em;margin-top:18px}.merchant{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#63765e;margin-top:9px}.merchant:before{content:'↗';font-size:14px}.change{display:block;color:#667760;text-decoration:underline;text-underline-offset:4px;background:none;font-size:11px;min-height:40px;padding:10px 0 0}.commerce{border:1px solid #d9e0eb;border-radius:14px;padding:22px;background:#fff;box-shadow:0 8px 25px #253b9107;animation:appear .3s ease}.ck-identity{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:27px}.ck-identity img{width:105px;height:auto;max-width:50%}.ck-identity>span{font-size:10px;color:#536944;background:#edf3e5;border-radius:20px;padding:5px 8px;white-space:nowrap}.commerce h3{font-size:23px;font-weight:600;letter-spacing:-.04em;line-height:1.2;margin-bottom:14px}.commerce h3:focus,.destination h3:focus{outline:0}.commerce>p{font-size:13px;line-height:1.65;color:#627068;margin-bottom:20px}.commerce .privacy{display:flex;gap:9px;font-size:11px;line-height:1.6;padding:12px;background:#f7f8f5;border-radius:8px;margin:18px 0}.benefit-label{font-size:11px;letter-spacing:.02em;color:#60734f;margin-bottom:7px}.amount{font-size:clamp(35px,6cqi,52px);color:var(--blue);letter-spacing:-.065em;font-weight:600;line-height:1.1;display:block}.amount-caption{display:block;font-size:14px;margin-top:7px;color:#3b4d6c;letter-spacing:0;font-weight:450}.commerce .benefit-subtitle{font-size:11px;line-height:1.5;color:var(--muted);margin:12px 0 20px}.breakdown{margin:17px 0;background:#f5f7fa;border:1px solid #e5eaf0;border-radius:9px;padding:3px 12px}.breakdown>div{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;font-size:12px}.breakdown>div+div{border-top:1px solid #e0e5ea}.breakdown dt{color:#606d75}.breakdown dd{margin:0;font-weight:600;white-space:nowrap}.terms{border-bottom:1px solid var(--line);margin-bottom:15px;font-size:11px;color:#647068}.terms summary{font-size:12px;color:var(--blue);padding:10px 0;min-height:40px}.terms p{margin:0 0 13px;line-height:1.7}.cart-consent{display:flex;align-items:start;gap:10px;font-size:12px;line-height:1.6;padding:6px 0 15px}.cart-consent input{width:17px;height:17px;flex:none;accent-color:var(--blue);margin:2px 0 0}.commerce .fineprint{font-size:10px;line-height:1.5;margin:10px 0 0;color:var(--muted)}.check-list{display:grid;gap:10px;margin:24px 0}.check-list>div{display:flex;gap:10px;align-items:center;background:#f7f9f4;padding:13px;border-radius:8px;font-size:12px;color:#576b4e}.check-list span{border:2px solid #dce4d5;border-top-color:#667c58;width:15px;height:15px;border-radius:50%;animation:spin .7s linear infinite}.route-line{display:flex;gap:6px;justify-content:space-between;align-items:center;margin:25px 0;background:#f4f7f0;border-radius:9px;padding:16px 10px;font-size:10px;color:#5b7050}.route-line i{font-style:normal;display:block;text-align:center;margin-bottom:7px;font-size:18px;color:#506d3d}.success-icon{display:grid;place-items:center;width:47px;height:47px;border-radius:50%;background:#eaf1df;color:#526f39;font-size:25px;margin-bottom:22px}.destination{background:#f6f8f1;border:1px solid #dde5d4;border-radius:14px;padding:22px}.destination-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #dce4d4;padding-bottom:14px;margin-bottom:19px}.destination-top>span{font-size:10px;color:#64755a}.destination h3{font-size:24px;margin-bottom:14px;letter-spacing:-.035em}.destination p{font-size:13px;line-height:1.6;margin-bottom:18px;color:#64715d}.destination .status-note{padding:13px;background:white;border-radius:8px;font-size:11px;color:#426034}.destination .primary{background:#3b5135;margin-top:21px}.footer{border-top:1px solid var(--line);padding:13px 24px;display:flex;align-items:center;gap:13px;flex-wrap:wrap;background:#fcfdfb}.footer .mode{display:flex;align-items:center;gap:6px;font-size:11px;color:#617158;margin-right:auto}.mode:before{content:'';width:5px;height:5px;background:#7b946a;border-radius:50%}.footer button{font-size:11px;color:#4e6244;background:none;min-height:36px;padding:7px 0}.footer .tour-button{border:1px solid #d6dfcf;padding:8px 12px;border-radius:23px}.review-notes{max-width:920px;margin:15px auto 0;color:var(--muted);font-size:11px}.review-notes>summary{display:flex;align-items:center;gap:8px;min-height:40px;list-style:none}.review-notes>summary:before{content:'+';font-size:17px}.review-notes[open]>summary:before{content:'−'}.review-body{border-top:1px solid var(--line);padding:17px 0 4px;display:grid;grid-template-columns:1fr 1fr;gap:25px}.review-body h4{font-size:13px;margin-bottom:8px;color:#394c36}.review-body p{line-height:1.7;font-size:12px}.review-body label{display:block;font-size:11px;margin-bottom:7px}.review-body select{width:100%;min-height:42px;border:1px solid #cbd5c4;background:white;border-radius:7px;padding:8px;color:#3e5039;font-size:12px}.review-body a{display:inline-block;margin-top:13px;font-size:12px}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@keyframes appear{from{opacity:.2;transform:translateY(9px)}to{opacity:1;transform:none}}@keyframes spin{to{transform:rotate(360deg)}}
-@container(max-width:600px){.stage{padding:20px;min-height:0}.topbar{padding:16px 20px}.phase{padding:12px 20px}.product-image img{height:125px}.product-info{padding:12px}.product-info h3{font-size:15px}.product-price{font-size:18px}.purchase-layout{grid-template-columns:1fr;gap:16px}.purchase-object{display:grid;grid-template-columns:67px 1fr auto;gap:0 12px;padding:12px 14px;align-items:center}.object-label{display:none}.purchase-object>img{grid-column:1;grid-row:1/5;height:80px;width:67px;margin:0}.purchase-object h3{grid-column:2;font-size:17px}.purchase-object .variant{grid-column:2;font-size:10px;margin-top:4px}.purchase-object .object-price{grid-column:3;grid-row:1/3;font-size:17px;margin:0}.purchase-object .merchant{grid-column:2;font-size:10px;margin-top:3px}.change{grid-column:3;grid-row:3/5;font-size:10px;padding:5px 0;min-height:34px}.commerce{padding:24px}.commerce .amount{font-size:48px}.commerce .amount-caption{font-size:15px}.commerce .breakdown>div{font-size:13px}.ck-identity{margin-bottom:25px}.review-body{grid-template-columns:1fr;gap:18px}.review-notes{margin-top:10px}.footer{padding:12px 19px}}
-@container(max-width:430px){.experience{border-radius:15px}.stage{padding:18px 15px}.bubble{font-size:13px;padding:12px 14px}.assistant-copy{font-size:14px}.preference-row{gap:5px}.preference-row>span{width:100%;margin-bottom:4px}.chip{font-size:11px;padding:8px 11px}.products{display:flex;gap:11px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:#b4c1ac #f2f5ee}.product{flex:0 0 82%;scroll-snap-align:start}.product-image img{height:180px}.product-info{padding:16px}.product-info h3{font-size:20px}.product-info p{font-size:12px;min-height:0}.product-price{font-size:23px;margin:14px 0}.product .primary{min-height:46px;font-size:13px}.topbar{padding:14px 16px}.host-name{font-size:13px}.host-name small{font-size:10px}.topbar>button{font-size:11px}.phase{padding:11px 16px;font-size:10px}.phase i{min-width:5px}.commerce{padding:20px}.commerce h3{font-size:23px}.commerce .amount{font-size:46px}.purchase-object{grid-template-columns:51px 1fr auto;gap:0 8px}.purchase-object>img{width:51px;height:70px}.purchase-object h3{font-size:16px}.purchase-object .object-price{font-size:15px}.purchase-object .variant{font-size:9px}.cart-consent{font-size:12px}.commerce .breakdown>div{font-size:12px}.footer{gap:10px;padding:11px 15px}.footer .mode{font-size:10px}.footer button{font-size:10px}.footer .tour-button{padding:8px 10px}.review-notes{padding:0 3px;font-size:10px}.review-notes summary{line-height:1.6}.destination{padding:20px}.primary{font-size:13px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-`;
+
+const CHAPTERS=[
+ ['home','Open the assistant'],
+ ['research','Choose a product'],
+ ['offer','Meet the connector'],
+ ['connect','Connect the account'],
+ ['benefit','See the benefit'],
+ ['ready','Approve the route'],
+ ['retailer','Hand off to the retailer']
+];
+const chapterIndex=step=>{
+ const map={checking:'benefit',activating:'ready',direct:'retailer'};
+ const key=map[step]||step;
+ const i=CHAPTERS.findIndex(c=>c[0]===key);
+ return i<0?0:i;
+};
+const TOUR=['home','research','offer','connect','benefit','ready','retailer'];
+
 class CashKaroWalkthrough extends HTMLElement{
- constructor(){super();this.attachShadow({mode:'open'});this.step='research';this.priority='camera';this.chosen='aster';this.scenario='cash';this.connected=false;this.consent=false;this.watching=false;this.timer=null;this.revision=0;this.reduce=matchMedia('(prefers-reduced-motion: reduce)');}
- connectedCallback(){this.shell();this.render();this.onVisibility=()=>{if(document.hidden)this.stopTour();};document.addEventListener('visibilitychange',this.onVisibility);this.onMotion=()=>{if(this.reduce.matches)this.stopTour();};this.reduce.addEventListener('change',this.onMotion);this.observer=new IntersectionObserver(e=>{if(!e[0].isIntersecting)this.stopTour();});this.observer.observe(this);}
- disconnectedCallback(){clearTimeout(this.timer);this.revision++;this.observer?.disconnect();document.removeEventListener('visibilitychange',this.onVisibility);this.reduce.removeEventListener('change',this.onMotion);}
+ constructor(){
+  super();
+  this.attachShadow({mode:'open'});
+  this.step='home';
+  this.priority='camera';
+  this.chosen='aster';
+  this.scenario='cash';
+  this.connected=false;
+  this.consent=false;
+  this.watching=false;
+  this.timer=null;
+  this.toastTimer=null;
+  this.notifTimer=null;
+  this.revision=0;
+  this.reduce=matchMedia('(prefers-reduced-motion: reduce)');
+ }
+
+ connectedCallback(){
+  this.shell();
+  this.render();
+  this.clockTimer=setInterval(()=>{const t=this.shadowRoot.querySelector('.sb-time');if(t)t.textContent=clock();},20000);
+  this.onVisibility=()=>{if(document.hidden)this.stopTour();};
+  document.addEventListener('visibilitychange',this.onVisibility);
+  this.onMotion=()=>{if(this.reduce.matches)this.stopTour();};
+  this.reduce.addEventListener('change',this.onMotion);
+  this.observer=new IntersectionObserver(e=>{if(!e[0].isIntersecting)this.stopTour();});
+  this.observer.observe(this);
+ }
+
+ disconnectedCallback(){
+  clearTimeout(this.timer);clearTimeout(this.toastTimer);clearTimeout(this.notifTimer);clearInterval(this.clockTimer);
+  this.revision++;
+  this.observer?.disconnect();
+  document.removeEventListener('visibilitychange',this.onVisibility);
+  this.reduce.removeEventListener('change',this.onMotion);
+ }
+
  get product(){return PRODUCTS.find(p=>p.id===this.chosen);}
  get merchant(){return SCENARIOS[this.scenario].merchant;}
- identity(){return `<div class="ck-identity"><img src="assets/cashkaro-logo.svg" alt="CashKaro"><span>${this.connected?'Connected · concept':'Shopping skill'}</span></div>`;}
+ get onHome(){return this.step==='home';}
+ get atRetailer(){return ['retailer','direct'].includes(this.step);}
+
+ identity(){return `<div class="ck-identity"><img src="assets/cashkaro-logo.svg" alt="CashKaro"><span>${this.connected?'Connected · concept':'Shopping connector'}</span></div>`;}
  button(action,text,secondary=false){return `<button type="button" class="${secondary?'secondary':'primary'}" data-action="${action}">${text}</button>`;}
- object(){const p=this.product;return `<aside class="purchase-object" aria-label="Your selected purchase"><span class="object-label">Your choice</span><img src="assets/phones/${p.id}.svg" alt="Fictional ${p.name}"><h3>${p.name}</h3><p class="variant">${p.variant}</p><p class="object-price">${money(p.price)}</p><span class="merchant">${this.merchant}</span>${this.button('restart','Change product',true).replace('class="secondary"','class="change"')}</aside>`;}
- shell(){this.shadowRoot.innerHTML=`<style>${css}</style><div class="experience"><header class="topbar"><span class="host-symbol" aria-hidden="true">✳</span><div class="host-name">Shopping assistant<small>Your priorities. Your decision.</small></div><button data-action="restart" aria-label="Start over">↺ Start over</button></header><div class="phase" aria-label="Purchase progress"></div><div class="stage"></div><footer class="footer"><span class="mode">Interactive concept</span><button class="tour-button" data-action="tour">▷ Watch the journey</button><button data-action="notes">Why this step?</button></footer></div><details class="review-notes"><summary>Fictional products & offers · no live account or transaction</summary><div class="review-body"><div><h4></h4><p class="explanation"></p><p>Scripted assistant. No live AI research, merchant policy, account connection or affiliate route.</p></div><div><label for="outcome">Explore another outcome</label><select id="outcome">${Object.entries(SCENARIOS).map(([k,s])=>`<option value="${k}">${s.label}</option>`).join('')}</select><a href="prototype.html#interactive">Explore all host and eligibility controls ↗</a></div></div></details><p class="sr" role="status" aria-live="polite"></p>`;
- this.shadowRoot.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.priority){this.stopTour();this.priority=b.dataset.priority;this.render();this.shadowRoot.querySelector(`[data-priority="${this.priority}"]`).focus({preventScroll:true});return;}if(b.dataset.product){this.stopTour();this.chosen=b.dataset.product;this.consent=false;this.go('offer');return;}this.act(b.dataset.action);});
- this.shadowRoot.addEventListener('change',e=>{if(e.target.id==='outcome'){this.stopTour();this.revision++;this.scenario=e.target.value;this.consent=false;this.connected=false;this.go(this.step==='research'?'research':'offer',false);}if(e.target.name==='consent'){const accepted=e.target.checked;this.stopTour();this.consent=accepted;e.target.checked=accepted;this.shadowRoot.querySelector('[data-action="activate"]').disabled=!this.consent;}});
+
+ object(){
+  const p=this.product;
+  return `<aside class="purchase-object" aria-label="Your selected purchase"><span class="object-label">Your choice</span><img src="assets/phones/${p.id}.svg" alt="Fictional ${p.name}"><h3>${p.name}</h3><p class="variant">${p.variant}</p><p class="object-price">${money(p.price)}</p><span class="merchant">${this.merchant}</span><button type="button" class="change" data-action="restart">Change product</button></aside>`;
  }
- render(){const p=this.product,checked=checkRoute({productId:p.id,scenario:this.scenario});let html='';
- if(this.step==='research'){
- const result=research({priority:this.priority});html=`<div class="user-row"><div class="bubble">A phone under ₹40k. ${this.priority==='camera'?'Camera first, battery second.':this.priority==='battery'?'Battery life matters most.':'Keep the upfront price down.'}</div></div><div class="preference-row" role="group" aria-label="Shopping priority"><span>What matters most?</span>${Object.entries(PRIORITIES).map(([k,v])=>`<button class="chip" data-priority="${k}" aria-pressed="${k===this.priority}">${v}</button>`).join('')}</div><p class="assistant-copy">I’d suggest <strong>${result.recommended.name}</strong>. ${result.reason}</p><div class="products">${result.options.map(x=>`<article class="product ${x.id===result.recommended.id?'best':''}"><div class="product-image">${x.id===result.recommended.id?'<span class="suggestion">Suggested for you</span>':''}<img src="assets/phones/${x.id}.svg" alt="Fictional ${x.name}"></div><div class="product-info"><h3>${x.name}</h3><p>${x.trait}<br>${x.variant}</p><strong class="product-price">${money(x.price)}</strong><button class="primary" data-product="${x.id}" aria-label="Choose ${x.name}">This is the one <span aria-hidden="true">→</span></button></div></article>`).join('')}</div>`;
- }else{
- let card='';
- if(this.step==='offer')card=`${this.identity()}<h3 tabindex="-1" data-heading>Your choice. A little more rewarding.</h3><p>Check whether this exact purchase can earn Cashback or Rewards with CashKaro.</p><div class="privacy"><span aria-hidden="true">↗</span>Only this product, merchant and variant are shared. Your conversation stays here.</div>${this.button('check','Check eligible benefit →')}${this.button('direct','Continue without CashKaro',true)}`;
- if(this.step==='connect')card=`${this.identity()}<h3 tabindex="-1" data-heading>Bring your CashKaro account along.</h3><p>Keep the benefit with the account you already use.</p><div class="privacy">Only purchases you approve. No payment details. Disconnect in the full scenario controls.</div>${this.button('connect','Connect demo account →')}${this.button('direct','Continue without CashKaro',true)}<p class="fineprint">Simulated connection. No credentials collected.</p>`;
- if(['checking','activating'].includes(this.step))card=`${this.identity()}<h3 tabindex="-1" data-heading>${this.step==='checking'?'Checking this purchase…':'Preparing your route…'}</h3><div class="check-list">${(this.step==='checking'?['Merchant route','Exact product eligibility','Current benefit']:['Your chosen product','Your CashKaro route','Retailer destination']).map(t=>`<div><span aria-hidden="true"></span>${t}</div>`).join('')}</div><p class="fineprint">Simulated checks. No live service is called.</p>`;
- if(this.step==='benefit'){
- if(!checked.ok)card=`${this.identity()}<h3 tabindex="-1" data-heading>${checked.reason}</h3><p>${checked.detail}</p>${this.button('direct','Continue without CashKaro →')}`;
- else card=`${this.identity()}<div class="benefit-label">Eligible illustrative offer</div><h3 tabindex="-1" data-heading><strong class="amount">${money(checked.amount)}</strong><span class="amount-caption">estimated ${checked.kind}</span></h3><p class="benefit-subtitle">On your ${this.merchant} purchase. ${checked.kind==='Rewards'?'Restricted gift-card redemption, not bank cash.':'Conditional benefit paid later, not an instant discount.'}</p><dl class="breakdown"><div><dt>Pay today</dt><dd>${money(p.price)}</dd></div><div><dt>Potential ${checked.kind} later</dt><dd>${money(checked.amount)}</dd></div></dl><details class="terms"><summary>Eligibility & timing</summary><p>Exact product and variant must qualify. Start before adding to cart or wishlist. Merchant channel, coupon and return conditions apply. Illustrative tracking: within 72 hours; confirmation may take up to 90 days. Real timing must come from approved policy. ${checked.kind==='Rewards'?'Rewards have restricted redemption.':''}</p></details><label class="cart-consent"><input type="checkbox" name="consent" ${this.consent?'checked':''}> <span>I have not added this item to my retailer cart or wishlist.</span></label><button class="primary" data-action="activate" ${!this.consent?'disabled':''}>Continue with ${checked.kind} →</button>${this.button('direct','Continue without CashKaro',true)}<p class="fineprint">By continuing, you activate this simulated affiliate route. CashKaro may receive a commission. No payout is guaranteed.</p>`;
+
+ shell(){
+  const groups={};
+  for(const [key,s] of Object.entries(SCENARIOS))(groups[s.group]??=[]).push([key,s]);
+  const options=Object.entries(groups).map(([g,items])=>`<optgroup label="${g}">${items.map(([k,s])=>`<option value="${k}">${s.label}</option>`).join('')}</optgroup>`).join('');
+
+  this.shadowRoot.innerHTML=`<style>${deviceCss}${appCss}</style>
+<div class="stagewrap">
+ <div class="device">
+  <div class="frame">
+   <span class="side-power" aria-hidden="true"></span>
+   <div class="screen" data-surface="home" data-app="assistant">
+    <div class="island" aria-hidden="true"></div>
+    ${statusBar()}
+    <div class="notif" hidden><img src="assets/cashkaro-logo.svg" alt=""><div class="notif-body"><strong>CashKaro</strong><span class="notif-text"></span></div></div>
+    <div class="surfaces">
+     <div class="layer layer-home">${homeScreen()}</div>
+     <div class="layer layer-app" hidden>
+      <header class="appbar">
+       <button type="button" class="back" data-action="home" aria-label="Back to home screen">‹</button>
+       <span class="app-mark" aria-hidden="true">✳</span>
+       <div class="app-title"><span class="app-name-text">Assistant</span><small>Your priorities. Your decision.</small></div>
+       <button type="button" class="restart" data-action="restart">Start over</button>
+      </header>
+      <div class="phase" aria-label="Purchase progress"></div>
+      <div class="scrollport"><div class="stage"></div></div>
+     </div>
+    </div>
+    <div class="scrim" hidden data-action="dismiss-sheet"></div>
+    <div class="sheet" hidden role="dialog" aria-label="CashKaro"><div class="sheet-grab" aria-hidden="true"></div><div class="sheet-body"></div></div>
+    <p class="toast" hidden role="status"></p>
+    <div class="homebar" aria-hidden="true"></div>
+   </div>
+  </div>
+ </div>
+ <aside class="narrate">
+  <p class="kicker">What is happening</p>
+  <h3 class="narrate-title"></h3>
+  <p class="why"></p>
+  <ol class="chapters">${CHAPTERS.map(([k,t],i)=>`<li data-chapter="${k}"><b>${String(i+1).padStart(2,'0')}</b>${t}</li>`).join('')}</ol>
+  <div class="playbar">
+   <button type="button" class="tour-button" data-action="tour">▷ Play the journey</button>
+   <button type="button" data-action="restart">Start over</button>
+  </div>
+  <div class="scenario-pick">
+   <label for="outcome">Test a different outcome</label>
+   <select id="outcome">${options}</select>
+   <p class="hint">Sixteen scenarios, including refusals. The chosen benefit never changes which phone the assistant recommends.</p>
+   <a href="prototype.html#interactive">Open the full scenario controls ↗</a>
+  </div>
+ </aside>
+</div>
+<p class="sr" role="status" aria-live="polite"></p>`;
+
+  this.shadowRoot.addEventListener('click',e=>{
+   const opener=e.target.closest('[data-app-open]');
+   if(opener){
+    if(opener.dataset.appOpen==='assistant'){this.stopTour();this.launchApp();}
+    else this.toast('Not part of this concept.');
+    return;
+   }
+   const b=e.target.closest('button,[data-action]');
+   if(!b)return;
+   if(b.dataset.priority){
+    this.stopTour();this.priority=b.dataset.priority;this.render();
+    this.shadowRoot.querySelector(`[data-priority="${this.priority}"]`)?.focus({preventScroll:true});
+    return;
+   }
+   if(b.dataset.product){this.stopTour();this.chosen=b.dataset.product;this.consent=false;this.go('offer');return;}
+   if(b.dataset.action)this.act(b.dataset.action);
+  });
+
+  this.shadowRoot.addEventListener('change',e=>{
+   if(e.target.id==='outcome'){
+    this.stopTour();this.revision++;
+    this.scenario=e.target.value;this.consent=false;this.connected=false;this.route=null;
+    this.go(this.onHome?'home':'offer',false);
+    this.toast(SCENARIOS[this.scenario].label);
+   }
+   if(e.target.name==='consent'){
+    this.stopTour();
+    this.consent=e.target.checked;
+    const activate=this.shadowRoot.querySelector('[data-action="activate"]');
+    if(activate)activate.disabled=!this.consent;
+   }
+  });
  }
- if(this.step==='ready'){
- const route=this.route;card=route?.ok?`${this.identity()}<span class="success-icon" aria-hidden="true">✓</span><h3 tabindex="-1" data-heading>Your CashKaro route is ready.</h3><div class="route-line"><span><i>✓</i>Your choice</span>→<span><i>✓</i>CashKaro</span>→<span><i>↗</i>${this.merchant}</span></div><p>${route.kind} is not earned yet. Tracking begins after the retailer reports the order.</p>${this.button('retailer',`Continue to ${this.merchant} demo →`)}`:`${this.identity()}<h3 tabindex="-1" data-heading>${route?.reason||'Route unavailable'}</h3><p>${route?.detail||'No route was activated.'}</p>${this.button('direct','Continue without CashKaro →')}`;
+
+ toast(text){
+  const el=this.shadowRoot.querySelector('.toast');
+  el.textContent=text;el.hidden=false;
+  clearTimeout(this.toastTimer);
+  this.toastTimer=setTimeout(()=>{el.hidden=true;},2200);
  }
- if(['retailer','direct'].includes(this.step))card=`<div class="destination-top"><strong>${this.merchant}</strong><span>Simulated destination</span></div><h3 tabindex="-1" data-heading>Your choice made it here.</h3><p>${p.name} · ${p.variant}<br>${money(p.price)} payable to the retailer.</p><p>Checkout, payment, delivery and returns stay with ${this.merchant}.</p><div class="status-note">${this.step==='direct'?'No CashKaro route activated. No benefit claimed.':'Route ready ≠ order tracked ≠ benefit confirmed.'}<br>No order has been placed.</div>${this.button('restart','Try another purchase →')}`;
- html=`<div class="user-row"><div class="bubble">This is the one. I’ll get ${p.name} from ${this.merchant}.</div></div><div class="purchase-layout">${this.object()}<section class="${['retailer','direct'].includes(this.step)?'destination':'commerce'}" aria-label="${['retailer','direct'].includes(this.step)?'Retailer handoff':'CashKaro purchase check'}">${card}</section></div>`;
+
+ notify(text){
+  const el=this.shadowRoot.querySelector('.notif');
+  el.querySelector('.notif-text').textContent=text;
+  el.hidden=false;
+  clearTimeout(this.notifTimer);
+  this.notifTimer=setTimeout(()=>{el.hidden=true;},4200);
  }
- const q=this.shadowRoot;q.querySelector('.stage').innerHTML=html;const phase=this.step==='research'?0:['offer','connect','checking','benefit'].includes(this.step)?1:2;
- q.querySelector('.phase').innerHTML=['Choose a product','Check the benefit','Continue to retailer'].map((t,i)=>`${i?'<i aria-hidden="true"></i>':''}<span class="${phase===i?'current':''}" ${phase===i?'aria-current="step"':''}><b>${i<phase?'✓':i+1}</b>${t}</span>`).join('');
- const [title,copy]=explanations[this.step];q.querySelector('.review-body h4').textContent=title;q.querySelector('.explanation').textContent=copy;this.controls();
+
+ launchApp(){
+  this.go('research');
+  this.shadowRoot.querySelector('[data-product]')?.focus({preventScroll:true});
  }
- controls(){this.shadowRoot.querySelector('.mode').textContent=this.watching?'Watching a scripted journey':'Interactive concept';this.shadowRoot.querySelector('[data-action="tour"]').textContent=this.watching?'Ⅱ Take control':'▷ Watch the journey';}
- go(step,focus=true){this.step=step;this.render();if(focus&&!this.watching){this.shadowRoot.querySelector('[data-heading]')?.focus({preventScroll:true});this.shadowRoot.querySelector('.sr').textContent=explanations[step][0];}}
- stopTour(){clearTimeout(this.timer);this.timer=null;const was=this.watching;this.watching=false;if(was){this.consent=false;this.controls();const checkbox=this.shadowRoot.querySelector('[name="consent"]');if(checkbox)checkbox.checked=false;const activate=this.shadowRoot.querySelector('[data-action="activate"]');if(activate)activate.disabled=true;}}
- async waitThen(step,next){this.revision++;const revision=this.revision;this.go(step);await new Promise(r=>setTimeout(r,this.reduce.matches?0:400));if(revision!==this.revision||!this.isConnected)return;this.go(next);}
+
+ // ---- Rendering ----
+ render(){
+  const q=this.shadowRoot,p=this.product;
+  const screen=q.querySelector('.screen');
+  screen.dataset.surface=this.onHome?'home':'app';
+  screen.dataset.app=this.atRetailer?'retailer':'assistant';
+  q.querySelector('.layer-home').hidden=!this.onHome;
+  const app=q.querySelector('.layer-app');
+  app.hidden=this.onHome;
+
+  q.querySelector('.app-mark').textContent=this.atRetailer?'⬚':'✳';
+  q.querySelector('.app-name-text').textContent=this.atRetailer?this.merchant:'Assistant';
+  q.querySelector('.app-title small').textContent=this.atRetailer?'Simulated retailer app':'Your priorities. Your decision.';
+
+  if(!this.onHome)this.stage(p);
+  this.sheet();
+  this.narrate();
+  this.controls();
+ }
+
+ stage(p){
+  const q=this.shadowRoot;
+  const checked=checkRoute({productId:p.id,scenario:this.scenario});
+  let html='';
+
+  if(this.step==='research'){
+   const result=research({priority:this.priority});
+   html=`<div class="user-row"><div class="bubble">A phone under ₹40k. ${this.priority==='camera'?'Camera first, battery second.':this.priority==='battery'?'Battery life matters most.':'Keep the upfront price down.'}</div></div><div class="preference-row" role="group" aria-label="Shopping priority"><span>What matters most?</span>${Object.entries(PRIORITIES).map(([k,v])=>`<button class="chip" data-priority="${k}" aria-pressed="${k===this.priority}">${v}</button>`).join('')}</div><p class="assistant-copy">I’d suggest <strong>${result.recommended.name}</strong>. ${result.reason}</p><div class="products">${result.options.map(x=>`<article class="product ${x.id===result.recommended.id?'best':''}"><div class="product-image">${x.id===result.recommended.id?'<span class="suggestion">Suggested for you</span>':''}<img src="assets/phones/${x.id}.svg" alt="Fictional ${x.name}"></div><div class="product-info"><h3>${x.name}</h3><p>${x.trait}<br>${x.variant}</p><strong class="product-price">${money(x.price)}</strong><button class="primary" data-product="${x.id}" aria-label="Choose ${x.name}">This is the one <span aria-hidden="true">→</span></button></div></article>`).join('')}</div>`;
+  }else{
+   let card='';
+   if(this.step==='offer')card=`${this.identity()}<h3 tabindex="-1" data-heading>Your choice. A little more rewarding.</h3><p>Check whether this exact purchase can earn Cashback or Rewards with CashKaro.</p><div class="privacy"><span aria-hidden="true">↗</span>Only this product, merchant and variant are shared. Your conversation stays here.</div>${this.button('check','Check eligible benefit →')}${this.button('direct','Continue without CashKaro',true)}`;
+
+   if(['checking','activating'].includes(this.step))card=`${this.identity()}<h3 tabindex="-1" data-heading>${this.step==='checking'?'Checking this purchase…':'Preparing your route…'}</h3><div class="check-list">${(this.step==='checking'?['Merchant route','Exact product eligibility','Current benefit']:['Your chosen product','Your CashKaro route','Retailer destination']).map(t=>`<div><span aria-hidden="true"></span>${t}</div>`).join('')}</div><p class="fineprint">Simulated checks. No live service is called.</p>`;
+
+   if(this.step==='benefit'){
+    if(!checked.ok)card=`${this.identity()}<span class="refusal-icon" aria-hidden="true">!</span><h3 tabindex="-1" data-heading>${checked.reason}</h3><p>${checked.detail}</p>${this.button('direct','Continue without CashKaro →')}${this.button('restart','Try another purchase',true)}`;
+    else card=`${this.identity()}<div class="benefit-label">Eligible illustrative offer</div><h3 tabindex="-1" data-heading><strong class="amount">${money(checked.amount)}</strong><span class="amount-caption">estimated ${checked.kind}</span></h3><p class="benefit-subtitle">On your ${this.merchant} purchase. ${checked.kind==='Rewards'?'Restricted gift-card redemption, not bank cash.':'Conditional benefit paid later, not an instant discount.'}</p><dl class="breakdown"><div><dt>Pay today</dt><dd>${money(this.product.price)}</dd></div><div><dt>Potential ${checked.kind} later</dt><dd>${money(checked.amount)}</dd></div></dl><details class="terms"><summary>Eligibility &amp; timing</summary><p>Exact product and variant must qualify. Start before adding to cart or wishlist. Merchant channel, coupon and return conditions apply. Illustrative tracking: within 72 hours; confirmation may take up to 90 days. Real timing must come from approved policy. ${checked.kind==='Rewards'?'Rewards have restricted redemption.':''}</p></details><label class="cart-consent"><input type="checkbox" name="consent" ${this.consent?'checked':''}> <span>I have not added this item to my retailer cart or wishlist.</span></label><button class="primary" data-action="activate" ${!this.consent?'disabled':''}>Continue with ${checked.kind} →</button>${this.button('direct','Continue without CashKaro',true)}<p class="fineprint">By continuing, you activate this simulated affiliate route. CashKaro may receive a commission. No payout is guaranteed.</p>`;
+   }
+
+   if(this.step==='ready'){
+    const route=this.route;
+    if(route?.ok)card=`${this.identity()}<span class="success-icon" aria-hidden="true">✓</span><h3 tabindex="-1" data-heading>Your CashKaro route is ready.</h3><div class="route-line"><span><i>✓</i>Your choice</span>→<span><i>✓</i>CashKaro</span>→<span><i>↗</i>${this.merchant}</span></div><p>${route.kind} is not earned yet. Tracking begins after the retailer reports the order.</p>${this.button('retailer',`Continue to ${this.merchant} →`)}`;
+    else card=`${this.identity()}<span class="refusal-icon" aria-hidden="true">!</span><h3 tabindex="-1" data-heading>${route?.reason||'Route unavailable'}</h3><p>${route?.detail||'No route was activated.'}</p>${route?.recoverable?this.button('retry',route.code==='reauth'?'Reconnect and try again →':'Re-check this purchase →'):''}${this.button('direct','Continue without CashKaro'+(route?.recoverable?'':' →'),!!route?.recoverable)}`;
+   }
+
+   if(this.atRetailer)card=`<div class="destination-top"><strong>${this.merchant}</strong><span>Simulated destination</span></div><h3 tabindex="-1" data-heading>Your choice made it here.</h3><p>${this.product.name} · ${this.product.variant}<br>${money(this.product.price)} payable to the retailer.</p><p>Checkout, payment, delivery and returns stay with ${this.merchant}.</p><div class="status-note">${this.step==='direct'?'No CashKaro route activated. No benefit claimed.':'Route ready ≠ order tracked ≠ benefit confirmed.'}<br>No order has been placed.</div>${this.button('restart','Try another purchase →')}`;
+
+   html=`<div class="user-row"><div class="bubble">This is the one. I’ll get ${this.product.name} from ${this.merchant}.</div></div><div class="purchase-layout">${this.object()}<section class="${this.atRetailer?'destination':'commerce'}" aria-label="${this.atRetailer?'Retailer handoff':'CashKaro purchase check'}">${card}</section></div>`;
+  }
+
+  q.querySelector('.stage').innerHTML=html;
+  const phase=this.step==='research'?0:['offer','connect','checking','benefit'].includes(this.step)?1:2;
+  q.querySelector('.phase').innerHTML=['Choose a product','Check the benefit','Continue to retailer'].map((t,i)=>`${i?'<i aria-hidden="true"></i>':''}<span class="${phase===i?'current':''}" ${phase===i?'aria-current="step"':''}><b>${i<phase?'✓':i+1}</b>${t}</span>`).join('');
+  q.querySelector('.scrollport').scrollTop=0;
+ }
+
+ // The connect step is presented as a system-style sheet over the app.
+ sheet(){
+  const q=this.shadowRoot,sheet=q.querySelector('.sheet'),scrim=q.querySelector('.scrim');
+  const open=this.step==='connect';
+  sheet.hidden=!open;scrim.hidden=!open;
+  if(!open)return;
+  sheet.querySelector('.sheet-body').innerHTML=`<div class="commerce sheet-card">${this.identity()}<h3 tabindex="-1" data-heading>Connect CashKaro once.</h3><p>Like any other connector, you approve it once and any supported assistant can call it for a purchase you have already chosen.</p><div class="privacy">Shares the selected product, merchant and variant, plus your CashKaro account identity. Not your conversation. Not payment details.</div>${this.button('connect','Connect demo account →')}${this.button('direct','Continue without CashKaro',true)}<p class="fineprint">Simulated connection. No credentials are collected and no account is created.</p></div>`;
+ }
+
+ narrate(){
+  const q=this.shadowRoot;
+  const [title,copy]=explanations[this.step];
+  q.querySelector('.narrate-title').textContent=title;
+  q.querySelector('.why').textContent=copy;
+  const now=chapterIndex(this.step);
+  [...q.querySelectorAll('.chapters li')].forEach((li,i)=>{
+   li.classList.toggle('now',i===now);
+   li.classList.toggle('done',i<now);
+  });
+ }
+
+ controls(){
+  const t=this.shadowRoot.querySelector('.tour-button');
+  t.textContent=this.watching?'Ⅱ Take control':'▷ Play the journey';
+  t.classList.toggle('on',this.watching);
+ }
+
+ go(step,focus=true){
+  const wasRetail=this.atRetailer;
+  this.step=step;
+  this.render();
+  if(this.atRetailer&&!wasRetail){
+   const app=this.shadowRoot.querySelector('.layer-app');
+   app.classList.remove('switching');void app.offsetWidth;app.classList.add('switching');
+  }
+  if(focus&&!this.watching){
+   this.shadowRoot.querySelector('[data-heading]')?.focus({preventScroll:true});
+   this.shadowRoot.querySelector('.sr').textContent=explanations[step][0];
+  }
+ }
+
+ stopTour(){
+  clearTimeout(this.timer);this.timer=null;
+  const was=this.watching;
+  this.watching=false;
+  if(was){
+   this.consent=false;this.controls();
+   const checkbox=this.shadowRoot.querySelector('[name="consent"]');
+   if(checkbox)checkbox.checked=false;
+   const activate=this.shadowRoot.querySelector('[data-action="activate"]');
+   if(activate)activate.disabled=true;
+  }
+ }
+
+ async waitThen(step,next){
+  this.revision++;
+  const revision=this.revision;
+  this.go(step);
+  await new Promise(r=>setTimeout(r,this.reduce.matches?0:700));
+  if(revision!==this.revision||!this.isConnected)return;
+  this.go(next);
+ }
+
  async act(action){
- if(action==='notes'){this.stopTour();const d=this.shadowRoot.querySelector('.review-notes');d.open=!d.open;return;}
- if(action==='tour'){if(this.watching){this.stopTour();this.revision++;this.consent=false;if(['activating','ready','retailer'].includes(this.step))this.go('benefit');return;}this.revision++;this.step='research';this.priority='camera';this.chosen='aster';this.scenario='cash';this.shadowRoot.querySelector('#outcome').value='cash';this.connected=false;this.consent=false;this.watching=true;this.render();this.scheduleTour();return;}
- const takingControl=this.watching;this.stopTour();
- if(takingControl&&['activating','ready','retailer'].includes(this.step)&&!['restart','direct'].includes(action)){this.revision++;this.consent=false;this.route=null;this.go('benefit');return;}
- if(action==='restart'){this.revision++;this.consent=false;this.go('research');this.shadowRoot.querySelector('[data-product]')?.focus({preventScroll:true});return;}
- if(action==='direct'){this.revision++;this.go('direct');return;}
- if(action==='check'){if(this.connected)await this.waitThen('checking','benefit');else this.go('connect');}
- if(action==='connect'){this.connected=true;await this.waitThen('checking','benefit');}
- if(action==='activate'&&this.consent){this.previewRoute=false;this.route=createRoute({productId:this.chosen,scenario:this.scenario,connected:this.connected,consent:this.consent,carted:false});await this.waitThen('activating','ready');}
- if(action==='retailer'&&this.route?.ok){if(this.previewRoute){this.consent=false;this.go('benefit');}else this.go('retailer');}
+  if(action==='dismiss-sheet'){if(this.step==='connect'){this.stopTour();this.go('offer');}return;}
+
+  if(action==='tour'){
+   if(this.watching){
+    this.stopTour();this.revision++;this.consent=false;
+    if(['activating','ready','retailer'].includes(this.step))this.go('benefit');
+    return;
+   }
+   this.revision++;
+   this.step='home';this.priority='camera';this.chosen='aster';this.scenario='cash';
+   this.shadowRoot.querySelector('#outcome').value='cash';
+   this.connected=false;this.consent=false;this.route=null;this.watching=true;
+   this.render();this.scheduleTour();
+   return;
+  }
+
+  const takingControl=this.watching;
+  this.stopTour();
+  if(takingControl&&['activating','ready','retailer'].includes(this.step)&&!['restart','direct','home'].includes(action)){
+   this.revision++;this.consent=false;this.route=null;this.go('benefit');return;
+  }
+
+  if(action==='home'){this.revision++;this.consent=false;this.route=null;this.go('home');return;}
+  if(action==='restart'){this.revision++;this.consent=false;this.route=null;this.go('research');this.shadowRoot.querySelector('[data-product]')?.focus({preventScroll:true});return;}
+  if(action==='direct'){this.revision++;this.go('direct');return;}
+  if(action==='retry'){this.revision++;this.consent=false;this.route=null;this.go('offer');return;}
+  if(action==='check'){if(this.connected)await this.waitThen('checking','benefit');else this.go('connect');return;}
+  if(action==='connect'){this.connected=true;this.toast('CashKaro connected');await this.waitThen('checking','benefit');return;}
+  if(action==='activate'&&this.consent){
+   this.previewRoute=false;
+   this.route=createRoute({productId:this.chosen,scenario:this.scenario,connected:this.connected,consent:this.consent,carted:false});
+   await this.waitThen('activating','ready');
+   if(this.route?.ok)this.notify('Route ready. Tracking starts when '+this.merchant+' reports the order.');
+   return;
+  }
+  if(action==='retailer'&&this.route?.ok){
+   if(this.previewRoute){this.consent=false;this.go('benefit');}
+   else this.go('retailer');
+  }
  }
- scheduleTour(){clearTimeout(this.timer);if(!this.watching||document.hidden)return;this.timer=setTimeout(()=>{const states=['research','offer','connect','benefit','ready','retailer'];const next=states[states.indexOf(this.step)+1];if(!next){this.stopTour();return;}if(next==='benefit')this.connected=true;if(next==='ready'){this.previewRoute=true;this.consent=true;this.route=createRoute({productId:this.chosen,scenario:'cash',connected:true,consent:true,carted:false});}this.go(next,false);this.scheduleTour();},5000);}
+
+ scheduleTour(){
+  clearTimeout(this.timer);
+  if(!this.watching||document.hidden)return;
+  this.timer=setTimeout(()=>{
+   const next=TOUR[TOUR.indexOf(this.step)+1];
+   if(!next){this.stopTour();return;}
+   if(next==='benefit')this.connected=true;
+   if(next==='ready'){
+    this.previewRoute=true;this.consent=true;
+    this.route=createRoute({productId:this.chosen,scenario:'cash',connected:true,consent:true,carted:false});
+   }
+   this.go(next,false);
+   this.scheduleTour();
+  },this.step==='home'?2600:4200);
+ }
 }
 customElements.define('ck-walkthrough',CashKaroWalkthrough);

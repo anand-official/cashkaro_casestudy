@@ -41,7 +41,7 @@ Accessed **13 September 2026** unless noted. Source publication dates are distin
 
 Google's announcement includes Wallet-related benefits and merchant offers, which limits the novelty of generic effective-price assistance. The announced US-first availability is not evidence of a live India integration. Its Cart API moves a cart into merchant systems and is distinct from payment. CashKaro needs approved referral routing, not a copied cart.
 
-**Platform discovery test:** can an authorized user reach the skill at a concrete purchase decision, with acceptable effort and predictable disclosure? Observe each host separately. A neutral simulated interface is not proof that any host supports its placement.
+**Platform discovery test:** can an authorized user reach the connector at a concrete purchase decision, with acceptable effort and predictable disclosure? Observe each host separately. A neutral simulated interface is not proof that any host supports its placement.
 </section>
 
 <section class="case-section" id="india">
@@ -89,7 +89,7 @@ The V1 makes no merchant-switching or conversion-uplift claim. Either can become
 
 | Option | Recall / user fit | Reach and frequency | Feasibility / effort / data | Commercial, privacy and platform trade-off | Time to useful validation |
 | --- | --- | --- | --- | --- | --- |
-| Universal Skill | Potentially low repeated recall at explicit intent | Unknown AI overlap; category mix critical | Medium-high integration uncertainty; small route registry, auth, typed benefits | Host-controlled discovery; partner permission; no broad browsing collection | Host + partner spike before outcome test |
+| CashKaro Connector | Potentially low repeated recall at explicit intent | Unknown AI overlap; category mix critical | Medium-high integration uncertainty; small route registry, auth, typed benefits | Host-controlled discovery; partner permission; no broad browsing collection | Host + partner spike before outcome test |
 | Share | Explicit and user-controlled but recall remains | Potentially broad link-capable surfaces | Medium; URL/variant handoff and app/web fallback | Exact context not guaranteed; same affiliate rules | Quick usability test plus approved-route test |
 | Overlay | Retailer context without recall | Android opt-ins; app sessions not orders | High permission/OEM burden; package registry | Intrusive; late-stage recapture; usage privacy | Permission and commercial spike first |
 | Extension | In-page opportunity | Desktop and supported browsers; installation needed | Medium; domain registry and source updates | Stand-down rules, consent and browser policy | Limited browser experiment |
@@ -112,7 +112,7 @@ All route surfaces need effective-dated merchant/domain/path mappings with an op
 | --- | --- | --- | --- |
 | Re-entry is material for the selected segment | Brief, public flow, inherited N=1 | Product: recent-purchase reconstruction with contrary cases | Reframe to the actual value/trust barrier |
 | AI overlap and repeat opportunities are sufficient | External survey context; no cohort size | Analytics: sampled cohort survey and category data | Stop AI rollout on insufficient reachable effect |
-| Hosts can offer the skill with little repeated recall | Tools exist, placement uncertain | Partnerships + engineering: host-specific prototype | Test explicit mode separately or use Share |
+| Hosts can surface the connector with little repeated recall | Tools exist, placement uncertain | Partnerships + engineering: host-specific prototype | Test explicit mode separately or use Share |
 | CashKaro can expose relevant internals | Public service exists, APIs unknown | Engineering: schema and routing audit | Build missing capability or reduce scope |
 | AI-origin routing is commercially accepted | Not supplied | Affiliate partnerships: approved source and stand-down rules | Disable that merchant/host path |
 | Benefit accuracy survives exact-product context | Public terms show specificity | Operations: fixture-to-real policy audit | Suppress amounts until verified |

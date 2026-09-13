@@ -18,7 +18,22 @@ from reportlab.lib.utils import ImageReader
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'output/pdf/CashKaro_Visual_Brief.pdf'
 OUT.parent.mkdir(parents=True, exist_ok=True)
-FONT = Path('/usr/share/fonts/truetype/dejavu')
+def _dejavu():
+    """DejaVu carries the rupee glyph. Look wherever this machine keeps it."""
+    candidates = [Path('/usr/share/fonts/truetype/dejavu'),
+                  Path('/usr/share/fonts/TTF'),
+                  Path('/Library/Fonts')]
+    try:
+        import matplotlib
+        candidates.insert(0, Path(matplotlib.__file__).parent / 'mpl-data' / 'fonts' / 'ttf')
+    except ImportError:
+        pass
+    for d in candidates:
+        if (d / 'DejaVuSans.ttf').exists() and (d / 'DejaVuSans-Bold.ttf').exists():
+            return d
+    raise SystemExit('DejaVuSans.ttf not found. Install fonts-dejavu, or pip install matplotlib.')
+
+FONT = _dejavu()
 pdfmetrics.registerFont(TTFont('Brief', str(FONT / 'DejaVuSans.ttf')))
 pdfmetrics.registerFont(TTFont('BriefBold', str(FONT / 'DejaVuSans-Bold.ttf')))
 pdfmetrics.registerFontFamily('Brief', normal='Brief', bold='BriefBold', italic='Brief', boldItalic='BriefBold')
@@ -29,7 +44,7 @@ BLUE, PALE, LINE, ORANGE = '#263A91', '#E7EBF6', '#D6DDD3', '#A95422'
 GREEN, WHITE = '#E7EDDF', '#FFFFFF'
 BASE = 'https://cashkaro-shortlist.vercel.app/'
 c = canvas.Canvas(str(OUT), pagesize=(W,H), pageCompression=1, invariant=1)
-c.setTitle('CashKaro Universal Shopping Skill | 15-page product brief')
+c.setTitle('CashKaro Connector | 15-page product brief')
 c.setAuthor('Ujjawal Anand')
 c.setSubject('Independent CashKaro APM assignment concept; problem, product decision and validation')
 boxes = []
@@ -95,7 +110,7 @@ line(377,278,795,278,'#8593D0')
 p('Existing users in the fixed cohort',367,289,440,14,WHITE,align=1)
 p('per quarter',807,265,96,11,WHITE,align=1)
 label('Proposed product',42,360)
-p('CashKaro Universal Shopping Skill',42,383,600,23,INK,True)
+p('CashKaro Connector',42,383,600,23,INK,True)
 p('Let an assistant hand a selected purchase to CashKaro for an eligible benefit and approved retailer route.',42,423,790,14)
 link('Original assignment PDF',42,478,BASE+'source-material/cashkaro_assignment.pdf')
 link('Open interactive prototype',284,478,BASE+'prototype')
@@ -197,7 +212,7 @@ for i,(a,b,d) in enumerate(rows):
     p(a,54,y+11,224,11.5,INK,True);p(b,282,y+11,442,11.5,MUTED);p(d,748,y+11,158,10.5,BLUE,True)
     line(42,y+41,918,y+41)
 rect(42,385,876,70,BLUE,r=3)
-p('Recommend: Universal Shopping Skill',61,397,820,20,WHITE,True)
+p('Recommend: CashKaro Connector',61,397,820,20,WHITE,True)
 p('Potential recall reduction. Lower deployment control, uncertain reach and partner dependence.',61,429,820,12,'#E2E7FA')
 note('Own-direction extension permitted by the brief. If contextual placement fails, Share may be the better first surface.',BASE+'research#alternatives')
 end()
