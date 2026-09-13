@@ -33,3 +33,9 @@ This is not independent validation of the latest implementation. The [skeptical 
 The candidate pasted an additional review and a detailed design mandate. This is received feedback, not a newly verified Claude transcript or hiring-panel rating. Its core requests were to recognize the Telegram routing precedent and make the default demo feel like a consumer conversation.
 
 Implemented: company-published Telegram precedent with explicit limits; qualified destination-first framing; original fictional phone artwork; hidden review drawer/bottom sheet; neutral host; embedded benefit card; route transition; end-only architecture. The strategy and experiment are preserved. The bot's detailed account/rate capabilities and full newer Claude review remain unverified rather than silently promoted to facts.
+
+## Product-first revision, 13 September 2026
+
+The candidate requested professional corporate language, explicit brief alignment and deeper prototype interaction. The case now addresses the original business problem directly, evaluates each suggested direction and distinguishes retained foundations from rejected leads. Main-body API tables were replaced with customer commitments, scope and accountable delivery decisions; detailed technical contracts remain available in the appendix. The fixed-cohort experiment is unchanged.
+
+Prototype additions are budget adjustment, priority-led suggestions, an accessible product-comparison table and reconsideration before activation. The host simulation remains independent of benefit size. No live integration, product data or additional user evidence is claimed.

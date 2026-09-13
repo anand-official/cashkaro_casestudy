@@ -11,7 +11,7 @@ Current public deployment: https://cashkaro-shortlist.vercel.app/ (legacy projec
 - `content/case.md`: balanced problem and product decision.
 - `content/research.md`: dated primary evidence and unknowns.
 - `content/experiment.md`: interfaces, ITT, economics and rollout.
-- `content/prototype.html` + `assets/prototype.js` + `assets/router-model.js`: deterministic, fictional interactive demo.
+- `content/prototype.html` + `assets/prototype.js` + `assets/router-model.js` + `assets/host-model.js`: interactive prototype with independent, scripted host research and fictional routing fixtures.
 - `content/compliance.md`: original-PDF audit.
 - `docs/DECISION_LOG.md`, `docs/REVIEW_RESPONSE.md`, `docs/SKEPTICAL_REVIEW.md`: history and critique.
 - `transcripts/README.md`: received source copies and unresolved raw-export completeness.
@@ -27,3 +27,9 @@ Order Check, Shortlist and overlay are superseded leads. Their substantive recor
 ## 4.1 refinement
 
 The prototype opens as a neutral shopping conversation. **Review scenarios** opens the desktop drawer/mobile bottom sheet. All original benefit, consent and stand-down states remain. The evidence page includes the documented Deals Anytime Telegram precedent with explicit verification limits. The latest reported Claude file still needs to be supplied; complete AI exports remain a submission requirement.
+
+## 4.2 product-led revision
+
+The main case now maps the proposal directly to the assignment's original problem and all five suggested directions. Ten problem sections and ten solution sections provide an approximately equal narrative. Product scope, responsibilities, business value and delivery decisions lead; interface details remain in the technical appendix.
+
+The prototype lets shoppers change budget and priorities, compare all three fictional products and reconsider a selection. Recommendations change with shopper constraints and remain independent of CashKaro benefits. Existing eligibility, connection, consent, stand-down and failure paths are retained.

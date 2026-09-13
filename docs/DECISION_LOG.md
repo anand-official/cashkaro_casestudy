@@ -30,3 +30,9 @@ See [review response](REVIEW_RESPONSE.md), [skeptical review](SKEPTICAL_REVIEW.m
 ## 13 September, refinement after external feedback
 
 Strategy frozen. Added the documented Telegram routing precedent and narrowed destination dependence to the mainstream journey. Redesigned the prototype around a neutral conversation with review-only configuration. No change to north star or experiment. The full newer Claude file could not be located; the supplied critique summary remains labelled as such.
+
+## 13 September 2026: assignment alignment and product-led presentation
+
+The user requested a formal product-management narrative and more interactive prototype. This revision retains the strategy and experiment. It makes the relationship to the brief explicit: the original bypass problem is unchanged; Share/deep-link routing and contextual assistance are foundations; owning discovery is rejected. The investment recommendation is a bounded validation effort with conditional expansion.
+
+The host prototype now responds to budget and priority choices, exposes product trade-offs and permits reconsideration. These are deterministic fictional research interactions, separate from CashKaro benefit logic. They do not introduce a CashKaro recommender or live AI service. This is an authored execution note, not a verbatim transcript.

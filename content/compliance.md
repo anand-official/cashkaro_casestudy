@@ -2,7 +2,7 @@
 
 ## The brief, requirement by requirement.
 
-The original attached PDF was read directly for this rebuild. The [transcription](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md) is a convenience copy. The brief permits new capabilities if their implementation path is explained; it does not require production approvals before proposing a product.
+The original attached PDF was read directly for this revision. The proposal retains its original problem and north star; it narrows the intervention to recall and re-entry friction at an external purchase decision. The [transcription](source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md) is a convenience copy. The brief permits new capabilities if their implementation path is explained; it does not require production approvals before proposing a product.
 
 <div class="warning-box"><strong>Product artifact rebuilt. Transcript package remains incomplete.</strong><p>Technical QA cannot satisfy the mandatory complete-AI-interaction requirement. Supplied copied records are acknowledged; their completeness is unverified.</p></div>
 
@@ -15,11 +15,11 @@ The original attached PDF was read directly for this rebuild. The [transcription
 | Evidence (pp.1–2) | [Primary-source ledger](research.html) | Documentary evidence supplied; no new interviews or authenticated baseline |
 | Segment and business understanding (p.2) | [Target](index.html#segment), [economics](index.html#economics) | Addressed; segment size and private terms unknown |
 | Assumptions explicit (p.2) | [Unknowns and owners](research.html#assumptions) | Addressed |
-| Explore alternatives (pp.1–2) | [Eight-way comparison](research.html#alternatives) | Addressed without fabricated scores |
+| Explore alternatives (pp.1–2) | [Brief direction-by-direction assessment](index.html#alternatives), [broader alternatives](research.html#alternatives) | Addressed without fabricated scores |
 | Prioritize impact, feasibility, effort, risk (pp.1–2) | [Decision](index.html#decision), [spike](experiment.html#architecture) | Strategic choice and near-term disadvantage stated |
-| Explain why this problem over others (p.2) | [Alternatives](index.html#alternatives), [what changes the decision](index.html#defense) | Addressed as an ambitious conditional proposal |
+| Explain why this problem over others (p.2) | [Alternatives](index.html#alternatives), [what changes the decision](index.html#defense) | Selected cause, competing explanations and investment rationale stated |
 | What not to build (p.2) | [MVP](index.html#scope) | Recommender, checkout, scraping and cart out of scope |
-| Key flows and UX (p.2) | [Interactive prototype](prototype.html) | Built simulation: choice, connection, benefit, consent, route, handoff and failures |
+| Key flows and UX (p.2) | [Interactive prototype](prototype.html) | Interactive prototype: adjustable priorities and budget, comparison, reconsideration, connection, benefit, consent, route and failures |
 | First versus later (p.2) | [Roadmap](index.html#defense), [rollout](experiment.html#rollout) | One host and reviewed paths before expansion |
 | Technical feasibility (pp.2–3) | [Proposed interfaces](experiment.html#architecture) | Missing services and host dependencies named; no invented existing APIs |
 | GTM discovery and activation (p.2) | [Launch](index.html#launch) | Owned invitation to pre-defined existing segment; host discovery not assumed |
@@ -28,7 +28,7 @@ The original attached PDF was read directly for this rebuild. The [transcription
 | Widget direction (p.2) | Alternatives: less entry effort, residual recall, orders-based validation | Assessed as a rejected lead, not a widget mock |
 | Extension direction (p.3) | [Desktop proxy and registry](research.html#alternatives) | Inherited dated web proxy, explicit assumptions; not measured order share |
 | Reminder direction (p.3) | Alternatives and missing-denominator analysis | Rejected as lead; no chosen reminder component requiring a reminder prototype |
-| Share/deep-link direction (p.3) | Secondary demo surface, [context/attribution contract](experiment.html#architecture) | Preserved product/variant conditional on approved routes; no cart-state promise |
+| Share/deep-link direction (p.3) | Alternative prototype surface, [context/attribution contract](experiment.html#architecture) | Preserved product/variant conditional on approved routes; no cart-state promise |
 | Discovery-agent direction (p.3) | Alternatives, [no-LLM scope](index.html#scope) | Rejected: no CashKaro inference/RAG requirement; data and host costs acknowledged |
 | Own direction: higher bar than a renamed feature (p.3) | One capability, adapters, platform risk and full experiment | Addressed; distribution advantage remains a hypothesis |
 | Propose missing capabilities realistically (p.3) | Operations registry, auth, signed routes, staged integration spike | Addressed as proposal, not a production claim |
@@ -36,7 +36,7 @@ The original attached PDF was read directly for this rebuild. The [transcription
 | Due within 72 hours (p.1) | Receipt timestamp and any extension not supplied | **Candidate must verify actual deadline** |
 | No mandatory template (p.3) | Editorial website and printable case | Format choice is permissible; PDF remains authoritative |
 
-The brief's directions are starting points, not seven separate products to implement. Rejected branches receive decision-relevant analysis; the chosen capability receives the deepest technical and UX treatment.
+The brief offers five suggested directions and an own-direction option. The proposal builds on Share/deep-link routing and contextual assistance, rejects owning discovery, and explains the remaining departures. Each direction receives a reasoned assessment; the chosen product receives full UX, feasibility and measurement treatment.
 </section>
 <section class="case-section" id="manual"><p class="section-label">Candidate / manual items</p>
 

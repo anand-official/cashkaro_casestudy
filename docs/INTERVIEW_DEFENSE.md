@@ -25,3 +25,7 @@ These are AI-assisted preparation notes, not a fabricated candidate statement.
 Before interviewing, answer personally: which trade-off would you still choose if every AI disagreed, and what observed evidence would reverse it? Do not memorize these notes as a substitute for understanding.
 
 **Is the router entirely new?** No. CashKaro's public Deals Anytime precedent makes link conversion outside its app a concrete starting point. The proposal adds a shared contract and assistant distribution; it still has to earn partner approval and incremental cohort orders.
+
+**Did you reject the assignment's problem?** No. The original problem is eligible purchases bypassing CashKaro among existing users. I selected recall and re-entry friction as a hypothesis within that problem. The product extends Share/deep links and contextual assistance into external purchase-decision surfaces. It rejects owning discovery, not the business objective.
+
+**Why not launch Share first?** Share offers more control and may be the better first operational surface if contextual host placement is unavailable. The proposed investment first tests whether contextual placement is attainable and materially reduces recall. Without that advantage, the rationale for leading with the AI surface weakens.

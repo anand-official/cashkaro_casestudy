@@ -20,6 +20,7 @@ The reader contains public authored records and earlier excerpts. More extensive
 - Attribution recapture stayed a named commercial risk; user consent did not become assumed merchant permission.
 - Share became a real fallback using the same capability, without claiming that fallback success validates the AI thesis.
 - Quarterly all-channel ITT remained the test; feature adoption is not the outcome.
+- The final presentation makes brief alignment explicit and adds shopper-controlled prototype interaction without changing the strategy.
 
 [Decision history](docs/DECISION_LOG.md) · [Response to critique](docs/REVIEW_RESPONSE.md) · [Self-review](docs/SKEPTICAL_REVIEW.md) · [Interview defense](docs/INTERVIEW_DEFENSE.md)
 

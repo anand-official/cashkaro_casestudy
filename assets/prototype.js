@@ -1,4 +1,6 @@
 import {PRODUCTS,SCENARIOS,money,checkRoute,createRoute} from './router-model.js';
+import {PRIORITIES,research} from './host-model.js';
+let budget=40000,priority='camera',compareOpen=false;
 const el=id=>document.getElementById(id),box=el('conversation');
 let chosen='aster',step='research',connected=false,accepted=false,carted=false,busy=false,revision=0,route=null,checked=null;
 const surface=()=>el('surface').value,scenario=()=>el('scenario').value;
@@ -14,13 +16,19 @@ function render(){
  el('host-label').textContent=share?'Neutral interface · Share-to-CashKaro concept':`Neutral interface · ${surface()} adapter concept`;
  el('platform-note').textContent=share?'An explicit share is the lower-control-risk second surface. It still requires the shopper to remember CashKaro.':el('invocation').value==='contextual'?'Contextual placement is controlled by the host. This is the intended experience, not an approved integration.':'Explicit invocation is easier to demonstrate, but preserves recall friction. It is not equivalent to contextual surfacing.';
  el('invocation').disabled=share;el('disconnect').hidden=!connected;
- let html=step==='research'?say('user','<p>I need a phone around ₹40k.<br>Camera matters most, battery second.</p>'):'';
+ let html='';
  if(step==='research'){
- html+=say('assistant','<p>I’d choose <strong>Aster 9</strong> for the cameras. Here’s how it compares with two alternatives within your budget.</p>');
- html+='<p class="fixture-label">Three fictional options · chosen for your priorities</p><div class="product-grid">'+PRODUCTS.map(x=>`<article class="product-option">${art(x)}<p class="product-trait">${x.trait}</p><h2>${x.name}</h2><p class="variant">${x.variant}</p><p class="product-price">${money(x.price)}</p><p class="product-detail">${x.id==='aster'?'Versatile cameras · All-day battery':x.id==='orion'?'Longer battery · Simpler cameras':'Everyday photos · Lighter build'}</p><button class="button ${x.id==='aster'?'primary':'secondary'}" data-product="${x.id}" aria-label="This is the one: ${x.name}">This is the one</button></article>`).join('')+'</div><p class="fixture-label">Prices and specifications are invented for this interaction. Not shopping advice.</p>';
+ const result=research({budget,priority}),best=result.recommended;
+ html+=say('user',`<p>I need a phone under ${money(budget)}.<br>${PRIORITIES[priority]} matters most.</p>`);
+ html+=`<form class="shopping-brief" aria-label="Your shopping preferences"><div class="brief-top"><span>Refine your brief</span><label for="shopping-budget">Budget <select id="shopping-budget" name="budget"><option value="40000" ${budget===40000?'selected':''}>Under ₹40,000</option><option value="38000" ${budget===38000?'selected':''}>Under ₹38,000</option><option value="35000" ${budget===35000?'selected':''}>Under ₹35,000</option></select></label></div><fieldset><legend>What matters most?</legend><div class="priority-options">${Object.entries(PRIORITIES).map(([key,label])=>`<label><input type="radio" name="priority" value="${key}" ${priority===key?'checked':''}><span>${label}</span></label>`).join('')}</div></fieldset></form>`;
+ html+=say('assistant',`<p>I’d suggest <strong>${best.name}</strong>. ${result.reason}</p>`);
+ html+=`<div class="results-top"><p class="fixture-label">${result.options.length} fictional ${result.options.length===1?'option':'options'} within your budget</p><button class="compare-trigger" data-action="compare" aria-expanded="${compareOpen}" aria-controls="comparison">${compareOpen?'Close comparison':'Compare all three'} <span aria-hidden="true">↗</span></button></div>`;
+ if(result.options.length===1)html+='<p class="budget-note">Only Luma 8 fits this budget. Raise the budget above to consider the other two.</p>';
+ html+='<div class="product-grid">'+result.options.map(x=>`<article class="product-option ${x.id===best.id?'recommended':''}">${art(x)}<p class="product-trait">${x.id===best.id?'Suggested for your brief':x.trait}</p><h2>${x.name}</h2><p class="variant">${x.variant}</p><p class="product-price">${money(x.price)}</p><p class="product-detail">${x.id==='aster'?'Versatile cameras · All-day battery':x.id==='orion'?'Longer battery · Simpler cameras':'Everyday photos · Lighter build'}</p><button class="button ${x.id===best.id?'primary':'secondary'}" data-product="${x.id}" aria-label="This is the one: ${x.name}">This is the one</button></article>`).join('')+'</div>';
+ html+=`<section id="comparison" class="comparison-panel" ${compareOpen?'':'hidden'} aria-label="Product trade-offs"><h2 tabindex="-1" id="comparison-title">What changes between them?</h2><p>All specifications below are fictional. These trade-offs drive the assistant’s suggestion.</p><div class="comparison-scroll" tabindex="0" role="region" aria-label="Phone comparison table"><table><thead><tr><th scope="col">Your decision</th>${PRODUCTS.map(x=>`<th scope="col">${x.name}</th>`).join('')}</tr></thead><tbody><tr><th scope="row">Pay today</th>${PRODUCTS.map(x=>`<td>${money(x.price)}</td>`).join('')}</tr><tr><th scope="row">Camera</th><td>Most versatile</td><td>Less versatile</td><td>Everyday photos</td></tr><tr><th scope="row">Battery</th><td>All-day</td><td>Longest endurance</td><td>Everyday use</td></tr><tr><th scope="row">Storage</th><td>256 GB</td><td>256 GB</td><td>128 GB</td></tr><tr><th scope="row">Your budget</th>${PRODUCTS.map(x=>`<td>${x.price<=budget?'Within budget':'Above budget'}</td>`).join('')}</tr></tbody></table></div><button class="compare-trigger" data-action="compare-back">Back to product choices ↑</button></section><p class="fixture-label">Scripted assistant · fictional products and prices · no live AI research</p>`;
  }else{
  html+=say('user',`<p>This is the one. I'll get the ${p.name} from ${s.merchant}.</p>`)+say('assistant',`<p>Your choice is set. Here’s the exact purchase.</p>`);
- html+=`<div class="selected-product">${art(p)}<div><b>${p.name}</b><span>${p.variant}</span><small>${s.merchant}</small></div><strong>${money(p.price)}</strong></div>`;
+ html+=`<div class="selected-product">${art(p)}<div><b>${p.name}</b><span>${p.variant}</span><small>${s.merchant}</small></div><strong>${money(p.price)}</strong></div>${!busy&&!['retailer','direct'].includes(step)?'<button class="change-choice" data-action="change">← Reconsider my choice</button>':''}`;
  if(step==='offer'){
  const automatic=!share&&el('invocation').value==='contextual';
  html+=`<section class="skill-card">${identity('Shopping skill')}<p class="fixture-label">${automatic?'INTENDED HOST-SURFACED OFFER':'USER-INITIATED SECOND SURFACE'}</p><h2 tabindex="-1" data-stage-heading>${share?'Share this product with CashKaro':automatic?'Check this purchase with CashKaro?':'Ask CashKaro to check this purchase'}</h2><p>Keep your product choice. CashKaro checks whether this purchase can earn Cashback or Rewards.</p><p class="privacy-note">Share only this product, merchant and variant. Your full conversation is not needed.</p>${btn('check',share?'Share to CashKaro':automatic?'Check eligible benefit':'Use CashKaro')}${btn('direct','Continue without CashKaro','secondary')}</section>`;
@@ -51,11 +59,22 @@ function render(){
 function failure(result){return `<section class="skill-card failure">${identity('Purchase check')}<span class="failure-symbol" aria-hidden="true">↗</span><p class="fixture-label">NO CASHKARO ROUTE CREATED</p><h2 tabindex="-1" data-stage-heading>${result.reason}</h2><p>${result.detail||'Keep your product choice and continue without an unverified benefit.'}</p>${btn('direct','Continue without CashKaro','secondary')}${btn('restart','Start again','secondary')}</section>`;}
 async function check(){step='checking';busy=true;render();focusStage();const rev=revision;await new Promise(r=>setTimeout(r,360));if(rev!==revision)return;busy=false;step='benefit';render();focusStage();}
 function reset(){revision++;busy=false;chosen='aster';step='research';accepted=false;carted=false;route=null;checked=null;render();el('demo-status').textContent='Journey reset. Choose a product.';}
-box.addEventListener('change',e=>{if(e.target.name==='cart'){accepted=true;carted=e.target.value==='yes';const value=e.target.value;render();box.querySelector(`input[name="cart"][value="${value}"]`).focus({preventScroll:true});}});
+box.addEventListener('submit',e=>e.preventDefault());
+box.addEventListener('change',e=>{
+ if(['budget','priority'].includes(e.target.name)){
+ const name=e.target.name,value=e.target.value;
+ if(name==='budget')budget=Number(value);else priority=value;
+ render();box.querySelector(name==='budget'?'#shopping-budget':`input[name="priority"][value="${value}"]`).focus({preventScroll:true});
+ el('demo-status').textContent=`Updated suggestion: ${research({budget,priority}).recommended.name}. ${research({budget,priority}).options.length} options within budget.`;return;
+ }
+ if(e.target.name==='cart'){accepted=true;carted=e.target.value==='yes';const value=e.target.value;render();box.querySelector(`input[name="cart"][value="${value}"]`).focus({preventScroll:true});}});
 box.addEventListener('click',async e=>{
  const button=e.target.closest('button');if(!button||busy)return;
- if(button.dataset.product){chosen=button.dataset.product;step='offer';render();focusStage();return;}
+ if(button.dataset.product){if(!research({budget,priority}).options.some(p=>p.id===button.dataset.product))return;chosen=button.dataset.product;step='offer';render();focusStage();return;}
  const action=button.dataset.action;
+ if(action==='compare'){compareOpen=!compareOpen;render();box.querySelector(compareOpen?'#comparison-title':'[data-action="compare"]').focus();}
+ if(action==='compare-back'){compareOpen=false;render();box.querySelector('[data-product]')?.focus();}
+ if(action==='change'){reset();box.querySelector('[data-product]')?.focus();}
  if(action==='check'){if(!connected){step='connect';render();focusStage();}else await check();}
  if(action==='connect'){connected=true;await check();}
  if(action==='direct'){step='direct';render();focusStage();}

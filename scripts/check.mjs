@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
+import {research} from '../assets/host-model.js';
 import {PRODUCTS, checkRoute, createRoute} from '../assets/router-model.js';
 
 const manifest=JSON.parse(fs.readFileSync('build-manifest.json','utf8'));
@@ -38,6 +39,16 @@ for(const p of PRODUCTS){
  for(const override of [{connected:false},{consent:false},{carted:true},{productId:'missing'},{scenario:'failure'}])assert.equal(createRoute({...base,...override}).ok,false);
 }
 
+// The host responds to shopper constraints; benefit configuration cannot buy a recommendation.
+assert.equal(research({priority:'camera'}).recommended.id,'aster');
+assert.equal(research({priority:'battery'}).recommended.id,'orion');
+assert.equal(research({priority:'value'}).recommended.id,'luma');
+assert.equal(research({budget:38000,priority:'camera'}).recommended.id,'orion');
+assert.deepEqual(research({budget:35000,priority:'camera'}).options.map(p=>p.id),['luma']);
+assert.equal(research({budget:0}).recommended,null);
+for(const scenario of ['cash','small','rewards','zero','failure'])assert.equal(research({priority:'battery',scenario}).recommended.id,'orion');
+assert.ok(fs.existsSync('dist/assets/host-model.js'),'Host module must be published');
+
 const share=manifest.problem_words/(manifest.problem_words+manifest.solution_words);
 assert.ok(share>=.4&&share<=.6,`Unbalanced narrative: ${share}`);
 assert.equal(manifest.product,'CashKaro Universal Shopping Skill');
@@ -48,4 +59,4 @@ for(const file of fs.readdirSync('dist',{recursive:true}).filter(f=>/\.(md|html|
  assert.ok(!/Anmol|Enactus/.test(text),`Personal stakeholder attribution remains in ${file}`);
 }
 if(errors.length)throw Error(errors.join('\n'));
-console.log(`PASS: ${manifest.routes.length} public routes and anchors; reader artifacts; JS syntax; router consent, identity and eligibility boundaries; typed benefits; explicit publishing exclusions; narrative balance ${Math.round(share*100)}/${Math.round((1-share)*100)}.`);
+console.log(`PASS: ${manifest.routes.length} public routes and anchors; reader artifacts; JS syntax; router consent, identity and eligibility boundaries; typed benefits; shopper constraints and recommendation independence; explicit publishing exclusions; narrative balance ${Math.round(share*100)}/${Math.round((1-share)*100)}.`);

@@ -1,9 +1,9 @@
 {
-  "version": "4.1.0",
+  "version": "4.2.0",
   "product": "CashKaro Universal Shopping Skill",
   "evidence_date": "2026-09-13",
-  "problem_words": 1596,
-  "solution_words": 1505,
+  "problem_words": 1685,
+  "solution_words": 1681,
   "transcript_status": "partial — raw exports required",
   "routes": [
     "index.html",

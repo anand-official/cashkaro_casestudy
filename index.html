@@ -1,256 +1,262 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#263a91"><title>Be there when the decision becomes a purchase. · Ujjawal Anand / CashKaro APM</title><meta name="description" content="A universal commerce capability for externally initiated purchase decisions."><meta property="og:title" content="Be there when the decision becomes a purchase."><meta property="og:description" content="A universal commerce capability for externally initiated purchase decisions."><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="assets/styles.css"></head><body><a href="#main" class="skip-link">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="CashKaro case study home"><span class="brand-mark" aria-hidden="true">C<span>K</span></span><span>CashKaro <small>APM / Ujjawal Anand</small></span></a><button class="menu-button" aria-expanded="false" aria-controls="main-nav">Menu</button><nav id="main-nav" aria-label="Main navigation"><a href="index.html" aria-current="page">The case</a><a href="prototype.html">Prototype</a><a href="research.html">Evidence</a><a href="ai-transcript.html">AI trail</a><a class="nav-audit" href="compliance.html">Brief audit <span aria-hidden="true">↗</span></a></nav></div></header><main id="main" class="page-shell"><section class="hero"><div class="hero-copy"><p class="eyebrow">Product strategy / 13 September 2026</p><h1>The decision is made.<br><em>Make the purchase<br>rewarding.</em></h1><p class="hero-lede">CashKaro Universal Shopping Skill. Let an assistant pass the purchase to CashKaro, without taking over the recommendation.</p><div class="hero-actions"><a href="prototype.html" class="button primary">Try the shopping skill <span aria-hidden="true">↗</span></a><a href="#metric" class="text-link">Read the case ↓</a></div><p class="byline">Ujjawal Anand <span>Concept proposal for CashKaro APM assignment</span></p></div><aside class="hero-route"><p class="eyebrow">The proposed moment</p><div class="conversation-fragment"><span>You</span><p>“This is the one. I'll buy it.”</p></div><div class="skill-fragment"><div class="skill-heading"><b>CK</b><span>CashKaro<small>Universal Shopping Skill</small></span></div><h2>Keep the choice.<br>Add an eligible benefit.</h2><p>Check the purchase → show the benefit → create an approved retailer route.</p><a href="prototype.html">See the intended experience ↗</a></div><p class="note">Illustrative host placement. Platform and partner approval required.</p></aside></section><div class="north-star"><span>One outcome</span><strong>Tracked orders / existing user / quarter</strong><span>Fixed cohort</span></div><div class="decision-strip"><p><strong>Decision</strong> One Purchase Router. Platform-specific adapters.</p><p><strong>Trade-off</strong> Strategic reach over immediate platform control.</p><p><strong>Proof required</strong> More total orders, not channel displacement.</p></div><div class="part-labels"><a href="#metric"><span>01—10</span> Understand the problem</a><a href="#experience"><span>11—20</span> Make the product decision</a></div><div class="reading-layout"><aside class="contents"><p>On this page</p><nav aria-label="Page contents"><a href="#metric"><span>01</span>Grow orders. Keep the denominator.</a><a href="#problem"><span>02</span>The extra step is part of the problem.</a><a href="#journey"><span>03</span>Find the handoff, not another homepage.</a><a href="#evidence"><span>04</span>Evidence for friction. A hypothesis about the surface.</a><a href="#why-now"><span>05</span>AI accelerates a wider distribution problem.</a><a href="#segment"><span>06</span>Existing users with a real AI-assisted purchase ahead.</a><a href="#missing"><span>07</span>The missing denominator still matters.</a><a href="#assets"><span>08</span>Use the commerce machinery, not a new recommendation model.</a><a href="#alternatives"><span>09</span>The safest launch and the strongest strategic bet differ.</a><a href="#decision"><span>10</span>Become callable at the purchase decision.</a><a href="#experience"><span>11</span>A small intervention after a big decision.</a><a href="#scope"><span>12</span>Three functions. No CashKaro LLM.</a><a href="#architecture"><span>13</span>One router. Different contracts with each host.</a><a href="#trust"><span>14</span>A route is not a reward guarantee.</a><a href="#economics"><span>15</span>Count CashKaro value and merchant value separately.</a><a href="#feasibility"><span>16</span>Propose the missing systems. Price the uncertainty.</a><a href="#measurement"><span>17</span>Measure everyone offered the capability.</a><a href="#launch"><span>18</span>A bounded invitation, not a mass-market promise.</a><a href="#gates"><span>19</span>A reusable backend does not excuse a failed thesis.</a><a href="#defense"><span>20</span>Ambitious direction. Conditional expansion.</a></nav></aside><article class="case-article"><section class="case-section" id="metric" data-part="problem">
-<p class="section-label">01 / The assignment</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#263a91"><title>Be there when the decision becomes a purchase. · Ujjawal Anand / CashKaro APM</title><meta name="description" content="A universal commerce capability for externally initiated purchase decisions."><meta property="og:title" content="Be there when the decision becomes a purchase."><meta property="og:description" content="A universal commerce capability for externally initiated purchase decisions."><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="assets/styles.css"></head><body><a href="#main" class="skip-link">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="CashKaro case study home"><span class="brand-mark" aria-hidden="true">C<span>K</span></span><span>CashKaro <small>APM / Ujjawal Anand</small></span></a><button class="menu-button" aria-expanded="false" aria-controls="main-nav">Menu</button><nav id="main-nav" aria-label="Main navigation"><a href="index.html" aria-current="page">The case</a><a href="prototype.html">Prototype</a><a href="research.html">Evidence</a><a href="ai-transcript.html">AI trail</a><a class="nav-audit" href="compliance.html">Brief audit <span aria-hidden="true">↗</span></a></nav></div></header><main id="main" class="page-shell"><section class="hero"><div class="hero-copy"><p class="eyebrow">Product strategy / 13 September 2026</p><h1>The decision is made.<br><em>Make the purchase<br>rewarding.</em></h1><p class="hero-lede">CashKaro Universal Shopping Skill. Let an assistant pass the purchase to CashKaro, without taking over the recommendation.</p><div class="hero-actions"><a href="prototype.html" class="button primary">Explore the prototype <span aria-hidden="true">↗</span></a><a href="#metric" class="text-link">Read the case ↓</a></div><p class="byline">Ujjawal Anand <span>Concept proposal for CashKaro APM assignment</span></p></div><aside class="hero-route"><p class="eyebrow">The proposed moment</p><div class="conversation-fragment"><span>You</span><p>“This is the one. I'll buy it.”</p></div><div class="skill-fragment"><div class="skill-heading"><b>CK</b><span>CashKaro<small>Universal Shopping Skill</small></span></div><h2>Keep the choice.<br>Add an eligible benefit.</h2><p>Check the purchase → show the benefit → create an approved retailer route.</p><a href="prototype.html">Explore the purchase journey ↗</a></div><p class="note">Illustrative host placement. Platform and partner approval required.</p></aside></section><div class="north-star"><span>One outcome</span><strong>Tracked orders / existing user / quarter</strong><span>Fixed cohort</span></div><div class="decision-strip"><p><strong>Decision</strong> Preserve the purchase decision. Offer an eligible route.</p><p><strong>Trade-off</strong> Potential recall reduction; less control over distribution.</p><p><strong>Proof required</strong> Additional total tracked orders in the fixed cohort.</p></div><div class="part-labels"><a href="#metric"><span>01—10</span> Understand the problem</a><a href="#experience"><span>11—20</span> Define and validate the solution</a></div><div class="reading-layout"><aside class="contents"><p>On this page</p><nav aria-label="Page contents"><a href="#metric"><span>01</span>Assignment alignment</a><a href="#problem"><span>02</span>Problem selection</a><a href="#journey"><span>03</span>Purchase journey</a><a href="#evidence"><span>04</span>Evidence and limits</a><a href="#why-now"><span>05</span>Market context</a><a href="#segment"><span>06</span>Initial segment</a><a href="#missing"><span>07</span>Opportunity sizing</a><a href="#assets"><span>08</span>Company advantage</a><a href="#alternatives"><span>09</span>Brief directions</a><a href="#decision"><span>10</span>Recommendation</a><a href="#experience"><span>11</span>Customer experience</a><a href="#scope"><span>12</span>First release</a><a href="#architecture"><span>13</span>Product responsibilities</a><a href="#trust"><span>14</span>Benefit integrity</a><a href="#economics"><span>15</span>Business model</a><a href="#feasibility"><span>16</span>Delivery feasibility</a><a href="#measurement"><span>17</span>Outcome experiment</a><a href="#launch"><span>18</span>Activation and rollout</a><a href="#gates"><span>19</span>Investment criteria</a><a href="#defense"><span>20</span>Final assessment</a></nav></aside><article class="case-article"><section class="case-section" id="metric" data-part="problem">
+<p class="section-label">01 / Assignment alignment</p>
 
-<h2>Grow orders. Keep the denominator.</h2>
-<p>CashKaro earns when an eligible purchase follows its affiliate route. The <a href="source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md">original brief</a> reports that existing users, including past transactors, still buy directly. It deliberately leaves the cause open.</p>
-<div class="metric-panel"><span>North star · fixed cohort</span><strong>Tracked orders / existing user / quarter</strong><p>More connections, tool calls or click-outs do not count as success unless total valid tracked orders increase.</p></div>
+<h2>The original problem remains the mandate.</h2>
+<p>This proposal addresses the problem in the <a href="source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md">CashKaro assignment</a>: <strong>existing users, including previous transactors, continue to make eligible purchases without routing them through CashKaro.</strong> The user misses a potential benefit; CashKaro misses an attributable transaction.</p>
+<p>The brief leaves the causes open and describes its product directions as starting points. We are therefore not replacing the assigned problem. We are selecting one potential cause, identifying the users affected, and proposing a different point of intervention.</p>
+<div class="metric-panel"><span>North star · fixed cohort</span><strong>Tracked orders / existing user / quarter</strong><p>The proposal succeeds only if it increases total valid tracked orders among the users originally assigned to the experiment.</p></div>
 
-<p>This proposal targets <strong>re-entry friction at a finalized purchase decision</strong>. It does not assert that all bypass is forgetfulness, that every order can earn a benefit, or that AI already dominates Indian shopping. The ambition is distribution independence; the proof must still be incremental orders within a quarter.</p>
+<p><strong>Selected problem:</strong> the effort of remembering and re-entering CashKaro after reaching a purchase decision elsewhere. <strong>Proposed response:</strong> make CashKaro available at that decision, with the chosen product preserved. This builds on the brief&#39;s Share/deep-link direction and the contextual value of an extension. It does not require CashKaro to own product discovery.</p>
 </section>
 
 <section class="case-section" id="problem" data-part="problem">
-<p class="section-label">02 / Diagnosis</p>
+<p class="section-label">02 / Problem selection</p>
 
-<h2>The extra step is part of the problem.</h2>
-<p>CashKaro&#39;s mainstream <a href="https://cashkaro.com/how-it-works">documented journey</a> remains destination-first: enter CashKaro, choose a retailer, then shop. It is not the only route. Its <a href="research.html#telegram">Deals Anytime Telegram precedent</a> already points to external link conversion. <strong>Destination dependence</strong> describes the residual recall and re-entry burden in the mainstream journey, not a claim that external routing is impossible.</p>
-<p>This is a structural interpretation of the journey, not a measured root cause across the user base. A better shortcut will not fix inadequate rewards, excluded products, low trust or a superior competing offer. Those are competing explanations, not implementation details.</p>
-<p>The job to be done: <strong>“I&#39;ve decided what to buy. Help me earn the benefit I qualify for without making me redo that decision.”</strong> Unlike another destination, a callable service could meet an explicit purchase request where it occurs.</p>
+<h2>Distinguish an unavailable benefit from an avoidable lost order.</h2>
+<p>Bypass can have several explanations. A shopper may forget CashKaro, find the additional steps inconvenient, distrust the payout, see little value in the reward, or buy an excluded product. These causes require different interventions.</p>
+<p>The initial focus is <strong>recall and re-entry friction where a meaningful benefit could otherwise be earned</strong>. This is attractive because reducing the extra effort can affect the route of an existing purchase without requiring more purchase demand. It is also close to CashKaro&#39;s existing role in attribution and rewards.</p>
+<p>CashKaro&#39;s mainstream <a href="https://cashkaro.com/how-it-works">documented journey</a> starts with entering CashKaro and selecting a retailer. Its <a href="research.html#telegram">Deals Anytime Telegram precedent</a> shows that external link conversion also exists. “Destination dependence” describes the remaining burden of deliberately inserting CashKaro into a journey; it does not mean every purchase must start on its homepage.</p>
+<p>This remains a problem hypothesis. If small benefits or payout distrust explain most bypass in the target segment, improving access alone will be insufficient.</p>
 </section>
 
 <section class="case-section" id="journey" data-part="problem">
-<p class="section-label">03 / User journey</p>
+<p class="section-label">03 / Purchase journey</p>
 
-<h2>Find the handoff, not another homepage.</h2>
-<p>The following is an illustrative journey to validate with real purchases. Users may loop between stages or begin inside a retailer; they do not necessarily use every platform.</p>
-<div class="journey-map"><div><span>01 / Need</span><strong>“I need a new phone.”</strong><p>Budget, camera, battery.</p></div><div><span>02 / Decide</span><strong>Search · video · assistant</strong><p>Research and narrow options.</p></div><div class="moment"><span>03 / Opportunity</span><strong>“This is the one.”</strong><p>Product decided. Route still actionable.</p></div><div><span>04 / Purchase</span><strong>Retailer checkout</strong><p>Pay, receive, return if needed.</p></div></div>
+<h2>Intervene when the decision is complete and the route is still open.</h2>
+<p>A shopper may move between Google, YouTube, an assistant and a retailer before deciding. The sequence below is illustrative, not a claim that every user follows the same path.</p>
+<div class="journey-map"><div><span>01 / Need</span><strong>Set requirements</strong><p>Budget, priorities and constraints.</p></div><div><span>02 / Evaluate</span><strong>Research alternatives</strong><p>Search, video, assistants or retailers.</p></div><div class="moment"><span>03 / Opportunity</span><strong>Choose the purchase</strong><p>Product decided. Route still actionable.</p></div><div><span>04 / Complete</span><strong>Retailer checkout</strong><p>Payment, delivery and returns.</p></div></div>
 
-<p>The skill enters at stage three, before adding items to a retailer cart. A finalized product does not necessarily establish a merchant or exact variant. If either is missing, ask for that context; do not pick a merchant for its commission. If the shopper has already carted the item, the proposed route may be ineligible. Do not promise seamless recovery.</p>
+<p>At stage three, the user has already invested effort in a decision. Asking them to restart that journey introduces another task at the point they want to finish.</p>
+<p>The opportunity is to preserve the chosen product, merchant and variant while checking the eligible benefit. A product recommendation alone is insufficient context. Missing details require clarification, and an item already in a retailer cart may not qualify. The product must recognise when the opportunity has passed.</p>
 </section>
 
 <section class="case-section" id="evidence" data-part="problem">
-<p class="section-label">04 / What we know</p>
+<p class="section-label">04 / Evidence and limits</p>
 
-<h2>Evidence for friction. A hypothesis about the surface.</h2>
-<p>The inherited <strong>one-respondent account</strong> describes retailer-app shopping, reluctance to switch, low CashKaro salience, small rewards that feel unimportant and roughly 50/50 subjective confidence in payout. These are reported attitudes and behaviour, not observed transactions or population estimates. Their preference for an integrated experience is hypothetical willingness, not adoption.</p>
-<p>The brief establishes bypass among existing users. Public CashKaro instructions establish routing requirements. Neither establishes how many existing users finish purchase decisions in AI assistants. No new interviews, authenticated CashKaro audit or internal telemetry were available for this rebuild.</p>
-<p>The <a href="research.html">evidence ledger</a> separates primary documentation, survey findings, inherited user evidence and assumptions. The next research task is to reconstruct the last three purchases with existing users, including non-AI and routine purchases. Look for an actual lost route and its cause, rather than asking whether they like an AI feature.</p>
+<h2>The evidence supports investigating friction, not declaring its prevalence.</h2>
+<p>The inherited <strong>one-respondent account</strong> describes shopping in retailer apps, reluctance to switch, low CashKaro salience, rewards perceived as too small, and roughly 50/50 subjective confidence in payment. This provides useful competing explanations. It does not establish a representative segment, observed conversion loss or willingness to use an AI integration.</p>
+<p>The assignment establishes bypass. CashKaro&#39;s public instructions establish the need for an eligible route. Platform documentation establishes emerging commerce capabilities. None establishes how many existing CashKaro users reach purchase decisions inside assistants. No new interviews, internal telemetry or authenticated account audit are claimed here.</p>
+<p>Before committing to a build, research should reconstruct users&#39; last three online purchases: where the decision formed, when CashKaro was considered, whether a benefit existed, and why it was bypassed. Include routine purchases and people who do not use AI. The <a href="research.html">evidence ledger</a> distinguishes documentary facts, inherited user evidence, inference and assumptions.</p>
 </section>
 
 <section class="case-section" id="why-now" data-part="problem">
-<p class="section-label">05 / Why now</p>
+<p class="section-label">05 / Market context</p>
 
-<h2>AI accelerates a wider distribution problem.</h2>
-<p>Search, video, social and retailer apps already shape purchases outside CashKaro. Google reports shopping-related YouTube searches by over 200 million logged-in users in India in July 2025. That is activity, not purchases or CashKaro overlap. <a href="https://blog.google/intl/en-in/products/platforms/fueling-the-next-era-of-creator-led-shopping-experiences-in-india/">Source</a></p>
-<p>OpenAI now supports richer product discovery and merchant feeds. Google&#39;s Universal Cart connects shopping contexts and merchant handoffs; its announced initial rollout is US-focused. These investments make external purchase-intent surfaces strategically credible. They also create powerful competitors. <a href="https://openai.com/index/powering-product-discovery-in-chatgpt/">OpenAI</a> · <a href="https://blog.google/products-and-platforms/products/shopping/google-shopping-cart/">Google</a></p>
-<p>The decision is to buy an <strong>option on emerging distribution</strong>, with bounded investment and explicit expiry gates. It is not a forecast of AI transaction share. BCG&#39;s consumer research and Bain&#39;s India retail report provide context, not our cohort denominator; see <a href="research.html#india">scope and limitations</a>.</p>
+<h2>AI changes the purchase handoff, even before it becomes mainstream.</h2>
+<p>Shopping already begins outside CashKaro. Google&#39;s report of shopping-related YouTube searches by over 200 million logged-in users in India in July 2025 illustrates this distribution of attention. It measures activity, not transactions or CashKaro overlap. <a href="https://blog.google/intl/en-in/products/platforms/fueling-the-next-era-of-creator-led-shopping-experiences-in-india/">Source</a></p>
+<p>Assistants can bring requirements, comparison and a purchase decision into one conversation. OpenAI&#39;s product-discovery investments and Google&#39;s Universal Cart make that emerging handoff worth investigating. Google&#39;s announced initial rollout is US-focused; neither source proves adoption within our Indian user cohort. <a href="https://openai.com/index/powering-product-discovery-in-chatgpt/">OpenAI</a> · <a href="https://blog.google/products-and-platforms/products/shopping/google-shopping-cart/">Google</a></p>
+<p>The strategic question is whether CashKaro can participate when those decisions become purchases. The near-term decision is to fund a bounded validation effort, not to assume AI already represents a material transaction share. <a href="research.html#india">India research and measurement limits</a>.</p>
 </section>
 
 <section class="case-section" id="segment" data-part="problem">
-<p class="section-label">06 / First user</p>
+<p class="section-label">06 / Initial segment</p>
 
-<h2>Existing users with a real AI-assisted purchase ahead.</h2>
-<p>First recruit accounts with a prior valid tracked transaction before cohort freeze, recent self-reported AI product research and supported online shopping activity. Choose two merchant paths only after commercial and context-transfer checks. Do not require Android if the chosen host works across devices.</p>
-<p>A phone makes the interaction legible; it is <strong>not the category growth strategy</strong>. Include research-led purchases in beauty, fashion, home and accessories where approved route rules and enough repeat opportunities exist. Eligibility and frequency must be measured together: a frequent category with tiny or excluded benefits is not automatically attractive.</p>
-<p>Estimate reach through a sampled first-party survey linked with consent to pre-period category/order data. Check survey nonresponse and avoid treating CashKaro enthusiasts as representative. Account connection and host events refine the funnel after assignment, but must not redefine the denominator. The claim is initially about this frozen segment, not all CashKaro users.</p>
+<h2>Start with existing users who can encounter the proposed moment.</h2>
+<p>The initial conceptual segment is existing CashKaro users with a prior valid tracked transaction, recent AI-assisted product research and supported online shopping activity. Their familiarity with CashKaro reduces the need to explain the underlying benefit; their research behaviour creates a plausible external handoff.</p>
+<p>Segment size is unknown. A sampled first-party survey, linked with consent to pre-period order and category data, would estimate reach and identify survey nonresponse. We should not infer representativeness from enthusiasts who volunteer to try the skill.</p>
+<p>The phone in the prototype makes the interaction easy to evaluate. It is <strong>not a recommendation to pursue phone purchases as the growth strategy</strong>. Category selection must consider repeat opportunities, route eligibility and meaningful benefits together. Beauty, fashion, home and accessories are candidates to investigate, not validated priorities. The first pilot would use two merchant paths selected after those checks.</p>
 </section>
 
 <section class="case-section" id="missing" data-part="problem">
 <p class="section-label">07 / Opportunity sizing</p>
 
-<h2>The missing denominator still matters.</h2>
-<p>CashKaro can observe its own exits and attributed orders better than purchases made entirely elsewhere. An AI session is not an eligible purchase; an untracked click is not proof of a sale. Broad AI survey adoption cannot fill that hole.</p>
-<p>For planning, let <strong>r</strong> be the fraction of the fixed cohort with an eligible, reachable AI purchase opportunity; let <strong>d</strong> be the incremental valid orders per such user over the quarter. Then cohort gain is approximately <strong>r × d</strong>, after displacement and invalid orders. This decomposition is a sensitivity model, not an identified causal estimate.</p>
-<p>If r is 10% and d is 0.2, the illustrative gain is only 0.02 orders per assigned user. If reach is too small, a spectacular activation rate still fails. The <a href="experiment.html#reach-model">experiment workbench</a> makes this dilution visible and ties the required effect to contribution, cost and statistical power.</p>
+<h2>A useful feature can still be too small to move the business metric.</h2>
+<p>CashKaro observes its own exits and attributed orders more directly than purchases completed elsewhere. An untracked click does not establish a sale, and an AI session does not establish an eligible purchase. Opportunity sizing needs a denominator beyond feature activity.</p>
+<p>Let <strong>r</strong> be the share of the fixed cohort with an eligible, reachable AI purchase opportunity, and <strong>d</strong> the incremental valid orders per such user during the quarter. A planning approximation is <strong>r × d</strong>, after displacement and invalid orders. This is a sensitivity model, not a causal estimate.</p>
+<p>For illustration, 10% reach and 0.2 additional orders per reachable user yield only 0.02 orders per assigned user. These are hypothetical inputs. The <a href="experiment.html#reach-model">experiment workbench</a> shows how reach, economics and statistical power determine whether the opportunity merits further investment.</p>
 </section>
 
 <section class="case-section" id="assets" data-part="problem">
-<p class="section-label">08 / Why CashKaro</p>
+<p class="section-label">08 / Company advantage</p>
 
-<h2>Use the commerce machinery, not a new recommendation model.</h2>
-<p>CashKaro already has a concrete external-routing precedent. Its <a href="https://unstop.com/internships/campus-partner-internship-cashkaro-1545241">2025 Campus Partner listing</a> describes using the <strong>Deals Anytime Telegram bot to create cashback links</strong>. A related listing describes sending product links to the bot. This is stronger evidence than inferring routing capability from the core app alone.</p>
-<p><strong>Generalize an existing pattern, rather than invent it from scratch.</strong> The new proposal is a shared, typed routing capability with assistant-specific adapters and contextual purchase handoffs. The bot does not establish reusable internal APIs, AI-host approval, adoption or incremental orders. Those remain validation gates.</p>
-<div class="boundary-grid"><div><span>AI assistant</span><h3>What to buy</h3><p>Research, recommendations and product choice.</p></div><div><span>CashKaro</span><h3>How to earn</h3><p>Identity, eligible benefit and approved route.</p></div><div><span>Retailer</span><h3>Complete the sale</h3><p>Price, stock, payment, delivery and returns.</p></div></div>
-
-<p>CashKaro&#39;s advantage is operational: fulfilling the reward promise under a known affiliate relationship. It is not exclusive AI intelligence. Platforms could negotiate their own incentives; affiliates could expose similar services. The defensibility question is whether CashKaro can provide better coverage, accurate rules and trusted settlement at acceptable economics.</p>
+<h2>Extend a capability CashKaro has already demonstrated.</h2>
+<p>CashKaro&#39;s <a href="https://unstop.com/internships/campus-partner-internship-cashkaro-1545241">2025 Campus Partner listing</a> describes creating cashback links through its <strong>Deals Anytime Telegram bot</strong>. A related listing describes sending product links to the bot. This is company-specific evidence of external routing, rather than a capability inferred solely from the core app.</p>
+<p>The proposal generalises that pattern: accept a selected purchase from another surface, determine the eligible benefit and return an approved route. The precedent does not establish reusable APIs, current bot adoption, account-linking behaviour or AI-platform approval. Those require separate verification.</p>
+<p>CashKaro&#39;s relevant assets are its affiliate relationships, benefit rules, attribution processes and reward settlement. An assistant can recommend a product without owning those obligations. CashKaro can provide the reward service without building a competing recommendation engine. The advantage is operational, although it is not exclusive: platforms and other affiliates could develop comparable capabilities.</p>
 </section>
 
 <section class="case-section" id="alternatives" data-part="problem">
-<p class="section-label">09 / Prioritization</p>
+<p class="section-label">09 / The brief's proposed directions</p>
 
-<h2>The safest launch and the strongest strategic bet differ.</h2>
-<p>These are qualitative judgments with uncertain reach, not fabricated weighted scores. The <a href="research.html#alternatives">detailed comparison</a> covers effort, privacy, data and merchant value.</p>
+<h2>Build on the relevant directions and explain the departures.</h2>
+<p>The five suggested directions address different reasons for bypass. The selected product combines elements of two; it does not dismiss them all.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
 <thead>
 <tr>
-<th>Direction</th>
-<th>Strongest reason to choose it</th>
-<th>Decisive cost / reason not to lead</th>
+<th>Direction in the brief</th>
+<th>Problem it addresses</th>
+<th>Decision and rationale</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>Universal Shopping Skill</strong></td>
-<td>Potentially removes repeated recall at an external purchase decision; shared capability across hosts</td>
-<td>Highest host-control uncertainty; unknown current reach and affiliate acceptance</td>
+<td><strong>Widget / quick access</strong></td>
+<td>CashKaro is remembered, but entry takes effort</td>
+<td>Useful low-effort improvement. Not the lead because it still requires recall before purchase.</td>
 </tr>
 <tr>
-<td>Share-to-CashKaro</td>
-<td>Controllable, explicit, reuses the same router</td>
-<td>User must remember to share; exact context and pre-cart rules still matter</td>
+<td><strong>Browser extension</strong></td>
+<td>The shopper forgets CashKaro while browsing a retailer</td>
+<td>Retain the contextual-assistance principle. An extension alone leaves retailer-app and assistant journeys outside its reach; installed reach and fresh eligibility rules need validation.</td>
 </tr>
 <tr>
-<td>Android overlay</td>
-<td>Context without opening CashKaro first</td>
-<td>Permissions, interruption and late attribution; app-open is not buying intent</td>
+<td><strong>Contextual reminders</strong></td>
+<td>The user needs a timely prompt</td>
+<td>Not the lead. CashKaro click-outs provide incomplete intent signals, creating a risk of irrelevant interruptions.</td>
 </tr>
 <tr>
-<td>Browser extension</td>
-<td>Useful at an existing web-shopping moment</td>
-<td>Installed desktop reach and fresh domain rules; mobile app journeys remain outside it</td>
+<td><strong>Share / deep link</strong></td>
+<td>CashKaro is remembered after a product is found</td>
+<td><strong>Retain as the routing foundation and alternative surface.</strong> It preserves product context, but remembering to share remains the user&#39;s responsibility.</td>
 </tr>
 <tr>
-<td>Contextual reminders</td>
-<td>Owned distribution and simple delivery</td>
-<td>Click-outs are incomplete intent signals; fatigue and false positives</td>
-</tr>
-<tr>
-<td>Order Check</td>
-<td>Existing ledger/support foundations</td>
-<td>Indirect repeat-order mechanism; cannot solve bypass before first routing</td>
-</tr>
-<tr>
-<td>Owned discovery agent / Shortlist</td>
-<td>Could influence product or merchant choice</td>
-<td>Must win a new destination habit and maintain expensive product data</td>
-</tr>
-<tr>
-<td>Widget / quick access</td>
-<td>Cheap reduction in entry effort</td>
-<td>Still depends on remembering CashKaro</td>
+<td><strong>Shopping agent / discovery</strong></td>
+<td>CashKaro needs a reason to enter earlier</td>
+<td>Reject owning discovery. Winning another research destination requires product data and a new habit, without demonstrated demand for either.</td>
 </tr>
 </tbody></table></div>
-<p>Choose Share if the objective is maximum deployment control today. Choose the Skill for a bounded strategic experiment in externally initiated commerce. Do not pretend it wins every criterion.</p>
+<p>The Universal Shopping Skill is an own-direction extension under the brief: it tests whether a host can offer the existing routing value at purchase intent. If users must repeatedly remember to invoke it, its advantage over Share becomes substantially weaker.</p>
+<p>The earlier overlay, Shortlist and Order Check concepts are retained in the <a href="ai-transcript.html">decision history</a>. They respectively introduced permission and attribution risk, a new discovery habit, or an indirect repeat-order mechanism.</p>
 </section>
 
 <section class="case-section" id="decision" data-part="problem">
-<p class="section-label">10 / Product decision</p>
+<p class="section-label">10 / Recommendation</p>
 
-<h2>Become callable at the purchase decision.</h2>
-<p><strong>Build CashKaro Universal Shopping Skill, powered by one CashKaro Purchase Router and separate platform adapters.</strong> An assistant passes a finalized product and selected merchant; CashKaro checks the benefit and creates an approved route after explicit consent.</p>
-<p>The latest independent critique, supplied as the candidate&#39;s summary, rightly challenged guaranteed invocation and recommended Share as more controllable. The response is architectural and experimental: one backend, conditional AI distribution, Share as the second surface, and stop gates for reach and partner acceptance. The full latest review was not supplied; this is not its verbatim conclusion.</p>
-<p>The strongest objection survives: if the AI already won the decision for a retailer, this may recapture attribution. Explicit cashback gives a user benefit but does not prove merchant incrementality. The proposal is ambitious precisely because it exposes that commercial bet rather than hiding it inside a slick demo.</p>
+<h2>Validate contextual distribution before committing to scale.</h2>
+<p><strong>Recommend CashKaro Universal Shopping Skill, powered by one Purchase Router and platform-specific adapters.</strong> The assistant retains responsibility for recommendations. After the user selects a product and merchant, CashKaro checks the benefit and offers an approved route with explicit consent.</p>
+<p>This direction offers a potential reduction in repeated recall and a reusable capability across external surfaces. It loses to Share on deployment control, current reach certainty and commercial simplicity. The recommendation is therefore for staged investment with decision gates, not a broad launch or an assumed uplift.</p>
+<p>The independent critique challenged platform-controlled invocation and favoured Share as the first surface. That criticism materially shapes this proposal: establish distribution and partner feasibility first, preserve Share as a separate option, and stop if the contextual advantage cannot be demonstrated.</p>
+<p>Retailer economics remain unresolved. A user benefit and an additional CashKaro-tracked order do not, by themselves, establish an additional retailer sale.</p>
 </section>
 
 <section class="case-section" id="experience" data-part="solution">
-<p class="section-label">11 / The experience</p>
+<p class="section-label">11 / Customer experience</p>
 
-<h2>A small intervention after a big decision.</h2>
-<p>The <a href="prototype.html">interactive prototype</a> uses an original neutral assistant, fictional phones and labelled offer fixtures. Research and ranking happen before CashKaro and never change with benefit size. The user chooses a phone, accepts or explicitly requests the skill, connects a simulated account, checks conditions and chooses whether to continue.</p>
-<p>The card leads with <strong>pay today</strong> and a separate <strong>estimated Cashback or Rewards</strong> amount. An after-cashback value is conditional, never the checkout price. Rewards are not subtracted as though they were bank cash. A zero, capped or unverifiable benefit gets an honest state.</p>
-<p>The neutral host can demonstrate intended contextual surfacing or explicit invocation. Changing the adapter shows a shared capability, not an approved integration with ChatGPT, Claude or Gemini. Every external platform placement remains a dependency. The retailer destination is simulated; no purchase, payout or real affiliate cookie is created.</p>
+<h2>Preserve the decision. Make the benefit understandable.</h2>
+<p>The <a href="prototype.html">interactive prototype</a> lets the reviewer change shopping priorities and budget, compare fictional products, select one and reconsider the choice. This represents the host assistant&#39;s role. CashKaro enters only after selection and does not influence product ranking.</p>
+<p>The proposed interaction has four commitments:</p>
+<ol>
+<li><strong>Keep the selected purchase intact.</strong> Transfer the product, merchant and variant without asking the user to repeat the research.</li>
+<li><strong>Explain the value before asking for activation.</strong> Separate the price payable today from potential Cashback or restricted Rewards later.</li>
+<li><strong>Make participation voluntary.</strong> Connect an account, review conditions and explicitly accept the route, or continue without CashKaro.</li>
+<li><strong>Set an accurate expectation at handoff.</strong> A route can be ready before an order is tracked or a benefit is confirmed.</li>
+</ol>
+<p>The neutral assistant, product specifications, offers, connection and retailer destination are simulated. Contextual placement illustrates the intended experience, not an approved integration. Reviewer scenarios expose the product&#39;s limits without occupying the default shopping view.</p>
 </section>
 
 <section class="case-section" id="scope" data-part="solution">
-<p class="section-label">12 / MVP</p>
+<p class="section-label">12 / First release</p>
 
-<h2>Three functions. No CashKaro LLM.</h2>
-<p>V1 accepts product identity, exact merchant URL, selected variant and connected user identity where available. It checks merchant/source permission, context completeness, current benefit policy and the approved handoff method. Connect once per supported account/platform relationship, with revocation; do not imply universal cross-platform login.</p>
+<h2>Deliver a reliable handoff before expanding the proposition.</h2>
+<p>The first release should support one reviewed host integration and two commercially approved merchant paths. Its customer promise is narrow: check a specific purchase, explain the eligible benefit and preserve the destination when the user continues.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
 <thead>
 <tr>
-<th>Proposed function</th>
-<th>Responsibility</th>
-<th>Must not do</th>
+<th>Included in the first release</th>
+<th>Deferred or excluded</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>check_route</code></td>
-<td>Validate merchant, URL, source surface, variant and policy freshness</td>
-<td>Treat assistant confidence as eligibility</td>
+<td>Purchase-specific eligibility and benefit checks</td>
+<td>CashKaro product recommendations or commission-based rankings</td>
 </tr>
 <tr>
-<td><code>get_benefit</code></td>
-<td>Return typed benefit, estimate, caps, conditions and expiry</td>
-<td>Turn an “up to” rate into an entitlement</td>
+<td>Revocable account connection for that surface</td>
+<td>A universal account connection across unrelated platforms</td>
 </tr>
 <tr>
-<td><code>create_route</code></td>
-<td>Bind consent and user to a revalidated, approved destination</td>
-<td>Redirect arbitrary URLs or silently replace attribution</td>
+<td>Clear conditions, consent and approved routing</td>
+<td>Automatic coupon injection or hidden attribution changes</td>
+</tr>
+<tr>
+<td>Direct continuation when a benefit cannot be offered</td>
+<td>Cart repair, checkout, payment or fulfillment</td>
+</tr>
+<tr>
+<td>Operations ownership of supported rules</td>
+<td>Broad catalog coverage before reliable maintenance exists</td>
 </tr>
 </tbody></table></div>
-<p>No recommender, checkout, wallet, coupon injection, screen scraping, Accessibility, universal cart or SKU knowledge graph ships. Order tracking can later reuse existing systems; it is not required to demonstrate the V1 handoff. A small operations-reviewed route registry precedes broad catalog coverage.</p>
+<p>This scope deliberately avoids a new discovery habit. The user already has a product decision; the product helps complete it through an eligible route. Later tracking visibility may reuse CashKaro&#39;s existing processes, but it is not essential to validate the initial handoff.</p>
 </section>
 
 <section class="case-section" id="architecture" data-part="solution">
-<p class="section-label">13 / Universal architecture</p>
+<p class="section-label">13 / Product responsibilities</p>
 
-<h2>One router. Different contracts with each host.</h2>
-<div class="route-diagram" role="img" aria-label="ChatGPT, Claude and Gemini adapters connect to one CashKaro Purchase Router; its identity, eligibility and benefit services create an approved retailer route."><div class="adapter-row"><span>ChatGPT adapter</span><span>Claude adapter</span><span>Gemini adapter</span></div><p>Platform-specific tools / MCP / APIs · availability varies</p><div class="router-node"><small>CASHKARO PURCHASE ROUTER</small><strong>Identity + eligibility + benefit + consent</strong></div><p>Revalidate → approved redirect → retailer checkout</p><div class="adapter-row"><span>CashKaro app</span><span>Share surface</span><span>Retailer</span></div></div>
+<h2>One capability, with clear ownership at every step.</h2>
+<p>The universal element is CashKaro&#39;s routing capability. Each host needs its own integration and approval. The architecture should preserve the same customer promise across those differences.</p>
+<div class="boundary-grid"><div><span>AI assistant</span><h3>Select the purchase</h3><p>Requirements, research, recommendation and user choice.</p></div><div><span>CashKaro</span><h3>Check and route</h3><p>Account identity, benefit rules, explicit consent and approved attribution.</p></div><div><span>Retailer</span><h3>Complete the order</h3><p>Current price, availability, payment, fulfillment and returns.</p></div></div>
 
-<p>MCP standardizes tool communication; it does not grant app placement, checkout access or commercial rights. A Gemini API tool in a developer-owned assistant is not an installed consumer Gemini integration. Host-specific authorization, discovery and UI reviews remain separate.</p>
-<p>The <a href="experiment.html#architecture">technical plan</a> defines proposed schemas, source ownership, expiring quotes, signed routes, idempotency and fail-closed behavior. No existing internal endpoint is asserted. The browser demo executes a deterministic local fixture model, not a deployed affiliate service.</p>
+<p>ChatGPT, Claude and Gemini are potential surfaces, not confirmed distribution partners. Share-to-CashKaro is an alternative entry into the same capability. It remains a distinct customer behaviour with its own activation cost.</p>
+<p>MCP and APIs can connect systems; they cannot grant placement or commercial permission. The <a href="experiment.html#architecture">technical appendix</a> defines the proposed interfaces and validation responsibilities. No existing internal API is assumed, and no CashKaro language model is required.</p>
 </section>
 
 <section class="case-section" id="trust" data-part="solution">
-<p class="section-label">14 / Trust and failure</p>
+<p class="section-label">14 / Benefit integrity</p>
 
-<h2>A route is not a reward guarantee.</h2>
-<p>A supported merchant is not sufficient. Exact product/category, variant, eligible amount, caps, exclusions, channel and source-of-traffic permission can all change the result. Revalidate immediately before issuing the route; stale quotes cannot be activated.</p>
-<p>The prototype includes Rewards, small capped Cashback, zero benefit, unsupported merchant, missing product context, expired policy and a route failure. It also blocks the Cashback CTA if the shopper says the item was already carted. User confirmation is not proof of actual cart contents; production must not overstate it.</p>
-<p>On failure, preserve the product and let the user continue without CashKaro. On success say <strong>“Route ready”</strong>, not “Cashback earned.” Tracking and confirmation happen later under retailer rules. Limit shared data to the chosen purchase and account token; no full conversation history, card credentials or unrelated browsing. Disconnect must revoke future use.</p>
+<h2>Accuracy is part of the value proposition.</h2>
+<p>A benefit card creates a financial expectation. It must distinguish the retailer&#39;s checkout price, estimated Cashback and restricted Rewards. A conditional effective value may help explain Cashback, but it cannot be presented as an instant discount. Rewards must retain their redemption restrictions.</p>
+<p>Eligibility depends on more than merchant support. Product, variant, category, caps, exclusions, channel and traffic-source permission can change the result. A stale or incomplete check should produce an honest explanation, not an estimated amount presented with false confidence.</p>
+<p>The prototype includes a ₹65 capped benefit, zero benefit, Rewards, unsupported merchant, missing context, expired policy, prior referral and route failure. It blocks activation when the user says the item is already carted. That answer is not proof of actual retailer cart state.</p>
+<p>In every failure, the selected product remains available and the user can continue directly. Only the chosen purchase and required account authorization should be shared, not the full conversation, payment credentials or unrelated browsing history.</p>
 </section>
 
 <section class="case-section" id="economics" data-part="solution">
-<p class="section-label">15 / Commercial model</p>
+<p class="section-label">15 / Business model</p>
 
-<h2>Count CashKaro value and merchant value separately.</h2>
-<p>AI → retailer can bypass CashKaro. AI → approved CashKaro route → retailer can add valid tracked orders. It may still be <strong>attribution recapture with an explicit user benefit</strong>, rather than new retailer demand.</p>
-<p>Before enabling a path, partnerships must approve the source class, deep-link behavior, commission treatment and stand-down rules for existing affiliate referrals. User consent is necessary but does not override those rules. No silent cookie overwrite is allowed; where an earlier affiliate context is known and routing is not permitted, stand down. Unknown provenance requires an agreed handling policy, not a promise that detection is perfect.</p>
-<p>The <a href="research.html#attribution">Honey/network audit</a> explains the risk without treating allegations as a court finding. Monitor retained commission, reversals and support costs. A retailer-level total-order holdout would test merchant incrementality; CashKaro&#39;s own analytics cannot establish it. Merchant comparison, switching and abandonment recovery are possible later bets, not hidden V1 scope.</p>
+<h2>Separate attribution growth from retailer demand creation.</h2>
+<p>CashKaro can gain a valid tracked order when a purchase that would have gone directly to a retailer follows an approved CashKaro route. The retailer may still have received that order without CashKaro. This is potentially <strong>attribution recapture with an explicit user benefit</strong>, not demonstrated incremental retailer demand.</p>
+<p>Partnerships must agree which traffic sources, deep links and attribution practices are permissible before a path is enabled. Visible value and user consent are necessary, but neither overrides merchant or network terms. Known earlier referrals require an approved handling policy; the product must not silently replace them. Unknown referral history cannot be treated as proof that no earlier referral exists.</p>
+<p>The <a href="research.html#attribution">affiliate-industry review</a> informs these safeguards. Commercial evaluation should include retained commission, reversals, support costs and partner objections. Establishing retailer incrementality requires retailer-level evidence or a separate holdout. Merchant switching, comparison and abandonment recovery may create additional value later, but are outside the initial proposition.</p>
 </section>
 
 <section class="case-section" id="feasibility" data-part="solution">
-<p class="section-label">16 / Delivery path</p>
+<p class="section-label">16 / Delivery feasibility</p>
 
-<h2>Propose the missing systems. Price the uncertainty.</h2>
-<p>First, engineering and operations inspect current redirect creation, account linking, category rules and settlement records. Build a small authenticated service around reusable internals where possible; create the missing rule service where necessary. Use approved product/deep-link metadata, not arbitrary scraping. The model&#39;s URL and prose are untrusted input.</p>
-<p>Proposed additional router budget: p95 under one second for a cached check and under two seconds for route creation; these are targets, not measurements. On timeout, offer the original destination without benefit claims. CashKaro model inference cost is zero by design; host inference, rule maintenance, APIs, support and adapter operations still cost money.</p>
-<p>Estimate delivery after a bounded integration spike, not from the number of screens. Build one reviewed host adapter and two approved merchant paths first. The other adapters in the demo illustrate portability only. <a href="experiment.html#architecture">Interfaces, ownership and staged work</a>.</p>
+<h2>Resolve the dependencies that determine the customer experience.</h2>
+<p>The first delivery milestone is evidence that a supported purchase can make the complete journey. Product, partnerships, engineering and operations should jointly verify three dependencies before an outcome experiment.</p>
+<p><strong>Distribution:</strong> can one host offer CashKaro at an actionable purchase moment, or does the user need to remember an explicit command? The distinction determines whether the proposed recall benefit exists.</p>
+<p><strong>Commercial and operational readiness:</strong> can the selected merchant paths accept this traffic, provide maintainable rules and attribute a qualifying order correctly? The Telegram precedent supports investigating reuse; it does not answer these questions.</p>
+<p><strong>Purchase continuity:</strong> can the integration preserve the exact destination, validate changing conditions and recover safely from missing information or timeout?</p>
+<p>Engineering can then wrap reusable CashKaro capabilities or propose missing services. A bounded integration assessment should establish effort, ownership and operating costs before a delivery commitment. Detailed schemas, latency targets and failure handling belong in the <a href="experiment.html#architecture">implementation plan</a>.</p>
 </section>
 
 <section class="case-section" id="measurement" data-part="solution">
-<p class="section-label">17 / Experiment</p>
+<p class="section-label">17 / Outcome experiment</p>
 
-<h2>Measure everyone offered the capability.</h2>
-<p>Freeze the eligible existing-user cohort before treatment. Randomize by user, stratifying on pre-period order frequency and merchant mix. Treatment gets integration access and onboarding; control retains the current CashKaro experience. Connection, invocation and purchase are post-assignment outcomes, not inclusion criteria.</p>
-<p><strong>Primary: difference in valid tracked orders during a full quarter per originally assigned user, across every CashKaro channel and category.</strong> Include non-connectors, never-invoked users and zeros. Define valid-order and exclusion rules in advance; report pending and confirmed quality separately with a fixed backfill cutoff. Do not quietly redefine the north star as confirmed-only orders.</p>
-<p>A gain only in AI-routed orders with flat total orders is channel displacement, not success. Track known technical opportunities but acknowledge unobservable host moments. The <a href="experiment.html">protocol</a> includes power inputs, reach dilution, attribution maturity, contribution and a distinct retailer experiment.</p>
+<h2>Evaluate the users assigned, including those who never activate.</h2>
+<p>Freeze the eligible existing-user cohort before treatment and randomize at account level, stratifying by pre-period order frequency and merchant mix. Treatment receives integration access and onboarding; control retains the current CashKaro experience.</p>
+<p><strong>Primary outcome: the difference in valid tracked orders over a full quarter per originally assigned existing user, across all CashKaro channels and categories.</strong> Include non-connectors, users who never encounter an offer, users who decline it and users with no orders. Connection and usage cannot become post-assignment eligibility rules.</p>
+<p>Predefine deduplication, validity, exclusions and the backfill cutoff. Report pending and confirmed order quality separately; neither replaces the assigned north star. Growth in AI-routed orders with unchanged total orders is channel displacement.</p>
+<p>Connection, opportunity, surfacing and activation explain the mechanism. They do not establish causality on their own. The <a href="experiment.html">full protocol</a> retains intention-to-treat analysis, power requirements, reach dilution, contribution economics and a separate approach to retailer incrementality.</p>
 </section>
 
 <section class="case-section" id="launch" data-part="solution">
-<p class="section-label">18 / GTM</p>
+<p class="section-label">18 / Activation and rollout</p>
 
-<h2>A bounded invitation, not a mass-market promise.</h2>
-<p>Recruit from the pre-defined existing-user segment through CashKaro-owned invitations and an account connection flow. Explain the benefit using a concrete purchase example. Do not depend on organic app-directory discovery or assume the platform will suggest CashKaro by default.</p>
-<p>Separate prototype usability, a technical/partner pilot and a powered outcome experiment. In usability, verify that people understand payable price, conditional benefits, host placement and a failed eligibility check. In the pilot, verify exact-product continuity and attribution before increasing exposure. Analytics must establish feasible sample and duration before the experiment begins.</p>
-<p>If contextual invocation is unavailable, test explicit invocation as a different experience and report the residual recall friction. Share-to-CashKaro uses the same router and can ship after path approval; it is a fallback with its own behavioral test, not proof that the AI thesis worked.</p>
+<h2>Earn expansion through successive evidence gates.</h2>
+<p>Initial recruitment should use CashKaro-owned invitations to the predefined segment. A concrete purchase example can explain the value and account connection. Organic host-directory discovery is not a dependable acquisition plan.</p>
+<p>First, use the prototype to assess whether users understand the benefit, recognise the conditions and can continue through both success and failure. Second, run a limited technical and partner pilot to verify product continuity, rule accuracy and attribution. Third, proceed to the fixed-cohort outcome experiment only when reach and sample requirements are credible.</p>
+<p>These stages answer different questions. Usability does not establish demand, and a technically successful route does not establish incremental orders. Expansion to more hosts or merchants should follow the evidence from each stage.</p>
+<p>If only explicit invocation is available, evaluate that experience separately. Share may be the better first operational surface in that situation, but success there would not validate contextual AI distribution.</p>
 </section>
 
 <section class="case-section" id="gates" data-part="solution">
-<p class="section-label">19 / Kill gates</p>
+<p class="section-label">19 / Investment criteria</p>
 
-<h2>A reusable backend does not excuse a failed thesis.</h2>
-<div class="kill-grid"><div><b>01 / Reach</b><p>Too few eligible AI purchase moments to move the cohort metric.</p></div><div><b>02 / Distribution</b><p>Hosts cannot surface the skill usefully; repeated recall erases the advantage.</p></div><div><b>03 / Permission</b><p>Merchant or network rejects AI-origin traffic or attribution handling.</p></div><div><b>04 / Reliability</b><p>Context transfer, benefit accuracy or attribution cannot meet the agreed quality bar.</p></div><div><b>05 / User value</b><p>Benefits are too small for the added step; interruptions outweigh savings.</p></div><div><b>06 / Incrementality</b><p>AI orders merely move from another CashKaro channel.</p></div><div><b>07 / Economics</b><p>Contribution declines after rewards, reversals, support and platform costs.</p></div><div><b>08 / Disintermediation</b><p>Hosts offer better native merchant incentives and no longer need this service.</p></div></div>
+<h2>Define what would stop, change or expand the product.</h2>
+<p>The product should not continue simply because the routing capability can be reused. Each material uncertainty needs an owner, a measurement plan and a decision before wider exposure.</p>
+<div class="kill-grid"><div><b>01 / Reach</b><p>Eligible AI purchase opportunities are too infrequent to move the cohort outcome.</p></div><div><b>02 / Distribution</b><p>Repeated explicit recall removes the proposed advantage over Share.</p></div><div><b>03 / Permission</b><p>Merchant or network terms reject the traffic source or attribution treatment.</p></div><div><b>04 / Reliability</b><p>Product continuity, benefit accuracy or attribution cannot meet the agreed standard.</p></div><div><b>05 / User value</b><p>The available benefit does not justify the added interaction.</p></div><div><b>06 / Incrementality</b><p>Orders move between CashKaro channels without increasing the total.</p></div><div><b>07 / Economics</b><p>Contribution deteriorates after rewards, reversals, support and platform costs.</p></div><div><b>08 / Competition</b><p>Hosts provide superior native incentives and no longer need the capability.</p></div></div>
 
-<p>Set thresholds using cohort variance, cost and error consequences before launch. Immediately disable misleading benefits or unauthorized redirects. An underpowered null result calls for a decision about evidence cost, not a claim of success. The <a href="experiment.html#rollout">gate owners and decision rules</a> make stop/change/scale operational.</p>
+<p>Thresholds should be set from observed cohort variance, operating costs and the consequences of errors before launch. Misleading benefits or unauthorized redirects require immediate suspension. An underpowered result requires an explicit decision about further evidence, not a declaration of success. <a href="experiment.html#rollout">Gate owners and decision rules</a>.</p>
 </section>
 
 <section class="case-section" id="defense" data-part="solution">
-<p class="section-label">20 / What would change my mind</p>
+<p class="section-label">20 / Final assessment</p>
 
-<h2>Ambitious direction. Conditional expansion.</h2>
-<p>I would change the lead if research shows that these users rarely reach purchasable decisions in assistants, that explicit sharing captures comparable value with much less friction, or that approved traffic cannot retain sustainable commission. A capability surviving through Share is useful reuse, but it is not evidence of AI distribution success.</p>
-<p>The roadmap earns each expansion: one reviewed AI adapter and a tiny route registry; a fixed-cohort test; additional hosts or Share when the gates pass; only then investigate merchant-value optimization. No parallel rebuild of discovery, payments and tracking.</p>
-<p>This is a proposal for CashKaro&#39;s next distribution capability, not an announcement of a live partnership. The choice accepts less deployment control in exchange for a chance to reduce repeated recall. The final proof is still additional valid tracked orders. <a href="research.html">Evidence</a> · <a href="ai-transcript.html">AI decision history</a> · <a href="compliance.html">Assignment audit and remaining exports</a>.</p>
+<h2>The recommendation is ambitious; the commitment is conditional.</h2>
+<p>The case for this product is that CashKaro may be able to serve an existing purchase without owning the surface where the decision began. It builds on an external-routing precedent and extends two directions in the assignment: preserving context through links and offering assistance at a relevant moment.</p>
+<p>The evidence does not yet establish that this is CashKaro&#39;s largest growth opportunity. It establishes a coherent strategic hypothesis with a specific user moment, relevant company capabilities and identifiable risks. A small validation investment is justified; broad rollout is not yet justified.</p>
+<p>I would change the lead if research shows limited reachable demand, if Share produces comparable value with lower effort, or if approved affiliate economics cannot sustain the benefit. The product decision should be defended through those tests, not through the quality of its presentation.</p>
+<p>The submission provides the proposed experience and the conditions under which it should proceed. <a href="research.html">Evidence</a>, <a href="ai-transcript.html">decision history</a> and the <a href="compliance.html">assignment audit</a> make the supporting material and remaining requirements explicit.</p>
 </section>
 </article></div></main><footer class="site-footer"><div><a class="brand" href="index.html">CashKaro Universal Shopping Skill</a><p>Ujjawal Anand · APM product assignment · September 2026</p><p class="note">Independent assignment concept. Not an official CashKaro product. The interactive prototype uses fictional products, benefits and simulated platform integrations.</p></div><div class="footer-links"><a href="experiment.html">Experiment & feasibility</a><a href="compliance.html">Assignment audit</a><a href="source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md">Assignment text</a><a href="https://github.com/anand-official/cashkaro_casestudy" target="_blank" rel="noopener noreferrer">GitHub ↗</a><button class="text-button print-button">Print this page</button></div></footer><script src="assets/site.js" defer></script></body></html>

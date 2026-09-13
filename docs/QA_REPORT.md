@@ -1,3 +1,25 @@
+# Universal Shopping Skill 4.2 QA
+
+13 September 2026. Revision: assignment alignment, product-led narrative and shopper-controlled prototype.
+
+- Original PDF reviewed directly. Main case covers ten problem sections and ten solution sections: 1,685 and 1,681 words respectively. Word balance is a diagnostic; the narrative also separates diagnosis from scope, experience, business model and validation.
+- Build and release checks pass. Six page routes, local links and anchors, unique IDs, source-reader artifacts, module publication, JavaScript syntax and public-file exclusions checked.
+- Budget changes restrict eligible fictional product options. Camera, battery and price priorities change the host suggestion. The comparison shows the same fictional trade-offs, including above-budget options. Recommendation logic remains separate from the unchanged CashKaro eligibility model.
+- Product reconsideration preserves shopping preferences and connected account, but resets purchase consent, cart answer and route. Verified a new purchase cannot activate with the previous answer.
+- Browser-tested ₹1,200 Cashback, ₹65 capped Cashback, restricted Rewards, zero benefit, unsupported merchant, missing context, expired policy, prior-referral stand-down and route-service failure. Success and direct continuation preserve product, variant and merchant. Rewards have no cash-effective-value row.
+- Existing cart/wishlist response blocks activation. Valid response and explicit activation permit the simulated retailer handoff. No real affiliate route, account or transaction is created.
+- ChatGPT contextual and explicit modes, Claude and Gemini explicit modes, and Share were exercised. Host changes require connection again; disconnect hides its action after use.
+- Six pages at 360, 390, 768 and 1,280 CSS-pixel iframe widths: 24 checks with no page-level horizontal overflow. The mobile comparison table scrolls within its own region.
+- At 200% root text size in the narrow frame, research, expanded comparison and benefit states have no horizontal page overflow.
+- Native radio keyboard selection, comparison focus and return-to-choice focus were checked. Escape closes the review sheet and restores the trigger. Controls retain visible labels; the comparison has table headers and a labelled scroll region.
+- Reduced-motion rules remain in place. No physical phone, actual screen reader, operating-system reduced-motion toggle or exhaustive WCAG audit was exercised.
+- No application-origin console errors observed during browser checks. Browser-extension diagnostics are excluded.
+- Screenshots: `docs/qa/product-led-desktop.jpg` and `product-led-mobile.jpg`. The mobile image records a browser iframe, not a physical device.
+
+The fixed-cohort experiment and router eligibility model are unchanged. The complete contributing AI transcript package remains unresolved. Browser QA cannot satisfy that submission requirement or establish real user demand, platform approval or retailer attribution.
+
+## Prior verification records
+
 # Universal Shopping Skill 4.1 QA
 
 13 September 2026. Revision: consumer conversation and review sheet.
