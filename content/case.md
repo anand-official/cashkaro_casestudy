@@ -122,7 +122,7 @@ An assistant already connects to Gmail, Drive or a calendar: the user authorises
 
 <div class="universal-visual"><div class="host-row"><span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Share</span></div><p class="connector-caption">Potential adapters · each requires its own approval</p><span class="flow-arrow" aria-hidden="true">↓</span><div class="router-focus"><img src="assets/cashkaro-logo.svg" alt="CashKaro" width="120" height="30"><strong>Purchase Router</strong><span>Identity · eligibility · benefit · consent</span></div><span class="flow-arrow" aria-hidden="true">↓</span><div class="retailer-node">Approved route → retailer checkout</div></div>
 
-<p class="takeaway">The assistant recommends. CashKaro checks and routes. The retailer sells. This is deliberately the narrowest useful contract: one authorisation, one call, one answer. MCP and connector support does not guarantee contextual placement or affiliate permission.</p>
+<p class="takeaway">The assistant recommends. CashKaro checks and routes. The retailer sells. This is deliberately the narrowest useful contract: one authorisation, one call, one answer. The split is also the safety model: the host may be probabilistic, the benefit decision never is. MCP and connector support does not guarantee contextual placement or affiliate permission.</p>
 
 <p class="slide-source"><a href="prototype.html">Switch the prototype between four surfaces ↗</a> to see the same connector, the same refusals and the same shopper control under different host conventions. · <a href="experiment.html#architecture">Technical contracts and delivery dependencies ↗</a> · No existing internal API or universal cross-platform login assumed.</p>
 </section>

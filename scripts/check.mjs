@@ -23,6 +23,14 @@ for(const route of manifest.routes){
  }
 }
 for(const file of fs.readdirSync('assets').filter(f=>f.endsWith('.js')))execFileSync(process.execPath,['--check',`assets/${file}`]);
+for(const file of fs.readdirSync('api').filter(f=>f.endsWith('.js')))execFileSync(process.execPath,['--check',`api/${file}`]);
+// The live host model must never be able to speak about the benefit: that is what keeps the
+// recommendation independent of what CashKaro earns.
+{const proxy=fs.readFileSync('api/assistant.js','utf8');
+ assert.ok(/FORBIDDEN\s*=\s*\/\(cashback/.test(proxy),'Proxy must screen benefit language out of live recommendations');
+ assert.ok(/process\.env\.GEMINI_API_KEY/.test(proxy),'Proxy must read the key from the environment');
+ assert.ok(!/AIza[0-9A-Za-z_-]{10}/.test(proxy),'No API key may be committed');}
+for(const f of fs.readdirSync('dist',{recursive:true}).filter(x=>/\.(js|html|json|md)$/.test(x)))assert.ok(!/AIza[0-9A-Za-z_-]{20}/.test(fs.readFileSync(path.join('dist',f),'utf8')),`Possible API key leaked into ${f}`);
 for(const match of fs.readFileSync('assets/ai.js','utf8').matchAll(/'((?:docs|transcripts|source-material)\/[^']+\.md)'/g))assert.ok(fs.existsSync(path.join('dist',match[1])),`Reader artifact absent from public build: ${match[1]}`);
 
 // Fail closed where a wrong decision would mislead the shopper or misattribute a route.
@@ -82,4 +90,4 @@ for(const file of fs.readdirSync('dist',{recursive:true}).filter(f=>/\.(md|html|
  assert.ok(!/Anmol|Enactus/.test(text),`Personal stakeholder attribution remains in ${file}`);
 }
 if(errors.length)throw Error(errors.join('\n'));
-console.log(`PASS: ${manifest.routes.length} public routes and anchors; publish exclusions vs release inputs; ${Object.keys(SCENARIOS).length} connector scenarios; reader artifacts; JS syntax; router consent, identity and eligibility boundaries; typed benefits; shopper constraints and recommendation independence; explicit publishing exclusions; narrative balance ${Math.round(share*100)}/${Math.round((1-share)*100)}.`);
+console.log(`PASS: ${manifest.routes.length} public routes and anchors; proxy key hygiene; publish exclusions vs release inputs; ${Object.keys(SCENARIOS).length} connector scenarios; reader artifacts; JS syntax; router consent, identity and eligibility boundaries; typed benefits; shopper constraints and recommendation independence; explicit publishing exclusions; narrative balance ${Math.round(share*100)}/${Math.round((1-share)*100)}.`);

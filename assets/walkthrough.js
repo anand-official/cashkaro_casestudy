@@ -3,6 +3,7 @@
 // as one continuous thread rather than a sequence of replaced screens.
 import {PRODUCTS, SCENARIOS, money, checkRoute, createRoute} from './router-model.js';
 import {research, PRIORITIES} from './host-model.js';
+import {ask} from './assistant-client.js';
 import {homeScreen, statusBar, clock, CONNECTORS} from './device-chrome.js';
 import {HOSTS, HOST_ORDER, HOST_QUERIES, hostVars} from './hosts.js';
 import {deviceCss} from './device-css.js';
@@ -173,6 +174,29 @@ class CashKaroWalkthrough extends HTMLElement{
   });
  }
 
+ // A reasoning phase the viewer can read. Lines rotate until `work` settles, so the
+ // pause is never dead air and the wait is never longer than the work.
+ async think(lines,work){
+  const seq=this.seq;
+  const el=this.append(`<div class="thinking"><span class="think-dot"></span><span class="think-line">${lines[0]}</span></div>`,'msg');
+  let i=0;
+  const tick=setInterval(()=>{
+   i=(i+1)%lines.length;
+   const t=el.querySelector('.think-line');
+   if(t){t.style.opacity='0';setTimeout(()=>{if(t){t.textContent=lines[i];t.style.opacity='1';}},160);}
+  },1250);
+  const started=Date.now();
+  let result;
+  try{result=await work;}finally{
+   const elapsed=Date.now()-started;
+   if(elapsed<900)await this.wait(900-elapsed);
+   clearInterval(tick);
+   el.remove();
+  }
+  if(seq!==this.seq)return null;
+  return result;
+ }
+
  // ---------- host identity ----------
  applyHost(){
   const h=this.host;
@@ -222,7 +246,11 @@ class CashKaroWalkthrough extends HTMLElement{
   for(let i=0;i<words.length;i++){
    dots.innerHTML=words.slice(0,i+1).join(' ')+'<span class="cursor"></span>';
    this.scrollDown();
-   await this.wait(26);
+   const w=words[i];
+   let d=17+w.replace(/<[^>]+>/g,'').length*3.4;
+   if(/[,;:]$/.test(w))d+=110;
+   if(/[.!?]$/.test(w))d+=210;
+   await this.wait(d);
    if(seq!==this.seq)return null;
   }
   dots.innerHTML=text;
@@ -328,7 +356,11 @@ class CashKaroWalkthrough extends HTMLElement{
   else{
    for(let n=1;n<=text.length;n++){
     box.innerHTML=text.slice(0,n)+'<span class="cursor"></span>';
-    await this.wait(16);
+    const ch=text[n-1];
+    let d=n<4?54:26+Math.random()*26;
+    if(ch===' ')d+=14;
+    if(/[.,?]/.test(ch))d+=150;
+    await this.wait(d);
     if(seq!==this.seq)return;
    }
    box.textContent=text;
@@ -347,18 +379,30 @@ class CashKaroWalkthrough extends HTMLElement{
   this.q.querySelector('.send').disabled=true;
   this.append(`<div>${text}</div>`,'msg msg-user');
   this.go('compare');
-  await this.showOptions(true);
+  await this.showOptions(true,text);
  }
 
- async showOptions(intro){
+ async showOptions(intro,query){
   const seq=this.seq;
-  const r=research({priority:this.priority});
+  const r=await this.think(
+   ['Reading your constraints…','Comparing three that fit the budget…','Weighing the trade-off…'],
+   ask({query,priority:this.priority})
+  );
+  if(!r||seq!==this.seq)return;
+  this.live=r.live;
   if(intro){
-   const said=await this.say(`I compared three that fit. I would take the <strong>${r.recommended.name}</strong>. ${r.reason}`);
+   const said=await this.say(`I would take the <strong>${r.recommended.name}</strong>. ${r.reason}`);
    if(!said||seq!==this.seq)return;
   }
-  this.append(this.optionsHtml(r),'msg msg-bot');
+  this.append(this.optionsHtml(r)+this.provenance(),'msg msg-bot');
   this.go('choose');
+ }
+
+ // Say plainly which half of the demo is live. The distinction is the architecture.
+ provenance(){
+  return `<p class="provenance ${this.live?'is-live':''}"><span></span>${this.live
+   ?'Recommendation written live by a model. The benefit check that follows is deterministic.'
+   :'Scripted recommendation. The benefit check that follows is deterministic either way.'}</p>`;
  }
 
  optionsHtml(r){
@@ -371,7 +415,7 @@ class CashKaroWalkthrough extends HTMLElement{
   const r=research({priority:p});
   const last=[...this.q.querySelectorAll('.msg-bot')].pop();
   if(last&&last.querySelector('.products')){
-   last.innerHTML=this.optionsHtml(r);
+   last.innerHTML=this.optionsHtml(r)+this.provenance();
    this.scrollDown();
   }
   this.toast(`Re-ranked for ${PRIORITIES[p].toLowerCase()}`);
@@ -453,20 +497,23 @@ class CashKaroWalkthrough extends HTMLElement{
  // Autoplay walks the same public path a person would take.
  async runTour(){
   const seq=this.seq;
-  const step=async fn=>{await this.wait(1000);if(seq!==this.seq||!this.watching)throw 0;await fn();};
+  const step=async(fn,pause=1000)=>{await this.wait(pause);if(seq!==this.seq||!this.watching)throw 0;await fn();};
   try{
-   await step(()=>this.openApp());
-   await step(()=>this.openConsent());
-   await step(()=>this.authorise());
-   await step(()=>this.askQuery(0));
-   await step(()=>this.pick('aster'));
+   await step(()=>this.openApp(),1400);
+   await step(()=>this.openConsent(),1500);
+   await step(()=>this.authorise(),1600);
+   await step(()=>this.askQuery(0),1500);
+   await step(()=>this.pick('aster'),2400);
    await step(async()=>{
     const cb=this.q.querySelector('[name="consent"]');
     if(cb){cb.checked=true;this.consent=true;const a=this.q.querySelector('[data-action="activate"]');if(a)a.disabled=false;}
     await this.activate();
    });
-   await step(()=>this.handoff(false));
+   await step(()=>this.handoff(false),1600);
+   await this.wait(1400);
    this.watching=false;this.paint();
+   const t=this.q.querySelector('.tour-button');
+   if(t)t.textContent='↻ Replay the journey';
   }catch{/* interrupted by the viewer taking control */}
  }
 }

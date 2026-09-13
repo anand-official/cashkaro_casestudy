@@ -59,3 +59,14 @@ The embedded experience is now interactive by default: shopper priorities, produ
 **No live model is wired into the prototype.** In the product the model belongs to the host and CashKaro supplies the tool it calls, so a model key inside CashKaro's own prototype would misrepresent the architecture, would be readable in a public static site, and would break the determinism the refusal states depend on. See `docs/DECISION_LOG.md`.
 
 **AI work record rebuilt.** `content/ai.md` declares three provenance tiers, the model roster and its failure modes, the seven pivots, the specific AI outputs that were overruled, and an honest attribution split. `transcripts/README.md` is the session ledger; `transcripts/raw/` is the drop-in location and export guide for the four outstanding raw exports.
+
+## 5.1 live host model, deterministic connector
+
+The prototype can run its shopping recommendation through a real model while every CashKaro decision stays deterministic. That mirrors the actual architecture: the host owns the model, CashKaro supplies a tool the host calls.
+
+- `api/assistant.js` is a Vercel serverless function. It reads `GEMINI_API_KEY` from the environment, constrains the model to the three fictional phones, caps output, throttles per IP, and screens the response for benefit language so a live model can never recommend on price-after-cashback.
+- `assets/assistant-client.js` always resolves. Missing key, timeout, rate limit, unparseable or off-catalogue answer all fall back to the scripted path with no visible failure. A demo that stalls in front of an interviewer is worse than one that was never live.
+- `assets/router-model.js` is untouched by any of this. Eligibility, benefit amounts, all sixteen scenarios, every refusal and route creation remain deterministic and fail-closed.
+- The prototype states which half is live under each recommendation, so a reviewer is never misled about what generated what.
+
+**To enable it:** add `GEMINI_API_KEY` in the Vercel project under Settings → Environment Variables (Production), then redeploy. With no key set the endpoint returns `503 {fallback:true}` and the prototype runs scripted, which is a supported state, not an error. Never commit the key; `scripts/check.mjs` fails the build if a key pattern appears in the repo or in `dist`.

@@ -115,6 +115,14 @@ export const deviceCss=`
 .typing i:nth-child(3){animation-delay:.3s}
 @keyframes bounce{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
 
+.thinking{display:flex;align-items:center;gap:9px;font-size:12px;color:#6b7770;padding:2px 0}
+.think-dot{width:9px;height:9px;border-radius:50%;background:var(--h-accent,#263c94);flex:none;animation:thinkPulse 1.1s ease-in-out infinite}
+.think-line{transition:opacity .16s ease;line-height:1.5}
+@keyframes thinkPulse{0%,100%{transform:scale(.65);opacity:.45}50%{transform:scale(1);opacity:1}}
+.provenance{display:flex;gap:7px;align-items:flex-start;font-size:10px;line-height:1.5;color:#8a948d;margin:11px 0 0}
+.provenance span{width:6px;height:6px;border-radius:50%;background:#c3cbc4;flex:none;margin-top:4px}
+.provenance.is-live span{background:#5f9150;box-shadow:0 0 0 3px #5f915022}
+
 /* Tool-call chip: how a host shows it is calling a connector */
 .toolcall{display:flex;align-items:center;gap:9px;background:#f3f5f8;border:1px solid #e3e8ef;border-radius:11px;padding:9px 12px;font-size:11.5px;color:#4a5568}
 .toolcall img{width:46px;height:auto;flex:none}
