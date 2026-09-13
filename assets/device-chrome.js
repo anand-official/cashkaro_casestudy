@@ -25,6 +25,15 @@ export const DOCK=[
  {id:'settings',name:'Settings',glyph:'⚙',tone:'settings'}
 ];
 
+// The assistant's connector directory. Only CashKaro is actionable; the rest set the context
+// that this is an ordinary connector slot, not a bespoke integration.
+export const CONNECTORS=[
+ {id:'mail',name:'Mail',desc:'Search and draft email',state:'Connected',tone:'mail',glyph:'✧'},
+ {id:'drive',name:'Drive',desc:'Find and read your files',state:'Connected',tone:'browser',glyph:'◍'},
+ {id:'calendar',name:'Calendar',desc:'Check availability',state:'Connected',tone:'maps',glyph:'▦'},
+ {id:'cashkaro',name:'CashKaro',desc:'Check an eligible benefit on a purchase you have chosen',state:'Connect',tone:'cashkaro',glyph:'₹',target:true}
+];
+
 export const clock=()=>{
  const d=new Date();
  let h=d.getHours()%12; if(!h)h=12;
