@@ -10,7 +10,7 @@ Updated 13 September 2026. The PDF requires complete AI interactions. This index
 | DeepSeek review | Candidate supplied `Pasted text (2).txt` prompt and `Pasted markdown(20260911-161555).md` response privately | Pair received; cannot establish all contributing sessions/attachments from these files |
 | Gemini contribution | Referenced in the supplied Claude strategy conversation | Original contributing session not supplied; confirm actual use |
 | Claude Shortlist review | `CLAUDE_COWORK_REVIEW.md` supplied privately; reviewed f482fb6 | Review artifact, not the full Cowork interaction |
-| Later Claude router critique | Summary in candidate's 13 September mandate | Full review and conversation not supplied |
+| Later Claude router critique | Summaries in candidate's 13 September mandate and follow-up; full `Pasted text.txt` reported by candidate | Full newer review not located in available attachments/Library results; do not label summaries verbatim |
 | ChatGPT/coding execution: Shortlist, Order Check, Universal Skill | Current conversation plus public authored decision records | Accessible working context is not a complete exported record; candidate export required |
 | Intermediate normal-ChatGPT router reasoning | Handoff and latest mandate describe its outcome | Complete intervening conversation not supplied here |
 
@@ -32,3 +32,7 @@ Attach actual contributing conversations with prompts, responses, challenges, re
 Add a short note in your own words on decisions you personally challenged. The public decision log is AI-assisted authorship, not a substitute. The external human feedback is stakeholder input, with role and identity unverified; it is not an AI session.
 
 **Complete-transcript compliance remains unverified and unresolved. No missing conversation has been fabricated.**
+
+## Revision provenance
+
+The 13 September follow-up requested a consumer-first visual pass and supplied a review summary. See `docs/REVIEW_RESPONSE.md`. This adds decision evidence, not missing raw AI turns. Complete contributing ChatGPT sessions, the newer Claude source and the current execution conversation remain candidate export tasks.

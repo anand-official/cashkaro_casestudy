@@ -10,6 +10,7 @@ Accessed **13 September 2026** unless noted. Source publication dates are distin
 | B1 · Assignment | The attached PDF establishes bypass and a fixed-cohort order outcome | The cause and best intervention remain open |
 | U1 · Inherited user evidence | One respondent reports switching effort, low value and distrust | Investigate re-entry; do not estimate prevalence or AI demand |
 | C1 · Primary | [CashKaro help](https://cashkaro.com/how-it-works) describes affiliate shopping, earnings and recovery | Relevant foundations exist publicly; service APIs and current authenticated UX unverified |
+| C4 · Company-published precedent | [CashKaro listing, updated 29 August 2025](https://unstop.com/internships/campus-partner-internship-cashkaro-1545241) promotes Deals Anytime cashback-link creation on Telegram | External routing was publicly described; current bot behavior and AI eligibility are not verified |
 | C2 · Primary | [Flipkart terms](https://cashkaro.com/stores/flipkart) contain product-specific rates, caps, zero-benefit exclusions and pre-cart conditions | A universal phone Cashback promise is unsafe; fail closed on unmatched products |
 | C3 · Primary | [Amazon terms](https://cashkaro.com/stores/amazon) distinguish restricted Rewards and qualifying purchases | Preserve benefit type; do not show Rewards as bank cash |
 | P1 · Primary | [OpenAI, 24 March 2026](https://openai.com/index/powering-product-discovery-in-chatgpt/) describes product feeds, discovery and merchant-owned checkout | Complement product choice, not another recommendation engine |
@@ -18,6 +19,8 @@ Accessed **13 September 2026** unless noted. Source publication dates are distin
 | R1 · Primary research | BCG's January 2026 consumer study includes India in a multi-country survey; details below | Evidence for emerging research behavior, not CashKaro user overlap |
 | R2 · Primary research | Bain's 2025 India report estimates e-retail scale and growth | Large ecommerce market does not establish an addressable AI segment |
 | A1 · Network statement | Awin documents investigation, policy findings and action regarding Honey | Contract and attribution governance belong in the product design |
+
+<div id="telegram" class="thesis-box"><strong>Why CashKaro: an existing external-routing pattern.</strong><p>A <a href="https://unstop.com/internships/cashkaro-campus-ambassador-deals-anytime-1533764">Deals Anytime listing</a> additionally describes product-link input and cashback-link output. Both listings were inspected directly on 13 September 2026. This is documentary precedent, not a hands-on bot test.</p><p>The reviewer also reports login, rate checking and the same-account earnings ledger. Those details were not independently established here. Do not infer current API readiness, usage, partner permission or growth from the listings.</p></div>
 
 **Not evidence:** agreement between models, fictional prototype prices, reviewer enthusiasm, the mentor's unverified role, or a platform's product launch standing in for consumer adoption.
 </section>

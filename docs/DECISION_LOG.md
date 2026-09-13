@@ -26,3 +26,7 @@ The candidate's latest mandate explicitly selected the ambitious universal direc
 - Raw copied sessions received privately are acknowledged accurately; no reconstruction is passed off as a full export.
 
 See [review response](REVIEW_RESPONSE.md), [skeptical review](SKEPTICAL_REVIEW.md), [interview defense](INTERVIEW_DEFENSE.md) and [manifest](../transcripts/README.md).
+
+## 13 September, refinement after external feedback
+
+Strategy frozen. Added the documented Telegram routing precedent and narrowed destination dependence to the mainstream journey. Redesigned the prototype around a neutral conversation with review-only configuration. No change to north star or experiment. The full newer Claude file could not be located; the supplied critique summary remains labelled as such.

@@ -23,3 +23,7 @@ Run `npm run build`, then `npm run check`; `npm run dev` serves the static site 
 This is an assignment simulation. Fictional phones, prices, benefits, connected identities and approvals are labelled. No AI, CashKaro, affiliate, payment or retailer transaction API is connected. Contextual invocation and partner permission remain gates. Real benefits must come from reviewed exact-product and merchant policies.
 
 Order Check, Shortlist and overlay are superseded leads. Their substantive records are preserved in Git and `docs/archive/`. Raw private attachments are not automatically published. Complete AI transcripts and deadline confirmation remain candidate submission requirements.
+
+## 4.1 refinement
+
+The prototype opens as a neutral shopping conversation. **Review scenarios** opens the desktop drawer/mobile bottom sheet. All original benefit, consent and stand-down states remain. The evidence page includes the documented Deals Anytime Telegram precedent with explicit verification limits. The latest reported Claude file still needs to be supplied; complete AI exports remain a submission requirement.

@@ -1,3 +1,25 @@
+# Universal Shopping Skill 4.1 QA
+
+13 September 2026. Revision: consumer conversation and review sheet.
+
+- Build and release checks pass. The router model and experiment source are unchanged from 4.0.
+- Default experience: neutral assistant, three fictional product cards, no configuration sidebar. Original vector artwork loads locally; no external image dependency.
+- Browser-tested all benefit scenarios: ₹1,200 Cashback, ₹65 cap, restricted Rewards, zero benefit, unsupported merchant, missing context, expired policy, prior affiliate referral and route-service failure.
+- Success and direct-exit journeys preserve product, merchant and variant. Existing cart/wishlist answer blocks activation. Rewards never create a cash-effective-price row.
+- ChatGPT, Claude and Gemini explicit modes, ChatGPT contextual mode and Share tested. Host changes require reconnection. Disconnect hides itself after use. Changing scenarios resets the purchase without changing recommendation ranking.
+- Native modal uses an accessible title, labelled controls and close button; keyboard focus stays within the modal and Escape returns to the trigger. Return-to-conversation focuses the current stage or first product. Visible CTA wording is included in accessible button names.
+- Six pages × 360/390/768/1280 CSS-pixel frames: 24 checks, no page-level overflow. Mobile product cards scroll inside the conversation. 360px success journey and bottom sheet tested; the sheet has its own vertical scroll.
+- At 200% root text size in the narrow frame, research, benefit, handoff and review sheet have no horizontal page overflow.
+- Reduced-motion media rules disable animations and transforms; simulated check delays are 360/400ms. No OS-level reduced-motion setting or real screen reader was exercised.
+- No application-origin console errors observed. Browser-extension errors are excluded.
+- Current screenshots: `docs/qa/refined-desktop.jpg` and `refined-mobile.jpg`. The mobile image records an iframe test, not a physical device.
+
+## Limitations
+
+No live AI integration, retailer attribution, physical-phone, consumer comprehension or exhaustive WCAG test. The new Claude review file remains unlocated despite attachment and Library searches; the user-supplied summary is labelled. Telegram is a documented precedent, not a live bot test.
+
+## Historical 4.0 checks
+
 # Universal Shopping Skill QA
 
 13 September 2026. Browser QA and deterministic boundary checks by the implementation agent.

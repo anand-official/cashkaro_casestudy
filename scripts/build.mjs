@@ -34,7 +34,7 @@ for (const [filename,slug,title,kicker,description] of pages) {
 }
 
 const protoTemplate=fs.readFileSync('content/prototype.html','utf8');
-fs.writeFileSync('prototype.html',head('CashKaro Universal Shopping Skill — interactive prototype','An illustrative AI purchase decision, benefit check and approved-route simulation.','<link rel="stylesheet" href="assets/prototype.css">')+`<body class="prototype-page">${nav('prototype.html')}${protoTemplate}${footer()}<script type="module" src="assets/prototype.js"></script></body></html>`);
+fs.writeFileSync('prototype.html',head('CashKaro Universal Shopping Skill — interactive prototype','An illustrative AI purchase decision, benefit check and approved-route simulation.','<link rel="stylesheet" href="assets/prototype.css">')+`<body class="prototype-page">${protoTemplate}<script src="assets/site.js" defer></script><script type="module" src="assets/prototype.js"></script></body></html>`);
 fs.mkdirSync('docs',{recursive:true});
 const mirror = raw => raw.replace(/\]\((?!https?:|#|mailto:)([^)]+)\)/g, (_,url) => `](../${url})`).replace(/href="(?!https?:|#)([^"]+)"/g, (_,url) => `href="../${url}"`);
 
@@ -44,12 +44,12 @@ fs.writeFileSync('docs/EXPERIMENT_AND_TECHNICAL_PLAN.md',mirror(fs.readFileSync(
 fs.writeFileSync('docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md',mirror(fs.readFileSync('content/research.md','utf8')));
 const raw=fs.readFileSync('content/case.md','utf8');
 const words=type=>[...raw.matchAll(new RegExp(`<section[^>]*data-part="${type}"[^>]*>([\\s\\S]*?)<\\/section>`,'g'))].map(x=>x[1].replace(/<[^>]+>/g,' ').replace(/\([^)]*https?:[^)]*\)/g,'')).join(' ').split(/\s+/).filter(Boolean).length;
-const manifest={version:'4.0.0',product:'CashKaro Universal Shopping Skill',evidence_date:'2026-09-13',problem_words:words('problem'),solution_words:words('solution'),transcript_status:'partial — raw exports required',routes:[...pages.map(x=>x[0]),'prototype.html']};
+const manifest={version:'4.1.0',product:'CashKaro Universal Shopping Skill',evidence_date:'2026-09-13',problem_words:words('problem'),solution_words:words('solution'),transcript_status:'partial — raw exports required',routes:[...pages.map(x=>x[0]),'prototype.html']};
 fs.writeFileSync('build-manifest.json',JSON.stringify(manifest,null,2)+'\n');
 fs.rmSync('dist',{recursive:true,force:true});
 fs.mkdirSync('dist',{recursive:true});
 const publicFiles = [
- 'assets/styles.css','assets/site.js','assets/ai.js','assets/prototype.css','assets/prototype.js','assets/router-model.js','assets/favicon.svg',
+ 'assets/styles.css','assets/site.js','assets/ai.js','assets/prototype.css','assets/prototype.js','assets/router-model.js','assets/favicon.svg','assets/phones/aster.svg','assets/phones/orion.svg','assets/phones/luma.svg',
  'docs/FINAL_SUBMISSION.md','docs/ASSIGNMENT_COMPLIANCE_AUDIT.md','docs/EXPERIMENT_AND_TECHNICAL_PLAN.md','docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md','docs/DECISION_LOG.md','docs/REVIEW_RESPONSE.md','docs/RESEARCH_WORKSHEET.md','docs/QA_REPORT.md','docs/RELEASE.md','docs/SKEPTICAL_REVIEW.md','docs/INTERVIEW_DEFENSE.md',
  'transcripts/README.md','transcripts/CHATGPT_PRIMARY_CONTEXT.md',
  'source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md','source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md','source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md','source-material/EXTERNAL_PRODUCT_FEEDBACK.md',

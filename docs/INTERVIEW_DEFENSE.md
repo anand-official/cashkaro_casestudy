@@ -23,3 +23,5 @@ These are AI-assisted preparation notes, not a fabricated candidate statement.
 **What is missing?** Real purchase reconstruction, internal reach and economics, authenticated baseline, platform/partner approval and complete AI exports. These are disclosed rather than fabricated.
 
 Before interviewing, answer personally: which trade-off would you still choose if every AI disagreed, and what observed evidence would reverse it? Do not memorize these notes as a substitute for understanding.
+
+**Is the router entirely new?** No. CashKaro's public Deals Anytime precedent makes link conversion outside its app a concrete starting point. The proposal adds a shared contract and assistant distribution; it still has to earn partner approval and incremental cohort orders.

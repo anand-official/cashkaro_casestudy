@@ -15,7 +15,7 @@ This proposal targets **re-entry friction at a finalized purchase decision**. It
 
 ## The extra step is part of the problem.
 
-CashKaro's [public journey](https://cashkaro.com/how-it-works) asks users to enter CashKaro, choose a retailer and shop through its route. If someone has already decided elsewhere, they must remember CashKaro, interrupt that context and reconstruct the path. I call this **destination dependence**: the benefit depends on deliberate re-entry.
+CashKaro's mainstream [documented journey](https://cashkaro.com/how-it-works) remains destination-first: enter CashKaro, choose a retailer, then shop. It is not the only route. Its [Deals Anytime Telegram precedent](research.html#telegram) already points to external link conversion. **Destination dependence** describes the residual recall and re-entry burden in the mainstream journey, not a claim that external routing is impossible.
 
 This is a structural interpretation of the journey, not a measured root cause across the user base. A better shortcut will not fix inadequate rewards, excluded products, low trust or a superior competing offer. Those are competing explanations, not implementation details.
 
@@ -87,7 +87,9 @@ If r is 10% and d is 0.2, the illustrative gain is only 0.02 orders per assigned
 
 ## Use the commerce machinery, not a new recommendation model.
 
-CashKaro's public service already combines affiliate routing, benefit rules, account earnings and recovery. Those assets are close to the proposed capability. Public interfaces do **not** prove that clean, externally callable APIs already exist.
+CashKaro already has a concrete external-routing precedent. Its [2025 Campus Partner listing](https://unstop.com/internships/campus-partner-internship-cashkaro-1545241) describes using the **Deals Anytime Telegram bot to create cashback links**. A related listing describes sending product links to the bot. This is stronger evidence than inferring routing capability from the core app alone.
+
+**Generalize an existing pattern, rather than invent it from scratch.** The new proposal is a shared, typed routing capability with assistant-specific adapters and contextual purchase handoffs. The bot does not establish reusable internal APIs, AI-host approval, adoption or incremental orders. Those remain validation gates.
 
 <div class="boundary-grid"><div><span>AI assistant</span><h3>What to buy</h3><p>Research, recommendations and product choice.</p></div><div><span>CashKaro</span><h3>How to earn</h3><p>Identity, eligible benefit and approved route.</p></div><div><span>Retailer</span><h3>Complete the sale</h3><p>Price, stock, payment, delivery and returns.</p></div></div>
 
