@@ -93,3 +93,10 @@ openReview.addEventListener('click',()=>{sheet.showModal();document.body.classLi
 el('review-close').addEventListener('click',()=>sheet.close());
 el('review-apply').addEventListener('click',()=>{sheet.close();(box.querySelector('[data-stage-heading]')||box.querySelector('[data-product]'))?.focus();});
 sheet.addEventListener('close',()=>document.body.classList.remove('reviewing'));
+
+const watchMode=el('watch-mode'),interactiveMode=el('interactive-mode');
+function setExperience(interactive){el('guided-experience').hidden=interactive;el('interactive-experience').hidden=!interactive;el('review-open').hidden=!interactive;watchMode.setAttribute('aria-pressed',String(!interactive));interactiveMode.setAttribute('aria-pressed',String(interactive));}
+watchMode.addEventListener('click',()=>{history.replaceState(null,'',location.pathname);setExperience(false)});
+interactiveMode.addEventListener('click',()=>{history.replaceState(null,'','#interactive');setExperience(true)});
+window.addEventListener('hashchange',()=>setExperience(location.hash==='#interactive'));
+setExperience(location.hash==='#interactive');

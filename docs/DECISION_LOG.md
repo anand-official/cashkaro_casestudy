@@ -36,3 +36,9 @@ Strategy frozen. Added the documented Telegram routing precedent and narrowed de
 The user requested a formal product-management narrative and more interactive prototype. This revision retains the strategy and experiment. It makes the relationship to the brief explicit: the original bypass problem is unchanged; Share/deep-link routing and contextual assistance are foundations; owning discovery is rejected. The investment recommendation is a bounded validation effort with conditional expansion.
 
 The host prototype now responds to budget and priority choices, exposes product trade-offs and permits reconsideration. These are deterministic fictional research interactions, separate from CashKaro benefit logic. They do not introduce a CashKaro recommender or live AI service. This is an authored execution note, not a verbatim transcript.
+
+## 13 September 2026: 15-section core and guided phone walkthrough
+
+The candidate reported a mentor's maximum of 15 slide-equivalent sections and requested more visual explanation. The main case was condensed from 20 long-form sections to 15 visual sections, retaining the original problem, assessment of all five suggested directions, metric, evidence limitations, commercial concerns and validation gates. Detailed supporting pages remain available.
+
+The candidate also cited https://developers.google.com/merchant/ucp as the desired demo presentation. Its animated phone journey informed an original six-chapter CashKaro walkthrough with playback and chapter controls. The Google animation is not reused; CashKaro continues to hand off to retailer checkout. The full interactive prototype is retained as a second mode. This is an authored execution note, not a raw AI transcript.

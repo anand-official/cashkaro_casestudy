@@ -1,9 +1,12 @@
 {
-  "version": "4.2.1",
+  "version": "4.3.0",
   "product": "CashKaro Universal Shopping Skill",
   "evidence_date": "2026-09-13",
-  "problem_words": 1685,
-  "solution_words": 1681,
+  "core_sections": 15,
+  "problem_words": 679,
+  "solution_words": 679,
+  "decision_bridge_words": 113,
+  "balance_method": "Seven problem sections, seven solution sections; decision bridge allocated equally",
   "transcript_status": "partial — raw exports required",
   "routes": [
     "index.html",

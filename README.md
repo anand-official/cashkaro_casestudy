@@ -33,3 +33,11 @@ The prototype opens as a neutral shopping conversation. **Review scenarios** ope
 The main case now maps the proposal directly to the assignment's original problem and all five suggested directions. Ten problem sections and ten solution sections provide an approximately equal narrative. Product scope, responsibilities, business value and delivery decisions lead; interface details remain in the technical appendix.
 
 The prototype lets shoppers change budget and priorities, compare all three fictional products and reconsider a selection. Recommendations change with shopper constraints and remain independent of CashKaro benefits. Existing eligibility, connection, consent, stand-down and failure paths are retained.
+
+## 4.3 visual brief and guided walkthrough
+
+The main case is now 15 visual sections: seven problem sections, a decision bridge and seven solution sections. The bridge is allocated equally for the word-balance diagnostic. Detailed evidence, technical feasibility, experiment and AI provenance remain on supporting pages. The previous longer case is archived in `docs/archive/CASE_LONG_FORM_4_2.md`.
+
+`assets/brief.css` styles the core visual brief. `assets/walkthrough.js` provides an original six-chapter phone walkthrough with autoplay when visible, pause, next, chapter selection and replay. Reduced-motion preference disables autoplay. The presentation pattern was informed by Google's UCP landing-page animation, not its implementation or transaction model. No Google media is copied into the release.
+
+The prototype opens in guided mode. `prototype.html#interactive` opens the existing hands-on flow; all eligibility scenarios remain accessible there.

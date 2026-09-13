@@ -49,6 +49,8 @@ assert.equal(research({budget:0}).recommended,null);
 for(const scenario of ['cash','small','rewards','zero','failure'])assert.equal(research({priority:'battery',scenario}).recommended.id,'orion');
 assert.ok(fs.existsSync('dist/assets/host-model.js'),'Host module must be published');
 
+assert.equal((fs.readFileSync('content/case.md','utf8').match(/<section class="case-section/g)||[]).length,15,'Core brief must have 15 sections');
+assert.ok(fs.existsSync('dist/assets/walkthrough.js'),'Guided walkthrough must be published');
 const share=manifest.problem_words/(manifest.problem_words+manifest.solution_words);
 assert.ok(share>=.4&&share<=.6,`Unbalanced narrative: ${share}`);
 assert.equal(manifest.product,'CashKaro Universal Shopping Skill');

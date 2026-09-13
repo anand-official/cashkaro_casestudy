@@ -1,3 +1,21 @@
+# Universal Shopping Skill 4.3 QA
+
+13 September 2026. Revision: 15-section visual brief and guided phone walkthrough.
+
+- The core case contains exactly 15 sections. Seven address the problem, one bridges to the decision, and seven address the solution. The source word-count diagnostic allocates the bridge equally: 679 words per side. The guided animation is a separate interactive illustration; alternate frames are not counted as additional case sections.
+- Build and release checks pass, including local links/anchors, original PDF, required JavaScript modules, one H1 per document and public-file exclusions.
+- Six routes at 360, 390, 768 and 1280 CSS-pixel iframe widths: 24 checks, no page-level horizontal overflow.
+- The core uses cause mapping, a purchase journey, evidence contrast, company precedent, reach arithmetic, direction assessment, ownership diagram, benefit states, economics comparison, randomized experiment, rollout and decision gates. The main page contains 15 sections, not 15 additional sections behind an extra cover.
+- The original guided walkthrough has six phone scenes. All chapter buttons were exercised at 360px. Automatic advancement, pause persistence, next, disabled next at the final chapter, replay and switching to the interactive flow were checked.
+- Reduced-motion preference disables automatic playback and CSS animation. This is verified in implementation; the browser's OS preference was not changed.
+- Watch / Try it yourself modes work. The interactive budget/priority flow, CashKaro connection, consent, retailer handoff and prior-referral stand-down were retested. Mobile review sheet and Escape dismissal remain functional.
+- The underlying host-research and CashKaro eligibility models, including typed Rewards and all failure rules, are unchanged and their existing boundary checks pass.
+- No application-origin console errors were observed. Screenshot records: `docs/qa/visual-brief.jpg` and `guided-walkthrough.jpg`.
+
+This is a browser-tested simulation. No physical phone, screen reader, real host approval, affiliate attribution or consumer comprehension study is claimed. Google's UCP landing-page animation informed the presentation pattern; its media and checkout implementation are not included. Supporting evidence and experiment pages remain separate from the core brief. Complete AI exports remain unresolved.
+
+## Earlier verification records
+
 # Universal Shopping Skill 4.2 QA
 
 13 September 2026. Revision: assignment alignment, product-led narrative and shopper-controlled prototype.
