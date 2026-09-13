@@ -3,5 +3,7 @@ node_modules
 dist
 __qa.html
 .env*
-source-material/cashkaro_assignment.pdf
+# The assignment PDF is a deliberate public release input: the case cover and the
+# site footer both link to it, and scripts/build.mjs fails closed without it.
+# Excluding it here broke every CLI deploy after 0ba1ed5.
 transcripts/FINAL_SESSION_RECORD.md
