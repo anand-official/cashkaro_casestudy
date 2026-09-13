@@ -5,6 +5,10 @@ import {execFileSync} from 'node:child_process';
 import {research} from '../assets/host-model.js';
 import {PRODUCTS, SCENARIOS, checkRoute, createRoute} from '../assets/router-model.js';
 
+// Credential shapes that must never appear in the repo or the published build.
+// Covers legacy Google keys (AIza...), newer Google auth keys (AQ.Ab8...), and the
+// obvious OpenAI/Anthropic prefixes, so a pasted key fails the build rather than shipping.
+const KEYPAT=/(AIza[0-9A-Za-z_\-]{20,})|(AQ\.[A-Za-z0-9_\-]{24,})|(sk-(?:proj-|ant-)?[A-Za-z0-9_\-]{24,})|(ghp_[A-Za-z0-9]{30,})/;
 const manifest=JSON.parse(fs.readFileSync('build-manifest.json','utf8'));
 const errors=[];
 for(const route of manifest.routes){
@@ -29,8 +33,8 @@ for(const file of fs.readdirSync('api').filter(f=>f.endsWith('.js')))execFileSyn
 {const proxy=fs.readFileSync('api/assistant.js','utf8');
  assert.ok(/FORBIDDEN\s*=\s*\/\(cashback/.test(proxy),'Proxy must screen benefit language out of live recommendations');
  assert.ok(/process\.env\.GEMINI_API_KEY/.test(proxy),'Proxy must read the key from the environment');
- assert.ok(!/AIza[0-9A-Za-z_-]{10}/.test(proxy),'No API key may be committed');}
-for(const f of fs.readdirSync('dist',{recursive:true}).filter(x=>/\.(js|html|json|md)$/.test(x)))assert.ok(!/AIza[0-9A-Za-z_-]{20}/.test(fs.readFileSync(path.join('dist',f),'utf8')),`Possible API key leaked into ${f}`);
+ assert.ok(!KEYPAT.test(proxy),'No API key may be committed');}
+for(const f of fs.readdirSync('dist',{recursive:true}).filter(x=>/\.(js|html|json|md|txt|css)$/.test(x)))assert.ok(!KEYPAT.test(fs.readFileSync(path.join('dist',f),'utf8')),`Possible API key leaked into ${f}`);
 for(const match of fs.readFileSync('assets/ai.js','utf8').matchAll(/'((?:docs|transcripts|source-material)\/[^']+\.md)'/g))assert.ok(fs.existsSync(path.join('dist',match[1])),`Reader artifact absent from public build: ${match[1]}`);
 
 // Fail closed where a wrong decision would mislead the shopper or misattribute a route.
