@@ -120,17 +120,36 @@ Connect the account once, ask an ordinary question, choose a product. CashKaro i
 </section>
 
 <section class="case-section" id="architecture" data-part="solution">
-<p class="section-label">10 / Product ownership</p>
+<p class="section-label">10 / How it actually works</p>
 
-## Built as a connector, not as an app inside someone else's app.
+## One authorisation. Three tool calls. One signed affiliate route.
 
-An assistant already connects to Gmail, Drive or a calendar: the user authorises the account once, and the assistant calls it when the task needs it. CashKaro fits that same slot. Connect once, and any assistant that supports connectors can hand over a purchase the shopper has already chosen.
+The host discovers three tools over MCP. The shopper authorises once. Nothing is called until a purchase is chosen.
 
-<div class="universal-visual"><div class="host-row"><span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Share</span></div><p class="connector-caption">Potential adapters · each requires its own approval</p><span class="flow-arrow" aria-hidden="true">↓</span><div class="router-focus"><img src="assets/cashkaro-logo.svg" alt="CashKaro" width="120" height="30"><strong>Purchase Router</strong><span>Identity · eligibility · benefit · consent</span></div><span class="flow-arrow" aria-hidden="true">↓</span><div class="retailer-node">Approved route → retailer checkout</div></div>
+<div class="mcp-contract">
+<div><code>check_route</code><span>product · variant · merchant · URL · source</span><b>supported / unsupported / needs-context / stale</b><small>Policy version and reason code. Never probabilistic.</small></div>
+<div><code>get_benefit</code><span>validated context · scoped token</span><b>kind · amount or range · cap · exclusions · checked_at · expires_at</b><small>An unknown amount stays unknown, never an estimate.</small></div>
+<div><code>create_route</code><span>quote ID · account token · consent · idempotency key</span><b>short-lived signed redirect, or a typed refusal</b><small>Revalidates policy and source. No arbitrary target URLs.</small></div>
+</div>
 
-<p class="takeaway">The assistant recommends. CashKaro checks and routes. The retailer sells. This is deliberately the narrowest useful contract: one authorisation, one call, one answer. The split is also the safety model: the host may be probabilistic, the benefit decision never is. MCP and connector support does not guarantee contextual placement or affiliate permission.</p>
+<p class="auth-strip"><b>Account linking:</b> OAuth 2.0 authorisation code with PKCE. Scoped, revocable token. No retailer password, no card details, no chat history.</p>
 
-<p class="slide-source"><a href="../prototype.html">Switch the prototype between four surfaces ↗</a> to see the same connector, the same refusals and the same shopper control under different host conventions. · <a href="../experiment.html#architecture">Technical contracts and delivery dependencies ↗</a> · No existing internal API or universal cross-platform login assumed.</p>
+### The affiliate link is minted at step 3, not before.
+
+<ol class="link-flow">
+<li><b>Programme credentials</b><span>Existing advertiser or network publisher ID per merchant, on an effective-dated tracking template.</span></li>
+<li><b>Mint a click</b><span><code>create_route</code> binds account, merchant, canonical product, variant and time. That click ID becomes the SubID.</span></li>
+<li><b>Build the deeplink</b><span>Tracking URL carrying publisher ID + SubID + encoded product URL. Allowlisted, signed, short-lived.</span></li>
+<li><b>Hand off</b><span>Shopper lands on the product page via the tracking domain, which records the click.</span></li>
+<li><b>Merchant reports</b><span>Network returns a transaction with the same SubID, order value and commission.</span></li>
+<li><b>Join and credit</b><span>SubID → click → account. Pending until the return window confirms or reverses it.</span></li>
+</ol>
+
+<div class="link-limits"><span><b>Deeplink depth varies.</b> Some programmes resolve only to a category or home page.</span><span><b>App handoff is not guaranteed.</b> It needs the merchant to honour tracked universal links. Web is the fallback.</span><span><b>Most programmes are last-click.</b> Where another affiliate holds the click, CashKaro stands down.</span><span><b>Rates are capped and excluded.</b> Phones often carry low or zero commission, so the connector must be able to return nothing.</span></div>
+
+<p class="takeaway">The assistant recommends. CashKaro checks and mints the route. The retailer sells. The host may be probabilistic; the benefit decision never is.</p>
+
+<p class="slide-source">Proposed interfaces, not existing CashKaro APIs. <a href="../experiment.html#architecture">Full contract, auth and failure handling ↗</a> · <a href="../prototype.html">Four surfaces in the prototype ↗</a></p>
 </section>
 
 <section class="case-section" id="trust" data-part="solution">

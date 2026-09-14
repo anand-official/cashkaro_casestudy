@@ -10,3 +10,25 @@
 html:has(.brief-page){scroll-padding-top:80px}.brief-page .case-section,.brief-page .anchor-alias{scroll-margin-top:0}
 
 .brief-page:has(ck-walkthrough:defined) .static-story-source{display:none}@media print{.brief-page:has(ck-walkthrough:defined) .static-story-source{display:block}}
+
+/* 10 · Connector contract and affiliate route mechanics */
+.mcp-contract{display:grid;gap:10px;margin:26px 0 0}
+.mcp-contract>div{background:#fff;border:1px solid var(--line);border-left:3px solid var(--blue);padding:16px 18px}
+.mcp-contract code{display:inline-block;font-size:.8125rem;font-weight:600;background:#eef1f7;color:#22347c;padding:3px 8px;border-radius:4px;margin-bottom:8px}
+.mcp-contract span{display:block;font-size:.75rem;color:var(--muted);letter-spacing:.01em;margin-bottom:9px}
+.mcp-contract b{display:block;font-size:.875rem;line-height:1.5;color:var(--ink)}
+.mcp-contract small{display:block;font-size:.75rem;line-height:1.55;color:var(--muted);margin-top:7px;padding-top:7px;border-top:1px solid var(--soft)}
+.auth-strip{background:#edf0ed;border-left:3px solid #7d8f6f;padding:14px 17px;font-size:.8125rem;line-height:1.6;margin:12px 0 0;max-width:none}
+.case-section h3{font-size:1.12rem;margin:34px 0 4px;letter-spacing:-.02em}
+.link-flow{counter-reset:lf;list-style:none;padding:0;margin:18px 0 0;display:grid;gap:0}
+.link-flow li{counter-increment:lf;display:grid;grid-template-columns:30px 1fr;gap:0 14px;padding:13px 0;border-bottom:1px solid var(--soft);align-items:baseline}
+.link-flow li:last-child{border-bottom:0}
+.link-flow li:before{content:counter(lf,decimal-leading-zero);font-size:.75rem;font-weight:650;color:var(--orange);font-variant-numeric:tabular-nums}
+.link-flow b{font-size:.9375rem;letter-spacing:-.01em}
+.link-flow span{grid-column:2;font-size:.8125rem;line-height:1.62;color:var(--muted);margin-top:4px}
+.link-flow code{font-size:.8em;background:#eef1f7;color:#22347c;padding:1px 5px;border-radius:3px}
+.link-limits{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:22px 0 0}
+.link-limits span{background:#f2ece4;border-top:2px solid var(--orange);padding:14px;font-size:.8125rem;line-height:1.58;color:#5f4a35}
+.link-limits b{color:#7d4a24;display:block;margin-bottom:3px}
+@media(max-width:720px){.link-limits{grid-template-columns:1fr}.link-flow li{grid-template-columns:24px 1fr;gap:0 10px}}
+@media print{.mcp-contract>div,.link-flow li,.link-limits span{break-inside:avoid}}
