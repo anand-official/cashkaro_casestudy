@@ -91,7 +91,7 @@ It matters because the hard parts already exist inside the company: the affiliat
 
 <div class="precedent-visual"><div><span class="visual-label">Documented precedent</span><strong>Product link</strong><span class="flow-arrow" aria-hidden="true">↓</span><strong>Telegram bot</strong><span class="flow-arrow" aria-hidden="true">↓</span><strong>Cashback link</strong></div><div class="capability-stack"><span class="visual-label">Capabilities to build on</span><p>Affiliate relationships</p><p>Benefit rules + attribution</p><p>Account identity + reward settlement</p><strong>Extend the route.<br>Do not rebuild discovery.</strong></div></div>
 
-<p class="slide-source"><a href="research.html#telegram">Source and verification limits ↗</a> · The precedent does not prove reusable APIs, current adoption, AI-host approval or incremental orders.</p>
+<p class="slide-source"><a href="research.html#telegram">Source and verification limits ↗</a> · A precedent is encouraging, not load-bearing. It tells us nothing about whether those APIs can be reused, whether the bot is still used, whether a host would approve us, or whether any of it adds orders.</p>
 </section>
 
 <section class="case-section" id="segment" data-part="problem">

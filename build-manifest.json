@@ -5,7 +5,7 @@
   "core_sections": 15,
   "pdf_pages": 15,
   "pdf": "output/pdf/CashKaro_Visual_Brief.pdf",
-  "problem_words": 1328,
+  "problem_words": 1350,
   "solution_words": 1282,
   "decision_bridge_words": 172,
   "balance_method": "Seven problem sections, seven solution sections; decision bridge allocated equally",

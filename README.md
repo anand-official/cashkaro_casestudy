@@ -46,7 +46,7 @@ The prototype opens in guided mode. `prototype.html#interactive` opens the exist
 
 The embedded experience is now interactive by default: shopper priorities, product selection, CashKaro connection, benefit conditions, affirmative pre-cart answer, route activation and retailer handoff. The chosen product remains visible alongside the CashKaro card on desktop and becomes a compact purchase summary on mobile. Optional scripted playback and progressive review notes replace the permanent chapter/control sidebar. The same fictional router and host models power both this experience and the advanced scenarios.
 
-`output/pdf/CashKaro_Visual_Brief.pdf` is the 15-page landscape companion. It has seven problem pages, a decision bridge and seven solution pages, with clickable source and prototype links. Rebuild with `python scripts/build-pdf.py` (requires ReportLab, PyMuPDF and DejaVu Sans; the build finds DejaVu in a system font directory or in matplotlib), then `npm run build`. The committed PDF is an explicit public release input; the website build needs no Python runtime.
+`output/pdf/CashKaro_Visual_Brief.pdf` is the 15-page picture companion. It has seven problem pages, a decision bridge and seven solution pages, with clickable source and prototype links. Rebuild with `python scripts/build-pdf.py` (requires ReportLab, PyMuPDF and DejaVu Sans; the build finds DejaVu in a system font directory or in matplotlib), then `npm run build`. The committed PDF is an explicit public release input; the website build needs no Python runtime.
 
 ## 5.0 connector framing, device prototype and the scenario matrix
 

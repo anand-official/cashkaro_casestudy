@@ -2,7 +2,9 @@
 
 ## The brief, requirement by requirement.
 
-The [original assignment PDF](../source-material/cashkaro_assignment.pdf) was read directly for this revision. The proposal retains its original problem and north star; it narrows the intervention to recall and re-entry friction at an external purchase decision. The [transcription](../source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md) is a convenience copy. The brief permits new capabilities if their implementation path is explained; it does not require production approvals before proposing a product.
+I read the [original PDF](../source-material/cashkaro_assignment.pdf) again before this revision rather than working from my own summary of it. The problem it sets and the metric it names are both unchanged here. What I narrowed is the intervention: the moment a shopper has decided and would have to start again to come through us. The [transcription](../source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md) is only there for searching.
+
+The brief allows a proposal to need capabilities that do not exist yet, as long as the path to them is explained. It does not ask anyone to arrive with signed contracts.
 
 <div class="warning-box"><strong>One requirement is not yet met: the complete AI transcript.</strong><p>Four contributing sessions still require a raw export. They are named individually in the <a href="../transcripts/README.md">session manifest</a>, and no missing conversation has been reconstructed to fill the gap. Every other requirement below is addressed.</p></div>
 
@@ -40,7 +42,9 @@ The brief offers five suggested directions and an own-direction option. The prop
 </section>
 <section class="case-section" id="manual"><p class="section-label">Candidate / manual items</p>
 
-## What this build cannot honestly supply.
+## What I cannot honestly give you.
+
+Every submission has a list like this. Most of them leave it out.
 
 1. Complete actual AI conversations, including the intervening normal-ChatGPT discussion, latest Claude router review and this rebuild. Supplied copies have acknowledged gaps; see the manifest.
 2. Confirm the actual deadline, any extension and submission destination. Publishing a website does not submit it to the hiring panel.
@@ -48,5 +52,5 @@ The brief offers five suggested directions and an own-direction option. The prop
 4. If possible, real recent-purchase conversations and an authenticated CashKaro baseline audit. No interview count is invented or claimed mandatory by the PDF.
 5. Only if a stakeholder is to be named: verify role and obtain consent. Current public material is anonymized; earlier Git history may retain previous material.
 
-Private contracts, internal APIs and live integrations are future implementation dependencies, not missing facts to fabricate for an assignment. [Self-review and verdict](../docs/SKEPTICAL_REVIEW.md).
+Private contracts, internal APIs and live integrations are things a real team would go and get. They are not gaps to paper over with a confident sentence, so I have left them as gaps. [Self-review and verdict](../docs/SKEPTICAL_REVIEW.md).
 </section>

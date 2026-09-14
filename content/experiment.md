@@ -15,7 +15,9 @@ Post-assignment host use is affected by treatment. Treat its funnel as mechanism
 <section class="case-section" id="reach-model">
 <p class="section-label">02 / Reach and power</p>
 
-## A beautiful funnel can produce a negligible outcome.
+## A beautiful funnel can still produce nothing.
+
+This is the number that kills features like this one, and it is almost never the number in the deck.
 
 **Sensitivity, not forecast.** Let r be the reachable eligible share of the fixed cohort and d the incremental quarterly valid orders per reached user, net of displacement. Approximate all-cohort lift = r × d. r includes the availability of a real purchase opportunity and a usable permitted route; it is not merely survey AI adoption.
 
@@ -35,7 +37,9 @@ For an equal-arm mean comparison, a rough two-sided 5% significance / 80% power 
 <section class="case-section" id="economics">
 <p class="section-label">03 / Economic hurdle</p>
 
-## The assignment metric is necessary, not sufficient.
+## Hitting the metric is not the same as the thing working.
+
+The brief names one outcome and it is the right one. It is also gameable, so here is what I would watch alongside it.
 
 Let m be net contribution per incremental valid tracked order after Cashback/Rewards, expected reversals and variable serving/support cost. Let c be additional quarterly integration, onboarding and operating cost per assigned user, including platform fees if any. A simplified break-even condition is **δ × m > c**. With fictional m = ₹20 and c = ₹1, δ must exceed 0.05 orders per user per quarter. At δ = 0.02 that scenario loses money.
 
@@ -79,7 +83,9 @@ The following interfaces are **proposed**, not existing CashKaro APIs. The stati
 <section class="case-section" id="events">
 <p class="section-label">05 / Instrumentation</p>
 
-## Log opportunities without pretending to see every purchase.
+## Count what we can see, and admit what we cannot.
+
+CashKaro observes click-outs. It does not observe the purchases that never came near us, which is the whole problem in miniature: the denominator we most want is the one we do not have.
 
 | Event | Meaning and boundary |
 | --- | --- |
@@ -101,7 +107,9 @@ Guardrails: attributable route failure, incorrect benefit/type, unsupported acti
 <section class="case-section" id="rollout">
 <p class="section-label">06 / Launch and decisions</p>
 
-## Permission first. Then reliability. Then causal value.
+## Permission, then reliability, then proof. In that order.
+
+Getting these out of order is how a team spends six months measuring something it was never allowed to ship.
 
 | Gate | Owner | Decision rule |
 | --- | --- | --- |

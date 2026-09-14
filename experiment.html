@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#263a91"><title>Earn the right to scale. · Ujjawal Anand / CashKaro APM</title><meta name="description" content="A fixed-cohort causal protocol, data ownership and realistic implementation gates."><meta property="og:title" content="Earn the right to scale."><meta property="og:description" content="A fixed-cohort causal protocol, data ownership and realistic implementation gates."><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="assets/styles.css"></head><body><a href="#main" class="skip-link">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="CashKaro case study home"><img class="brand-logo" src="assets/cashkaro-logo.svg" alt="CashKaro" width="100" height="25"><span class="brand-text">Connector <small>APM case · Ujjawal Anand</small></span></a><button class="menu-button" aria-expanded="false" aria-controls="main-nav">Menu</button><nav id="main-nav" aria-label="Main navigation"><a href="index.html">The case</a><a href="prototype.html">Prototype</a><a href="research.html">Evidence</a><a href="ai-transcript.html">AI trail</a><a class="nav-audit" href="compliance.html">Brief audit <span aria-hidden="true">↗</span></a></nav></div></header><main id="main" class="page-shell"><section class="page-hero"><p class="eyebrow">Experiment & feasibility</p><h1>Earn the right to scale.</h1><p>A fixed-cohort causal protocol, data ownership and realistic implementation gates.</p></section><div class="reading-layout"><aside class="contents"><p>On this page</p><nav aria-label="Page contents"><a href="#protocol"><span>01</span>Freeze users before they see the offer.</a><a href="#reach-model"><span>02</span>A beautiful funnel can produce a negligible outcome.</a><a href="#economics"><span>03</span>The assignment metric is necessary, not sufficient.</a><a href="#architecture"><span>04</span>Deterministic commerce behind platform adapters.</a><a href="#events"><span>05</span>Log opportunities without pretending to see every purchase.</a><a href="#rollout"><span>06</span>Permission first. Then reliability. Then causal value.</a></nav></aside><article class="case-article"><section class="case-section" id="protocol">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#263a91"><title>Earn the right to scale. · Ujjawal Anand / CashKaro APM</title><meta name="description" content="A fixed-cohort causal protocol, data ownership and realistic implementation gates."><meta property="og:title" content="Earn the right to scale."><meta property="og:description" content="A fixed-cohort causal protocol, data ownership and realistic implementation gates."><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="assets/styles.css"></head><body><a href="#main" class="skip-link">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="CashKaro case study home"><img class="brand-logo" src="assets/cashkaro-logo.svg" alt="CashKaro" width="100" height="25"><span class="brand-text">Connector <small>APM case · Ujjawal Anand</small></span></a><button class="menu-button" aria-expanded="false" aria-controls="main-nav">Menu</button><nav id="main-nav" aria-label="Main navigation"><a href="index.html">The case</a><a href="prototype.html">Prototype</a><a href="research.html">Evidence</a><a href="ai-transcript.html">AI trail</a><a class="nav-audit" href="compliance.html">Brief audit <span aria-hidden="true">↗</span></a></nav></div></header><main id="main" class="page-shell"><section class="page-hero"><p class="eyebrow">Experiment & feasibility</p><h1>Earn the right to scale.</h1><p>A fixed-cohort causal protocol, data ownership and realistic implementation gates.</p></section><div class="reading-layout"><aside class="contents"><p>On this page</p><nav aria-label="Page contents"><a href="#protocol"><span>01</span>Freeze users before they see the offer.</a><a href="#reach-model"><span>02</span>A beautiful funnel can still produce nothing.</a><a href="#economics"><span>03</span>Hitting the metric is not the same as the thing working.</a><a href="#architecture"><span>04</span>Deterministic commerce behind platform adapters.</a><a href="#events"><span>05</span>Count what we can see, and admit what we cannot.</a><a href="#rollout"><span>06</span>Permission, then reliability, then proof. In that order.</a></nav></aside><article class="case-article"><section class="case-section" id="protocol">
 <p class="section-label">01 / Outcome contract</p>
 
 <h2>Freeze users before they see the offer.</h2>
@@ -11,7 +11,8 @@
 <section class="case-section" id="reach-model">
 <p class="section-label">02 / Reach and power</p>
 
-<h2>A beautiful funnel can produce a negligible outcome.</h2>
+<h2>A beautiful funnel can still produce nothing.</h2>
+<p>This is the number that kills features like this one, and it is almost never the number in the deck.</p>
 <p><strong>Sensitivity, not forecast.</strong> Let r be the reachable eligible share of the fixed cohort and d the incremental quarterly valid orders per reached user, net of displacement. Approximate all-cohort lift = r × d. r includes the availability of a real purchase opportunity and a usable permitted route; it is not merely survey AI adoption.</p>
 <div class="calculator"><p class="source-tag">ILLUSTRATIVE INPUTS · NOT CASHKARO DATA</p><label for="reach-share">Reachable eligible cohort share (%)<input id="reach-share" type="number" min="0" max="100" step="1" value="10"></label><label for="reach-effect">Incremental orders per reached user / quarter<input id="reach-effect" type="number" min="-10" max="10" step="0.05" value="0.2"></label><output id="reach-result" aria-live="polite"></output></div>
 
@@ -42,7 +43,8 @@
 <section class="case-section" id="economics">
 <p class="section-label">03 / Economic hurdle</p>
 
-<h2>The assignment metric is necessary, not sufficient.</h2>
+<h2>Hitting the metric is not the same as the thing working.</h2>
+<p>The brief names one outcome and it is the right one. It is also gameable, so here is what I would watch alongside it.</p>
 <p>Let m be net contribution per incremental valid tracked order after Cashback/Rewards, expected reversals and variable serving/support cost. Let c be additional quarterly integration, onboarding and operating cost per assigned user, including platform fees if any. A simplified break-even condition is <strong>δ × m &gt; c</strong>. With fictional m = ₹20 and c = ₹1, δ must exceed 0.05 orders per user per quarter. At δ = 0.02 that scenario loses money.</p>
 <p>Use actual arm-level contribution as the financial guardrail, because marginal orders can have different merchant mix and rates. Do not subtract Cashback twice from a commission margin that already excludes it. Amortize build cost over an explicit planning horizon and show sensitivity; do not hide operating losses behind option value indefinitely.</p>
 <p><strong>CashKaro versus retailer:</strong> the primary test can establish additional CashKaro-attributed orders. It cannot tell whether the retailer gained total orders, conversion or demand. A separate partner-approved experiment with all-channel merchant outcomes and suitable identity matching would test that. No such data sharing is assumed. Without it, label retailer incrementality unknown.</p>
@@ -91,7 +93,8 @@
 <section class="case-section" id="events">
 <p class="section-label">05 / Instrumentation</p>
 
-<h2>Log opportunities without pretending to see every purchase.</h2>
+<h2>Count what we can see, and admit what we cannot.</h2>
+<p>CashKaro observes click-outs. It does not observe the purchases that never came near us, which is the whole problem in miniature: the denominator we most want is the one we do not have.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
 <thead>
 <tr>
@@ -143,7 +146,8 @@
 <section class="case-section" id="rollout">
 <p class="section-label">06 / Launch and decisions</p>
 
-<h2>Permission first. Then reliability. Then causal value.</h2>
+<h2>Permission, then reliability, then proof. In that order.</h2>
+<p>Getting these out of order is how a team spends six months measuring something it was never allowed to ship.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table>
 <thead>
 <tr>

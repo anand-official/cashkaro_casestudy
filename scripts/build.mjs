@@ -36,11 +36,11 @@ for (const [filename,slug,title,kicker,description] of pages) {
 }
 
 const protoTemplate=fs.readFileSync('content/prototype.html','utf8');
-fs.writeFileSync('prototype.html',head('CashKaro Connector — interactive prototype','An illustrative AI purchase decision, benefit check and approved-route simulation.','<link rel="stylesheet" href="assets/prototype.css">')+`<body class="prototype-page">${protoTemplate}<script src="assets/site.js" defer></script><script type="module" src="assets/prototype.js"></script><script type="module" src="assets/walkthrough.js"></script></body></html>`);
+fs.writeFileSync('prototype.html',head('CashKaro Connector · interactive prototype','An illustrative AI purchase decision, benefit check and approved-route simulation.','<link rel="stylesheet" href="assets/prototype.css">')+`<body class="prototype-page">${protoTemplate}<script src="assets/site.js" defer></script><script type="module" src="assets/prototype.js"></script><script type="module" src="assets/walkthrough.js"></script></body></html>`);
 fs.mkdirSync('docs',{recursive:true});
 const mirror = raw => raw.replace(/\]\((?!https?:|#|mailto:)([^)]+)\)/g, (_,url) => `](../${url})`).replace(/href="(?!https?:|#)([^"]+)"/g, (_,url) => `href="../${url}"`);
 
-fs.writeFileSync('docs/FINAL_SUBMISSION.md','# CashKaro Connector — final strategic proposal\n\nAuthor: Ujjawal Anand. September 2026.\n\nCanonical content: `content/case.md`. Rendered at `index.html`.\n\n'+mirror(fs.readFileSync('content/case.md','utf8')));
+fs.writeFileSync('docs/FINAL_SUBMISSION.md','# CashKaro Connector: final strategic proposal\n\nAuthor: Ujjawal Anand. September 2026.\n\nCanonical content: `content/case.md`. Rendered at `index.html`.\n\n'+mirror(fs.readFileSync('content/case.md','utf8')));
 fs.writeFileSync('docs/ASSIGNMENT_COMPLIANCE_AUDIT.md',mirror(fs.readFileSync('content/compliance.md','utf8')));
 fs.writeFileSync('docs/EXPERIMENT_AND_TECHNICAL_PLAN.md',mirror(fs.readFileSync('content/experiment.md','utf8')));
 fs.writeFileSync('docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md',mirror(fs.readFileSync('content/research.md','utf8')));
