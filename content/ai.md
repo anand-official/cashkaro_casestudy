@@ -3,7 +3,9 @@
 
 ## Three kinds of record. Labelled, never blended.
 
-The brief asks for the complete transcript of my AI interactions. Some of that material is a verbatim export. Some of it is a copy I received without its full session. Some of it is a document I authored with AI assistance after the fact. Those are not the same evidence, so this page never presents one as another.
+The brief asked for the complete transcript of my AI interactions. The panel later asked for a summarised trail instead, since the raw sessions run to far more than anyone has time to read. This page is that summary, and the full material is available on request.
+
+Summarising creates its own risk, so one rule governs the whole page. Some of what follows is a verbatim export, some is a copy I received without its full session, and some is a document I wrote afterwards with AI assistance. Those carry different weight, and this page never quietly promotes one into another.
 
 <div class="provenance-tiers">
 <div class="tier-raw"><span class="tier-mark">A</span><strong>Verbatim export</strong><p>The session as it occurred, unedited.</p><small>Highest weight. Establishes what was actually asked and answered.</small></div>
@@ -97,13 +99,13 @@ Read the source material directly below. The manifest tab states, session by ses
 </section>
 
 <section class="case-section" id="outstanding" data-part="record">
-<p class="section-label">07 / Outstanding</p>
+<p class="section-label">07 / The raw material</p>
 
-## Where the raw material sits.
+## Where the rest of it sits.
 
-The complete exports travel with the submission as a private package rather than being published here, because they contain personal and third-party material that does not belong on a public page. This page is the summary of what is in them.
+The underlying sessions are kept out of this page for two reasons. The panel asked for a summary rather than the full transcripts, and the raw material contains personal and third-party content that has no business on a public site. Everything behind the summary is available on request.
 
-The <a href="transcripts/README.md">manifest</a> lists every contributing session and says, for each one, whether it is a verbatim export, a copy received outside the original tool, or a document written afterwards. Where a session is partial, it says so rather than rounding up.
+The <a href="transcripts/README.md">manifest</a> lists every contributing session and says, for each one, whether it is a verbatim export, a copy received outside the original tool, or something written afterwards. Where a session is partial, it says so rather than rounding up.
 
 <p class="takeaway">I would rather hand over a record that is accurately labelled than one that looks complete because the gaps were quietly filled in. The brief grades honesty about evidence. That standard has to apply to evidence about my own process first.</p>
 </section>

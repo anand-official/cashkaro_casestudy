@@ -6,7 +6,7 @@ I read the [original PDF](../source-material/cashkaro_assignment.pdf) again befo
 
 The brief allows a proposal to need capabilities that do not exist yet, as long as the path to them is explained. It does not ask anyone to arrive with signed contracts.
 
-<div class="warning-box"><strong>One requirement is not yet met: the complete AI transcript.</strong><p>Four contributing sessions still require a raw export. They are named individually in the <a href="../transcripts/README.md">session manifest</a>, and no missing conversation has been reconstructed to fill the gap. Every other requirement below is addressed.</p></div>
+<div class="warning-box"><strong>On the AI transcript.</strong><p>The brief asks for complete AI interactions. The panel subsequently asked for a summarised trail instead, given the length of the raw sessions, so the <a href="../ai-transcript.html">AI work record</a> is written as that summary and the underlying material is available on request. Nothing has been reconstructed to fill a gap: where a session is partial, the <a href="../transcripts/README.md">manifest</a> says so.</p></div>
 
 | Requirement | Location / evidence | Assessment |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ The brief allows a proposal to need capabilities that do not exist yet, as long 
 | Discovery-agent direction (p.3) | Alternatives, [no-LLM scope](../index.html#scope) | Rejected: no CashKaro inference/RAG requirement; data and host costs acknowledged |
 | Own direction: higher bar than a renamed feature (p.3) | One capability, adapters, platform risk and full experiment | Addressed; distribution advantage remains a hypothesis |
 | Propose missing capabilities realistically (p.3) | Operations registry, auth, signed routes, staged integration spike | Addressed as proposal, not a production claim |
-| Complete AI interactions (p.1) | [Session manifest](../transcripts/README.md), [AI work record](../ai-transcript.html) | **Partial: tiers declared, four raw exports outstanding** |
+| Complete AI interactions (p.1) | [Session manifest](../transcripts/README.md), [AI work record](../ai-transcript.html) | Summarised trail at the panel's request; provenance declared per session; raw material on request |
 | Due within 72 hours (p.1) | Receipt timestamp and any extension not supplied | **Candidate must verify actual deadline** |
 | No mandatory template (p.3) | 15-section visual website with separate supporting pages | Format choice is permissible; PDF remains authoritative |
 

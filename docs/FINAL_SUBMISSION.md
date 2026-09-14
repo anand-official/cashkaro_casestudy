@@ -263,5 +263,5 @@ Writing these down before starting is the only thing that reliably stops a team 
 
 <p class="takeaway">This is a bounded bet on finding something out, not a commitment to a roadmap. If Share turns out to deliver similar value with less effort and more control, I would take Share and say so.</p>
 
-<p class="slide-source"><a href="../research.html">Evidence</a> · <a href="../experiment.html">Experiment & feasibility</a> · <a href="../ai-transcript.html">AI decision trail</a> · <a href="../compliance.html">Compliance audit</a><br>Complete contributing AI exports remain a submission requirement.</p>
+<p class="slide-source"><a href="../research.html">Evidence</a> · <a href="../experiment.html">Experiment & feasibility</a> · <a href="../ai-transcript.html">AI decision trail</a> · <a href="../compliance.html">Compliance audit</a></p>
 </section>

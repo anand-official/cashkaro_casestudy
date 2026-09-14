@@ -7,7 +7,7 @@ const pages = [
   ['index.html', 'case', 'Be there when the decision becomes a purchase.', 'CashKaro Connector', 'A connectable commerce capability that any assistant can call at an external purchase decision.'],
   ['research.html', 'research', 'Evidence that changed the decision.', 'Research & decisions', 'Primary sources, explicit unknowns and the reasoning behind a distributed commerce capability.'],
   ['experiment.html', 'experiment', 'Earn the right to scale.', 'Experiment & feasibility', 'A fixed-cohort causal protocol, data ownership and realistic implementation gates.'],
-  ['ai-transcript.html', 'ai', 'The answer changed seven times.', 'AI work record', 'What each model was asked, what was overruled, and an accurate statement of what the record still lacks.'],
+  ['ai-transcript.html', 'ai', 'The answer changed seven times.', 'AI work record', 'What each model was asked, what was overruled, and how the answer changed seven times.'],
   ['compliance.html', 'compliance', 'The brief, checked line by line.', 'Assignment audit', 'Coverage of the original CashKaro PDF and remaining candidate requirements.'],
 ];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -46,7 +46,7 @@ fs.writeFileSync('docs/EXPERIMENT_AND_TECHNICAL_PLAN.md',mirror(fs.readFileSync(
 fs.writeFileSync('docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md',mirror(fs.readFileSync('content/research.md','utf8')));
 const raw=fs.readFileSync('content/case.md','utf8');
 const words=type=>[...raw.matchAll(new RegExp(`<section[^>]*data-part="${type}"[^>]*>([\\s\\S]*?)<\\/section>`,'g'))].map(x=>x[1].replace(/<[^>]+>/g,' ').replace(/\([^)]*https?:[^)]*\)/g,'')).join(' ').split(/\s+/).filter(Boolean).length;
-const manifest={version:'4.4.0',product:'CashKaro Connector',evidence_date:'2026-09-13',core_sections:15,pdf_pages:15,pdf:'output/pdf/CashKaro_Visual_Brief.pdf',problem_words:words('problem')+Math.ceil(words('bridge')/2),solution_words:words('solution')+Math.floor(words('bridge')/2),decision_bridge_words:words('bridge'),balance_method:'Seven problem sections, seven solution sections; decision bridge allocated equally',transcript_status:'partial: four contributing sessions require raw export',routes:[...pages.map(x=>x[0]),'prototype.html']};
+const manifest={version:'4.4.0',product:'CashKaro Connector',evidence_date:'2026-09-13',core_sections:15,pdf_pages:15,pdf:'output/pdf/CashKaro_Visual_Brief.pdf',problem_words:words('problem')+Math.ceil(words('bridge')/2),solution_words:words('solution')+Math.floor(words('bridge')/2),decision_bridge_words:words('bridge'),balance_method:'Seven problem sections, seven solution sections; decision bridge allocated equally',transcript_status:'summarised trail at panel request; provenance declared per session',routes:[...pages.map(x=>x[0]),'prototype.html']};
 fs.writeFileSync('build-manifest.json',JSON.stringify(manifest,null,2)+'\n');
 fs.rmSync('dist',{recursive:true,force:true});
 fs.mkdirSync('dist',{recursive:true});

@@ -64,3 +64,11 @@ Eleven of the sixteen scenarios refuse. `scripts/check.mjs` now asserts that eve
 **Rebuilt the walkthrough as a device experience.** The journey now starts on a phone home screen with the assistant unopened, because the first honest fact about this product is that the journey does not start with CashKaro. Connection is presented as a system-style sheet, the handoff is an app switch, and the route confirmation arrives as a notification. A narration panel states what is happening and why at each of seven chapters. The states, rules and refusals are unchanged; only the presentation is new.
 
 **Rejected: wiring a live Gemini API key into the prototype.** Three reasons. It would misrepresent the architecture, because in the real product the model belongs to the host and CashKaro supplies the tool the host calls; a key in a public static site is readable by anyone; and a non-deterministic demo cannot make the guarantee this prototype exists to make, which is that the same input always produces the same refusal. The brief also states it is not looking for an AI chat box. If a live model is wanted later, it belongs in a separate labelled sandbox behind a server-side proxy, not in the submission artifact.
+
+## 14 September 2026: AI transcript scope, per the panel
+
+CashKaro advised that the raw AI transcripts are longer than the review team has time to read, and asked for a summarised trail instead of the complete sessions the written brief requests.
+
+The site now reflects that. The AI work record is written as the summary, the manifest indexes what exists and in what form, and the underlying material is available on request rather than published. Nothing changed about the substance: no session has been reconstructed and presented as verbatim, and partial records are still labelled partial.
+
+Recorded here with a date because the written brief and the instruction differ. Anyone reviewing against the PDF alone would otherwise read the summary as a missed requirement.
