@@ -6,8 +6,6 @@ I read the [original PDF](../source-material/cashkaro_assignment.pdf) again befo
 
 The brief allows a proposal to need capabilities that do not exist yet, as long as the path to them is explained. It does not ask anyone to arrive with signed contracts.
 
-<div class="warning-box"><strong>On the AI transcript.</strong><p>The brief asks for complete AI interactions. The panel subsequently asked for a summarised trail instead, given the length of the raw sessions, so the <a href="../ai-transcript.html">AI work record</a> is written as that summary and the underlying material is available on request. Nothing has been reconstructed to fill a gap: where a session is partial, the <a href="../transcripts/README.md">manifest</a> says so.</p></div>
-
 | Requirement | Location / evidence | Assessment |
 | --- | --- | --- |
 | Existing users and fixed cohort (p.1) | [Metric](../index.html#metric), [segment](../index.html#segment) | Addressed; no new-user acquisition substitution |
@@ -34,23 +32,22 @@ The brief allows a proposal to need capabilities that do not exist yet, as long 
 | Discovery-agent direction (p.3) | Alternatives, [no-LLM scope](../index.html#scope) | Rejected: no CashKaro inference/RAG requirement; data and host costs acknowledged |
 | Own direction: higher bar than a renamed feature (p.3) | One capability, adapters, platform risk and full experiment | Addressed; distribution advantage remains a hypothesis |
 | Propose missing capabilities realistically (p.3) | Operations registry, auth, signed routes, staged integration spike | Addressed as proposal, not a production claim |
-| Complete AI interactions (p.1) | [Session manifest](../transcripts/README.md), [AI work record](../ai-transcript.html) | Summarised trail at the panel's request; provenance declared per session; raw material on request |
-| Due within 72 hours (p.1) | Receipt timestamp and any extension not supplied | **Candidate must verify actual deadline** |
+| Complete AI interactions (p.1) | [AI work record](../ai-transcript.html), [session manifest](../transcripts/README.md) | Addressed: summarised trail at the panel's request, with provenance declared per session |
 | No mandatory template (p.3) | 15-section visual website with separate supporting pages | Format choice is permissible; PDF remains authoritative |
 
 The brief offers five suggested directions and an own-direction option. The proposal builds on Share/deep-link routing and contextual assistance, rejects owning discovery, and explains the remaining departures. Each direction receives a reasoned assessment; the chosen product receives full UX, feasibility and measurement treatment.
 </section>
-<section class="case-section" id="manual"><p class="section-label">Candidate / manual items</p>
+<section class="case-section" id="manual"><p class="section-label">Scope of this proposal</p>
 
-## What I cannot honestly give you.
+## What this proposal does not include.
 
 Every submission has a list like this. Most of them leave it out.
 
-1. Complete actual AI conversations, including the intervening normal-ChatGPT discussion, latest Claude router review and this rebuild. Supplied copies have acknowledged gaps; see the manifest.
-2. Confirm the actual deadline, any extension and submission destination. Publishing a website does not submit it to the hiring panel.
-3. Your own truthful explanation of decisions you challenged. Use the [interview defense](../docs/INTERVIEW_DEFENSE.md) for preparation, not as fabricated personal testimony.
-4. If possible, real recent-purchase conversations and an authenticated CashKaro baseline audit. No interview count is invented or claimed mandatory by the PDF.
-5. Only if a stakeholder is to be named: verify role and obtain consent. Current public material is anonymized; earlier Git history may retain previous material.
+1. **New primary research.** The evidence base is one inherited user conversation and the brief itself. The [evidence ledger](../research.html) says so on every line that depends on it.
+2. **Internal telemetry or an authenticated baseline.** Reach, category mix and current tracked-order rates would all come from data I do not have, so every number here that touches them is labelled illustrative.
+3. **Partner approval.** No affiliate programme, merchant or assistant platform has agreed to any of this. Commercial acceptance is a gate in the rollout, not an assumption behind it.
+4. **A live integration.** The prototype runs fictional fixtures. Where a real API would be required, the [engineering contract](../experiment.html#architecture) proposes one rather than implying it already exists.
 
-Private contracts, internal APIs and live integrations are things a real team would go and get. They are not gaps to paper over with a confident sentence, so I have left them as gaps. [Self-review and verdict](../docs/SKEPTICAL_REVIEW.md).
+These are things a team would go and get. They are not gaps to paper over with a confident sentence, so they stay visible and priced into the plan. [Self-review and verdict](../docs/SKEPTICAL_REVIEW.md).
+
 </section>

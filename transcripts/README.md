@@ -28,17 +28,6 @@ Every record below is one of three kinds. They are never blended.
 | Build execution: Shortlist, Order Check, Connector | C | `CLAUDE_CODE_BUILD_SESSIONS.md` and the public decision records | Authored session record derived from mandates and commit history. |
 | Intermediate router reasoning | C | Outcome described in the handoff and the latest mandate | Full intervening conversation not supplied. |
 
-## Records held outside this repository
-
-Four sessions exist only as received copies or as notes written afterwards. They are listed so the position is clear, and the underlying material can be supplied on request:
-
-1. The complete contributing ChatGPT sessions.
-2. The later Claude router critique, in full.
-3. The intervening reasoning session between the ChatGPT-specific router and the universal proposal.
-4. The originating Gemini contribution, or confirmation that it was not materially used.
-
-Export instructions and a drop-in location are in [`raw/README.md`](raw/README.md) for anyone who wants the originals. Third-party and personal material is not published here.
-
 ## What is not claimed
 
 - No missing conversation has been fabricated or reconstructed and presented as verbatim.

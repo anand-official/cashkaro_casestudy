@@ -8,7 +8,7 @@ const pages = [
   ['research.html', 'research', 'Evidence that changed the decision.', 'Research & decisions', 'Primary sources, explicit unknowns and the reasoning behind a distributed commerce capability.'],
   ['experiment.html', 'experiment', 'Earn the right to scale.', 'Experiment & feasibility', 'A fixed-cohort causal protocol, data ownership and realistic implementation gates.'],
   ['ai-transcript.html', 'ai', 'The answer changed seven times.', 'AI work record', 'What each model was asked, what was overruled, and how the answer changed seven times.'],
-  ['compliance.html', 'compliance', 'The brief, checked line by line.', 'Assignment audit', 'Coverage of the original CashKaro PDF and remaining candidate requirements.'],
+  ['compliance.html', 'compliance', 'The brief, checked line by line.', 'Assignment audit', 'Coverage of the original CashKaro PDF, requirement by requirement, and the scope this proposal claims.'],
 ];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function head(title, description, extra = '') {
@@ -20,7 +20,7 @@ export function nav(active) {
 export function footer() {
  return `<footer class="site-footer"><div><a class="brand" href="index.html"><img class="brand-logo" src="assets/cashkaro-logo.svg" alt="CashKaro" width="100" height="25"><span class="brand-text">Connector</span></a><p>Ujjawal Anand · APM product assignment · September 2026</p><p class="note">Independent assignment concept. Not an official CashKaro product. The interactive prototype uses fictional products, benefits and simulated platform integrations.</p></div><div class="footer-links"><a href="output/pdf/CashKaro_Visual_Brief.pdf">Download visual brief (PDF)</a><a href="experiment.html">Experiment & feasibility</a><a href="compliance.html">Assignment audit</a><a href="source-material/cashkaro_assignment.pdf">Original assignment (PDF)</a><a href="https://github.com/anand-official/cashkaro_casestudy" target="_blank" rel="noopener noreferrer">GitHub ↗</a><button class="text-button print-button">Print this page</button></div></footer><script src="assets/site.js" defer></script>`;
 }
-const labels = {ai:['How to read this','The roster','Seven pivots','What I rejected','Honest attribution','Completeness ledger','The raw material'],case:['The mandate','Problem selection','Purchase journey','Evidence quality','Why now','Why CashKaro','Segment and reach','Direction selection','Customer experience','How it works','Scope and trust','Commercial assessment','Causal experiment','Validation and rollout','Decision criteria']};
+const labels = {compliance:['The brief, requirement by requirement','Scope of this proposal'],ai:['How to read this','The roster','Seven pivots','What I rejected','Honest attribution','Completeness ledger','The raw material'],case:['The mandate','Problem selection','Purchase journey','Evidence quality','Why now','Why CashKaro','Segment and reach','Direction selection','Customer experience','How it works','Scope and trust','Commercial assessment','Causal experiment','Validation and rollout','Decision criteria']};
 for (const [filename,slug,title,kicker,description] of pages) {
  let raw=fs.readFileSync(`content/${slug}.md`,'utf8');
  let html=marked.parse(raw);
@@ -52,7 +52,7 @@ fs.rmSync('dist',{recursive:true,force:true});
 fs.mkdirSync('dist',{recursive:true});
 const publicFiles = [
  'assets/styles.css','assets/brief.css','assets/ai.css','assets/walkthrough.js','assets/walkthrough-css.js','assets/device-chrome.js','assets/device-css.js','assets/hosts.js','assets/assistant-client.js','assets/site.js','assets/ai.js','assets/prototype.css','assets/prototype.js','assets/router-model.js','assets/host-model.js','assets/cashkaro-logo.svg','assets/favicon.svg','assets/phones/aster.svg','assets/phones/orion.svg','assets/phones/luma.svg',
- 'docs/FINAL_SUBMISSION.md','docs/ASSIGNMENT_COMPLIANCE_AUDIT.md','docs/EXPERIMENT_AND_TECHNICAL_PLAN.md','docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md','docs/DECISION_LOG.md','docs/REVIEW_RESPONSE.md','docs/RESEARCH_WORKSHEET.md','docs/QA_REPORT.md','docs/RELEASE.md','docs/SKEPTICAL_REVIEW.md','docs/INTERVIEW_DEFENSE.md',
+ 'docs/FINAL_SUBMISSION.md','docs/ASSIGNMENT_COMPLIANCE_AUDIT.md','docs/EXPERIMENT_AND_TECHNICAL_PLAN.md','docs/EVIDENCE_AND_ASSUMPTIONS_MATRIX.md','docs/DECISION_LOG.md','docs/REVIEW_RESPONSE.md','docs/SKEPTICAL_REVIEW.md',
  'transcripts/README.md','transcripts/CHATGPT_PRIMARY_CONTEXT.md','transcripts/CLAUDE_CODE_BUILD_SESSIONS.md','transcripts/raw/README.md',
  'output/pdf/CashKaro_Visual_Brief.pdf','source-material/cashkaro_assignment.pdf','source-material/ORIGINAL_ASSIGNMENT_TRANSCRIPT.md','source-material/QWEN_BEHAVIORAL_ANALYSIS_TEXT.md','source-material/DEEPSEEK_PRINCIPAL_PM_REVIEW.md','source-material/EXTERNAL_PRODUCT_FEEDBACK.md',
  ...manifest.routes,'build-manifest.json','404.html'

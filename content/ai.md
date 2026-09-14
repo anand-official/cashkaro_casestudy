@@ -85,7 +85,7 @@ AI produces a respectable-looking answer cheaply. That is precisely the risk the
 <div class="contribution-no"><span class="visual-label">Not load-bearing, despite appearances</span><ul><li>Market sizing. Every generated figure was unsourced and was removed.</li><li>The decision itself. Seven positions were scored against the same commercial gates by hand.</li><li>Evidence. One inherited respondent remains one inherited respondent.</li><li>The choice of what to leave out, which is the whole of section 04.</li></ul></div>
 </div>
 
-<p class="slide-source">Supporting documents: <a href="docs/DECISION_LOG.md">decision history</a> · <a href="docs/REVIEW_RESPONSE.md">response to critique</a> · <a href="docs/SKEPTICAL_REVIEW.md">self-review</a> · <a href="docs/INTERVIEW_DEFENSE.md">interview defence</a>. These are tier C. They are authored with AI assistance and are not transcripts.</p>
+<p class="slide-source">Supporting documents: <a href="docs/DECISION_LOG.md">decision history</a> · <a href="docs/REVIEW_RESPONSE.md">response to critique</a> · <a href="docs/SKEPTICAL_REVIEW.md">self-review</a>. These are tier C. They are authored with AI assistance and are not transcripts.</p>
 </section>
 
 <section class="case-section" id="record" data-part="record">
@@ -98,7 +98,7 @@ Read the source material directly below. The manifest tab states, session by ses
 <div id="transcript-tabs" class="record-tabs" role="group" aria-label="Source records"></div><div class="record-toolbar"><div><h3 id="record-title">Session completeness</h3><p id="record-kind">Available record</p></div><a id="record-download" href="transcripts/README.md">Open source file ↗</a></div><label class="search-label">Search this record<input id="record-search" type="search"></label><p id="record-result" role="status"></p><pre id="record-body" tabindex="0">Loading source record…</pre>
 </section>
 
-<section class="case-section" id="outstanding" data-part="record">
+<section class="case-section" id="raw-material" data-part="record">
 <p class="section-label">07 / The raw material</p>
 
 ## Where the rest of it sits.
