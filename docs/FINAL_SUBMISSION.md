@@ -127,6 +127,12 @@ Sizing it properly needs a sampled survey joined, with consent, to prior order d
 
 The brief offered five directions. Four of them are solving for a shopper who has not decided yet, or who needs reminding. The more interesting person is the one who has already decided and is one tap away from paying somebody else.
 
+Taking them in turn. A widget makes CashKaro easier to open, which helps only if opening it was the hard part. Reminders need to know what somebody is about to buy, and all we see is click-outs, so most of those prompts would arrive at the wrong moment about the wrong thing. An extension reaches a desktop browser, in a country that shops on its phone.
+
+None of those are bad ideas. They are careful answers to a different question.
+
+Share is the one I kept, because it already solves the part that matters: the shopper brings us the exact thing they are buying. Its weakness is that they have to remember to do it. What follows is Share with the remembering taken out.
+
 <div class="decision-matrix"><div><strong>Widget / quick access</strong><span>Less entry effort; recall remains.</span><b>Not the lead</b></div><div><strong>Browser extension</strong><span>Retain contextual assistance; browser reach is limited.</span><b>Build on principle</b></div><div><strong>Contextual reminders</strong><span>Incomplete intent signals risk irrelevant prompts.</span><b>Not the lead</b></div><div class="retained"><strong>Share / deep link</strong><span>Preserve context; still requires remembering to share.</span><b>Retain foundation</b></div><div><strong>Owned discovery agent</strong><span>Requires new research habits and costly product data.</span><b>Reject ownership</b></div></div>
 
 <div class="decision-banner"><strong>Recommend: CashKaro Connector</strong><p>Potential recall reduction across external surfaces. Lower deployment control, uncertain reach and partner dependence.</p></div>
@@ -141,7 +147,7 @@ The brief offered five directions. Four of them are solving for a shopper who ha
 
 Connect the account once, the way you would connect a calendar. Then just shop. Ask whatever you were going to ask, pick whatever you were going to pick.
 
-CashKaro does not appear until the end, on a purchase you have already chosen. It never suggests what to buy.
+CashKaro does not appear until the end, on a purchase you have already chosen. CashKaro never suggests what to buy, and it never reorders what the assistant suggested.
 
 <ck-walkthrough aria-label="CashKaro interactive purchase journey"></ck-walkthrough>
 <div class="experience-story static-story"><div class="story-choice"><span class="visual-label">01 / Choose</span><img src="assets/phones/aster.svg" alt="Fictional Aster 9 phone" width="320" height="250"><strong>Aster 9</strong><span>“This is the one.”</span></div><div class="story-benefit"><span class="visual-label">02 / Check + consent</span><img src="assets/cashkaro-logo.svg" alt="CashKaro" width="120" height="30"><strong>₹1,200</strong><span>estimated Cashback</span><dl><div><dt>Pay today</dt><dd>₹39,999</dd></div><div><dt>Potential benefit later</dt><dd>₹1,200</dd></div></dl><span class="story-action">Continue with Cashback →</span></div><div class="story-retailer"><span class="visual-label">03 / Complete</span><span class="retailer-mark" aria-hidden="true">↗</span><strong>Same product.<br>Same retailer.</strong><p>Checkout, payment and fulfillment remain with the retailer.</p></div></div>
@@ -193,6 +199,8 @@ One host we have actually reviewed. Two merchant paths we have actually approved
 
 That is the whole first release. It is deliberately unexciting, because the thing most likely to kill this is not a missing feature. It is a handoff that quietly does not track.
 
+Which is also why the wording stays careful the whole way through. A route gets created, then an order gets tracked, then a reward gets confirmed. Three separate events, often weeks apart, and the shopper should always know which one they are looking at.
+
 <div class="trust-visual"><div><span class="state-label">Cashback</span><strong>Conditional cash later</strong><p>The retailer's full price is payable today.</p></div><div><span class="state-label">Rewards</span><strong>Restricted redemption</strong><p>Never presented as bank cash.</p></div><div><span class="state-label caution">Unverified / ineligible</span><strong>Continue directly</strong><p>Preserve the choice; make no benefit claim.</p></div></div>
 
 <p class="scope-exclusion"><strong>Outside V1:</strong> recommendation engine, retailer comparison, checkout, cart repair, scraping and coupon injection.</p>
@@ -222,6 +230,8 @@ Which is why a shopper saying yes is not the end of the argument. Consent does n
 <p class="section-label">13 / Causal experiment</p>
 
 ## Count everyone assigned, including the zeros.
+
+Everyone offered the connector stays in the maths, including the people who never switched it on. That sounds too obvious to write down. It is also the easiest place in this whole plan to fool yourself, because comparing the people who adopted against the people who did not will flatter the feature every single time.
 
 <div class="experiment-visual"><div class="cohort-node">Freeze existing-user cohort → randomize by account</div><div class="experiment-arms"><div><span>Control</span><strong>Current CashKaro experience</strong></div><div><span>Treatment</span><strong>Connector enabled + onboarding</strong></div></div><div class="outcome-node"><strong>Difference in valid tracked orders</strong><span>per originally assigned user · full quarter · all channels</span></div><div class="zeros-row"><span>Never connects ✓</span><span>Never invoked ✓</span><span>Declines ✓</span><span>No orders ✓</span></div></div>
 

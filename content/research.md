@@ -110,7 +110,7 @@ It means we write the routing once and reuse it. It does not mean we appear ever
 
 For the extension question in the PDF, the earlier 11 September snapshot of [Statcounter India](https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet/india) reported 34.97% desktop web usage for August 2026. It measures web usage rather than shopping, and it misses native apps entirely. It is a dated inherited source check, not newly measured data. If desktop shopping intensity equals other web activity and native apps hold 60% of orders, a deliberately hypothetical proxy is 0.3497 × 0.4 ≈ 14% desktop orders. Different intensity/app assumptions change it substantially. Replace with cohort channel data before prioritizing an extension.
 
-All route surfaces need effective-dated merchant/domain/path mappings with an operations owner, expiry, refresh and a kill switch. An agent would additionally need product data and relevance infrastructure. Neither RAG nor a model can manufacture current retailer eligibility. The selected Skill avoids CashKaro inference calls rather than claiming an invented per-query model cost.
+All route surfaces need effective-dated merchant/domain/path mappings with an operations owner, expiry, refresh and a kill switch. An agent would additionally need product data and relevance infrastructure. Neither RAG nor a model can manufacture current retailer eligibility. The Connector avoids CashKaro running inference at all, rather than inventing a per-query model cost to look rigorous.
 </section>
 
 <section class="case-section" id="assumptions">
