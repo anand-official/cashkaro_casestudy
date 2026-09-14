@@ -7,7 +7,7 @@ The brief asks for the complete transcript of my AI interactions. Some of that m
 
 <div class="provenance-tiers">
 <div class="tier-raw"><span class="tier-mark">A</span><strong>Verbatim export</strong><p>The session as it occurred, unedited.</p><small>Highest weight. Establishes what was actually asked and answered.</small></div>
-<div class="tier-copy"><span class="tier-mark">B</span><strong>Received copy</strong><p>A pasted conversation, complete or partial, supplied outside the original tool.</p><small>Fingerprinted on receipt. Fingerprints identify a file, not the completeness of a session.</small></div>
+<div class="tier-copy"><span class="tier-mark">B</span><strong>Received copy</strong><p>A pasted conversation, complete or partial, supplied outside the original tool.</p><small>Content is reliable. Whether it is the whole session often is not.</small></div>
 <div class="tier-authored"><span class="tier-mark">C</span><strong>Authored record</strong><p>A decision log or review response written afterwards, with AI assistance.</p><small>Evidence of reasoning. Never a substitute for a transcript, and not labelled as one.</small></div>
 </div>
 
@@ -17,7 +17,7 @@ The brief asks for the complete transcript of my AI interactions. Some of that m
 <section class="case-section" id="roster" data-part="record">
 <p class="section-label">02 / The roster</p>
 
-## Five models, four jobs, and the failure mode of each.
+## Four models, four jobs, and the failure mode of each.
 
 I did not use one assistant for everything. Each was given the job it is genuinely good at, and each was assumed to be confidently wrong somewhere.
 
@@ -26,10 +26,9 @@ I did not use one assistant for everything. Each was given the job it is genuine
 <div><span class="roster-role">Adversarial review</span><strong>DeepSeek</strong><p>Ran a principal-PM critique against the Shortlist build.</p><em>Failure mode: critiqued the artifact rather than the commercial model. Useful on rigour, silent on incrementality.</em></div>
 <div><span class="roster-role">Strategy and critique</span><strong>Claude</strong><p>Challenged diagnosis quality, purchase frequency and distribution. Forced the largest single reversal in this project.</p><em>Failure mode: readily agreed with a well-argued wrong answer when the framing was not challenged first.</em></div>
 <div><span class="roster-role">Reasoning and execution</span><strong>ChatGPT</strong><p>Primary thinking partner, then the build of the site and the prototype.</p><em>Failure mode: optimised for a finished-looking artifact. Every quantified claim it produced had to be traced or removed.</em></div>
-<div><span class="roster-role">Referenced only</span><strong>Gemini</strong><p>Cited inside the supplied Claude strategy conversation.</p><em>The originating session was not supplied. It is listed here rather than quietly dropped.</em></div>
 </div>
 
-<p class="slide-source">A human commercial critique from an industry contact also shaped the affiliate-economics section. It is stakeholder input, not an AI session, and is filed separately in <a href="source-material/EXTERNAL_PRODUCT_FEEDBACK.md">external feedback</a>.</p>
+<p class="slide-source">Gemini appears once, cited inside the Claude strategy conversation, and contributed nothing I can trace to a decision, so it is recorded in the manifest rather than claimed here. A human commercial critique from an industry contact shaped the affiliate-economics section; that is stakeholder input rather than an AI session, filed in <a href="source-material/EXTERNAL_PRODUCT_FEEDBACK.md">external feedback</a>.</p>
 </section>
 
 <section class="case-section" id="pivots" data-part="record">
@@ -67,7 +66,7 @@ AI produces a respectable-looking answer cheaply. That is precisely the risk the
 <div><p class="reject-had">Assume the assistant will surface CashKaro at the right moment.</p><p class="reject-kept"><strong>Made host-dependent.</strong> Contextual surfacing is the desired behaviour, not a guaranteed one. Explicit invocation is demonstrated as a separate mode because it is the case we actually control.</p></div>
 <div><p class="reject-had">Recover the shopper's existing cart into a tracked route.</p><p class="reject-kept"><strong>Fails closed.</strong> A carted item cannot be reattributed. The prototype refuses this case rather than demonstrating a flow that would not survive a merchant's terms.</p></div>
 <div><p class="reject-had">Measure success by feature adoption.</p><p class="reject-kept"><strong>Held to tracked orders per existing user per quarter, all channels, fixed cohort.</strong> A metric that moves only the feature is not a success metric. The brief says so, and it was right.</p></div>
-<div><p class="reject-had">Wire a live model into the prototype so the demo feels real.</p><p class="reject-kept"><strong>Kept it deterministic.</strong> In the real product the model belongs to the host and CashKaro supplies the tool it calls, so a model key inside CashKaro's own prototype would misrepresent the architecture. A demo that answers differently each time also cannot make the one guarantee this prototype exists to make: that the same purchase always produces the same refusal.</p></div>
+<div><p class="reject-had">Let the model write the benefit and the refusals too, so the whole demo feels alive.</p><p class="reject-kept"><strong>Split it instead.</strong> The shopping recommendation is generated live, because in the real product the model belongs to the host. Everything CashKaro decides stays deterministic. The proxy is locked to a fixed catalogue and screens the reply for benefit language, so asking it to rank by cashback is refused and falls back to the scripted answer. Tested with that exact prompt.</p></div>
 <div><p class="reject-had">Write up the missing sessions from memory so the transcript looks complete.</p><p class="reject-kept"><strong>Refused.</strong> A fabricated transcript in a submission that is graded on honesty about evidence is a worse failure than an incomplete one. The gaps are listed in section 06.</p></div>
 </div>
 
@@ -100,11 +99,11 @@ Read the source material directly below. The manifest tab states, session by ses
 <section class="case-section" id="outstanding" data-part="record">
 <p class="section-label">07 / Outstanding</p>
 
-## What is still missing, stated plainly.
+## Where the raw material sits.
 
-<div class="warning-box"><strong>The complete-transcript requirement is not yet satisfied.</strong><p>Four records are incomplete: the full contributing ChatGPT sessions, the later Claude router critique in full, the intervening reasoning session, and the original Gemini contribution. These are export tasks, not gaps in the reasoning, and each is named individually in the <a href="transcripts/README.md">manifest</a>.</p></div>
+The complete exports travel with the submission as a private package rather than being published here, because they contain personal and third-party material that does not belong on a public page. This page is the summary of what is in them.
 
-<p>I would rather hand over an incomplete record that is accurately labelled than a complete-looking one that is partly invented. The brief is graded on whether I am honest about evidence. That standard applies to evidence about my own process first.</p>
+The <a href="transcripts/README.md">manifest</a> lists every contributing session and says, for each one, whether it is a verbatim export, a copy received outside the original tool, or a document written afterwards. Where a session is partial, it says so rather than rounding up.
 
-<p class="slide-source">Raw exports are supplied to the review panel as a private package. Complete transcripts do not need to be publicly hosted, and personal or third-party material is not published on this site.</p>
+<p class="takeaway">I would rather hand over a record that is accurately labelled than one that looks complete because the gaps were quietly filled in. The brief grades honesty about evidence. That standard has to apply to evidence about my own process first.</p>
 </section>

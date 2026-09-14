@@ -21,9 +21,7 @@
 /* 02 · Model roster */
 .roster-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:28px 0}
 .roster-grid>div{background:#edf0ed;padding:21px;border-left:2px solid var(--blue)}
-.roster-grid>div:last-child{grid-column:1/-1;border-left-color:#a6b0b4;background:#eceeea}
 .roster-role{font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;color:var(--blue);font-weight:650;display:block;margin-bottom:9px}
-.roster-grid>div:last-child .roster-role{color:var(--muted)}
 .roster-grid strong{display:block;font-size:1.22rem;letter-spacing:-.02em;margin-bottom:9px}
 .roster-grid p{font-size:.9rem;line-height:1.6;margin:0 0 12px}
 .roster-grid em{display:block;font-style:normal;font-size:.8125rem;line-height:1.62;color:#6a4a30;background:#f5ece2;padding:11px 13px;border-radius:3px}
@@ -60,7 +58,6 @@
 
 @media(max-width:900px){
  .provenance-tiers,.roster-grid,.contribution-split{grid-template-columns:1fr}
- .roster-grid>div:last-child{grid-column:auto}
  .reject-list>div{grid-template-columns:1fr}
  .reject-had{border-right:0;border-bottom:1px solid var(--line)}
  .pivot-track>div{padding-left:16px;gap:13px}
